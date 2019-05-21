@@ -19,8 +19,7 @@ public class NettyServer {
 	private EventLoopGroup bossGroup;
 	private EventLoopGroup workerGroup;
 
-	public boolean start() {
-		int port = 7781;
+	public void start(int port) throws InterruptedException {
 		bossGroup = new NioEventLoopGroup();
 		workerGroup = new NioEventLoopGroup(Runtime.getRuntime().availableProcessors() * 2);
 
@@ -32,16 +31,9 @@ public class NettyServer {
 		bootstrap.childOption(ChannelOption.TCP_NODELAY, true);
 		bootstrap.childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
 		bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
-		bootstrap.childHandler(new RequestHandler());
-
-		try {
-			bootstrap.bind(port).sync();
-			LOGGER.info("启动服务器监听端口成功, port:{}",port);
-			return true;
-		} catch (Exception e) {
-			LOGGER.error("启动服务器监听端口失败, port:{}", port, e);
-			return false;
-		}
+		bootstrap.childHandler(new RequestServerInitializer());
+		bootstrap.bind(port).sync();
+		LOGGER.info("启动服务器监听端口成功, port:{}",port);
 	}
 
 	public boolean stop() {

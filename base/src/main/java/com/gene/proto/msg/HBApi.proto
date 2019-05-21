@@ -1,0 +1,13 @@
+syntax = "proto2";
+package com.ly.proto;
+
+option java_package = "com.gene.proto";
+option java_outer_classname = "HBApiProto";
+
+message ReqApiMsg {
+	optional int32 type = 1;
+}
+
+message ResApiMsg {
+	optional int32 type = 1;
+}

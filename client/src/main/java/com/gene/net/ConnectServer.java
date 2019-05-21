@@ -20,13 +20,13 @@ public class ConnectServer {
 	private EventLoopGroup group;
 	private Bootstrap bootstrap;
 
-	public ConnectServer(ChannelHandler handler) {
+	public ConnectServer() {
 		group = new NioEventLoopGroup();
 
 		bootstrap = new Bootstrap();
 		bootstrap.group(group);
 		bootstrap.channel(NioSocketChannel.class);
-		bootstrap.handler(handler);
+		bootstrap.handler(new ResponInitializer());
 		bootstrap.option(ChannelOption.TCP_NODELAY, true);
 		bootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
 		// 连接超时(2秒)

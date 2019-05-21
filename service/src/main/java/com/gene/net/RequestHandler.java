@@ -4,12 +4,12 @@ package com.gene.net;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.gene.connect.ConnectMgr;
+import com.gene.cmd.Command;
+import com.gene.connect.ConnectService;
 import com.gene.connect.UserConnect;
 import com.gene.exec.CmdTask;
 import com.gene.message.PBMessage;
-import com.gene.net.commond.Command;
-import com.gene.net.commond.CommandMgr;
+import com.gene.net.commond.CommandService;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -33,16 +33,16 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
 	
 	public static void handle(Channel channel, PBMessage packet) {
 		short code = packet.getCode();
-		Command cmd = CommandMgr.getCommand(code);
+		Command cmd = CommandService.getInst().getCommand(code);
 		if (cmd == null) {
 			LOGGER.error("not found cmd , code : " + code + " , userId : " + packet.getPlayerId());
 			return;
 		}
-		UserConnect userConnect = ConnectMgr.get(channel);
+		UserConnect userConnect = ConnectService.getInst().get(channel);
 		if(userConnect == null) {
-			userConnect = ConnectMgr.add(channel);
+			userConnect = ConnectService.getInst().add(channel);
 		}
-		userConnect.enqueue(new CmdTask(cmd, channel, packet, userConnect.getCmdTaskQueue()));
+		userConnect.enqueue(new CmdTask(cmd, userConnect, packet, userConnect.getCmdTaskQueue()));
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
 	}
 
 	private void offlineHandle(Channel channel, String typeName) {
-		ConnectMgr.remove(channel);
+		ConnectService.getInst().remove(channel);
 		channel.close();
 	}
 }

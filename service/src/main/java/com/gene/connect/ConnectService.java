@@ -8,12 +8,18 @@ import com.gene.exec.CmdExecutor;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelId;
 
-public class ConnectMgr {
+public class ConnectService {
 
-	private static Map<ChannelId, UserConnect> channelMap = new ConcurrentHashMap<ChannelId, UserConnect>();
-	public static CmdExecutor executor;
+	private static ConnectService instance = new ConnectService();
 	
-	static {
+	public static ConnectService getInst() {
+		return instance;
+	}
+	
+	private Map<ChannelId, UserConnect> channelMap = new ConcurrentHashMap<ChannelId, UserConnect>();
+	public CmdExecutor executor;
+	
+	public ConnectService() {
 		int corePoolSize = Runtime.getRuntime().availableProcessors() * 2;
 		int maxPoolSize = corePoolSize * 2;
 		int keepAliveTime = 5;
@@ -21,11 +27,11 @@ public class ConnectMgr {
 		executor = new CmdExecutor(corePoolSize, maxPoolSize, keepAliveTime, cacheSize, "executor");
 	}
 	
-	public static UserConnect get(Channel channel) {
+	public UserConnect get(Channel channel) {
 		return channelMap.get(channel.id());
 	}
 	
-	public static synchronized UserConnect add(Channel channel) {
+	public UserConnect add(Channel channel) {
 		UserConnect userConnect = new UserConnect(channel, executor);
 		synchronized (channelMap) {
 			channelMap.put(channel.id(), userConnect);
@@ -33,7 +39,7 @@ public class ConnectMgr {
 		return userConnect;
 	}
 	
-	public static void remove(Channel channel) {
+	public void remove(Channel channel) {
 		synchronized (channelMap) {
 			channelMap.remove(channel.id());
 		}

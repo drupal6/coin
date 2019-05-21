@@ -22,6 +22,7 @@ public class ResponHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		PBMessage packet = (PBMessage) msg;
+		System.out.println("client read >>>>>>>" + packet.getCode());
 	}
 	
 

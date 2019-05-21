@@ -3,10 +3,9 @@ package com.gene.exec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gene.cmd.Command;
+import com.gene.connect.UserConnect;
 import com.gene.message.PBMessage;
-import com.gene.net.commond.Command;
-
-import io.netty.channel.Channel;
 
 /**
  * 执行cmd
@@ -16,14 +15,14 @@ public class CmdTask implements Runnable {
 	private final Logger LOGGER = LoggerFactory.getLogger(CmdTask.class);
 
 	protected CmdTaskQueue queue;
-	private Channel channel;
+	private UserConnect connect;
 	private PBMessage packet;
 	protected Command cmd;
 	protected ICallBack callBack;
 	
 
-	public CmdTask(Command cmd, Channel channel, PBMessage packet, CmdTaskQueue queue) {
-		this.channel = channel;
+	public CmdTask(Command cmd, UserConnect connect, PBMessage packet, CmdTaskQueue queue) {
+		this.connect = connect;
 		this.packet = packet;
 		this.cmd = cmd;
 		this.queue = queue;
@@ -40,7 +39,7 @@ public class CmdTask implements Runnable {
 			long start = System.currentTimeMillis();
 			try {
 				if(cmd != null) {
-					cmd.execute(channel, packet);
+					cmd.execute(connect, packet);
 					long end = System.currentTimeMillis();
 					long interval = end - start;
 					if (interval >= 1000) {
