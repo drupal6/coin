@@ -5,6 +5,7 @@ import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
 import com.gene.net.ConnectServer;
 import com.gene.proto.HBApiProto.ReqApiMsg;
+import com.gene.proto.HBApiProto.ReqType;
 
 import io.netty.channel.Channel;
 
@@ -15,7 +16,7 @@ public class Client {
 		Channel channel = connectServer.connect("192.168.2.55", 7881);
 		
 		ReqApiMsg.Builder builder = ReqApiMsg.newBuilder();
-		builder.setType(1);
+		builder.setType(ReqType.ACCOUNT);
 		PBMessage pack = MessageUtil.buildMessage(ReqCode.HB_API, builder);
 		pack.setPlayerId(1);
 		channel.writeAndFlush(pack);

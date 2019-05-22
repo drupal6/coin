@@ -4,10 +4,36 @@ package com.ly.proto;
 option java_package = "com.gene.proto";
 option java_outer_classname = "HBApiProto";
 
+enum ReqType {
+	ACCOUNT	= 1;
+}
+
+//市场数据
+message MarkMsg {
+	optional string candlesticdk 	= 1; //k线数据
+	optional string priceDepth	 	= 2; //交易深度
+	optional string trade		 	= 3; //最新的交易信息
+	optional string bestQuote		= 4; //最好的出手价
+	optional string trades			= 5; //交易对
+	optional string tradeStatistics	= 6; //4小时统计数据
+}
+
 message ReqApiMsg {
-	optional int32 type = 1;
+	optional ReqType type 	= 1;
+	optional string apiKey 		= 2;
+	optional string secretKey 	= 3;
+	optional string symbol		= 4;
+	optional int32 size  		= 5;
+	optional string accountType = 6;
+	optional string address		= 7;
+	optional string interval	= 8;
+	optional int32 id			= 9;
+	optional string orderType   = 10;
+	optional string orderState	= 11;
 }
 
 message ResApiMsg {
-	optional int32 type = 1;
+	optional int64 exchangeTimestamp = 1; //服务器时间utc
+	optional MarkMsg markInfo 		 = 2; //市场信息
+
 }
