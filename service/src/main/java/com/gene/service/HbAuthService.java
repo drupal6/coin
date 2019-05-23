@@ -3,7 +3,6 @@ package com.gene.service;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.gene.HbClientBuilder;
 import com.huobi.client.model.Account;
 import com.huobi.client.model.BatchCancelResult;
 import com.huobi.client.model.Deposit;

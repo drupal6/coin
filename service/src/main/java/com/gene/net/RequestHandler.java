@@ -9,7 +9,9 @@ import com.gene.connect.ConnectService;
 import com.gene.connect.UserConnect;
 import com.gene.exec.CmdTask;
 import com.gene.message.PBMessage;
+import com.gene.message.ReqCode;
 import com.gene.net.commond.CommandService;
+import com.gene.util.ErrorUtil;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -35,14 +37,21 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
 		short code = packet.getCode();
 		Command cmd = CommandService.getInst().getCommand(code);
 		if (cmd == null) {
-			LOGGER.error("not found cmd , code : " + code + " , userId : " + packet.getPlayerId());
+			LOGGER.error("not found cmd , code : " + code);
 			return;
 		}
-		UserConnect userConnect = ConnectService.getInst().get(channel);
-		if(userConnect == null) {
-			userConnect = ConnectService.getInst().add(channel);
+		if(code == ReqCode.HB_ACCOUNT) {
+			ConnectService.getInst().enqueue(new CmdTask(cmd, channel, packet, ConnectService.getInst().getCmdTaskQueue()));
+		} else {
+			UserConnect userConnect = ConnectService.getInst().get(channel);
+			if(userConnect == null) {
+				if(userConnect == null) {
+					ErrorUtil.error(channel, packet.getSeqId(), "RequestHandler没有登录");
+					return;
+				}
+			}
+			userConnect.enqueue(new CmdTask(cmd, channel, packet, userConnect.getCmdTaskQueue()));
 		}
-		userConnect.enqueue(new CmdTask(cmd, userConnect, packet, userConnect.getCmdTaskQueue()));
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.gene;
+package com.gene.service;
 
 import com.huobi.client.AsyncRequestClient;
 import com.huobi.client.RequestOptions;

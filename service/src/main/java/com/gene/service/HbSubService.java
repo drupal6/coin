@@ -1,6 +1,5 @@
 package com.gene.service;
 
-import com.gene.HbClientBuilder;
 import com.huobi.client.SubscriptionListener;
 import com.huobi.client.model.enums.BalanceMode;
 import com.huobi.client.model.enums.CandlestickInterval;
@@ -10,13 +9,6 @@ import com.huobi.client.model.event.OrderUpdateEvent;
 import com.huobi.client.model.event.TradeEvent;
 
 public class HbSubService {
-
-	/**
-	 * 取消所有监听
-	 */
-	public void unsubscirbeAll() {
-		HbClientBuilder.subClient().unsubscribeAll();
-	}
 	
 	/**
 	 * 监听交易信息更新

@@ -5,35 +5,101 @@ option java_package = "com.gene.proto";
 option java_outer_classname = "HBApiProto";
 
 enum ReqType {
-	ACCOUNT	= 1;
+	OPENORDERS 		= 1; //开启的订单
+	ORDERHISTORY 	= 2; //订单历史
+	CREATEORDER 	= 3; //创建订单
+	CANCELORDER 	= 4; //取消订单
+	BESTQUOTE		= 5; //最好的价格
+	MONITORORDER	= 6; //监听订单
 }
 
-//市场数据
-message MarkMsg {
-	optional string candlesticdk 	= 1; //k线数据
-	optional string priceDepth	 	= 2; //交易深度
-	optional string trade		 	= 3; //最新的交易信息
-	optional string bestQuote		= 4; //最好的出手价
-	optional string trades			= 5; //交易对
-	optional string tradeStatistics	= 6; //4小时统计数据
+message ReqAccountMsg {
+	optional string apiKey 		= 1;
+	optional string secretKey 	= 2;
+	optional string accountType = 3;
 }
 
 message ReqApiMsg {
-	optional ReqType type 	= 1;
-	optional string apiKey 		= 2;
-	optional string secretKey 	= 3;
-	optional string symbol		= 4;
-	optional int32 size  		= 5;
-	optional string accountType = 6;
-	optional string address		= 7;
-	optional string interval	= 8;
-	optional int32 id			= 9;
-	optional string orderType   = 10;
-	optional string orderState	= 11;
+	optional ReqType type 		= 1;
+	optional string symbol		= 2;
+	optional string symbols		= 3;
+	optional int32 size  		= 4;
+	optional string accountType = 5;
+	optional string address		= 6;
+	optional string interval	= 7;
+	repeated int64 ids			= 8;
+	optional string orderType   = 9;
+	optional string orderState	= 10;
+	optional double amount		= 11;
+	optional double price		= 12;
 }
 
 message ResApiMsg {
-	optional int64 exchangeTimestamp = 1; //服务器时间utc
-	optional MarkMsg markInfo 		 = 2; //市场信息
+	optional int32 result			 				= 1;
+	optional string msg				 				= 2;
+	optional AccountMsg account 		 			= 3;
+	optional AccountEventMsg accountChangeEvent	 	= 4;
+	repeated OrderMsg openOrders 					= 5;
+	repeated OrderMsg orderHistory 					= 6;
+	optional OrderUpdateEventMsg orderUdateEvent	= 7;
+	optional BestQuoteMsg bestQuote					= 8;
+}
 
+//资产
+message BalanceMsg {
+	optional string currency 		= 1;
+	optional string balanceType 	= 2;
+	optional double balance			= 3;
+}
+//账号信息
+message AccountMsg{
+	optional int64 id				= 1;
+	optional string accountType		= 2;
+	optional string accountState 	= 3;
+	repeated BalanceMsg blances 	= 4;
+}
+
+//账号资产变动事件
+message AccountEventMsg {
+	optional int64 timestamp				= 1;
+	optional string changeType				= 2;
+	repeated AccountChangeMsg changes		= 3;
+}
+
+message AccountChangeMsg {
+	optional string currency = 1;
+	optional string accountType = 2;
+	optional double balance = 3;
+	optional string balanceType = 4;
+}
+
+message OrderMsg {
+	optional string accountType 		= 1;
+	optional double amount 				= 2;
+	optional double price 				= 3;
+	optional int64 createdTimestamp 	= 4;
+	optional int64 canceledTimestamp 	= 5;
+	optional int64 finishedTimestamp 	= 6;
+	optional int64 orderId 				= 7;
+	optional string symbol 				= 8;
+	optional string orderType 			= 9;
+	optional double filledAmount 		= 10;
+	optional double filledCashAmount 	= 11;
+	optional double filledFees 			= 12;
+	optional string orderSource 		= 13;
+	optional string orderState 			= 14;
+}
+
+message OrderUpdateEventMsg {
+	optional string symbol 		= 1;
+	optional int64 timestamp 	= 2;
+	optional OrderMsg order 	= 3;
+}
+
+message BestQuoteMsg {
+	optional int64 timestamp 		= 1;
+	optional double askPrice 		= 2;
+	optional double askAmount 		= 3;
+	optional double bidPrice 		= 4;
+	optional double bidAmount 		= 5;
 }

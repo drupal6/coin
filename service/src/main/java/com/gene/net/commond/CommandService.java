@@ -26,6 +26,10 @@ public final class CommandService {
 	 **/
 	private Map<Short, Command> cmdCache = new HashMap<Short, Command>();
 	
+	public static void main(String[] args) throws Exception {
+		CommandService.getInst().init();
+	}
+	
 	/**
 	 * 初始化命令集合
 	 * @throws  

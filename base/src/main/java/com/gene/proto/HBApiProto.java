@@ -20,15 +20,103 @@ public final class HBApiProto {
   public enum ReqType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>ACCOUNT = 1;</code>
+     * <pre>
+     *开启的订单
+     * </pre>
+     *
+     * <code>OPENORDERS = 1;</code>
      */
-    ACCOUNT(1),
+    OPENORDERS(1),
+    /**
+     * <pre>
+     *订单历史
+     * </pre>
+     *
+     * <code>ORDERHISTORY = 2;</code>
+     */
+    ORDERHISTORY(2),
+    /**
+     * <pre>
+     *创建订单
+     * </pre>
+     *
+     * <code>CREATEORDER = 3;</code>
+     */
+    CREATEORDER(3),
+    /**
+     * <pre>
+     *取消订单
+     * </pre>
+     *
+     * <code>CANCELORDER = 4;</code>
+     */
+    CANCELORDER(4),
+    /**
+     * <pre>
+     *最好的价格
+     * </pre>
+     *
+     * <code>BESTQUOTE = 5;</code>
+     */
+    BESTQUOTE(5),
+    /**
+     * <pre>
+     *监听订单
+     * </pre>
+     *
+     * <code>MONITORORDER = 6;</code>
+     */
+    MONITORORDER(6),
     ;
 
     /**
-     * <code>ACCOUNT = 1;</code>
+     * <pre>
+     *开启的订单
+     * </pre>
+     *
+     * <code>OPENORDERS = 1;</code>
      */
-    public static final int ACCOUNT_VALUE = 1;
+    public static final int OPENORDERS_VALUE = 1;
+    /**
+     * <pre>
+     *订单历史
+     * </pre>
+     *
+     * <code>ORDERHISTORY = 2;</code>
+     */
+    public static final int ORDERHISTORY_VALUE = 2;
+    /**
+     * <pre>
+     *创建订单
+     * </pre>
+     *
+     * <code>CREATEORDER = 3;</code>
+     */
+    public static final int CREATEORDER_VALUE = 3;
+    /**
+     * <pre>
+     *取消订单
+     * </pre>
+     *
+     * <code>CANCELORDER = 4;</code>
+     */
+    public static final int CANCELORDER_VALUE = 4;
+    /**
+     * <pre>
+     *最好的价格
+     * </pre>
+     *
+     * <code>BESTQUOTE = 5;</code>
+     */
+    public static final int BESTQUOTE_VALUE = 5;
+    /**
+     * <pre>
+     *监听订单
+     * </pre>
+     *
+     * <code>MONITORORDER = 6;</code>
+     */
+    public static final int MONITORORDER_VALUE = 6;
 
 
     public final int getNumber() {
@@ -45,7 +133,12 @@ public final class HBApiProto {
 
     public static ReqType forNumber(int value) {
       switch (value) {
-        case 1: return ACCOUNT;
+        case 1: return OPENORDERS;
+        case 2: return ORDERHISTORY;
+        case 3: return CREATEORDER;
+        case 4: return CANCELORDER;
+        case 5: return BESTQUOTE;
+        case 6: return MONITORORDER;
         default: return null;
       }
     }
@@ -95,189 +188,68 @@ public final class HBApiProto {
     // @@protoc_insertion_point(enum_scope:com.ly.proto.ReqType)
   }
 
-  public interface MarkMsgOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.ly.proto.MarkMsg)
+  public interface ReqAccountMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.ReqAccountMsg)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     *k线数据
-     * </pre>
-     *
-     * <code>optional string candlesticdk = 1;</code>
+     * <code>optional string apiKey = 1;</code>
      */
-    boolean hasCandlesticdk();
+    boolean hasApiKey();
     /**
-     * <pre>
-     *k线数据
-     * </pre>
-     *
-     * <code>optional string candlesticdk = 1;</code>
+     * <code>optional string apiKey = 1;</code>
      */
-    java.lang.String getCandlesticdk();
+    java.lang.String getApiKey();
     /**
-     * <pre>
-     *k线数据
-     * </pre>
-     *
-     * <code>optional string candlesticdk = 1;</code>
+     * <code>optional string apiKey = 1;</code>
      */
     com.google.protobuf.ByteString
-        getCandlesticdkBytes();
+        getApiKeyBytes();
 
     /**
-     * <pre>
-     *交易深度
-     * </pre>
-     *
-     * <code>optional string priceDepth = 2;</code>
+     * <code>optional string secretKey = 2;</code>
      */
-    boolean hasPriceDepth();
+    boolean hasSecretKey();
     /**
-     * <pre>
-     *交易深度
-     * </pre>
-     *
-     * <code>optional string priceDepth = 2;</code>
+     * <code>optional string secretKey = 2;</code>
      */
-    java.lang.String getPriceDepth();
+    java.lang.String getSecretKey();
     /**
-     * <pre>
-     *交易深度
-     * </pre>
-     *
-     * <code>optional string priceDepth = 2;</code>
+     * <code>optional string secretKey = 2;</code>
      */
     com.google.protobuf.ByteString
-        getPriceDepthBytes();
+        getSecretKeyBytes();
 
     /**
-     * <pre>
-     *最新的交易信息
-     * </pre>
-     *
-     * <code>optional string trade = 3;</code>
+     * <code>optional string accountType = 3;</code>
      */
-    boolean hasTrade();
+    boolean hasAccountType();
     /**
-     * <pre>
-     *最新的交易信息
-     * </pre>
-     *
-     * <code>optional string trade = 3;</code>
+     * <code>optional string accountType = 3;</code>
      */
-    java.lang.String getTrade();
+    java.lang.String getAccountType();
     /**
-     * <pre>
-     *最新的交易信息
-     * </pre>
-     *
-     * <code>optional string trade = 3;</code>
+     * <code>optional string accountType = 3;</code>
      */
     com.google.protobuf.ByteString
-        getTradeBytes();
-
-    /**
-     * <pre>
-     *最好的出手价
-     * </pre>
-     *
-     * <code>optional string bestQuote = 4;</code>
-     */
-    boolean hasBestQuote();
-    /**
-     * <pre>
-     *最好的出手价
-     * </pre>
-     *
-     * <code>optional string bestQuote = 4;</code>
-     */
-    java.lang.String getBestQuote();
-    /**
-     * <pre>
-     *最好的出手价
-     * </pre>
-     *
-     * <code>optional string bestQuote = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getBestQuoteBytes();
-
-    /**
-     * <pre>
-     *交易对
-     * </pre>
-     *
-     * <code>optional string trades = 5;</code>
-     */
-    boolean hasTrades();
-    /**
-     * <pre>
-     *交易对
-     * </pre>
-     *
-     * <code>optional string trades = 5;</code>
-     */
-    java.lang.String getTrades();
-    /**
-     * <pre>
-     *交易对
-     * </pre>
-     *
-     * <code>optional string trades = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getTradesBytes();
-
-    /**
-     * <pre>
-     *4小时统计数据
-     * </pre>
-     *
-     * <code>optional string tradeStatistics = 6;</code>
-     */
-    boolean hasTradeStatistics();
-    /**
-     * <pre>
-     *4小时统计数据
-     * </pre>
-     *
-     * <code>optional string tradeStatistics = 6;</code>
-     */
-    java.lang.String getTradeStatistics();
-    /**
-     * <pre>
-     *4小时统计数据
-     * </pre>
-     *
-     * <code>optional string tradeStatistics = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getTradeStatisticsBytes();
+        getAccountTypeBytes();
   }
   /**
-   * <pre>
-   *市场数据
-   * </pre>
-   *
-   * Protobuf type {@code com.ly.proto.MarkMsg}
+   * Protobuf type {@code com.ly.proto.ReqAccountMsg}
    */
-  public  static final class MarkMsg extends
+  public  static final class ReqAccountMsg extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.ly.proto.MarkMsg)
-      MarkMsgOrBuilder {
+      // @@protoc_insertion_point(message_implements:com.ly.proto.ReqAccountMsg)
+      ReqAccountMsgOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use MarkMsg.newBuilder() to construct.
-    private MarkMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ReqAccountMsg.newBuilder() to construct.
+    private ReqAccountMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private MarkMsg() {
-      candlesticdk_ = "";
-      priceDepth_ = "";
-      trade_ = "";
-      bestQuote_ = "";
-      trades_ = "";
-      tradeStatistics_ = "";
+    private ReqAccountMsg() {
+      apiKey_ = "";
+      secretKey_ = "";
+      accountType_ = "";
     }
 
     @java.lang.Override
@@ -285,7 +257,7 @@ public final class HBApiProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MarkMsg(
+    private ReqAccountMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -307,37 +279,19 @@ public final class HBApiProto {
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              candlesticdk_ = bs;
+              apiKey_ = bs;
               break;
             }
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              priceDepth_ = bs;
+              secretKey_ = bs;
               break;
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              trade_ = bs;
-              break;
-            }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              bestQuote_ = bs;
-              break;
-            }
-            case 42: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000010;
-              trades_ = bs;
-              break;
-            }
-            case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000020;
-              tradeStatistics_ = bs;
+              accountType_ = bs;
               break;
             }
             default: {
@@ -361,39 +315,31 @@ public final class HBApiProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_MarkMsg_descriptor;
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_ReqAccountMsg_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_MarkMsg_fieldAccessorTable
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_ReqAccountMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.gene.proto.HBApiProto.MarkMsg.class, com.gene.proto.HBApiProto.MarkMsg.Builder.class);
+              com.gene.proto.HBApiProto.ReqAccountMsg.class, com.gene.proto.HBApiProto.ReqAccountMsg.Builder.class);
     }
 
     private int bitField0_;
-    public static final int CANDLESTICDK_FIELD_NUMBER = 1;
-    private volatile java.lang.Object candlesticdk_;
+    public static final int APIKEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object apiKey_;
     /**
-     * <pre>
-     *k线数据
-     * </pre>
-     *
-     * <code>optional string candlesticdk = 1;</code>
+     * <code>optional string apiKey = 1;</code>
      */
-    public boolean hasCandlesticdk() {
+    public boolean hasApiKey() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <pre>
-     *k线数据
-     * </pre>
-     *
-     * <code>optional string candlesticdk = 1;</code>
+     * <code>optional string apiKey = 1;</code>
      */
-    public java.lang.String getCandlesticdk() {
-      java.lang.Object ref = candlesticdk_;
+    public java.lang.String getApiKey() {
+      java.lang.Object ref = apiKey_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -401,53 +347,41 @@ public final class HBApiProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          candlesticdk_ = s;
+          apiKey_ = s;
         }
         return s;
       }
     }
     /**
-     * <pre>
-     *k线数据
-     * </pre>
-     *
-     * <code>optional string candlesticdk = 1;</code>
+     * <code>optional string apiKey = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getCandlesticdkBytes() {
-      java.lang.Object ref = candlesticdk_;
+        getApiKeyBytes() {
+      java.lang.Object ref = apiKey_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        candlesticdk_ = b;
+        apiKey_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int PRICEDEPTH_FIELD_NUMBER = 2;
-    private volatile java.lang.Object priceDepth_;
+    public static final int SECRETKEY_FIELD_NUMBER = 2;
+    private volatile java.lang.Object secretKey_;
     /**
-     * <pre>
-     *交易深度
-     * </pre>
-     *
-     * <code>optional string priceDepth = 2;</code>
+     * <code>optional string secretKey = 2;</code>
      */
-    public boolean hasPriceDepth() {
+    public boolean hasSecretKey() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <pre>
-     *交易深度
-     * </pre>
-     *
-     * <code>optional string priceDepth = 2;</code>
+     * <code>optional string secretKey = 2;</code>
      */
-    public java.lang.String getPriceDepth() {
-      java.lang.Object ref = priceDepth_;
+    public java.lang.String getSecretKey() {
+      java.lang.Object ref = secretKey_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -455,53 +389,41 @@ public final class HBApiProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          priceDepth_ = s;
+          secretKey_ = s;
         }
         return s;
       }
     }
     /**
-     * <pre>
-     *交易深度
-     * </pre>
-     *
-     * <code>optional string priceDepth = 2;</code>
+     * <code>optional string secretKey = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getPriceDepthBytes() {
-      java.lang.Object ref = priceDepth_;
+        getSecretKeyBytes() {
+      java.lang.Object ref = secretKey_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        priceDepth_ = b;
+        secretKey_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int TRADE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object trade_;
+    public static final int ACCOUNTTYPE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object accountType_;
     /**
-     * <pre>
-     *最新的交易信息
-     * </pre>
-     *
-     * <code>optional string trade = 3;</code>
+     * <code>optional string accountType = 3;</code>
      */
-    public boolean hasTrade() {
+    public boolean hasAccountType() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <pre>
-     *最新的交易信息
-     * </pre>
-     *
-     * <code>optional string trade = 3;</code>
+     * <code>optional string accountType = 3;</code>
      */
-    public java.lang.String getTrade() {
-      java.lang.Object ref = trade_;
+    public java.lang.String getAccountType() {
+      java.lang.Object ref = accountType_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -509,188 +431,22 @@ public final class HBApiProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          trade_ = s;
+          accountType_ = s;
         }
         return s;
       }
     }
     /**
-     * <pre>
-     *最新的交易信息
-     * </pre>
-     *
-     * <code>optional string trade = 3;</code>
+     * <code>optional string accountType = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getTradeBytes() {
-      java.lang.Object ref = trade_;
+        getAccountTypeBytes() {
+      java.lang.Object ref = accountType_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        trade_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int BESTQUOTE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object bestQuote_;
-    /**
-     * <pre>
-     *最好的出手价
-     * </pre>
-     *
-     * <code>optional string bestQuote = 4;</code>
-     */
-    public boolean hasBestQuote() {
-      return ((bitField0_ & 0x00000008) != 0);
-    }
-    /**
-     * <pre>
-     *最好的出手价
-     * </pre>
-     *
-     * <code>optional string bestQuote = 4;</code>
-     */
-    public java.lang.String getBestQuote() {
-      java.lang.Object ref = bestQuote_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          bestQuote_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *最好的出手价
-     * </pre>
-     *
-     * <code>optional string bestQuote = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getBestQuoteBytes() {
-      java.lang.Object ref = bestQuote_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        bestQuote_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TRADES_FIELD_NUMBER = 5;
-    private volatile java.lang.Object trades_;
-    /**
-     * <pre>
-     *交易对
-     * </pre>
-     *
-     * <code>optional string trades = 5;</code>
-     */
-    public boolean hasTrades() {
-      return ((bitField0_ & 0x00000010) != 0);
-    }
-    /**
-     * <pre>
-     *交易对
-     * </pre>
-     *
-     * <code>optional string trades = 5;</code>
-     */
-    public java.lang.String getTrades() {
-      java.lang.Object ref = trades_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          trades_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *交易对
-     * </pre>
-     *
-     * <code>optional string trades = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTradesBytes() {
-      java.lang.Object ref = trades_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        trades_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TRADESTATISTICS_FIELD_NUMBER = 6;
-    private volatile java.lang.Object tradeStatistics_;
-    /**
-     * <pre>
-     *4小时统计数据
-     * </pre>
-     *
-     * <code>optional string tradeStatistics = 6;</code>
-     */
-    public boolean hasTradeStatistics() {
-      return ((bitField0_ & 0x00000020) != 0);
-    }
-    /**
-     * <pre>
-     *4小时统计数据
-     * </pre>
-     *
-     * <code>optional string tradeStatistics = 6;</code>
-     */
-    public java.lang.String getTradeStatistics() {
-      java.lang.Object ref = tradeStatistics_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          tradeStatistics_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *4小时统计数据
-     * </pre>
-     *
-     * <code>optional string tradeStatistics = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTradeStatisticsBytes() {
-      java.lang.Object ref = tradeStatistics_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tradeStatistics_ = b;
+        accountType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -712,22 +468,13 @@ public final class HBApiProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, candlesticdk_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, apiKey_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, priceDepth_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, secretKey_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, trade_);
-      }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, bestQuote_);
-      }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, trades_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tradeStatistics_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, accountType_);
       }
       unknownFields.writeTo(output);
     }
@@ -739,22 +486,13 @@ public final class HBApiProto {
 
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, candlesticdk_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, apiKey_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, priceDepth_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, secretKey_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, trade_);
-      }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, bestQuote_);
-      }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, trades_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, tradeStatistics_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, accountType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -766,40 +504,25 @@ public final class HBApiProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.gene.proto.HBApiProto.MarkMsg)) {
+      if (!(obj instanceof com.gene.proto.HBApiProto.ReqAccountMsg)) {
         return super.equals(obj);
       }
-      com.gene.proto.HBApiProto.MarkMsg other = (com.gene.proto.HBApiProto.MarkMsg) obj;
+      com.gene.proto.HBApiProto.ReqAccountMsg other = (com.gene.proto.HBApiProto.ReqAccountMsg) obj;
 
-      if (hasCandlesticdk() != other.hasCandlesticdk()) return false;
-      if (hasCandlesticdk()) {
-        if (!getCandlesticdk()
-            .equals(other.getCandlesticdk())) return false;
+      if (hasApiKey() != other.hasApiKey()) return false;
+      if (hasApiKey()) {
+        if (!getApiKey()
+            .equals(other.getApiKey())) return false;
       }
-      if (hasPriceDepth() != other.hasPriceDepth()) return false;
-      if (hasPriceDepth()) {
-        if (!getPriceDepth()
-            .equals(other.getPriceDepth())) return false;
+      if (hasSecretKey() != other.hasSecretKey()) return false;
+      if (hasSecretKey()) {
+        if (!getSecretKey()
+            .equals(other.getSecretKey())) return false;
       }
-      if (hasTrade() != other.hasTrade()) return false;
-      if (hasTrade()) {
-        if (!getTrade()
-            .equals(other.getTrade())) return false;
-      }
-      if (hasBestQuote() != other.hasBestQuote()) return false;
-      if (hasBestQuote()) {
-        if (!getBestQuote()
-            .equals(other.getBestQuote())) return false;
-      }
-      if (hasTrades() != other.hasTrades()) return false;
-      if (hasTrades()) {
-        if (!getTrades()
-            .equals(other.getTrades())) return false;
-      }
-      if (hasTradeStatistics() != other.hasTradeStatistics()) return false;
-      if (hasTradeStatistics()) {
-        if (!getTradeStatistics()
-            .equals(other.getTradeStatistics())) return false;
+      if (hasAccountType() != other.hasAccountType()) return false;
+      if (hasAccountType()) {
+        if (!getAccountType()
+            .equals(other.getAccountType())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -812,98 +535,86 @@ public final class HBApiProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasCandlesticdk()) {
-        hash = (37 * hash) + CANDLESTICDK_FIELD_NUMBER;
-        hash = (53 * hash) + getCandlesticdk().hashCode();
+      if (hasApiKey()) {
+        hash = (37 * hash) + APIKEY_FIELD_NUMBER;
+        hash = (53 * hash) + getApiKey().hashCode();
       }
-      if (hasPriceDepth()) {
-        hash = (37 * hash) + PRICEDEPTH_FIELD_NUMBER;
-        hash = (53 * hash) + getPriceDepth().hashCode();
+      if (hasSecretKey()) {
+        hash = (37 * hash) + SECRETKEY_FIELD_NUMBER;
+        hash = (53 * hash) + getSecretKey().hashCode();
       }
-      if (hasTrade()) {
-        hash = (37 * hash) + TRADE_FIELD_NUMBER;
-        hash = (53 * hash) + getTrade().hashCode();
-      }
-      if (hasBestQuote()) {
-        hash = (37 * hash) + BESTQUOTE_FIELD_NUMBER;
-        hash = (53 * hash) + getBestQuote().hashCode();
-      }
-      if (hasTrades()) {
-        hash = (37 * hash) + TRADES_FIELD_NUMBER;
-        hash = (53 * hash) + getTrades().hashCode();
-      }
-      if (hasTradeStatistics()) {
-        hash = (37 * hash) + TRADESTATISTICS_FIELD_NUMBER;
-        hash = (53 * hash) + getTradeStatistics().hashCode();
+      if (hasAccountType()) {
+        hash = (37 * hash) + ACCOUNTTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountType().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(byte[] data)
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(java.io.InputStream input)
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseDelimitedFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.gene.proto.HBApiProto.MarkMsg parseFrom(
+    public static com.gene.proto.HBApiProto.ReqAccountMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -916,7 +627,7 @@ public final class HBApiProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.gene.proto.HBApiProto.MarkMsg prototype) {
+    public static Builder newBuilder(com.gene.proto.HBApiProto.ReqAccountMsg prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -932,30 +643,26 @@ public final class HBApiProto {
       return builder;
     }
     /**
-     * <pre>
-     *市场数据
-     * </pre>
-     *
-     * Protobuf type {@code com.ly.proto.MarkMsg}
+     * Protobuf type {@code com.ly.proto.ReqAccountMsg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.ly.proto.MarkMsg)
-        com.gene.proto.HBApiProto.MarkMsgOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.ReqAccountMsg)
+        com.gene.proto.HBApiProto.ReqAccountMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_MarkMsg_descriptor;
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_ReqAccountMsg_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_MarkMsg_fieldAccessorTable
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_ReqAccountMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.gene.proto.HBApiProto.MarkMsg.class, com.gene.proto.HBApiProto.MarkMsg.Builder.class);
+                com.gene.proto.HBApiProto.ReqAccountMsg.class, com.gene.proto.HBApiProto.ReqAccountMsg.Builder.class);
       }
 
-      // Construct using com.gene.proto.HBApiProto.MarkMsg.newBuilder()
+      // Construct using com.gene.proto.HBApiProto.ReqAccountMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -973,35 +680,29 @@ public final class HBApiProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        candlesticdk_ = "";
+        apiKey_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        priceDepth_ = "";
+        secretKey_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        trade_ = "";
+        accountType_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        bestQuote_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        trades_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
-        tradeStatistics_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_MarkMsg_descriptor;
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_ReqAccountMsg_descriptor;
       }
 
       @java.lang.Override
-      public com.gene.proto.HBApiProto.MarkMsg getDefaultInstanceForType() {
-        return com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance();
+      public com.gene.proto.HBApiProto.ReqAccountMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.ReqAccountMsg.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.gene.proto.HBApiProto.MarkMsg build() {
-        com.gene.proto.HBApiProto.MarkMsg result = buildPartial();
+      public com.gene.proto.HBApiProto.ReqAccountMsg build() {
+        com.gene.proto.HBApiProto.ReqAccountMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1009,34 +710,22 @@ public final class HBApiProto {
       }
 
       @java.lang.Override
-      public com.gene.proto.HBApiProto.MarkMsg buildPartial() {
-        com.gene.proto.HBApiProto.MarkMsg result = new com.gene.proto.HBApiProto.MarkMsg(this);
+      public com.gene.proto.HBApiProto.ReqAccountMsg buildPartial() {
+        com.gene.proto.HBApiProto.ReqAccountMsg result = new com.gene.proto.HBApiProto.ReqAccountMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.candlesticdk_ = candlesticdk_;
+        result.apiKey_ = apiKey_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.priceDepth_ = priceDepth_;
+        result.secretKey_ = secretKey_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.trade_ = trade_;
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.bestQuote_ = bestQuote_;
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.trades_ = trades_;
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.tradeStatistics_ = tradeStatistics_;
+        result.accountType_ = accountType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1076,44 +765,29 @@ public final class HBApiProto {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.gene.proto.HBApiProto.MarkMsg) {
-          return mergeFrom((com.gene.proto.HBApiProto.MarkMsg)other);
+        if (other instanceof com.gene.proto.HBApiProto.ReqAccountMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.ReqAccountMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.gene.proto.HBApiProto.MarkMsg other) {
-        if (other == com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance()) return this;
-        if (other.hasCandlesticdk()) {
+      public Builder mergeFrom(com.gene.proto.HBApiProto.ReqAccountMsg other) {
+        if (other == com.gene.proto.HBApiProto.ReqAccountMsg.getDefaultInstance()) return this;
+        if (other.hasApiKey()) {
           bitField0_ |= 0x00000001;
-          candlesticdk_ = other.candlesticdk_;
+          apiKey_ = other.apiKey_;
           onChanged();
         }
-        if (other.hasPriceDepth()) {
+        if (other.hasSecretKey()) {
           bitField0_ |= 0x00000002;
-          priceDepth_ = other.priceDepth_;
+          secretKey_ = other.secretKey_;
           onChanged();
         }
-        if (other.hasTrade()) {
+        if (other.hasAccountType()) {
           bitField0_ |= 0x00000004;
-          trade_ = other.trade_;
-          onChanged();
-        }
-        if (other.hasBestQuote()) {
-          bitField0_ |= 0x00000008;
-          bestQuote_ = other.bestQuote_;
-          onChanged();
-        }
-        if (other.hasTrades()) {
-          bitField0_ |= 0x00000010;
-          trades_ = other.trades_;
-          onChanged();
-        }
-        if (other.hasTradeStatistics()) {
-          bitField0_ |= 0x00000020;
-          tradeStatistics_ = other.tradeStatistics_;
+          accountType_ = other.accountType_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1131,11 +805,11 @@ public final class HBApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.gene.proto.HBApiProto.MarkMsg parsedMessage = null;
+        com.gene.proto.HBApiProto.ReqAccountMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.gene.proto.HBApiProto.MarkMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.gene.proto.HBApiProto.ReqAccountMsg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1146,32 +820,24 @@ public final class HBApiProto {
       }
       private int bitField0_;
 
-      private java.lang.Object candlesticdk_ = "";
+      private java.lang.Object apiKey_ = "";
       /**
-       * <pre>
-       *k线数据
-       * </pre>
-       *
-       * <code>optional string candlesticdk = 1;</code>
+       * <code>optional string apiKey = 1;</code>
        */
-      public boolean hasCandlesticdk() {
+      public boolean hasApiKey() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <pre>
-       *k线数据
-       * </pre>
-       *
-       * <code>optional string candlesticdk = 1;</code>
+       * <code>optional string apiKey = 1;</code>
        */
-      public java.lang.String getCandlesticdk() {
-        java.lang.Object ref = candlesticdk_;
+      public java.lang.String getApiKey() {
+        java.lang.Object ref = apiKey_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            candlesticdk_ = s;
+            apiKey_ = s;
           }
           return s;
         } else {
@@ -1179,99 +845,75 @@ public final class HBApiProto {
         }
       }
       /**
-       * <pre>
-       *k线数据
-       * </pre>
-       *
-       * <code>optional string candlesticdk = 1;</code>
+       * <code>optional string apiKey = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getCandlesticdkBytes() {
-        java.lang.Object ref = candlesticdk_;
+          getApiKeyBytes() {
+        java.lang.Object ref = apiKey_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          candlesticdk_ = b;
+          apiKey_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <pre>
-       *k线数据
-       * </pre>
-       *
-       * <code>optional string candlesticdk = 1;</code>
+       * <code>optional string apiKey = 1;</code>
        */
-      public Builder setCandlesticdk(
+      public Builder setApiKey(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        candlesticdk_ = value;
+        apiKey_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *k线数据
-       * </pre>
-       *
-       * <code>optional string candlesticdk = 1;</code>
+       * <code>optional string apiKey = 1;</code>
        */
-      public Builder clearCandlesticdk() {
+      public Builder clearApiKey() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        candlesticdk_ = getDefaultInstance().getCandlesticdk();
+        apiKey_ = getDefaultInstance().getApiKey();
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *k线数据
-       * </pre>
-       *
-       * <code>optional string candlesticdk = 1;</code>
+       * <code>optional string apiKey = 1;</code>
        */
-      public Builder setCandlesticdkBytes(
+      public Builder setApiKeyBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        candlesticdk_ = value;
+        apiKey_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object priceDepth_ = "";
+      private java.lang.Object secretKey_ = "";
       /**
-       * <pre>
-       *交易深度
-       * </pre>
-       *
-       * <code>optional string priceDepth = 2;</code>
+       * <code>optional string secretKey = 2;</code>
        */
-      public boolean hasPriceDepth() {
+      public boolean hasSecretKey() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <pre>
-       *交易深度
-       * </pre>
-       *
-       * <code>optional string priceDepth = 2;</code>
+       * <code>optional string secretKey = 2;</code>
        */
-      public java.lang.String getPriceDepth() {
-        java.lang.Object ref = priceDepth_;
+      public java.lang.String getSecretKey() {
+        java.lang.Object ref = secretKey_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            priceDepth_ = s;
+            secretKey_ = s;
           }
           return s;
         } else {
@@ -1279,99 +921,75 @@ public final class HBApiProto {
         }
       }
       /**
-       * <pre>
-       *交易深度
-       * </pre>
-       *
-       * <code>optional string priceDepth = 2;</code>
+       * <code>optional string secretKey = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getPriceDepthBytes() {
-        java.lang.Object ref = priceDepth_;
+          getSecretKeyBytes() {
+        java.lang.Object ref = secretKey_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          priceDepth_ = b;
+          secretKey_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <pre>
-       *交易深度
-       * </pre>
-       *
-       * <code>optional string priceDepth = 2;</code>
+       * <code>optional string secretKey = 2;</code>
        */
-      public Builder setPriceDepth(
+      public Builder setSecretKey(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        priceDepth_ = value;
+        secretKey_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *交易深度
-       * </pre>
-       *
-       * <code>optional string priceDepth = 2;</code>
+       * <code>optional string secretKey = 2;</code>
        */
-      public Builder clearPriceDepth() {
+      public Builder clearSecretKey() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        priceDepth_ = getDefaultInstance().getPriceDepth();
+        secretKey_ = getDefaultInstance().getSecretKey();
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *交易深度
-       * </pre>
-       *
-       * <code>optional string priceDepth = 2;</code>
+       * <code>optional string secretKey = 2;</code>
        */
-      public Builder setPriceDepthBytes(
+      public Builder setSecretKeyBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        priceDepth_ = value;
+        secretKey_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object trade_ = "";
+      private java.lang.Object accountType_ = "";
       /**
-       * <pre>
-       *最新的交易信息
-       * </pre>
-       *
-       * <code>optional string trade = 3;</code>
+       * <code>optional string accountType = 3;</code>
        */
-      public boolean hasTrade() {
+      public boolean hasAccountType() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <pre>
-       *最新的交易信息
-       * </pre>
-       *
-       * <code>optional string trade = 3;</code>
+       * <code>optional string accountType = 3;</code>
        */
-      public java.lang.String getTrade() {
-        java.lang.Object ref = trade_;
+      public java.lang.String getAccountType() {
+        java.lang.Object ref = accountType_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            trade_ = s;
+            accountType_ = s;
           }
           return s;
         } else {
@@ -1379,369 +997,53 @@ public final class HBApiProto {
         }
       }
       /**
-       * <pre>
-       *最新的交易信息
-       * </pre>
-       *
-       * <code>optional string trade = 3;</code>
+       * <code>optional string accountType = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getTradeBytes() {
-        java.lang.Object ref = trade_;
+          getAccountTypeBytes() {
+        java.lang.Object ref = accountType_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          trade_ = b;
+          accountType_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <pre>
-       *最新的交易信息
-       * </pre>
-       *
-       * <code>optional string trade = 3;</code>
+       * <code>optional string accountType = 3;</code>
        */
-      public Builder setTrade(
+      public Builder setAccountType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        trade_ = value;
+        accountType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *最新的交易信息
-       * </pre>
-       *
-       * <code>optional string trade = 3;</code>
+       * <code>optional string accountType = 3;</code>
        */
-      public Builder clearTrade() {
+      public Builder clearAccountType() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        trade_ = getDefaultInstance().getTrade();
+        accountType_ = getDefaultInstance().getAccountType();
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *最新的交易信息
-       * </pre>
-       *
-       * <code>optional string trade = 3;</code>
+       * <code>optional string accountType = 3;</code>
        */
-      public Builder setTradeBytes(
+      public Builder setAccountTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        trade_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object bestQuote_ = "";
-      /**
-       * <pre>
-       *最好的出手价
-       * </pre>
-       *
-       * <code>optional string bestQuote = 4;</code>
-       */
-      public boolean hasBestQuote() {
-        return ((bitField0_ & 0x00000008) != 0);
-      }
-      /**
-       * <pre>
-       *最好的出手价
-       * </pre>
-       *
-       * <code>optional string bestQuote = 4;</code>
-       */
-      public java.lang.String getBestQuote() {
-        java.lang.Object ref = bestQuote_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            bestQuote_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *最好的出手价
-       * </pre>
-       *
-       * <code>optional string bestQuote = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getBestQuoteBytes() {
-        java.lang.Object ref = bestQuote_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          bestQuote_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *最好的出手价
-       * </pre>
-       *
-       * <code>optional string bestQuote = 4;</code>
-       */
-      public Builder setBestQuote(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        bestQuote_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *最好的出手价
-       * </pre>
-       *
-       * <code>optional string bestQuote = 4;</code>
-       */
-      public Builder clearBestQuote() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        bestQuote_ = getDefaultInstance().getBestQuote();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *最好的出手价
-       * </pre>
-       *
-       * <code>optional string bestQuote = 4;</code>
-       */
-      public Builder setBestQuoteBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        bestQuote_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object trades_ = "";
-      /**
-       * <pre>
-       *交易对
-       * </pre>
-       *
-       * <code>optional string trades = 5;</code>
-       */
-      public boolean hasTrades() {
-        return ((bitField0_ & 0x00000010) != 0);
-      }
-      /**
-       * <pre>
-       *交易对
-       * </pre>
-       *
-       * <code>optional string trades = 5;</code>
-       */
-      public java.lang.String getTrades() {
-        java.lang.Object ref = trades_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            trades_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *交易对
-       * </pre>
-       *
-       * <code>optional string trades = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTradesBytes() {
-        java.lang.Object ref = trades_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          trades_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *交易对
-       * </pre>
-       *
-       * <code>optional string trades = 5;</code>
-       */
-      public Builder setTrades(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        trades_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *交易对
-       * </pre>
-       *
-       * <code>optional string trades = 5;</code>
-       */
-      public Builder clearTrades() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        trades_ = getDefaultInstance().getTrades();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *交易对
-       * </pre>
-       *
-       * <code>optional string trades = 5;</code>
-       */
-      public Builder setTradesBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        trades_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object tradeStatistics_ = "";
-      /**
-       * <pre>
-       *4小时统计数据
-       * </pre>
-       *
-       * <code>optional string tradeStatistics = 6;</code>
-       */
-      public boolean hasTradeStatistics() {
-        return ((bitField0_ & 0x00000020) != 0);
-      }
-      /**
-       * <pre>
-       *4小时统计数据
-       * </pre>
-       *
-       * <code>optional string tradeStatistics = 6;</code>
-       */
-      public java.lang.String getTradeStatistics() {
-        java.lang.Object ref = tradeStatistics_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            tradeStatistics_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *4小时统计数据
-       * </pre>
-       *
-       * <code>optional string tradeStatistics = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTradeStatisticsBytes() {
-        java.lang.Object ref = tradeStatistics_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tradeStatistics_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *4小时统计数据
-       * </pre>
-       *
-       * <code>optional string tradeStatistics = 6;</code>
-       */
-      public Builder setTradeStatistics(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        tradeStatistics_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *4小时统计数据
-       * </pre>
-       *
-       * <code>optional string tradeStatistics = 6;</code>
-       */
-      public Builder clearTradeStatistics() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        tradeStatistics_ = getDefaultInstance().getTradeStatistics();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *4小时统计数据
-       * </pre>
-       *
-       * <code>optional string tradeStatistics = 6;</code>
-       */
-      public Builder setTradeStatisticsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        tradeStatistics_ = value;
+        accountType_ = value;
         onChanged();
         return this;
       }
@@ -1758,41 +1060,41 @@ public final class HBApiProto {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.ly.proto.MarkMsg)
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.ReqAccountMsg)
     }
 
-    // @@protoc_insertion_point(class_scope:com.ly.proto.MarkMsg)
-    private static final com.gene.proto.HBApiProto.MarkMsg DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.ly.proto.ReqAccountMsg)
+    private static final com.gene.proto.HBApiProto.ReqAccountMsg DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.MarkMsg();
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.ReqAccountMsg();
     }
 
-    public static com.gene.proto.HBApiProto.MarkMsg getDefaultInstance() {
+    public static com.gene.proto.HBApiProto.ReqAccountMsg getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<MarkMsg>
-        PARSER = new com.google.protobuf.AbstractParser<MarkMsg>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReqAccountMsg>
+        PARSER = new com.google.protobuf.AbstractParser<ReqAccountMsg>() {
       @java.lang.Override
-      public MarkMsg parsePartialFrom(
+      public ReqAccountMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MarkMsg(input, extensionRegistry);
+        return new ReqAccountMsg(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<MarkMsg> parser() {
+    public static com.google.protobuf.Parser<ReqAccountMsg> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<MarkMsg> getParserForType() {
+    public com.google.protobuf.Parser<ReqAccountMsg> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.gene.proto.HBApiProto.MarkMsg getDefaultInstanceForType() {
+    public com.gene.proto.HBApiProto.ReqAccountMsg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1812,134 +1114,142 @@ public final class HBApiProto {
     com.gene.proto.HBApiProto.ReqType getType();
 
     /**
-     * <code>optional string apiKey = 2;</code>
-     */
-    boolean hasApiKey();
-    /**
-     * <code>optional string apiKey = 2;</code>
-     */
-    java.lang.String getApiKey();
-    /**
-     * <code>optional string apiKey = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getApiKeyBytes();
-
-    /**
-     * <code>optional string secretKey = 3;</code>
-     */
-    boolean hasSecretKey();
-    /**
-     * <code>optional string secretKey = 3;</code>
-     */
-    java.lang.String getSecretKey();
-    /**
-     * <code>optional string secretKey = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getSecretKeyBytes();
-
-    /**
-     * <code>optional string symbol = 4;</code>
+     * <code>optional string symbol = 2;</code>
      */
     boolean hasSymbol();
     /**
-     * <code>optional string symbol = 4;</code>
+     * <code>optional string symbol = 2;</code>
      */
     java.lang.String getSymbol();
     /**
-     * <code>optional string symbol = 4;</code>
+     * <code>optional string symbol = 2;</code>
      */
     com.google.protobuf.ByteString
         getSymbolBytes();
 
     /**
-     * <code>optional int32 size = 5;</code>
+     * <code>optional string symbols = 3;</code>
+     */
+    boolean hasSymbols();
+    /**
+     * <code>optional string symbols = 3;</code>
+     */
+    java.lang.String getSymbols();
+    /**
+     * <code>optional string symbols = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolsBytes();
+
+    /**
+     * <code>optional int32 size = 4;</code>
      */
     boolean hasSize();
     /**
-     * <code>optional int32 size = 5;</code>
+     * <code>optional int32 size = 4;</code>
      */
     int getSize();
 
     /**
-     * <code>optional string accountType = 6;</code>
+     * <code>optional string accountType = 5;</code>
      */
     boolean hasAccountType();
     /**
-     * <code>optional string accountType = 6;</code>
+     * <code>optional string accountType = 5;</code>
      */
     java.lang.String getAccountType();
     /**
-     * <code>optional string accountType = 6;</code>
+     * <code>optional string accountType = 5;</code>
      */
     com.google.protobuf.ByteString
         getAccountTypeBytes();
 
     /**
-     * <code>optional string address = 7;</code>
+     * <code>optional string address = 6;</code>
      */
     boolean hasAddress();
     /**
-     * <code>optional string address = 7;</code>
+     * <code>optional string address = 6;</code>
      */
     java.lang.String getAddress();
     /**
-     * <code>optional string address = 7;</code>
+     * <code>optional string address = 6;</code>
      */
     com.google.protobuf.ByteString
         getAddressBytes();
 
     /**
-     * <code>optional string interval = 8;</code>
+     * <code>optional string interval = 7;</code>
      */
     boolean hasInterval();
     /**
-     * <code>optional string interval = 8;</code>
+     * <code>optional string interval = 7;</code>
      */
     java.lang.String getInterval();
     /**
-     * <code>optional string interval = 8;</code>
+     * <code>optional string interval = 7;</code>
      */
     com.google.protobuf.ByteString
         getIntervalBytes();
 
     /**
-     * <code>optional int32 id = 9;</code>
+     * <code>repeated int64 ids = 8;</code>
      */
-    boolean hasId();
+    java.util.List<java.lang.Long> getIdsList();
     /**
-     * <code>optional int32 id = 9;</code>
+     * <code>repeated int64 ids = 8;</code>
      */
-    int getId();
+    int getIdsCount();
+    /**
+     * <code>repeated int64 ids = 8;</code>
+     */
+    long getIds(int index);
 
     /**
-     * <code>optional string orderType = 10;</code>
+     * <code>optional string orderType = 9;</code>
      */
     boolean hasOrderType();
     /**
-     * <code>optional string orderType = 10;</code>
+     * <code>optional string orderType = 9;</code>
      */
     java.lang.String getOrderType();
     /**
-     * <code>optional string orderType = 10;</code>
+     * <code>optional string orderType = 9;</code>
      */
     com.google.protobuf.ByteString
         getOrderTypeBytes();
 
     /**
-     * <code>optional string orderState = 11;</code>
+     * <code>optional string orderState = 10;</code>
      */
     boolean hasOrderState();
     /**
-     * <code>optional string orderState = 11;</code>
+     * <code>optional string orderState = 10;</code>
      */
     java.lang.String getOrderState();
     /**
-     * <code>optional string orderState = 11;</code>
+     * <code>optional string orderState = 10;</code>
      */
     com.google.protobuf.ByteString
         getOrderStateBytes();
+
+    /**
+     * <code>optional double amount = 11;</code>
+     */
+    boolean hasAmount();
+    /**
+     * <code>optional double amount = 11;</code>
+     */
+    double getAmount();
+
+    /**
+     * <code>optional double price = 12;</code>
+     */
+    boolean hasPrice();
+    /**
+     * <code>optional double price = 12;</code>
+     */
+    double getPrice();
   }
   /**
    * Protobuf type {@code com.ly.proto.ReqApiMsg}
@@ -1955,12 +1265,12 @@ public final class HBApiProto {
     }
     private ReqApiMsg() {
       type_ = 1;
-      apiKey_ = "";
-      secretKey_ = "";
       symbol_ = "";
+      symbols_ = "";
       accountType_ = "";
       address_ = "";
       interval_ = "";
+      ids_ = emptyLongList();
       orderType_ = "";
       orderState_ = "";
     }
@@ -2004,59 +1314,79 @@ public final class HBApiProto {
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              apiKey_ = bs;
+              symbol_ = bs;
               break;
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              secretKey_ = bs;
+              symbols_ = bs;
               break;
             }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 32: {
               bitField0_ |= 0x00000008;
-              symbol_ = bs;
+              size_ = input.readInt32();
               break;
             }
-            case 40: {
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              size_ = input.readInt32();
+              accountType_ = bs;
               break;
             }
             case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              accountType_ = bs;
+              address_ = bs;
               break;
             }
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              address_ = bs;
-              break;
-            }
-            case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000080;
               interval_ = bs;
               break;
             }
-            case 72: {
-              bitField0_ |= 0x00000100;
-              id_ = input.readInt32();
+            case 64: {
+              if (!((mutable_bitField0_ & 0x00000080) != 0)) {
+                ids_ = newLongList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              ids_.addLong(input.readInt64());
+              break;
+            }
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000080) != 0) && input.getBytesUntilLimit() > 0) {
+                ids_ = newLongList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                ids_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
+              orderType_ = bs;
               break;
             }
             case 82: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000200;
-              orderType_ = bs;
+              bitField0_ |= 0x00000100;
+              orderState_ = bs;
               break;
             }
-            case 90: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 89: {
+              bitField0_ |= 0x00000200;
+              amount_ = input.readDouble();
+              break;
+            }
+            case 97: {
               bitField0_ |= 0x00000400;
-              orderState_ = bs;
+              price_ = input.readDouble();
               break;
             }
             default: {
@@ -2074,6 +1404,9 @@ public final class HBApiProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000080) != 0)) {
+          ids_.makeImmutable(); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2106,103 +1439,19 @@ public final class HBApiProto {
     public com.gene.proto.HBApiProto.ReqType getType() {
       @SuppressWarnings("deprecation")
       com.gene.proto.HBApiProto.ReqType result = com.gene.proto.HBApiProto.ReqType.valueOf(type_);
-      return result == null ? com.gene.proto.HBApiProto.ReqType.ACCOUNT : result;
+      return result == null ? com.gene.proto.HBApiProto.ReqType.OPENORDERS : result;
     }
 
-    public static final int APIKEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object apiKey_;
+    public static final int SYMBOL_FIELD_NUMBER = 2;
+    private volatile java.lang.Object symbol_;
     /**
-     * <code>optional string apiKey = 2;</code>
+     * <code>optional string symbol = 2;</code>
      */
-    public boolean hasApiKey() {
+    public boolean hasSymbol() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional string apiKey = 2;</code>
-     */
-    public java.lang.String getApiKey() {
-      java.lang.Object ref = apiKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          apiKey_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string apiKey = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getApiKeyBytes() {
-      java.lang.Object ref = apiKey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        apiKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SECRETKEY_FIELD_NUMBER = 3;
-    private volatile java.lang.Object secretKey_;
-    /**
-     * <code>optional string secretKey = 3;</code>
-     */
-    public boolean hasSecretKey() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <code>optional string secretKey = 3;</code>
-     */
-    public java.lang.String getSecretKey() {
-      java.lang.Object ref = secretKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          secretKey_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string secretKey = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSecretKeyBytes() {
-      java.lang.Object ref = secretKey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        secretKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SYMBOL_FIELD_NUMBER = 4;
-    private volatile java.lang.Object symbol_;
-    /**
-     * <code>optional string symbol = 4;</code>
-     */
-    public boolean hasSymbol() {
-      return ((bitField0_ & 0x00000008) != 0);
-    }
-    /**
-     * <code>optional string symbol = 4;</code>
+     * <code>optional string symbol = 2;</code>
      */
     public java.lang.String getSymbol() {
       java.lang.Object ref = symbol_;
@@ -2219,7 +1468,7 @@ public final class HBApiProto {
       }
     }
     /**
-     * <code>optional string symbol = 4;</code>
+     * <code>optional string symbol = 2;</code>
      */
     public com.google.protobuf.ByteString
         getSymbolBytes() {
@@ -2235,31 +1484,73 @@ public final class HBApiProto {
       }
     }
 
-    public static final int SIZE_FIELD_NUMBER = 5;
-    private int size_;
+    public static final int SYMBOLS_FIELD_NUMBER = 3;
+    private volatile java.lang.Object symbols_;
     /**
-     * <code>optional int32 size = 5;</code>
+     * <code>optional string symbols = 3;</code>
      */
-    public boolean hasSize() {
-      return ((bitField0_ & 0x00000010) != 0);
+    public boolean hasSymbols() {
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional int32 size = 5;</code>
+     * <code>optional string symbols = 3;</code>
+     */
+    public java.lang.String getSymbols() {
+      java.lang.Object ref = symbols_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbols_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbols = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolsBytes() {
+      java.lang.Object ref = symbols_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbols_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SIZE_FIELD_NUMBER = 4;
+    private int size_;
+    /**
+     * <code>optional int32 size = 4;</code>
+     */
+    public boolean hasSize() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional int32 size = 4;</code>
      */
     public int getSize() {
       return size_;
     }
 
-    public static final int ACCOUNTTYPE_FIELD_NUMBER = 6;
+    public static final int ACCOUNTTYPE_FIELD_NUMBER = 5;
     private volatile java.lang.Object accountType_;
     /**
-     * <code>optional string accountType = 6;</code>
+     * <code>optional string accountType = 5;</code>
      */
     public boolean hasAccountType() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional string accountType = 6;</code>
+     * <code>optional string accountType = 5;</code>
      */
     public java.lang.String getAccountType() {
       java.lang.Object ref = accountType_;
@@ -2276,7 +1567,7 @@ public final class HBApiProto {
       }
     }
     /**
-     * <code>optional string accountType = 6;</code>
+     * <code>optional string accountType = 5;</code>
      */
     public com.google.protobuf.ByteString
         getAccountTypeBytes() {
@@ -2292,16 +1583,16 @@ public final class HBApiProto {
       }
     }
 
-    public static final int ADDRESS_FIELD_NUMBER = 7;
+    public static final int ADDRESS_FIELD_NUMBER = 6;
     private volatile java.lang.Object address_;
     /**
-     * <code>optional string address = 7;</code>
+     * <code>optional string address = 6;</code>
      */
     public boolean hasAddress() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>optional string address = 7;</code>
+     * <code>optional string address = 6;</code>
      */
     public java.lang.String getAddress() {
       java.lang.Object ref = address_;
@@ -2318,7 +1609,7 @@ public final class HBApiProto {
       }
     }
     /**
-     * <code>optional string address = 7;</code>
+     * <code>optional string address = 6;</code>
      */
     public com.google.protobuf.ByteString
         getAddressBytes() {
@@ -2334,16 +1625,16 @@ public final class HBApiProto {
       }
     }
 
-    public static final int INTERVAL_FIELD_NUMBER = 8;
+    public static final int INTERVAL_FIELD_NUMBER = 7;
     private volatile java.lang.Object interval_;
     /**
-     * <code>optional string interval = 8;</code>
+     * <code>optional string interval = 7;</code>
      */
     public boolean hasInterval() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional string interval = 8;</code>
+     * <code>optional string interval = 7;</code>
      */
     public java.lang.String getInterval() {
       java.lang.Object ref = interval_;
@@ -2360,7 +1651,7 @@ public final class HBApiProto {
       }
     }
     /**
-     * <code>optional string interval = 8;</code>
+     * <code>optional string interval = 7;</code>
      */
     public com.google.protobuf.ByteString
         getIntervalBytes() {
@@ -2376,31 +1667,38 @@ public final class HBApiProto {
       }
     }
 
-    public static final int ID_FIELD_NUMBER = 9;
-    private int id_;
+    public static final int IDS_FIELD_NUMBER = 8;
+    private com.google.protobuf.Internal.LongList ids_;
     /**
-     * <code>optional int32 id = 9;</code>
+     * <code>repeated int64 ids = 8;</code>
      */
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000100) != 0);
+    public java.util.List<java.lang.Long>
+        getIdsList() {
+      return ids_;
     }
     /**
-     * <code>optional int32 id = 9;</code>
+     * <code>repeated int64 ids = 8;</code>
      */
-    public int getId() {
-      return id_;
+    public int getIdsCount() {
+      return ids_.size();
+    }
+    /**
+     * <code>repeated int64 ids = 8;</code>
+     */
+    public long getIds(int index) {
+      return ids_.getLong(index);
     }
 
-    public static final int ORDERTYPE_FIELD_NUMBER = 10;
+    public static final int ORDERTYPE_FIELD_NUMBER = 9;
     private volatile java.lang.Object orderType_;
     /**
-     * <code>optional string orderType = 10;</code>
+     * <code>optional string orderType = 9;</code>
      */
     public boolean hasOrderType() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>optional string orderType = 10;</code>
+     * <code>optional string orderType = 9;</code>
      */
     public java.lang.String getOrderType() {
       java.lang.Object ref = orderType_;
@@ -2417,7 +1715,7 @@ public final class HBApiProto {
       }
     }
     /**
-     * <code>optional string orderType = 10;</code>
+     * <code>optional string orderType = 9;</code>
      */
     public com.google.protobuf.ByteString
         getOrderTypeBytes() {
@@ -2433,16 +1731,16 @@ public final class HBApiProto {
       }
     }
 
-    public static final int ORDERSTATE_FIELD_NUMBER = 11;
+    public static final int ORDERSTATE_FIELD_NUMBER = 10;
     private volatile java.lang.Object orderState_;
     /**
-     * <code>optional string orderState = 11;</code>
+     * <code>optional string orderState = 10;</code>
      */
     public boolean hasOrderState() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
-     * <code>optional string orderState = 11;</code>
+     * <code>optional string orderState = 10;</code>
      */
     public java.lang.String getOrderState() {
       java.lang.Object ref = orderState_;
@@ -2459,7 +1757,7 @@ public final class HBApiProto {
       }
     }
     /**
-     * <code>optional string orderState = 11;</code>
+     * <code>optional string orderState = 10;</code>
      */
     public com.google.protobuf.ByteString
         getOrderStateBytes() {
@@ -2473,6 +1771,36 @@ public final class HBApiProto {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 11;
+    private double amount_;
+    /**
+     * <code>optional double amount = 11;</code>
+     */
+    public boolean hasAmount() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional double amount = 11;</code>
+     */
+    public double getAmount() {
+      return amount_;
+    }
+
+    public static final int PRICE_FIELD_NUMBER = 12;
+    private double price_;
+    /**
+     * <code>optional double price = 12;</code>
+     */
+    public boolean hasPrice() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional double price = 12;</code>
+     */
+    public double getPrice() {
+      return price_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2493,34 +1821,37 @@ public final class HBApiProto {
         output.writeEnum(1, type_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, apiKey_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, symbol_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, secretKey_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, symbols_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, symbol_);
+        output.writeInt32(4, size_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt32(5, size_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, accountType_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, accountType_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, address_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, address_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, interval_);
+      }
+      for (int i = 0; i < ids_.size(); i++) {
+        output.writeInt64(8, ids_.getLong(i));
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, interval_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, orderType_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
-        output.writeInt32(9, id_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, orderState_);
       }
       if (((bitField0_ & 0x00000200) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, orderType_);
+        output.writeDouble(11, amount_);
       }
       if (((bitField0_ & 0x00000400) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, orderState_);
+        output.writeDouble(12, price_);
       }
       unknownFields.writeTo(output);
     }
@@ -2536,36 +1867,46 @@ public final class HBApiProto {
           .computeEnumSize(1, type_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, apiKey_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, symbol_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, secretKey_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, symbols_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, symbol_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, size_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, size_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, accountType_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, accountType_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, address_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, address_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, interval_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < ids_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(ids_.getLong(i));
+        }
+        size += dataSize;
+        size += 1 * getIdsList().size();
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, interval_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, orderType_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, id_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, orderState_);
       }
       if (((bitField0_ & 0x00000200) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, orderType_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(11, amount_);
       }
       if (((bitField0_ & 0x00000400) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, orderState_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(12, price_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2586,20 +1927,15 @@ public final class HBApiProto {
       if (hasType()) {
         if (type_ != other.type_) return false;
       }
-      if (hasApiKey() != other.hasApiKey()) return false;
-      if (hasApiKey()) {
-        if (!getApiKey()
-            .equals(other.getApiKey())) return false;
-      }
-      if (hasSecretKey() != other.hasSecretKey()) return false;
-      if (hasSecretKey()) {
-        if (!getSecretKey()
-            .equals(other.getSecretKey())) return false;
-      }
       if (hasSymbol() != other.hasSymbol()) return false;
       if (hasSymbol()) {
         if (!getSymbol()
             .equals(other.getSymbol())) return false;
+      }
+      if (hasSymbols() != other.hasSymbols()) return false;
+      if (hasSymbols()) {
+        if (!getSymbols()
+            .equals(other.getSymbols())) return false;
       }
       if (hasSize() != other.hasSize()) return false;
       if (hasSize()) {
@@ -2621,11 +1957,8 @@ public final class HBApiProto {
         if (!getInterval()
             .equals(other.getInterval())) return false;
       }
-      if (hasId() != other.hasId()) return false;
-      if (hasId()) {
-        if (getId()
-            != other.getId()) return false;
-      }
+      if (!getIdsList()
+          .equals(other.getIdsList())) return false;
       if (hasOrderType() != other.hasOrderType()) return false;
       if (hasOrderType()) {
         if (!getOrderType()
@@ -2635,6 +1968,18 @@ public final class HBApiProto {
       if (hasOrderState()) {
         if (!getOrderState()
             .equals(other.getOrderState())) return false;
+      }
+      if (hasAmount() != other.hasAmount()) return false;
+      if (hasAmount()) {
+        if (java.lang.Double.doubleToLongBits(getAmount())
+            != java.lang.Double.doubleToLongBits(
+                other.getAmount())) return false;
+      }
+      if (hasPrice() != other.hasPrice()) return false;
+      if (hasPrice()) {
+        if (java.lang.Double.doubleToLongBits(getPrice())
+            != java.lang.Double.doubleToLongBits(
+                other.getPrice())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -2651,17 +1996,13 @@ public final class HBApiProto {
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
         hash = (53 * hash) + type_;
       }
-      if (hasApiKey()) {
-        hash = (37 * hash) + APIKEY_FIELD_NUMBER;
-        hash = (53 * hash) + getApiKey().hashCode();
-      }
-      if (hasSecretKey()) {
-        hash = (37 * hash) + SECRETKEY_FIELD_NUMBER;
-        hash = (53 * hash) + getSecretKey().hashCode();
-      }
       if (hasSymbol()) {
         hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
         hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasSymbols()) {
+        hash = (37 * hash) + SYMBOLS_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbols().hashCode();
       }
       if (hasSize()) {
         hash = (37 * hash) + SIZE_FIELD_NUMBER;
@@ -2679,9 +2020,9 @@ public final class HBApiProto {
         hash = (37 * hash) + INTERVAL_FIELD_NUMBER;
         hash = (53 * hash) + getInterval().hashCode();
       }
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
+      if (getIdsCount() > 0) {
+        hash = (37 * hash) + IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getIdsList().hashCode();
       }
       if (hasOrderType()) {
         hash = (37 * hash) + ORDERTYPE_FIELD_NUMBER;
@@ -2690,6 +2031,16 @@ public final class HBApiProto {
       if (hasOrderState()) {
         hash = (37 * hash) + ORDERSTATE_FIELD_NUMBER;
         hash = (53 * hash) + getOrderState().hashCode();
+      }
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAmount()));
+      }
+      if (hasPrice()) {
+        hash = (37 * hash) + PRICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getPrice()));
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2826,26 +2177,28 @@ public final class HBApiProto {
         super.clear();
         type_ = 1;
         bitField0_ = (bitField0_ & ~0x00000001);
-        apiKey_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        secretKey_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
         symbol_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000002);
+        symbols_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         size_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         accountType_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         address_ = "";
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         interval_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        ids_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000080);
-        id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
         orderType_ = "";
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000100);
         orderState_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
+        amount_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000400);
+        price_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -2881,43 +2234,48 @@ public final class HBApiProto {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.apiKey_ = apiKey_;
+        result.symbol_ = symbol_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.secretKey_ = secretKey_;
+        result.symbols_ = symbols_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.size_ = size_;
           to_bitField0_ |= 0x00000008;
         }
-        result.symbol_ = symbol_;
         if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.size_ = size_;
           to_bitField0_ |= 0x00000010;
         }
+        result.accountType_ = accountType_;
         if (((from_bitField0_ & 0x00000020) != 0)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.accountType_ = accountType_;
+        result.address_ = address_;
         if (((from_bitField0_ & 0x00000040) != 0)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.address_ = address_;
-        if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.interval_ = interval_;
+        if (((bitField0_ & 0x00000080) != 0)) {
+          ids_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.ids_ = ids_;
+        if (((from_bitField0_ & 0x00000100) != 0)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.interval_ = interval_;
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.id_ = id_;
+        result.orderType_ = orderType_;
+        if (((from_bitField0_ & 0x00000200) != 0)) {
           to_bitField0_ |= 0x00000100;
         }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.orderState_ = orderState_;
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.amount_ = amount_;
           to_bitField0_ |= 0x00000200;
         }
-        result.orderType_ = orderType_;
-        if (((from_bitField0_ & 0x00000400) != 0)) {
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.price_ = price_;
           to_bitField0_ |= 0x00000400;
         }
-        result.orderState_ = orderState_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2970,51 +2328,59 @@ public final class HBApiProto {
         if (other.hasType()) {
           setType(other.getType());
         }
-        if (other.hasApiKey()) {
-          bitField0_ |= 0x00000002;
-          apiKey_ = other.apiKey_;
-          onChanged();
-        }
-        if (other.hasSecretKey()) {
-          bitField0_ |= 0x00000004;
-          secretKey_ = other.secretKey_;
-          onChanged();
-        }
         if (other.hasSymbol()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000002;
           symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasSymbols()) {
+          bitField0_ |= 0x00000004;
+          symbols_ = other.symbols_;
           onChanged();
         }
         if (other.hasSize()) {
           setSize(other.getSize());
         }
         if (other.hasAccountType()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
           accountType_ = other.accountType_;
           onChanged();
         }
         if (other.hasAddress()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000020;
           address_ = other.address_;
           onChanged();
         }
         if (other.hasInterval()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000040;
           interval_ = other.interval_;
           onChanged();
         }
-        if (other.hasId()) {
-          setId(other.getId());
+        if (!other.ids_.isEmpty()) {
+          if (ids_.isEmpty()) {
+            ids_ = other.ids_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureIdsIsMutable();
+            ids_.addAll(other.ids_);
+          }
+          onChanged();
         }
         if (other.hasOrderType()) {
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000100;
           orderType_ = other.orderType_;
           onChanged();
         }
         if (other.hasOrderState()) {
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000200;
           orderState_ = other.orderState_;
           onChanged();
+        }
+        if (other.hasAmount()) {
+          setAmount(other.getAmount());
+        }
+        if (other.hasPrice()) {
+          setPrice(other.getPrice());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3059,7 +2425,7 @@ public final class HBApiProto {
       public com.gene.proto.HBApiProto.ReqType getType() {
         @SuppressWarnings("deprecation")
         com.gene.proto.HBApiProto.ReqType result = com.gene.proto.HBApiProto.ReqType.valueOf(type_);
-        return result == null ? com.gene.proto.HBApiProto.ReqType.ACCOUNT : result;
+        return result == null ? com.gene.proto.HBApiProto.ReqType.OPENORDERS : result;
       }
       /**
        * <code>optional .com.ly.proto.ReqType type = 1;</code>
@@ -3083,167 +2449,15 @@ public final class HBApiProto {
         return this;
       }
 
-      private java.lang.Object apiKey_ = "";
+      private java.lang.Object symbol_ = "";
       /**
-       * <code>optional string apiKey = 2;</code>
+       * <code>optional string symbol = 2;</code>
        */
-      public boolean hasApiKey() {
+      public boolean hasSymbol() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional string apiKey = 2;</code>
-       */
-      public java.lang.String getApiKey() {
-        java.lang.Object ref = apiKey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            apiKey_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string apiKey = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getApiKeyBytes() {
-        java.lang.Object ref = apiKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          apiKey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string apiKey = 2;</code>
-       */
-      public Builder setApiKey(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        apiKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string apiKey = 2;</code>
-       */
-      public Builder clearApiKey() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        apiKey_ = getDefaultInstance().getApiKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string apiKey = 2;</code>
-       */
-      public Builder setApiKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        apiKey_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object secretKey_ = "";
-      /**
-       * <code>optional string secretKey = 3;</code>
-       */
-      public boolean hasSecretKey() {
-        return ((bitField0_ & 0x00000004) != 0);
-      }
-      /**
-       * <code>optional string secretKey = 3;</code>
-       */
-      public java.lang.String getSecretKey() {
-        java.lang.Object ref = secretKey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            secretKey_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string secretKey = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getSecretKeyBytes() {
-        java.lang.Object ref = secretKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          secretKey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string secretKey = 3;</code>
-       */
-      public Builder setSecretKey(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        secretKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string secretKey = 3;</code>
-       */
-      public Builder clearSecretKey() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        secretKey_ = getDefaultInstance().getSecretKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string secretKey = 3;</code>
-       */
-      public Builder setSecretKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        secretKey_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object symbol_ = "";
-      /**
-       * <code>optional string symbol = 4;</code>
-       */
-      public boolean hasSymbol() {
-        return ((bitField0_ & 0x00000008) != 0);
-      }
-      /**
-       * <code>optional string symbol = 4;</code>
+       * <code>optional string symbol = 2;</code>
        */
       public java.lang.String getSymbol() {
         java.lang.Object ref = symbol_;
@@ -3260,7 +2474,7 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string symbol = 4;</code>
+       * <code>optional string symbol = 2;</code>
        */
       public com.google.protobuf.ByteString
           getSymbolBytes() {
@@ -3276,68 +2490,144 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string symbol = 4;</code>
+       * <code>optional string symbol = 2;</code>
        */
       public Builder setSymbol(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000002;
         symbol_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string symbol = 4;</code>
+       * <code>optional string symbol = 2;</code>
        */
       public Builder clearSymbol() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000002);
         symbol_ = getDefaultInstance().getSymbol();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string symbol = 4;</code>
+       * <code>optional string symbol = 2;</code>
        */
       public Builder setSymbolBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000002;
         symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object symbols_ = "";
+      /**
+       * <code>optional string symbols = 3;</code>
+       */
+      public boolean hasSymbols() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string symbols = 3;</code>
+       */
+      public java.lang.String getSymbols() {
+        java.lang.Object ref = symbols_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbols_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbols = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolsBytes() {
+        java.lang.Object ref = symbols_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbols_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbols = 3;</code>
+       */
+      public Builder setSymbols(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        symbols_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbols = 3;</code>
+       */
+      public Builder clearSymbols() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        symbols_ = getDefaultInstance().getSymbols();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbols = 3;</code>
+       */
+      public Builder setSymbolsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        symbols_ = value;
         onChanged();
         return this;
       }
 
       private int size_ ;
       /**
-       * <code>optional int32 size = 5;</code>
+       * <code>optional int32 size = 4;</code>
        */
       public boolean hasSize() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional int32 size = 5;</code>
+       * <code>optional int32 size = 4;</code>
        */
       public int getSize() {
         return size_;
       }
       /**
-       * <code>optional int32 size = 5;</code>
+       * <code>optional int32 size = 4;</code>
        */
       public Builder setSize(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         size_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 size = 5;</code>
+       * <code>optional int32 size = 4;</code>
        */
       public Builder clearSize() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         size_ = 0;
         onChanged();
         return this;
@@ -3345,13 +2635,13 @@ public final class HBApiProto {
 
       private java.lang.Object accountType_ = "";
       /**
-       * <code>optional string accountType = 6;</code>
+       * <code>optional string accountType = 5;</code>
        */
       public boolean hasAccountType() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional string accountType = 6;</code>
+       * <code>optional string accountType = 5;</code>
        */
       public java.lang.String getAccountType() {
         java.lang.Object ref = accountType_;
@@ -3368,7 +2658,7 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string accountType = 6;</code>
+       * <code>optional string accountType = 5;</code>
        */
       public com.google.protobuf.ByteString
           getAccountTypeBytes() {
@@ -3384,36 +2674,36 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string accountType = 6;</code>
+       * <code>optional string accountType = 5;</code>
        */
       public Builder setAccountType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000010;
         accountType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string accountType = 6;</code>
+       * <code>optional string accountType = 5;</code>
        */
       public Builder clearAccountType() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         accountType_ = getDefaultInstance().getAccountType();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string accountType = 6;</code>
+       * <code>optional string accountType = 5;</code>
        */
       public Builder setAccountTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000010;
         accountType_ = value;
         onChanged();
         return this;
@@ -3421,13 +2711,13 @@ public final class HBApiProto {
 
       private java.lang.Object address_ = "";
       /**
-       * <code>optional string address = 7;</code>
+       * <code>optional string address = 6;</code>
        */
       public boolean hasAddress() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
-       * <code>optional string address = 7;</code>
+       * <code>optional string address = 6;</code>
        */
       public java.lang.String getAddress() {
         java.lang.Object ref = address_;
@@ -3444,7 +2734,7 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string address = 7;</code>
+       * <code>optional string address = 6;</code>
        */
       public com.google.protobuf.ByteString
           getAddressBytes() {
@@ -3460,36 +2750,36 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string address = 7;</code>
+       * <code>optional string address = 6;</code>
        */
       public Builder setAddress(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         address_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string address = 7;</code>
+       * <code>optional string address = 6;</code>
        */
       public Builder clearAddress() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         address_ = getDefaultInstance().getAddress();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string address = 7;</code>
+       * <code>optional string address = 6;</code>
        */
       public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000020;
         address_ = value;
         onChanged();
         return this;
@@ -3497,13 +2787,13 @@ public final class HBApiProto {
 
       private java.lang.Object interval_ = "";
       /**
-       * <code>optional string interval = 8;</code>
+       * <code>optional string interval = 7;</code>
        */
       public boolean hasInterval() {
-        return ((bitField0_ & 0x00000080) != 0);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>optional string interval = 8;</code>
+       * <code>optional string interval = 7;</code>
        */
       public java.lang.String getInterval() {
         java.lang.Object ref = interval_;
@@ -3520,7 +2810,7 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string interval = 8;</code>
+       * <code>optional string interval = 7;</code>
        */
       public com.google.protobuf.ByteString
           getIntervalBytes() {
@@ -3536,82 +2826,117 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string interval = 8;</code>
+       * <code>optional string interval = 7;</code>
        */
       public Builder setInterval(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000040;
         interval_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string interval = 8;</code>
+       * <code>optional string interval = 7;</code>
        */
       public Builder clearInterval() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         interval_ = getDefaultInstance().getInterval();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string interval = 8;</code>
+       * <code>optional string interval = 7;</code>
        */
       public Builder setIntervalBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000040;
         interval_ = value;
         onChanged();
         return this;
       }
 
-      private int id_ ;
-      /**
-       * <code>optional int32 id = 9;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000100) != 0);
+      private com.google.protobuf.Internal.LongList ids_ = emptyLongList();
+      private void ensureIdsIsMutable() {
+        if (!((bitField0_ & 0x00000080) != 0)) {
+          ids_ = mutableCopy(ids_);
+          bitField0_ |= 0x00000080;
+         }
       }
       /**
-       * <code>optional int32 id = 9;</code>
+       * <code>repeated int64 ids = 8;</code>
        */
-      public int getId() {
-        return id_;
+      public java.util.List<java.lang.Long>
+          getIdsList() {
+        return ((bitField0_ & 0x00000080) != 0) ?
+                 java.util.Collections.unmodifiableList(ids_) : ids_;
       }
       /**
-       * <code>optional int32 id = 9;</code>
+       * <code>repeated int64 ids = 8;</code>
        */
-      public Builder setId(int value) {
-        bitField0_ |= 0x00000100;
-        id_ = value;
+      public int getIdsCount() {
+        return ids_.size();
+      }
+      /**
+       * <code>repeated int64 ids = 8;</code>
+       */
+      public long getIds(int index) {
+        return ids_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 ids = 8;</code>
+       */
+      public Builder setIds(
+          int index, long value) {
+        ensureIdsIsMutable();
+        ids_.setLong(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 id = 9;</code>
+       * <code>repeated int64 ids = 8;</code>
        */
-      public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        id_ = 0;
+      public Builder addIds(long value) {
+        ensureIdsIsMutable();
+        ids_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 ids = 8;</code>
+       */
+      public Builder addAllIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, ids_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 ids = 8;</code>
+       */
+      public Builder clearIds() {
+        ids_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
 
       private java.lang.Object orderType_ = "";
       /**
-       * <code>optional string orderType = 10;</code>
+       * <code>optional string orderType = 9;</code>
        */
       public boolean hasOrderType() {
-        return ((bitField0_ & 0x00000200) != 0);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
-       * <code>optional string orderType = 10;</code>
+       * <code>optional string orderType = 9;</code>
        */
       public java.lang.String getOrderType() {
         java.lang.Object ref = orderType_;
@@ -3628,7 +2953,7 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string orderType = 10;</code>
+       * <code>optional string orderType = 9;</code>
        */
       public com.google.protobuf.ByteString
           getOrderTypeBytes() {
@@ -3644,36 +2969,36 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string orderType = 10;</code>
+       * <code>optional string orderType = 9;</code>
        */
       public Builder setOrderType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000100;
         orderType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string orderType = 10;</code>
+       * <code>optional string orderType = 9;</code>
        */
       public Builder clearOrderType() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000100);
         orderType_ = getDefaultInstance().getOrderType();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string orderType = 10;</code>
+       * <code>optional string orderType = 9;</code>
        */
       public Builder setOrderTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000100;
         orderType_ = value;
         onChanged();
         return this;
@@ -3681,13 +3006,13 @@ public final class HBApiProto {
 
       private java.lang.Object orderState_ = "";
       /**
-       * <code>optional string orderState = 11;</code>
+       * <code>optional string orderState = 10;</code>
        */
       public boolean hasOrderState() {
-        return ((bitField0_ & 0x00000400) != 0);
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
-       * <code>optional string orderState = 11;</code>
+       * <code>optional string orderState = 10;</code>
        */
       public java.lang.String getOrderState() {
         java.lang.Object ref = orderState_;
@@ -3704,7 +3029,7 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string orderState = 11;</code>
+       * <code>optional string orderState = 10;</code>
        */
       public com.google.protobuf.ByteString
           getOrderStateBytes() {
@@ -3720,37 +3045,101 @@ public final class HBApiProto {
         }
       }
       /**
-       * <code>optional string orderState = 11;</code>
+       * <code>optional string orderState = 10;</code>
        */
       public Builder setOrderState(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00000200;
         orderState_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string orderState = 11;</code>
+       * <code>optional string orderState = 10;</code>
        */
       public Builder clearOrderState() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000200);
         orderState_ = getDefaultInstance().getOrderState();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string orderState = 11;</code>
+       * <code>optional string orderState = 10;</code>
        */
       public Builder setOrderStateBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00000200;
         orderState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double amount_ ;
+      /**
+       * <code>optional double amount = 11;</code>
+       */
+      public boolean hasAmount() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>optional double amount = 11;</code>
+       */
+      public double getAmount() {
+        return amount_;
+      }
+      /**
+       * <code>optional double amount = 11;</code>
+       */
+      public Builder setAmount(double value) {
+        bitField0_ |= 0x00000400;
+        amount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double amount = 11;</code>
+       */
+      public Builder clearAmount() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        amount_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double price_ ;
+      /**
+       * <code>optional double price = 12;</code>
+       */
+      public boolean hasPrice() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>optional double price = 12;</code>
+       */
+      public double getPrice() {
+        return price_;
+      }
+      /**
+       * <code>optional double price = 12;</code>
+       */
+      public Builder setPrice(double value) {
+        bitField0_ |= 0x00000800;
+        price_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double price = 12;</code>
+       */
+      public Builder clearPrice() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        price_ = 0D;
         onChanged();
         return this;
       }
@@ -3812,46 +3201,127 @@ public final class HBApiProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     *服务器时间utc
-     * </pre>
-     *
-     * <code>optional int64 exchangeTimestamp = 1;</code>
+     * <code>optional int32 result = 1;</code>
      */
-    boolean hasExchangeTimestamp();
+    boolean hasResult();
     /**
-     * <pre>
-     *服务器时间utc
-     * </pre>
-     *
-     * <code>optional int64 exchangeTimestamp = 1;</code>
+     * <code>optional int32 result = 1;</code>
      */
-    long getExchangeTimestamp();
+    int getResult();
 
     /**
-     * <pre>
-     *市场信息
-     * </pre>
-     *
-     * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+     * <code>optional string msg = 2;</code>
      */
-    boolean hasMarkInfo();
+    boolean hasMsg();
     /**
-     * <pre>
-     *市场信息
-     * </pre>
-     *
-     * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+     * <code>optional string msg = 2;</code>
      */
-    com.gene.proto.HBApiProto.MarkMsg getMarkInfo();
+    java.lang.String getMsg();
     /**
-     * <pre>
-     *市场信息
-     * </pre>
-     *
-     * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+     * <code>optional string msg = 2;</code>
      */
-    com.gene.proto.HBApiProto.MarkMsgOrBuilder getMarkInfoOrBuilder();
+    com.google.protobuf.ByteString
+        getMsgBytes();
+
+    /**
+     * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+     */
+    boolean hasAccount();
+    /**
+     * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+     */
+    com.gene.proto.HBApiProto.AccountMsg getAccount();
+    /**
+     * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+     */
+    com.gene.proto.HBApiProto.AccountMsgOrBuilder getAccountOrBuilder();
+
+    /**
+     * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+     */
+    boolean hasAccountChangeEvent();
+    /**
+     * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+     */
+    com.gene.proto.HBApiProto.AccountEventMsg getAccountChangeEvent();
+    /**
+     * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+     */
+    com.gene.proto.HBApiProto.AccountEventMsgOrBuilder getAccountChangeEventOrBuilder();
+
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    java.util.List<com.gene.proto.HBApiProto.OrderMsg> 
+        getOpenOrdersList();
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    com.gene.proto.HBApiProto.OrderMsg getOpenOrders(int index);
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    int getOpenOrdersCount();
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    java.util.List<? extends com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+        getOpenOrdersOrBuilderList();
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    com.gene.proto.HBApiProto.OrderMsgOrBuilder getOpenOrdersOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    java.util.List<com.gene.proto.HBApiProto.OrderMsg> 
+        getOrderHistoryList();
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    com.gene.proto.HBApiProto.OrderMsg getOrderHistory(int index);
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    int getOrderHistoryCount();
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    java.util.List<? extends com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+        getOrderHistoryOrBuilderList();
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    com.gene.proto.HBApiProto.OrderMsgOrBuilder getOrderHistoryOrBuilder(
+        int index);
+
+    /**
+     * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+     */
+    boolean hasOrderUdateEvent();
+    /**
+     * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+     */
+    com.gene.proto.HBApiProto.OrderUpdateEventMsg getOrderUdateEvent();
+    /**
+     * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+     */
+    com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder getOrderUdateEventOrBuilder();
+
+    /**
+     * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+     */
+    boolean hasBestQuote();
+    /**
+     * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+     */
+    com.gene.proto.HBApiProto.BestQuoteMsg getBestQuote();
+    /**
+     * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+     */
+    com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder getBestQuoteOrBuilder();
   }
   /**
    * Protobuf type {@code com.ly.proto.ResApiMsg}
@@ -3866,6 +3336,9 @@ public final class HBApiProto {
       super(builder);
     }
     private ResApiMsg() {
+      msg_ = "";
+      openOrders_ = java.util.Collections.emptyList();
+      orderHistory_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3894,20 +3367,83 @@ public final class HBApiProto {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              exchangeTimestamp_ = input.readInt64();
+              result_ = input.readInt32();
               break;
             }
             case 18: {
-              com.gene.proto.HBApiProto.MarkMsg.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = markInfo_.toBuilder();
-              }
-              markInfo_ = input.readMessage(com.gene.proto.HBApiProto.MarkMsg.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(markInfo_);
-                markInfo_ = subBuilder.buildPartial();
-              }
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
+              msg_ = bs;
+              break;
+            }
+            case 26: {
+              com.gene.proto.HBApiProto.AccountMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) != 0)) {
+                subBuilder = account_.toBuilder();
+              }
+              account_ = input.readMessage(com.gene.proto.HBApiProto.AccountMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(account_);
+                account_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              com.gene.proto.HBApiProto.AccountEventMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) != 0)) {
+                subBuilder = accountChangeEvent_.toBuilder();
+              }
+              accountChangeEvent_ = input.readMessage(com.gene.proto.HBApiProto.AccountEventMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(accountChangeEvent_);
+                accountChangeEvent_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                openOrders_ = new java.util.ArrayList<com.gene.proto.HBApiProto.OrderMsg>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              openOrders_.add(
+                  input.readMessage(com.gene.proto.HBApiProto.OrderMsg.PARSER, extensionRegistry));
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+                orderHistory_ = new java.util.ArrayList<com.gene.proto.HBApiProto.OrderMsg>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              orderHistory_.add(
+                  input.readMessage(com.gene.proto.HBApiProto.OrderMsg.PARSER, extensionRegistry));
+              break;
+            }
+            case 58: {
+              com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) != 0)) {
+                subBuilder = orderUdateEvent_.toBuilder();
+              }
+              orderUdateEvent_ = input.readMessage(com.gene.proto.HBApiProto.OrderUpdateEventMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(orderUdateEvent_);
+                orderUdateEvent_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 66: {
+              com.gene.proto.HBApiProto.BestQuoteMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) != 0)) {
+                subBuilder = bestQuote_.toBuilder();
+              }
+              bestQuote_ = input.readMessage(com.gene.proto.HBApiProto.BestQuoteMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(bestQuote_);
+                bestQuote_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
               break;
             }
             default: {
@@ -3925,6 +3461,12 @@ public final class HBApiProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          openOrders_ = java.util.Collections.unmodifiableList(openOrders_);
+        }
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
+          orderHistory_ = java.util.Collections.unmodifiableList(orderHistory_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3943,60 +3485,215 @@ public final class HBApiProto {
     }
 
     private int bitField0_;
-    public static final int EXCHANGETIMESTAMP_FIELD_NUMBER = 1;
-    private long exchangeTimestamp_;
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private int result_;
     /**
-     * <pre>
-     *服务器时间utc
-     * </pre>
-     *
-     * <code>optional int64 exchangeTimestamp = 1;</code>
+     * <code>optional int32 result = 1;</code>
      */
-    public boolean hasExchangeTimestamp() {
+    public boolean hasResult() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <pre>
-     *服务器时间utc
-     * </pre>
-     *
-     * <code>optional int64 exchangeTimestamp = 1;</code>
+     * <code>optional int32 result = 1;</code>
      */
-    public long getExchangeTimestamp() {
-      return exchangeTimestamp_;
+    public int getResult() {
+      return result_;
     }
 
-    public static final int MARKINFO_FIELD_NUMBER = 2;
-    private com.gene.proto.HBApiProto.MarkMsg markInfo_;
+    public static final int MSG_FIELD_NUMBER = 2;
+    private volatile java.lang.Object msg_;
     /**
-     * <pre>
-     *市场信息
-     * </pre>
-     *
-     * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+     * <code>optional string msg = 2;</code>
      */
-    public boolean hasMarkInfo() {
+    public boolean hasMsg() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <pre>
-     *市场信息
-     * </pre>
-     *
-     * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+     * <code>optional string msg = 2;</code>
      */
-    public com.gene.proto.HBApiProto.MarkMsg getMarkInfo() {
-      return markInfo_ == null ? com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance() : markInfo_;
+    public java.lang.String getMsg() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          msg_ = s;
+        }
+        return s;
+      }
     }
     /**
-     * <pre>
-     *市场信息
-     * </pre>
-     *
-     * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+     * <code>optional string msg = 2;</code>
      */
-    public com.gene.proto.HBApiProto.MarkMsgOrBuilder getMarkInfoOrBuilder() {
-      return markInfo_ == null ? com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance() : markInfo_;
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_FIELD_NUMBER = 3;
+    private com.gene.proto.HBApiProto.AccountMsg account_;
+    /**
+     * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+     */
+    public boolean hasAccount() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+     */
+    public com.gene.proto.HBApiProto.AccountMsg getAccount() {
+      return account_ == null ? com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance() : account_;
+    }
+    /**
+     * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+     */
+    public com.gene.proto.HBApiProto.AccountMsgOrBuilder getAccountOrBuilder() {
+      return account_ == null ? com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance() : account_;
+    }
+
+    public static final int ACCOUNTCHANGEEVENT_FIELD_NUMBER = 4;
+    private com.gene.proto.HBApiProto.AccountEventMsg accountChangeEvent_;
+    /**
+     * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+     */
+    public boolean hasAccountChangeEvent() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+     */
+    public com.gene.proto.HBApiProto.AccountEventMsg getAccountChangeEvent() {
+      return accountChangeEvent_ == null ? com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance() : accountChangeEvent_;
+    }
+    /**
+     * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+     */
+    public com.gene.proto.HBApiProto.AccountEventMsgOrBuilder getAccountChangeEventOrBuilder() {
+      return accountChangeEvent_ == null ? com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance() : accountChangeEvent_;
+    }
+
+    public static final int OPENORDERS_FIELD_NUMBER = 5;
+    private java.util.List<com.gene.proto.HBApiProto.OrderMsg> openOrders_;
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    public java.util.List<com.gene.proto.HBApiProto.OrderMsg> getOpenOrdersList() {
+      return openOrders_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    public java.util.List<? extends com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+        getOpenOrdersOrBuilderList() {
+      return openOrders_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    public int getOpenOrdersCount() {
+      return openOrders_.size();
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderMsg getOpenOrders(int index) {
+      return openOrders_.get(index);
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderMsgOrBuilder getOpenOrdersOrBuilder(
+        int index) {
+      return openOrders_.get(index);
+    }
+
+    public static final int ORDERHISTORY_FIELD_NUMBER = 6;
+    private java.util.List<com.gene.proto.HBApiProto.OrderMsg> orderHistory_;
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    public java.util.List<com.gene.proto.HBApiProto.OrderMsg> getOrderHistoryList() {
+      return orderHistory_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    public java.util.List<? extends com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+        getOrderHistoryOrBuilderList() {
+      return orderHistory_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    public int getOrderHistoryCount() {
+      return orderHistory_.size();
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderMsg getOrderHistory(int index) {
+      return orderHistory_.get(index);
+    }
+    /**
+     * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderMsgOrBuilder getOrderHistoryOrBuilder(
+        int index) {
+      return orderHistory_.get(index);
+    }
+
+    public static final int ORDERUDATEEVENT_FIELD_NUMBER = 7;
+    private com.gene.proto.HBApiProto.OrderUpdateEventMsg orderUdateEvent_;
+    /**
+     * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+     */
+    public boolean hasOrderUdateEvent() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderUpdateEventMsg getOrderUdateEvent() {
+      return orderUdateEvent_ == null ? com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance() : orderUdateEvent_;
+    }
+    /**
+     * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder getOrderUdateEventOrBuilder() {
+      return orderUdateEvent_ == null ? com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance() : orderUdateEvent_;
+    }
+
+    public static final int BESTQUOTE_FIELD_NUMBER = 8;
+    private com.gene.proto.HBApiProto.BestQuoteMsg bestQuote_;
+    /**
+     * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+     */
+    public boolean hasBestQuote() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+     */
+    public com.gene.proto.HBApiProto.BestQuoteMsg getBestQuote() {
+      return bestQuote_ == null ? com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance() : bestQuote_;
+    }
+    /**
+     * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+     */
+    public com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder getBestQuoteOrBuilder() {
+      return bestQuote_ == null ? com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance() : bestQuote_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4014,10 +3711,28 @@ public final class HBApiProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, exchangeTimestamp_);
+        output.writeInt32(1, result_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeMessage(2, getMarkInfo());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(3, getAccount());
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeMessage(4, getAccountChangeEvent());
+      }
+      for (int i = 0; i < openOrders_.size(); i++) {
+        output.writeMessage(5, openOrders_.get(i));
+      }
+      for (int i = 0; i < orderHistory_.size(); i++) {
+        output.writeMessage(6, orderHistory_.get(i));
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeMessage(7, getOrderUdateEvent());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeMessage(8, getBestQuote());
       }
       unknownFields.writeTo(output);
     }
@@ -4030,11 +3745,34 @@ public final class HBApiProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, exchangeTimestamp_);
+          .computeInt32Size(1, result_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getMarkInfo());
+          .computeMessageSize(3, getAccount());
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getAccountChangeEvent());
+      }
+      for (int i = 0; i < openOrders_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, openOrders_.get(i));
+      }
+      for (int i = 0; i < orderHistory_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, orderHistory_.get(i));
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getOrderUdateEvent());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getBestQuote());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4051,15 +3789,39 @@ public final class HBApiProto {
       }
       com.gene.proto.HBApiProto.ResApiMsg other = (com.gene.proto.HBApiProto.ResApiMsg) obj;
 
-      if (hasExchangeTimestamp() != other.hasExchangeTimestamp()) return false;
-      if (hasExchangeTimestamp()) {
-        if (getExchangeTimestamp()
-            != other.getExchangeTimestamp()) return false;
+      if (hasResult() != other.hasResult()) return false;
+      if (hasResult()) {
+        if (getResult()
+            != other.getResult()) return false;
       }
-      if (hasMarkInfo() != other.hasMarkInfo()) return false;
-      if (hasMarkInfo()) {
-        if (!getMarkInfo()
-            .equals(other.getMarkInfo())) return false;
+      if (hasMsg() != other.hasMsg()) return false;
+      if (hasMsg()) {
+        if (!getMsg()
+            .equals(other.getMsg())) return false;
+      }
+      if (hasAccount() != other.hasAccount()) return false;
+      if (hasAccount()) {
+        if (!getAccount()
+            .equals(other.getAccount())) return false;
+      }
+      if (hasAccountChangeEvent() != other.hasAccountChangeEvent()) return false;
+      if (hasAccountChangeEvent()) {
+        if (!getAccountChangeEvent()
+            .equals(other.getAccountChangeEvent())) return false;
+      }
+      if (!getOpenOrdersList()
+          .equals(other.getOpenOrdersList())) return false;
+      if (!getOrderHistoryList()
+          .equals(other.getOrderHistoryList())) return false;
+      if (hasOrderUdateEvent() != other.hasOrderUdateEvent()) return false;
+      if (hasOrderUdateEvent()) {
+        if (!getOrderUdateEvent()
+            .equals(other.getOrderUdateEvent())) return false;
+      }
+      if (hasBestQuote() != other.hasBestQuote()) return false;
+      if (hasBestQuote()) {
+        if (!getBestQuote()
+            .equals(other.getBestQuote())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -4072,14 +3834,37 @@ public final class HBApiProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasExchangeTimestamp()) {
-        hash = (37 * hash) + EXCHANGETIMESTAMP_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getExchangeTimestamp());
+      if (hasResult()) {
+        hash = (37 * hash) + RESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getResult();
       }
-      if (hasMarkInfo()) {
-        hash = (37 * hash) + MARKINFO_FIELD_NUMBER;
-        hash = (53 * hash) + getMarkInfo().hashCode();
+      if (hasMsg()) {
+        hash = (37 * hash) + MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getMsg().hashCode();
+      }
+      if (hasAccount()) {
+        hash = (37 * hash) + ACCOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAccount().hashCode();
+      }
+      if (hasAccountChangeEvent()) {
+        hash = (37 * hash) + ACCOUNTCHANGEEVENT_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountChangeEvent().hashCode();
+      }
+      if (getOpenOrdersCount() > 0) {
+        hash = (37 * hash) + OPENORDERS_FIELD_NUMBER;
+        hash = (53 * hash) + getOpenOrdersList().hashCode();
+      }
+      if (getOrderHistoryCount() > 0) {
+        hash = (37 * hash) + ORDERHISTORY_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderHistoryList().hashCode();
+      }
+      if (hasOrderUdateEvent()) {
+        hash = (37 * hash) + ORDERUDATEEVENT_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderUdateEvent().hashCode();
+      }
+      if (hasBestQuote()) {
+        hash = (37 * hash) + BESTQUOTE_FIELD_NUMBER;
+        hash = (53 * hash) + getBestQuote().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4209,20 +3994,57 @@ public final class HBApiProto {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getMarkInfoFieldBuilder();
+          getAccountFieldBuilder();
+          getAccountChangeEventFieldBuilder();
+          getOpenOrdersFieldBuilder();
+          getOrderHistoryFieldBuilder();
+          getOrderUdateEventFieldBuilder();
+          getBestQuoteFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        exchangeTimestamp_ = 0L;
+        result_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (markInfoBuilder_ == null) {
-          markInfo_ = null;
-        } else {
-          markInfoBuilder_.clear();
-        }
+        msg_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (accountBuilder_ == null) {
+          account_ = null;
+        } else {
+          accountBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (accountChangeEventBuilder_ == null) {
+          accountChangeEvent_ = null;
+        } else {
+          accountChangeEventBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (openOrdersBuilder_ == null) {
+          openOrders_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          openOrdersBuilder_.clear();
+        }
+        if (orderHistoryBuilder_ == null) {
+          orderHistory_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          orderHistoryBuilder_.clear();
+        }
+        if (orderUdateEventBuilder_ == null) {
+          orderUdateEvent_ = null;
+        } else {
+          orderUdateEventBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        if (bestQuoteBuilder_ == null) {
+          bestQuote_ = null;
+        } else {
+          bestQuoteBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -4252,16 +4074,62 @@ public final class HBApiProto {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.exchangeTimestamp_ = exchangeTimestamp_;
+          result.result_ = result_;
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (markInfoBuilder_ == null) {
-            result.markInfo_ = markInfo_;
-          } else {
-            result.markInfo_ = markInfoBuilder_.build();
-          }
           to_bitField0_ |= 0x00000002;
+        }
+        result.msg_ = msg_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (accountBuilder_ == null) {
+            result.account_ = account_;
+          } else {
+            result.account_ = accountBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          if (accountChangeEventBuilder_ == null) {
+            result.accountChangeEvent_ = accountChangeEvent_;
+          } else {
+            result.accountChangeEvent_ = accountChangeEventBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000008;
+        }
+        if (openOrdersBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0)) {
+            openOrders_ = java.util.Collections.unmodifiableList(openOrders_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.openOrders_ = openOrders_;
+        } else {
+          result.openOrders_ = openOrdersBuilder_.build();
+        }
+        if (orderHistoryBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0)) {
+            orderHistory_ = java.util.Collections.unmodifiableList(orderHistory_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.orderHistory_ = orderHistory_;
+        } else {
+          result.orderHistory_ = orderHistoryBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          if (orderUdateEventBuilder_ == null) {
+            result.orderUdateEvent_ = orderUdateEvent_;
+          } else {
+            result.orderUdateEvent_ = orderUdateEventBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          if (bestQuoteBuilder_ == null) {
+            result.bestQuote_ = bestQuote_;
+          } else {
+            result.bestQuote_ = bestQuoteBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -4312,11 +4180,77 @@ public final class HBApiProto {
 
       public Builder mergeFrom(com.gene.proto.HBApiProto.ResApiMsg other) {
         if (other == com.gene.proto.HBApiProto.ResApiMsg.getDefaultInstance()) return this;
-        if (other.hasExchangeTimestamp()) {
-          setExchangeTimestamp(other.getExchangeTimestamp());
+        if (other.hasResult()) {
+          setResult(other.getResult());
         }
-        if (other.hasMarkInfo()) {
-          mergeMarkInfo(other.getMarkInfo());
+        if (other.hasMsg()) {
+          bitField0_ |= 0x00000002;
+          msg_ = other.msg_;
+          onChanged();
+        }
+        if (other.hasAccount()) {
+          mergeAccount(other.getAccount());
+        }
+        if (other.hasAccountChangeEvent()) {
+          mergeAccountChangeEvent(other.getAccountChangeEvent());
+        }
+        if (openOrdersBuilder_ == null) {
+          if (!other.openOrders_.isEmpty()) {
+            if (openOrders_.isEmpty()) {
+              openOrders_ = other.openOrders_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureOpenOrdersIsMutable();
+              openOrders_.addAll(other.openOrders_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.openOrders_.isEmpty()) {
+            if (openOrdersBuilder_.isEmpty()) {
+              openOrdersBuilder_.dispose();
+              openOrdersBuilder_ = null;
+              openOrders_ = other.openOrders_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              openOrdersBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOpenOrdersFieldBuilder() : null;
+            } else {
+              openOrdersBuilder_.addAllMessages(other.openOrders_);
+            }
+          }
+        }
+        if (orderHistoryBuilder_ == null) {
+          if (!other.orderHistory_.isEmpty()) {
+            if (orderHistory_.isEmpty()) {
+              orderHistory_ = other.orderHistory_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureOrderHistoryIsMutable();
+              orderHistory_.addAll(other.orderHistory_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.orderHistory_.isEmpty()) {
+            if (orderHistoryBuilder_.isEmpty()) {
+              orderHistoryBuilder_.dispose();
+              orderHistoryBuilder_ = null;
+              orderHistory_ = other.orderHistory_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              orderHistoryBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOrderHistoryFieldBuilder() : null;
+            } else {
+              orderHistoryBuilder_.addAllMessages(other.orderHistory_);
+            }
+          }
+        }
+        if (other.hasOrderUdateEvent()) {
+          mergeOrderUdateEvent(other.getOrderUdateEvent());
+        }
+        if (other.hasBestQuote()) {
+          mergeBestQuote(other.getBestQuote());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4348,206 +4282,1064 @@ public final class HBApiProto {
       }
       private int bitField0_;
 
-      private long exchangeTimestamp_ ;
+      private int result_ ;
       /**
-       * <pre>
-       *服务器时间utc
-       * </pre>
-       *
-       * <code>optional int64 exchangeTimestamp = 1;</code>
+       * <code>optional int32 result = 1;</code>
        */
-      public boolean hasExchangeTimestamp() {
+      public boolean hasResult() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <pre>
-       *服务器时间utc
-       * </pre>
-       *
-       * <code>optional int64 exchangeTimestamp = 1;</code>
+       * <code>optional int32 result = 1;</code>
        */
-      public long getExchangeTimestamp() {
-        return exchangeTimestamp_;
+      public int getResult() {
+        return result_;
       }
       /**
-       * <pre>
-       *服务器时间utc
-       * </pre>
-       *
-       * <code>optional int64 exchangeTimestamp = 1;</code>
+       * <code>optional int32 result = 1;</code>
        */
-      public Builder setExchangeTimestamp(long value) {
+      public Builder setResult(int value) {
         bitField0_ |= 0x00000001;
-        exchangeTimestamp_ = value;
+        result_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *服务器时间utc
-       * </pre>
-       *
-       * <code>optional int64 exchangeTimestamp = 1;</code>
+       * <code>optional int32 result = 1;</code>
        */
-      public Builder clearExchangeTimestamp() {
+      public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        exchangeTimestamp_ = 0L;
+        result_ = 0;
         onChanged();
         return this;
       }
 
-      private com.gene.proto.HBApiProto.MarkMsg markInfo_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.gene.proto.HBApiProto.MarkMsg, com.gene.proto.HBApiProto.MarkMsg.Builder, com.gene.proto.HBApiProto.MarkMsgOrBuilder> markInfoBuilder_;
+      private java.lang.Object msg_ = "";
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional string msg = 2;</code>
        */
-      public boolean hasMarkInfo() {
+      public boolean hasMsg() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional string msg = 2;</code>
        */
-      public com.gene.proto.HBApiProto.MarkMsg getMarkInfo() {
-        if (markInfoBuilder_ == null) {
-          return markInfo_ == null ? com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance() : markInfo_;
+      public java.lang.String getMsg() {
+        java.lang.Object ref = msg_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            msg_ = s;
+          }
+          return s;
         } else {
-          return markInfoBuilder_.getMessage();
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional string msg = 2;</code>
        */
-      public Builder setMarkInfo(com.gene.proto.HBApiProto.MarkMsg value) {
-        if (markInfoBuilder_ == null) {
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        java.lang.Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder setMsg(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder clearMsg() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string msg = 2;</code>
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.gene.proto.HBApiProto.AccountMsg account_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.AccountMsg, com.gene.proto.HBApiProto.AccountMsg.Builder, com.gene.proto.HBApiProto.AccountMsgOrBuilder> accountBuilder_;
+      /**
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+       */
+      public boolean hasAccount() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountMsg getAccount() {
+        if (accountBuilder_ == null) {
+          return account_ == null ? com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance() : account_;
+        } else {
+          return accountBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
+       */
+      public Builder setAccount(com.gene.proto.HBApiProto.AccountMsg value) {
+        if (accountBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          markInfo_ = value;
+          account_ = value;
           onChanged();
         } else {
-          markInfoBuilder_.setMessage(value);
+          accountBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
        */
-      public Builder setMarkInfo(
-          com.gene.proto.HBApiProto.MarkMsg.Builder builderForValue) {
-        if (markInfoBuilder_ == null) {
-          markInfo_ = builderForValue.build();
+      public Builder setAccount(
+          com.gene.proto.HBApiProto.AccountMsg.Builder builderForValue) {
+        if (accountBuilder_ == null) {
+          account_ = builderForValue.build();
           onChanged();
         } else {
-          markInfoBuilder_.setMessage(builderForValue.build());
+          accountBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
        */
-      public Builder mergeMarkInfo(com.gene.proto.HBApiProto.MarkMsg value) {
-        if (markInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-              markInfo_ != null &&
-              markInfo_ != com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance()) {
-            markInfo_ =
-              com.gene.proto.HBApiProto.MarkMsg.newBuilder(markInfo_).mergeFrom(value).buildPartial();
+      public Builder mergeAccount(com.gene.proto.HBApiProto.AccountMsg value) {
+        if (accountBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+              account_ != null &&
+              account_ != com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance()) {
+            account_ =
+              com.gene.proto.HBApiProto.AccountMsg.newBuilder(account_).mergeFrom(value).buildPartial();
           } else {
-            markInfo_ = value;
+            account_ = value;
           }
           onChanged();
         } else {
-          markInfoBuilder_.mergeFrom(value);
+          accountBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
        */
-      public Builder clearMarkInfo() {
-        if (markInfoBuilder_ == null) {
-          markInfo_ = null;
+      public Builder clearAccount() {
+        if (accountBuilder_ == null) {
+          account_ = null;
           onChanged();
         } else {
-          markInfoBuilder_.clear();
+          accountBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
        */
-      public com.gene.proto.HBApiProto.MarkMsg.Builder getMarkInfoBuilder() {
-        bitField0_ |= 0x00000002;
+      public com.gene.proto.HBApiProto.AccountMsg.Builder getAccountBuilder() {
+        bitField0_ |= 0x00000004;
         onChanged();
-        return getMarkInfoFieldBuilder().getBuilder();
+        return getAccountFieldBuilder().getBuilder();
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
        */
-      public com.gene.proto.HBApiProto.MarkMsgOrBuilder getMarkInfoOrBuilder() {
-        if (markInfoBuilder_ != null) {
-          return markInfoBuilder_.getMessageOrBuilder();
+      public com.gene.proto.HBApiProto.AccountMsgOrBuilder getAccountOrBuilder() {
+        if (accountBuilder_ != null) {
+          return accountBuilder_.getMessageOrBuilder();
         } else {
-          return markInfo_ == null ?
-              com.gene.proto.HBApiProto.MarkMsg.getDefaultInstance() : markInfo_;
+          return account_ == null ?
+              com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance() : account_;
         }
       }
       /**
-       * <pre>
-       *市场信息
-       * </pre>
-       *
-       * <code>optional .com.ly.proto.MarkMsg markInfo = 2;</code>
+       * <code>optional .com.ly.proto.AccountMsg account = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.gene.proto.HBApiProto.MarkMsg, com.gene.proto.HBApiProto.MarkMsg.Builder, com.gene.proto.HBApiProto.MarkMsgOrBuilder> 
-          getMarkInfoFieldBuilder() {
-        if (markInfoBuilder_ == null) {
-          markInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.gene.proto.HBApiProto.MarkMsg, com.gene.proto.HBApiProto.MarkMsg.Builder, com.gene.proto.HBApiProto.MarkMsgOrBuilder>(
-                  getMarkInfo(),
+          com.gene.proto.HBApiProto.AccountMsg, com.gene.proto.HBApiProto.AccountMsg.Builder, com.gene.proto.HBApiProto.AccountMsgOrBuilder> 
+          getAccountFieldBuilder() {
+        if (accountBuilder_ == null) {
+          accountBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.HBApiProto.AccountMsg, com.gene.proto.HBApiProto.AccountMsg.Builder, com.gene.proto.HBApiProto.AccountMsgOrBuilder>(
+                  getAccount(),
                   getParentForChildren(),
                   isClean());
-          markInfo_ = null;
+          account_ = null;
         }
-        return markInfoBuilder_;
+        return accountBuilder_;
+      }
+
+      private com.gene.proto.HBApiProto.AccountEventMsg accountChangeEvent_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.AccountEventMsg, com.gene.proto.HBApiProto.AccountEventMsg.Builder, com.gene.proto.HBApiProto.AccountEventMsgOrBuilder> accountChangeEventBuilder_;
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public boolean hasAccountChangeEvent() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountEventMsg getAccountChangeEvent() {
+        if (accountChangeEventBuilder_ == null) {
+          return accountChangeEvent_ == null ? com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance() : accountChangeEvent_;
+        } else {
+          return accountChangeEventBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public Builder setAccountChangeEvent(com.gene.proto.HBApiProto.AccountEventMsg value) {
+        if (accountChangeEventBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          accountChangeEvent_ = value;
+          onChanged();
+        } else {
+          accountChangeEventBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public Builder setAccountChangeEvent(
+          com.gene.proto.HBApiProto.AccountEventMsg.Builder builderForValue) {
+        if (accountChangeEventBuilder_ == null) {
+          accountChangeEvent_ = builderForValue.build();
+          onChanged();
+        } else {
+          accountChangeEventBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public Builder mergeAccountChangeEvent(com.gene.proto.HBApiProto.AccountEventMsg value) {
+        if (accountChangeEventBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+              accountChangeEvent_ != null &&
+              accountChangeEvent_ != com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance()) {
+            accountChangeEvent_ =
+              com.gene.proto.HBApiProto.AccountEventMsg.newBuilder(accountChangeEvent_).mergeFrom(value).buildPartial();
+          } else {
+            accountChangeEvent_ = value;
+          }
+          onChanged();
+        } else {
+          accountChangeEventBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public Builder clearAccountChangeEvent() {
+        if (accountChangeEventBuilder_ == null) {
+          accountChangeEvent_ = null;
+          onChanged();
+        } else {
+          accountChangeEventBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountEventMsg.Builder getAccountChangeEventBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getAccountChangeEventFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountEventMsgOrBuilder getAccountChangeEventOrBuilder() {
+        if (accountChangeEventBuilder_ != null) {
+          return accountChangeEventBuilder_.getMessageOrBuilder();
+        } else {
+          return accountChangeEvent_ == null ?
+              com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance() : accountChangeEvent_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.AccountEventMsg accountChangeEvent = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.AccountEventMsg, com.gene.proto.HBApiProto.AccountEventMsg.Builder, com.gene.proto.HBApiProto.AccountEventMsgOrBuilder> 
+          getAccountChangeEventFieldBuilder() {
+        if (accountChangeEventBuilder_ == null) {
+          accountChangeEventBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.HBApiProto.AccountEventMsg, com.gene.proto.HBApiProto.AccountEventMsg.Builder, com.gene.proto.HBApiProto.AccountEventMsgOrBuilder>(
+                  getAccountChangeEvent(),
+                  getParentForChildren(),
+                  isClean());
+          accountChangeEvent_ = null;
+        }
+        return accountChangeEventBuilder_;
+      }
+
+      private java.util.List<com.gene.proto.HBApiProto.OrderMsg> openOrders_ =
+        java.util.Collections.emptyList();
+      private void ensureOpenOrdersIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          openOrders_ = new java.util.ArrayList<com.gene.proto.HBApiProto.OrderMsg>(openOrders_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder> openOrdersBuilder_;
+
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.OrderMsg> getOpenOrdersList() {
+        if (openOrdersBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(openOrders_);
+        } else {
+          return openOrdersBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public int getOpenOrdersCount() {
+        if (openOrdersBuilder_ == null) {
+          return openOrders_.size();
+        } else {
+          return openOrdersBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg getOpenOrders(int index) {
+        if (openOrdersBuilder_ == null) {
+          return openOrders_.get(index);
+        } else {
+          return openOrdersBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder setOpenOrders(
+          int index, com.gene.proto.HBApiProto.OrderMsg value) {
+        if (openOrdersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOpenOrdersIsMutable();
+          openOrders_.set(index, value);
+          onChanged();
+        } else {
+          openOrdersBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder setOpenOrders(
+          int index, com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (openOrdersBuilder_ == null) {
+          ensureOpenOrdersIsMutable();
+          openOrders_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          openOrdersBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder addOpenOrders(com.gene.proto.HBApiProto.OrderMsg value) {
+        if (openOrdersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOpenOrdersIsMutable();
+          openOrders_.add(value);
+          onChanged();
+        } else {
+          openOrdersBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder addOpenOrders(
+          int index, com.gene.proto.HBApiProto.OrderMsg value) {
+        if (openOrdersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOpenOrdersIsMutable();
+          openOrders_.add(index, value);
+          onChanged();
+        } else {
+          openOrdersBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder addOpenOrders(
+          com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (openOrdersBuilder_ == null) {
+          ensureOpenOrdersIsMutable();
+          openOrders_.add(builderForValue.build());
+          onChanged();
+        } else {
+          openOrdersBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder addOpenOrders(
+          int index, com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (openOrdersBuilder_ == null) {
+          ensureOpenOrdersIsMutable();
+          openOrders_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          openOrdersBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder addAllOpenOrders(
+          java.lang.Iterable<? extends com.gene.proto.HBApiProto.OrderMsg> values) {
+        if (openOrdersBuilder_ == null) {
+          ensureOpenOrdersIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, openOrders_);
+          onChanged();
+        } else {
+          openOrdersBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder clearOpenOrders() {
+        if (openOrdersBuilder_ == null) {
+          openOrders_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          openOrdersBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public Builder removeOpenOrders(int index) {
+        if (openOrdersBuilder_ == null) {
+          ensureOpenOrdersIsMutable();
+          openOrders_.remove(index);
+          onChanged();
+        } else {
+          openOrdersBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder getOpenOrdersBuilder(
+          int index) {
+        return getOpenOrdersFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsgOrBuilder getOpenOrdersOrBuilder(
+          int index) {
+        if (openOrdersBuilder_ == null) {
+          return openOrders_.get(index);  } else {
+          return openOrdersBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public java.util.List<? extends com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+           getOpenOrdersOrBuilderList() {
+        if (openOrdersBuilder_ != null) {
+          return openOrdersBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(openOrders_);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder addOpenOrdersBuilder() {
+        return getOpenOrdersFieldBuilder().addBuilder(
+            com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder addOpenOrdersBuilder(
+          int index) {
+        return getOpenOrdersFieldBuilder().addBuilder(
+            index, com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg openOrders = 5;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.OrderMsg.Builder> 
+           getOpenOrdersBuilderList() {
+        return getOpenOrdersFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+          getOpenOrdersFieldBuilder() {
+        if (openOrdersBuilder_ == null) {
+          openOrdersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder>(
+                  openOrders_,
+                  ((bitField0_ & 0x00000010) != 0),
+                  getParentForChildren(),
+                  isClean());
+          openOrders_ = null;
+        }
+        return openOrdersBuilder_;
+      }
+
+      private java.util.List<com.gene.proto.HBApiProto.OrderMsg> orderHistory_ =
+        java.util.Collections.emptyList();
+      private void ensureOrderHistoryIsMutable() {
+        if (!((bitField0_ & 0x00000020) != 0)) {
+          orderHistory_ = new java.util.ArrayList<com.gene.proto.HBApiProto.OrderMsg>(orderHistory_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder> orderHistoryBuilder_;
+
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.OrderMsg> getOrderHistoryList() {
+        if (orderHistoryBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(orderHistory_);
+        } else {
+          return orderHistoryBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public int getOrderHistoryCount() {
+        if (orderHistoryBuilder_ == null) {
+          return orderHistory_.size();
+        } else {
+          return orderHistoryBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg getOrderHistory(int index) {
+        if (orderHistoryBuilder_ == null) {
+          return orderHistory_.get(index);
+        } else {
+          return orderHistoryBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder setOrderHistory(
+          int index, com.gene.proto.HBApiProto.OrderMsg value) {
+        if (orderHistoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOrderHistoryIsMutable();
+          orderHistory_.set(index, value);
+          onChanged();
+        } else {
+          orderHistoryBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder setOrderHistory(
+          int index, com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (orderHistoryBuilder_ == null) {
+          ensureOrderHistoryIsMutable();
+          orderHistory_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          orderHistoryBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder addOrderHistory(com.gene.proto.HBApiProto.OrderMsg value) {
+        if (orderHistoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOrderHistoryIsMutable();
+          orderHistory_.add(value);
+          onChanged();
+        } else {
+          orderHistoryBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder addOrderHistory(
+          int index, com.gene.proto.HBApiProto.OrderMsg value) {
+        if (orderHistoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOrderHistoryIsMutable();
+          orderHistory_.add(index, value);
+          onChanged();
+        } else {
+          orderHistoryBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder addOrderHistory(
+          com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (orderHistoryBuilder_ == null) {
+          ensureOrderHistoryIsMutable();
+          orderHistory_.add(builderForValue.build());
+          onChanged();
+        } else {
+          orderHistoryBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder addOrderHistory(
+          int index, com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (orderHistoryBuilder_ == null) {
+          ensureOrderHistoryIsMutable();
+          orderHistory_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          orderHistoryBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder addAllOrderHistory(
+          java.lang.Iterable<? extends com.gene.proto.HBApiProto.OrderMsg> values) {
+        if (orderHistoryBuilder_ == null) {
+          ensureOrderHistoryIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, orderHistory_);
+          onChanged();
+        } else {
+          orderHistoryBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder clearOrderHistory() {
+        if (orderHistoryBuilder_ == null) {
+          orderHistory_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          orderHistoryBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public Builder removeOrderHistory(int index) {
+        if (orderHistoryBuilder_ == null) {
+          ensureOrderHistoryIsMutable();
+          orderHistory_.remove(index);
+          onChanged();
+        } else {
+          orderHistoryBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder getOrderHistoryBuilder(
+          int index) {
+        return getOrderHistoryFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsgOrBuilder getOrderHistoryOrBuilder(
+          int index) {
+        if (orderHistoryBuilder_ == null) {
+          return orderHistory_.get(index);  } else {
+          return orderHistoryBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public java.util.List<? extends com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+           getOrderHistoryOrBuilderList() {
+        if (orderHistoryBuilder_ != null) {
+          return orderHistoryBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(orderHistory_);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder addOrderHistoryBuilder() {
+        return getOrderHistoryFieldBuilder().addBuilder(
+            com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder addOrderHistoryBuilder(
+          int index) {
+        return getOrderHistoryFieldBuilder().addBuilder(
+            index, com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.OrderMsg orderHistory = 6;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.OrderMsg.Builder> 
+           getOrderHistoryBuilderList() {
+        return getOrderHistoryFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+          getOrderHistoryFieldBuilder() {
+        if (orderHistoryBuilder_ == null) {
+          orderHistoryBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder>(
+                  orderHistory_,
+                  ((bitField0_ & 0x00000020) != 0),
+                  getParentForChildren(),
+                  isClean());
+          orderHistory_ = null;
+        }
+        return orderHistoryBuilder_;
+      }
+
+      private com.gene.proto.HBApiProto.OrderUpdateEventMsg orderUdateEvent_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderUpdateEventMsg, com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder, com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder> orderUdateEventBuilder_;
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public boolean hasOrderUdateEvent() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderUpdateEventMsg getOrderUdateEvent() {
+        if (orderUdateEventBuilder_ == null) {
+          return orderUdateEvent_ == null ? com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance() : orderUdateEvent_;
+        } else {
+          return orderUdateEventBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public Builder setOrderUdateEvent(com.gene.proto.HBApiProto.OrderUpdateEventMsg value) {
+        if (orderUdateEventBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          orderUdateEvent_ = value;
+          onChanged();
+        } else {
+          orderUdateEventBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public Builder setOrderUdateEvent(
+          com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder builderForValue) {
+        if (orderUdateEventBuilder_ == null) {
+          orderUdateEvent_ = builderForValue.build();
+          onChanged();
+        } else {
+          orderUdateEventBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public Builder mergeOrderUdateEvent(com.gene.proto.HBApiProto.OrderUpdateEventMsg value) {
+        if (orderUdateEventBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) != 0) &&
+              orderUdateEvent_ != null &&
+              orderUdateEvent_ != com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance()) {
+            orderUdateEvent_ =
+              com.gene.proto.HBApiProto.OrderUpdateEventMsg.newBuilder(orderUdateEvent_).mergeFrom(value).buildPartial();
+          } else {
+            orderUdateEvent_ = value;
+          }
+          onChanged();
+        } else {
+          orderUdateEventBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public Builder clearOrderUdateEvent() {
+        if (orderUdateEventBuilder_ == null) {
+          orderUdateEvent_ = null;
+          onChanged();
+        } else {
+          orderUdateEventBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder getOrderUdateEventBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getOrderUdateEventFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder getOrderUdateEventOrBuilder() {
+        if (orderUdateEventBuilder_ != null) {
+          return orderUdateEventBuilder_.getMessageOrBuilder();
+        } else {
+          return orderUdateEvent_ == null ?
+              com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance() : orderUdateEvent_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderUpdateEventMsg orderUdateEvent = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderUpdateEventMsg, com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder, com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder> 
+          getOrderUdateEventFieldBuilder() {
+        if (orderUdateEventBuilder_ == null) {
+          orderUdateEventBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.HBApiProto.OrderUpdateEventMsg, com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder, com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder>(
+                  getOrderUdateEvent(),
+                  getParentForChildren(),
+                  isClean());
+          orderUdateEvent_ = null;
+        }
+        return orderUdateEventBuilder_;
+      }
+
+      private com.gene.proto.HBApiProto.BestQuoteMsg bestQuote_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.BestQuoteMsg, com.gene.proto.HBApiProto.BestQuoteMsg.Builder, com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder> bestQuoteBuilder_;
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public boolean hasBestQuote() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public com.gene.proto.HBApiProto.BestQuoteMsg getBestQuote() {
+        if (bestQuoteBuilder_ == null) {
+          return bestQuote_ == null ? com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance() : bestQuote_;
+        } else {
+          return bestQuoteBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public Builder setBestQuote(com.gene.proto.HBApiProto.BestQuoteMsg value) {
+        if (bestQuoteBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          bestQuote_ = value;
+          onChanged();
+        } else {
+          bestQuoteBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public Builder setBestQuote(
+          com.gene.proto.HBApiProto.BestQuoteMsg.Builder builderForValue) {
+        if (bestQuoteBuilder_ == null) {
+          bestQuote_ = builderForValue.build();
+          onChanged();
+        } else {
+          bestQuoteBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public Builder mergeBestQuote(com.gene.proto.HBApiProto.BestQuoteMsg value) {
+        if (bestQuoteBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+              bestQuote_ != null &&
+              bestQuote_ != com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance()) {
+            bestQuote_ =
+              com.gene.proto.HBApiProto.BestQuoteMsg.newBuilder(bestQuote_).mergeFrom(value).buildPartial();
+          } else {
+            bestQuote_ = value;
+          }
+          onChanged();
+        } else {
+          bestQuoteBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public Builder clearBestQuote() {
+        if (bestQuoteBuilder_ == null) {
+          bestQuote_ = null;
+          onChanged();
+        } else {
+          bestQuoteBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public com.gene.proto.HBApiProto.BestQuoteMsg.Builder getBestQuoteBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getBestQuoteFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      public com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder getBestQuoteOrBuilder() {
+        if (bestQuoteBuilder_ != null) {
+          return bestQuoteBuilder_.getMessageOrBuilder();
+        } else {
+          return bestQuote_ == null ?
+              com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance() : bestQuote_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.BestQuoteMsg bestQuote = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.BestQuoteMsg, com.gene.proto.HBApiProto.BestQuoteMsg.Builder, com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder> 
+          getBestQuoteFieldBuilder() {
+        if (bestQuoteBuilder_ == null) {
+          bestQuoteBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.HBApiProto.BestQuoteMsg, com.gene.proto.HBApiProto.BestQuoteMsg.Builder, com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder>(
+                  getBestQuote(),
+                  getParentForChildren(),
+                  isClean());
+          bestQuote_ = null;
+        }
+        return bestQuoteBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4602,11 +5394,7861 @@ public final class HBApiProto {
 
   }
 
+  public interface BalanceMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.BalanceMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    boolean hasCurrency();
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    java.lang.String getCurrency();
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getCurrencyBytes();
+
+    /**
+     * <code>optional string balanceType = 2;</code>
+     */
+    boolean hasBalanceType();
+    /**
+     * <code>optional string balanceType = 2;</code>
+     */
+    java.lang.String getBalanceType();
+    /**
+     * <code>optional string balanceType = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getBalanceTypeBytes();
+
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    boolean hasBalance();
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    double getBalance();
+  }
+  /**
+   * <pre>
+   *资产
+   * </pre>
+   *
+   * Protobuf type {@code com.ly.proto.BalanceMsg}
+   */
+  public  static final class BalanceMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.BalanceMsg)
+      BalanceMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BalanceMsg.newBuilder() to construct.
+    private BalanceMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BalanceMsg() {
+      currency_ = "";
+      balanceType_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BalanceMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              currency_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              balanceType_ = bs;
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              balance_ = input.readDouble();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BalanceMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BalanceMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.BalanceMsg.class, com.gene.proto.HBApiProto.BalanceMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CURRENCY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object currency_;
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    public boolean hasCurrency() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    public java.lang.String getCurrency() {
+      java.lang.Object ref = currency_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          currency_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCurrencyBytes() {
+      java.lang.Object ref = currency_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        currency_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCETYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object balanceType_;
+    /**
+     * <code>optional string balanceType = 2;</code>
+     */
+    public boolean hasBalanceType() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string balanceType = 2;</code>
+     */
+    public java.lang.String getBalanceType() {
+      java.lang.Object ref = balanceType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balanceType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string balanceType = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceTypeBytes() {
+      java.lang.Object ref = balanceType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        balanceType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 3;
+    private double balance_;
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    public boolean hasBalance() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    public double getBalance() {
+      return balance_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, currency_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, balanceType_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeDouble(3, balance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, currency_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, balanceType_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, balance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.BalanceMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.BalanceMsg other = (com.gene.proto.HBApiProto.BalanceMsg) obj;
+
+      if (hasCurrency() != other.hasCurrency()) return false;
+      if (hasCurrency()) {
+        if (!getCurrency()
+            .equals(other.getCurrency())) return false;
+      }
+      if (hasBalanceType() != other.hasBalanceType()) return false;
+      if (hasBalanceType()) {
+        if (!getBalanceType()
+            .equals(other.getBalanceType())) return false;
+      }
+      if (hasBalance() != other.hasBalance()) return false;
+      if (hasBalance()) {
+        if (java.lang.Double.doubleToLongBits(getBalance())
+            != java.lang.Double.doubleToLongBits(
+                other.getBalance())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCurrency()) {
+        hash = (37 * hash) + CURRENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getCurrency().hashCode();
+      }
+      if (hasBalanceType()) {
+        hash = (37 * hash) + BALANCETYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getBalanceType().hashCode();
+      }
+      if (hasBalance()) {
+        hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getBalance()));
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.BalanceMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.BalanceMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *资产
+     * </pre>
+     *
+     * Protobuf type {@code com.ly.proto.BalanceMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.BalanceMsg)
+        com.gene.proto.HBApiProto.BalanceMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BalanceMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BalanceMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.BalanceMsg.class, com.gene.proto.HBApiProto.BalanceMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.BalanceMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        currency_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        balanceType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        balance_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BalanceMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.BalanceMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.BalanceMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.BalanceMsg build() {
+        com.gene.proto.HBApiProto.BalanceMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.BalanceMsg buildPartial() {
+        com.gene.proto.HBApiProto.BalanceMsg result = new com.gene.proto.HBApiProto.BalanceMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.currency_ = currency_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.balanceType_ = balanceType_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.balance_ = balance_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.BalanceMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.BalanceMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.BalanceMsg other) {
+        if (other == com.gene.proto.HBApiProto.BalanceMsg.getDefaultInstance()) return this;
+        if (other.hasCurrency()) {
+          bitField0_ |= 0x00000001;
+          currency_ = other.currency_;
+          onChanged();
+        }
+        if (other.hasBalanceType()) {
+          bitField0_ |= 0x00000002;
+          balanceType_ = other.balanceType_;
+          onChanged();
+        }
+        if (other.hasBalance()) {
+          setBalance(other.getBalance());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.BalanceMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.BalanceMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object currency_ = "";
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public boolean hasCurrency() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public java.lang.String getCurrency() {
+        java.lang.Object ref = currency_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            currency_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCurrencyBytes() {
+        java.lang.Object ref = currency_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          currency_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public Builder setCurrency(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        currency_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public Builder clearCurrency() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currency_ = getDefaultInstance().getCurrency();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public Builder setCurrencyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        currency_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object balanceType_ = "";
+      /**
+       * <code>optional string balanceType = 2;</code>
+       */
+      public boolean hasBalanceType() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string balanceType = 2;</code>
+       */
+      public java.lang.String getBalanceType() {
+        java.lang.Object ref = balanceType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balanceType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string balanceType = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBalanceTypeBytes() {
+        java.lang.Object ref = balanceType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          balanceType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string balanceType = 2;</code>
+       */
+      public Builder setBalanceType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        balanceType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string balanceType = 2;</code>
+       */
+      public Builder clearBalanceType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        balanceType_ = getDefaultInstance().getBalanceType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string balanceType = 2;</code>
+       */
+      public Builder setBalanceTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        balanceType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double balance_ ;
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public boolean hasBalance() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public double getBalance() {
+        return balance_;
+      }
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public Builder setBalance(double value) {
+        bitField0_ |= 0x00000004;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public Builder clearBalance() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        balance_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.BalanceMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.BalanceMsg)
+    private static final com.gene.proto.HBApiProto.BalanceMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.BalanceMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.BalanceMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BalanceMsg>
+        PARSER = new com.google.protobuf.AbstractParser<BalanceMsg>() {
+      @java.lang.Override
+      public BalanceMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BalanceMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BalanceMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BalanceMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.BalanceMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AccountMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.AccountMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int64 id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>optional int64 id = 1;</code>
+     */
+    long getId();
+
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    boolean hasAccountType();
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    java.lang.String getAccountType();
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountTypeBytes();
+
+    /**
+     * <code>optional string accountState = 3;</code>
+     */
+    boolean hasAccountState();
+    /**
+     * <code>optional string accountState = 3;</code>
+     */
+    java.lang.String getAccountState();
+    /**
+     * <code>optional string accountState = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountStateBytes();
+
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    java.util.List<com.gene.proto.HBApiProto.BalanceMsg> 
+        getBlancesList();
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    com.gene.proto.HBApiProto.BalanceMsg getBlances(int index);
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    int getBlancesCount();
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    java.util.List<? extends com.gene.proto.HBApiProto.BalanceMsgOrBuilder> 
+        getBlancesOrBuilderList();
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    com.gene.proto.HBApiProto.BalanceMsgOrBuilder getBlancesOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   *账号信息
+   * </pre>
+   *
+   * Protobuf type {@code com.ly.proto.AccountMsg}
+   */
+  public  static final class AccountMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.AccountMsg)
+      AccountMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AccountMsg.newBuilder() to construct.
+    private AccountMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AccountMsg() {
+      accountType_ = "";
+      accountState_ = "";
+      blances_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AccountMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              accountType_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              accountState_ = bs;
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                blances_ = new java.util.ArrayList<com.gene.proto.HBApiProto.BalanceMsg>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              blances_.add(
+                  input.readMessage(com.gene.proto.HBApiProto.BalanceMsg.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          blances_ = java.util.Collections.unmodifiableList(blances_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.AccountMsg.class, com.gene.proto.HBApiProto.AccountMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>optional int64 id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional int64 id = 1;</code>
+     */
+    public long getId() {
+      return id_;
+    }
+
+    public static final int ACCOUNTTYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object accountType_;
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    public boolean hasAccountType() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    public java.lang.String getAccountType() {
+      java.lang.Object ref = accountType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          accountType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountTypeBytes() {
+      java.lang.Object ref = accountType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNTSTATE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object accountState_;
+    /**
+     * <code>optional string accountState = 3;</code>
+     */
+    public boolean hasAccountState() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string accountState = 3;</code>
+     */
+    public java.lang.String getAccountState() {
+      java.lang.Object ref = accountState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          accountState_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string accountState = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountStateBytes() {
+      java.lang.Object ref = accountState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BLANCES_FIELD_NUMBER = 4;
+    private java.util.List<com.gene.proto.HBApiProto.BalanceMsg> blances_;
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    public java.util.List<com.gene.proto.HBApiProto.BalanceMsg> getBlancesList() {
+      return blances_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    public java.util.List<? extends com.gene.proto.HBApiProto.BalanceMsgOrBuilder> 
+        getBlancesOrBuilderList() {
+      return blances_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    public int getBlancesCount() {
+      return blances_.size();
+    }
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    public com.gene.proto.HBApiProto.BalanceMsg getBlances(int index) {
+      return blances_.get(index);
+    }
+    /**
+     * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+     */
+    public com.gene.proto.HBApiProto.BalanceMsgOrBuilder getBlancesOrBuilder(
+        int index) {
+      return blances_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt64(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accountType_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, accountState_);
+      }
+      for (int i = 0; i < blances_.size(); i++) {
+        output.writeMessage(4, blances_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accountType_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, accountState_);
+      }
+      for (int i = 0; i < blances_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, blances_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.AccountMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.AccountMsg other = (com.gene.proto.HBApiProto.AccountMsg) obj;
+
+      if (hasId() != other.hasId()) return false;
+      if (hasId()) {
+        if (getId()
+            != other.getId()) return false;
+      }
+      if (hasAccountType() != other.hasAccountType()) return false;
+      if (hasAccountType()) {
+        if (!getAccountType()
+            .equals(other.getAccountType())) return false;
+      }
+      if (hasAccountState() != other.hasAccountState()) return false;
+      if (hasAccountState()) {
+        if (!getAccountState()
+            .equals(other.getAccountState())) return false;
+      }
+      if (!getBlancesList()
+          .equals(other.getBlancesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getId());
+      }
+      if (hasAccountType()) {
+        hash = (37 * hash) + ACCOUNTTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountType().hashCode();
+      }
+      if (hasAccountState()) {
+        hash = (37 * hash) + ACCOUNTSTATE_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountState().hashCode();
+      }
+      if (getBlancesCount() > 0) {
+        hash = (37 * hash) + BLANCES_FIELD_NUMBER;
+        hash = (53 * hash) + getBlancesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.AccountMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *账号信息
+     * </pre>
+     *
+     * Protobuf type {@code com.ly.proto.AccountMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.AccountMsg)
+        com.gene.proto.HBApiProto.AccountMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.AccountMsg.class, com.gene.proto.HBApiProto.AccountMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.AccountMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBlancesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        accountType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        accountState_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (blancesBuilder_ == null) {
+          blances_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          blancesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountMsg build() {
+        com.gene.proto.HBApiProto.AccountMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountMsg buildPartial() {
+        com.gene.proto.HBApiProto.AccountMsg result = new com.gene.proto.HBApiProto.AccountMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.accountType_ = accountType_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.accountState_ = accountState_;
+        if (blancesBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0)) {
+            blances_ = java.util.Collections.unmodifiableList(blances_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.blances_ = blances_;
+        } else {
+          result.blances_ = blancesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.AccountMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.AccountMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.AccountMsg other) {
+        if (other == com.gene.proto.HBApiProto.AccountMsg.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasAccountType()) {
+          bitField0_ |= 0x00000002;
+          accountType_ = other.accountType_;
+          onChanged();
+        }
+        if (other.hasAccountState()) {
+          bitField0_ |= 0x00000004;
+          accountState_ = other.accountState_;
+          onChanged();
+        }
+        if (blancesBuilder_ == null) {
+          if (!other.blances_.isEmpty()) {
+            if (blances_.isEmpty()) {
+              blances_ = other.blances_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureBlancesIsMutable();
+              blances_.addAll(other.blances_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.blances_.isEmpty()) {
+            if (blancesBuilder_.isEmpty()) {
+              blancesBuilder_.dispose();
+              blancesBuilder_ = null;
+              blances_ = other.blances_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              blancesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getBlancesFieldBuilder() : null;
+            } else {
+              blancesBuilder_.addAllMessages(other.blances_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.AccountMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.AccountMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long id_ ;
+      /**
+       * <code>optional int64 id = 1;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       */
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 id = 1;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountType_ = "";
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public boolean hasAccountType() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public java.lang.String getAccountType() {
+        java.lang.Object ref = accountType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            accountType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountTypeBytes() {
+        java.lang.Object ref = accountType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public Builder setAccountType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        accountType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public Builder clearAccountType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        accountType_ = getDefaultInstance().getAccountType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public Builder setAccountTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        accountType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountState_ = "";
+      /**
+       * <code>optional string accountState = 3;</code>
+       */
+      public boolean hasAccountState() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string accountState = 3;</code>
+       */
+      public java.lang.String getAccountState() {
+        java.lang.Object ref = accountState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            accountState_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string accountState = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountStateBytes() {
+        java.lang.Object ref = accountState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string accountState = 3;</code>
+       */
+      public Builder setAccountState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        accountState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountState = 3;</code>
+       */
+      public Builder clearAccountState() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        accountState_ = getDefaultInstance().getAccountState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountState = 3;</code>
+       */
+      public Builder setAccountStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        accountState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.gene.proto.HBApiProto.BalanceMsg> blances_ =
+        java.util.Collections.emptyList();
+      private void ensureBlancesIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          blances_ = new java.util.ArrayList<com.gene.proto.HBApiProto.BalanceMsg>(blances_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.BalanceMsg, com.gene.proto.HBApiProto.BalanceMsg.Builder, com.gene.proto.HBApiProto.BalanceMsgOrBuilder> blancesBuilder_;
+
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.BalanceMsg> getBlancesList() {
+        if (blancesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(blances_);
+        } else {
+          return blancesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public int getBlancesCount() {
+        if (blancesBuilder_ == null) {
+          return blances_.size();
+        } else {
+          return blancesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.BalanceMsg getBlances(int index) {
+        if (blancesBuilder_ == null) {
+          return blances_.get(index);
+        } else {
+          return blancesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder setBlances(
+          int index, com.gene.proto.HBApiProto.BalanceMsg value) {
+        if (blancesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlancesIsMutable();
+          blances_.set(index, value);
+          onChanged();
+        } else {
+          blancesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder setBlances(
+          int index, com.gene.proto.HBApiProto.BalanceMsg.Builder builderForValue) {
+        if (blancesBuilder_ == null) {
+          ensureBlancesIsMutable();
+          blances_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          blancesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder addBlances(com.gene.proto.HBApiProto.BalanceMsg value) {
+        if (blancesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlancesIsMutable();
+          blances_.add(value);
+          onChanged();
+        } else {
+          blancesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder addBlances(
+          int index, com.gene.proto.HBApiProto.BalanceMsg value) {
+        if (blancesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlancesIsMutable();
+          blances_.add(index, value);
+          onChanged();
+        } else {
+          blancesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder addBlances(
+          com.gene.proto.HBApiProto.BalanceMsg.Builder builderForValue) {
+        if (blancesBuilder_ == null) {
+          ensureBlancesIsMutable();
+          blances_.add(builderForValue.build());
+          onChanged();
+        } else {
+          blancesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder addBlances(
+          int index, com.gene.proto.HBApiProto.BalanceMsg.Builder builderForValue) {
+        if (blancesBuilder_ == null) {
+          ensureBlancesIsMutable();
+          blances_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          blancesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder addAllBlances(
+          java.lang.Iterable<? extends com.gene.proto.HBApiProto.BalanceMsg> values) {
+        if (blancesBuilder_ == null) {
+          ensureBlancesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, blances_);
+          onChanged();
+        } else {
+          blancesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder clearBlances() {
+        if (blancesBuilder_ == null) {
+          blances_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          blancesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public Builder removeBlances(int index) {
+        if (blancesBuilder_ == null) {
+          ensureBlancesIsMutable();
+          blances_.remove(index);
+          onChanged();
+        } else {
+          blancesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.BalanceMsg.Builder getBlancesBuilder(
+          int index) {
+        return getBlancesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.BalanceMsgOrBuilder getBlancesOrBuilder(
+          int index) {
+        if (blancesBuilder_ == null) {
+          return blances_.get(index);  } else {
+          return blancesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public java.util.List<? extends com.gene.proto.HBApiProto.BalanceMsgOrBuilder> 
+           getBlancesOrBuilderList() {
+        if (blancesBuilder_ != null) {
+          return blancesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(blances_);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.BalanceMsg.Builder addBlancesBuilder() {
+        return getBlancesFieldBuilder().addBuilder(
+            com.gene.proto.HBApiProto.BalanceMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public com.gene.proto.HBApiProto.BalanceMsg.Builder addBlancesBuilder(
+          int index) {
+        return getBlancesFieldBuilder().addBuilder(
+            index, com.gene.proto.HBApiProto.BalanceMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.BalanceMsg blances = 4;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.BalanceMsg.Builder> 
+           getBlancesBuilderList() {
+        return getBlancesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.BalanceMsg, com.gene.proto.HBApiProto.BalanceMsg.Builder, com.gene.proto.HBApiProto.BalanceMsgOrBuilder> 
+          getBlancesFieldBuilder() {
+        if (blancesBuilder_ == null) {
+          blancesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.gene.proto.HBApiProto.BalanceMsg, com.gene.proto.HBApiProto.BalanceMsg.Builder, com.gene.proto.HBApiProto.BalanceMsgOrBuilder>(
+                  blances_,
+                  ((bitField0_ & 0x00000008) != 0),
+                  getParentForChildren(),
+                  isClean());
+          blances_ = null;
+        }
+        return blancesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.AccountMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.AccountMsg)
+    private static final com.gene.proto.HBApiProto.AccountMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.AccountMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.AccountMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AccountMsg>
+        PARSER = new com.google.protobuf.AbstractParser<AccountMsg>() {
+      @java.lang.Override
+      public AccountMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AccountMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AccountMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AccountMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.AccountMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AccountEventMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.AccountEventMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    long getTimestamp();
+
+    /**
+     * <code>optional string changeType = 2;</code>
+     */
+    boolean hasChangeType();
+    /**
+     * <code>optional string changeType = 2;</code>
+     */
+    java.lang.String getChangeType();
+    /**
+     * <code>optional string changeType = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getChangeTypeBytes();
+
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    java.util.List<com.gene.proto.HBApiProto.AccountChangeMsg> 
+        getChangesList();
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    com.gene.proto.HBApiProto.AccountChangeMsg getChanges(int index);
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    int getChangesCount();
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    java.util.List<? extends com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder> 
+        getChangesOrBuilderList();
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder getChangesOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   *账号资产变动事件
+   * </pre>
+   *
+   * Protobuf type {@code com.ly.proto.AccountEventMsg}
+   */
+  public  static final class AccountEventMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.AccountEventMsg)
+      AccountEventMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AccountEventMsg.newBuilder() to construct.
+    private AccountEventMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AccountEventMsg() {
+      changeType_ = "";
+      changes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AccountEventMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              changeType_ = bs;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                changes_ = new java.util.ArrayList<com.gene.proto.HBApiProto.AccountChangeMsg>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              changes_.add(
+                  input.readMessage(com.gene.proto.HBApiProto.AccountChangeMsg.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          changes_ = java.util.Collections.unmodifiableList(changes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountEventMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountEventMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.AccountEventMsg.class, com.gene.proto.HBApiProto.AccountEventMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TIMESTAMP_FIELD_NUMBER = 1;
+    private long timestamp_;
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int CHANGETYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object changeType_;
+    /**
+     * <code>optional string changeType = 2;</code>
+     */
+    public boolean hasChangeType() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string changeType = 2;</code>
+     */
+    public java.lang.String getChangeType() {
+      java.lang.Object ref = changeType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          changeType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string changeType = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChangeTypeBytes() {
+      java.lang.Object ref = changeType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        changeType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANGES_FIELD_NUMBER = 3;
+    private java.util.List<com.gene.proto.HBApiProto.AccountChangeMsg> changes_;
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    public java.util.List<com.gene.proto.HBApiProto.AccountChangeMsg> getChangesList() {
+      return changes_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    public java.util.List<? extends com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder> 
+        getChangesOrBuilderList() {
+      return changes_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    public int getChangesCount() {
+      return changes_.size();
+    }
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    public com.gene.proto.HBApiProto.AccountChangeMsg getChanges(int index) {
+      return changes_.get(index);
+    }
+    /**
+     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     */
+    public com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder getChangesOrBuilder(
+        int index) {
+      return changes_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt64(1, timestamp_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, changeType_);
+      }
+      for (int i = 0; i < changes_.size(); i++) {
+        output.writeMessage(3, changes_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, timestamp_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, changeType_);
+      }
+      for (int i = 0; i < changes_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, changes_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.AccountEventMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.AccountEventMsg other = (com.gene.proto.HBApiProto.AccountEventMsg) obj;
+
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasChangeType() != other.hasChangeType()) return false;
+      if (hasChangeType()) {
+        if (!getChangeType()
+            .equals(other.getChangeType())) return false;
+      }
+      if (!getChangesList()
+          .equals(other.getChangesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasChangeType()) {
+        hash = (37 * hash) + CHANGETYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getChangeType().hashCode();
+      }
+      if (getChangesCount() > 0) {
+        hash = (37 * hash) + CHANGES_FIELD_NUMBER;
+        hash = (53 * hash) + getChangesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.AccountEventMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *账号资产变动事件
+     * </pre>
+     *
+     * Protobuf type {@code com.ly.proto.AccountEventMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.AccountEventMsg)
+        com.gene.proto.HBApiProto.AccountEventMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountEventMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.AccountEventMsg.class, com.gene.proto.HBApiProto.AccountEventMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.AccountEventMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getChangesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        changeType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (changesBuilder_ == null) {
+          changes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          changesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountEventMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountEventMsg build() {
+        com.gene.proto.HBApiProto.AccountEventMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountEventMsg buildPartial() {
+        com.gene.proto.HBApiProto.AccountEventMsg result = new com.gene.proto.HBApiProto.AccountEventMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.changeType_ = changeType_;
+        if (changesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            changes_ = java.util.Collections.unmodifiableList(changes_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.changes_ = changes_;
+        } else {
+          result.changes_ = changesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.AccountEventMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.AccountEventMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.AccountEventMsg other) {
+        if (other == com.gene.proto.HBApiProto.AccountEventMsg.getDefaultInstance()) return this;
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasChangeType()) {
+          bitField0_ |= 0x00000002;
+          changeType_ = other.changeType_;
+          onChanged();
+        }
+        if (changesBuilder_ == null) {
+          if (!other.changes_.isEmpty()) {
+            if (changes_.isEmpty()) {
+              changes_ = other.changes_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureChangesIsMutable();
+              changes_.addAll(other.changes_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.changes_.isEmpty()) {
+            if (changesBuilder_.isEmpty()) {
+              changesBuilder_.dispose();
+              changesBuilder_ = null;
+              changes_ = other.changes_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              changesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getChangesFieldBuilder() : null;
+            } else {
+              changesBuilder_.addAllMessages(other.changes_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.AccountEventMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.AccountEventMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long timestamp_ ;
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000001;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object changeType_ = "";
+      /**
+       * <code>optional string changeType = 2;</code>
+       */
+      public boolean hasChangeType() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string changeType = 2;</code>
+       */
+      public java.lang.String getChangeType() {
+        java.lang.Object ref = changeType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            changeType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string changeType = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChangeTypeBytes() {
+        java.lang.Object ref = changeType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          changeType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string changeType = 2;</code>
+       */
+      public Builder setChangeType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        changeType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string changeType = 2;</code>
+       */
+      public Builder clearChangeType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        changeType_ = getDefaultInstance().getChangeType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string changeType = 2;</code>
+       */
+      public Builder setChangeTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        changeType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.gene.proto.HBApiProto.AccountChangeMsg> changes_ =
+        java.util.Collections.emptyList();
+      private void ensureChangesIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          changes_ = new java.util.ArrayList<com.gene.proto.HBApiProto.AccountChangeMsg>(changes_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.AccountChangeMsg, com.gene.proto.HBApiProto.AccountChangeMsg.Builder, com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder> changesBuilder_;
+
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.AccountChangeMsg> getChangesList() {
+        if (changesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(changes_);
+        } else {
+          return changesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public int getChangesCount() {
+        if (changesBuilder_ == null) {
+          return changes_.size();
+        } else {
+          return changesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountChangeMsg getChanges(int index) {
+        if (changesBuilder_ == null) {
+          return changes_.get(index);
+        } else {
+          return changesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder setChanges(
+          int index, com.gene.proto.HBApiProto.AccountChangeMsg value) {
+        if (changesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChangesIsMutable();
+          changes_.set(index, value);
+          onChanged();
+        } else {
+          changesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder setChanges(
+          int index, com.gene.proto.HBApiProto.AccountChangeMsg.Builder builderForValue) {
+        if (changesBuilder_ == null) {
+          ensureChangesIsMutable();
+          changes_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          changesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder addChanges(com.gene.proto.HBApiProto.AccountChangeMsg value) {
+        if (changesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChangesIsMutable();
+          changes_.add(value);
+          onChanged();
+        } else {
+          changesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder addChanges(
+          int index, com.gene.proto.HBApiProto.AccountChangeMsg value) {
+        if (changesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChangesIsMutable();
+          changes_.add(index, value);
+          onChanged();
+        } else {
+          changesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder addChanges(
+          com.gene.proto.HBApiProto.AccountChangeMsg.Builder builderForValue) {
+        if (changesBuilder_ == null) {
+          ensureChangesIsMutable();
+          changes_.add(builderForValue.build());
+          onChanged();
+        } else {
+          changesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder addChanges(
+          int index, com.gene.proto.HBApiProto.AccountChangeMsg.Builder builderForValue) {
+        if (changesBuilder_ == null) {
+          ensureChangesIsMutable();
+          changes_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          changesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder addAllChanges(
+          java.lang.Iterable<? extends com.gene.proto.HBApiProto.AccountChangeMsg> values) {
+        if (changesBuilder_ == null) {
+          ensureChangesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, changes_);
+          onChanged();
+        } else {
+          changesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder clearChanges() {
+        if (changesBuilder_ == null) {
+          changes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          changesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public Builder removeChanges(int index) {
+        if (changesBuilder_ == null) {
+          ensureChangesIsMutable();
+          changes_.remove(index);
+          onChanged();
+        } else {
+          changesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountChangeMsg.Builder getChangesBuilder(
+          int index) {
+        return getChangesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder getChangesOrBuilder(
+          int index) {
+        if (changesBuilder_ == null) {
+          return changes_.get(index);  } else {
+          return changesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public java.util.List<? extends com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder> 
+           getChangesOrBuilderList() {
+        if (changesBuilder_ != null) {
+          return changesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(changes_);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountChangeMsg.Builder addChangesBuilder() {
+        return getChangesFieldBuilder().addBuilder(
+            com.gene.proto.HBApiProto.AccountChangeMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.AccountChangeMsg.Builder addChangesBuilder(
+          int index) {
+        return getChangesFieldBuilder().addBuilder(
+            index, com.gene.proto.HBApiProto.AccountChangeMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       */
+      public java.util.List<com.gene.proto.HBApiProto.AccountChangeMsg.Builder> 
+           getChangesBuilderList() {
+        return getChangesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.HBApiProto.AccountChangeMsg, com.gene.proto.HBApiProto.AccountChangeMsg.Builder, com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder> 
+          getChangesFieldBuilder() {
+        if (changesBuilder_ == null) {
+          changesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.gene.proto.HBApiProto.AccountChangeMsg, com.gene.proto.HBApiProto.AccountChangeMsg.Builder, com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder>(
+                  changes_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          changes_ = null;
+        }
+        return changesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.AccountEventMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.AccountEventMsg)
+    private static final com.gene.proto.HBApiProto.AccountEventMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.AccountEventMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.AccountEventMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AccountEventMsg>
+        PARSER = new com.google.protobuf.AbstractParser<AccountEventMsg>() {
+      @java.lang.Override
+      public AccountEventMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AccountEventMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AccountEventMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AccountEventMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.AccountEventMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AccountChangeMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.AccountChangeMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    boolean hasCurrency();
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    java.lang.String getCurrency();
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getCurrencyBytes();
+
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    boolean hasAccountType();
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    java.lang.String getAccountType();
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountTypeBytes();
+
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    boolean hasBalance();
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    double getBalance();
+
+    /**
+     * <code>optional string balanceType = 4;</code>
+     */
+    boolean hasBalanceType();
+    /**
+     * <code>optional string balanceType = 4;</code>
+     */
+    java.lang.String getBalanceType();
+    /**
+     * <code>optional string balanceType = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getBalanceTypeBytes();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.AccountChangeMsg}
+   */
+  public  static final class AccountChangeMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.AccountChangeMsg)
+      AccountChangeMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AccountChangeMsg.newBuilder() to construct.
+    private AccountChangeMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AccountChangeMsg() {
+      currency_ = "";
+      accountType_ = "";
+      balanceType_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AccountChangeMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              currency_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              accountType_ = bs;
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              balance_ = input.readDouble();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              balanceType_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountChangeMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountChangeMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.AccountChangeMsg.class, com.gene.proto.HBApiProto.AccountChangeMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CURRENCY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object currency_;
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    public boolean hasCurrency() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    public java.lang.String getCurrency() {
+      java.lang.Object ref = currency_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          currency_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string currency = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCurrencyBytes() {
+      java.lang.Object ref = currency_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        currency_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNTTYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object accountType_;
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    public boolean hasAccountType() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    public java.lang.String getAccountType() {
+      java.lang.Object ref = accountType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          accountType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string accountType = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountTypeBytes() {
+      java.lang.Object ref = accountType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 3;
+    private double balance_;
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    public boolean hasBalance() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional double balance = 3;</code>
+     */
+    public double getBalance() {
+      return balance_;
+    }
+
+    public static final int BALANCETYPE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object balanceType_;
+    /**
+     * <code>optional string balanceType = 4;</code>
+     */
+    public boolean hasBalanceType() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional string balanceType = 4;</code>
+     */
+    public java.lang.String getBalanceType() {
+      java.lang.Object ref = balanceType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balanceType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string balanceType = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceTypeBytes() {
+      java.lang.Object ref = balanceType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        balanceType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, currency_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accountType_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeDouble(3, balance_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, balanceType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, currency_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accountType_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, balance_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, balanceType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.AccountChangeMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.AccountChangeMsg other = (com.gene.proto.HBApiProto.AccountChangeMsg) obj;
+
+      if (hasCurrency() != other.hasCurrency()) return false;
+      if (hasCurrency()) {
+        if (!getCurrency()
+            .equals(other.getCurrency())) return false;
+      }
+      if (hasAccountType() != other.hasAccountType()) return false;
+      if (hasAccountType()) {
+        if (!getAccountType()
+            .equals(other.getAccountType())) return false;
+      }
+      if (hasBalance() != other.hasBalance()) return false;
+      if (hasBalance()) {
+        if (java.lang.Double.doubleToLongBits(getBalance())
+            != java.lang.Double.doubleToLongBits(
+                other.getBalance())) return false;
+      }
+      if (hasBalanceType() != other.hasBalanceType()) return false;
+      if (hasBalanceType()) {
+        if (!getBalanceType()
+            .equals(other.getBalanceType())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCurrency()) {
+        hash = (37 * hash) + CURRENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getCurrency().hashCode();
+      }
+      if (hasAccountType()) {
+        hash = (37 * hash) + ACCOUNTTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountType().hashCode();
+      }
+      if (hasBalance()) {
+        hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getBalance()));
+      }
+      if (hasBalanceType()) {
+        hash = (37 * hash) + BALANCETYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getBalanceType().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.AccountChangeMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.AccountChangeMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.AccountChangeMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.AccountChangeMsg)
+        com.gene.proto.HBApiProto.AccountChangeMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountChangeMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountChangeMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.AccountChangeMsg.class, com.gene.proto.HBApiProto.AccountChangeMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.AccountChangeMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        currency_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        accountType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        balance_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        balanceType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_AccountChangeMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountChangeMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.AccountChangeMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountChangeMsg build() {
+        com.gene.proto.HBApiProto.AccountChangeMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.AccountChangeMsg buildPartial() {
+        com.gene.proto.HBApiProto.AccountChangeMsg result = new com.gene.proto.HBApiProto.AccountChangeMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.currency_ = currency_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.accountType_ = accountType_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.balance_ = balance_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.balanceType_ = balanceType_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.AccountChangeMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.AccountChangeMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.AccountChangeMsg other) {
+        if (other == com.gene.proto.HBApiProto.AccountChangeMsg.getDefaultInstance()) return this;
+        if (other.hasCurrency()) {
+          bitField0_ |= 0x00000001;
+          currency_ = other.currency_;
+          onChanged();
+        }
+        if (other.hasAccountType()) {
+          bitField0_ |= 0x00000002;
+          accountType_ = other.accountType_;
+          onChanged();
+        }
+        if (other.hasBalance()) {
+          setBalance(other.getBalance());
+        }
+        if (other.hasBalanceType()) {
+          bitField0_ |= 0x00000008;
+          balanceType_ = other.balanceType_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.AccountChangeMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.AccountChangeMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object currency_ = "";
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public boolean hasCurrency() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public java.lang.String getCurrency() {
+        java.lang.Object ref = currency_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            currency_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCurrencyBytes() {
+        java.lang.Object ref = currency_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          currency_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public Builder setCurrency(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        currency_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public Builder clearCurrency() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currency_ = getDefaultInstance().getCurrency();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string currency = 1;</code>
+       */
+      public Builder setCurrencyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        currency_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountType_ = "";
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public boolean hasAccountType() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public java.lang.String getAccountType() {
+        java.lang.Object ref = accountType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            accountType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountTypeBytes() {
+        java.lang.Object ref = accountType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public Builder setAccountType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        accountType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public Builder clearAccountType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        accountType_ = getDefaultInstance().getAccountType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountType = 2;</code>
+       */
+      public Builder setAccountTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        accountType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double balance_ ;
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public boolean hasBalance() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public double getBalance() {
+        return balance_;
+      }
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public Builder setBalance(double value) {
+        bitField0_ |= 0x00000004;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double balance = 3;</code>
+       */
+      public Builder clearBalance() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        balance_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object balanceType_ = "";
+      /**
+       * <code>optional string balanceType = 4;</code>
+       */
+      public boolean hasBalanceType() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional string balanceType = 4;</code>
+       */
+      public java.lang.String getBalanceType() {
+        java.lang.Object ref = balanceType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balanceType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string balanceType = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBalanceTypeBytes() {
+        java.lang.Object ref = balanceType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          balanceType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string balanceType = 4;</code>
+       */
+      public Builder setBalanceType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        balanceType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string balanceType = 4;</code>
+       */
+      public Builder clearBalanceType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        balanceType_ = getDefaultInstance().getBalanceType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string balanceType = 4;</code>
+       */
+      public Builder setBalanceTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        balanceType_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.AccountChangeMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.AccountChangeMsg)
+    private static final com.gene.proto.HBApiProto.AccountChangeMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.AccountChangeMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.AccountChangeMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AccountChangeMsg>
+        PARSER = new com.google.protobuf.AbstractParser<AccountChangeMsg>() {
+      @java.lang.Override
+      public AccountChangeMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AccountChangeMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AccountChangeMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AccountChangeMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.AccountChangeMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OrderMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.OrderMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string accountType = 1;</code>
+     */
+    boolean hasAccountType();
+    /**
+     * <code>optional string accountType = 1;</code>
+     */
+    java.lang.String getAccountType();
+    /**
+     * <code>optional string accountType = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountTypeBytes();
+
+    /**
+     * <code>optional double amount = 2;</code>
+     */
+    boolean hasAmount();
+    /**
+     * <code>optional double amount = 2;</code>
+     */
+    double getAmount();
+
+    /**
+     * <code>optional double price = 3;</code>
+     */
+    boolean hasPrice();
+    /**
+     * <code>optional double price = 3;</code>
+     */
+    double getPrice();
+
+    /**
+     * <code>optional int64 createdTimestamp = 4;</code>
+     */
+    boolean hasCreatedTimestamp();
+    /**
+     * <code>optional int64 createdTimestamp = 4;</code>
+     */
+    long getCreatedTimestamp();
+
+    /**
+     * <code>optional int64 canceledTimestamp = 5;</code>
+     */
+    boolean hasCanceledTimestamp();
+    /**
+     * <code>optional int64 canceledTimestamp = 5;</code>
+     */
+    long getCanceledTimestamp();
+
+    /**
+     * <code>optional int64 finishedTimestamp = 6;</code>
+     */
+    boolean hasFinishedTimestamp();
+    /**
+     * <code>optional int64 finishedTimestamp = 6;</code>
+     */
+    long getFinishedTimestamp();
+
+    /**
+     * <code>optional int64 orderId = 7;</code>
+     */
+    boolean hasOrderId();
+    /**
+     * <code>optional int64 orderId = 7;</code>
+     */
+    long getOrderId();
+
+    /**
+     * <code>optional string symbol = 8;</code>
+     */
+    boolean hasSymbol();
+    /**
+     * <code>optional string symbol = 8;</code>
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>optional string symbol = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>optional string orderType = 9;</code>
+     */
+    boolean hasOrderType();
+    /**
+     * <code>optional string orderType = 9;</code>
+     */
+    java.lang.String getOrderType();
+    /**
+     * <code>optional string orderType = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getOrderTypeBytes();
+
+    /**
+     * <code>optional double filledAmount = 10;</code>
+     */
+    boolean hasFilledAmount();
+    /**
+     * <code>optional double filledAmount = 10;</code>
+     */
+    double getFilledAmount();
+
+    /**
+     * <code>optional double filledCashAmount = 11;</code>
+     */
+    boolean hasFilledCashAmount();
+    /**
+     * <code>optional double filledCashAmount = 11;</code>
+     */
+    double getFilledCashAmount();
+
+    /**
+     * <code>optional double filledFees = 12;</code>
+     */
+    boolean hasFilledFees();
+    /**
+     * <code>optional double filledFees = 12;</code>
+     */
+    double getFilledFees();
+
+    /**
+     * <code>optional string orderSource = 13;</code>
+     */
+    boolean hasOrderSource();
+    /**
+     * <code>optional string orderSource = 13;</code>
+     */
+    java.lang.String getOrderSource();
+    /**
+     * <code>optional string orderSource = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getOrderSourceBytes();
+
+    /**
+     * <code>optional string orderState = 14;</code>
+     */
+    boolean hasOrderState();
+    /**
+     * <code>optional string orderState = 14;</code>
+     */
+    java.lang.String getOrderState();
+    /**
+     * <code>optional string orderState = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getOrderStateBytes();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.OrderMsg}
+   */
+  public  static final class OrderMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.OrderMsg)
+      OrderMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OrderMsg.newBuilder() to construct.
+    private OrderMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OrderMsg() {
+      accountType_ = "";
+      symbol_ = "";
+      orderType_ = "";
+      orderSource_ = "";
+      orderState_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OrderMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              accountType_ = bs;
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              amount_ = input.readDouble();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              price_ = input.readDouble();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              createdTimestamp_ = input.readInt64();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              canceledTimestamp_ = input.readInt64();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              finishedTimestamp_ = input.readInt64();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              orderId_ = input.readInt64();
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
+              symbol_ = bs;
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000100;
+              orderType_ = bs;
+              break;
+            }
+            case 81: {
+              bitField0_ |= 0x00000200;
+              filledAmount_ = input.readDouble();
+              break;
+            }
+            case 89: {
+              bitField0_ |= 0x00000400;
+              filledCashAmount_ = input.readDouble();
+              break;
+            }
+            case 97: {
+              bitField0_ |= 0x00000800;
+              filledFees_ = input.readDouble();
+              break;
+            }
+            case 106: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00001000;
+              orderSource_ = bs;
+              break;
+            }
+            case 114: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00002000;
+              orderState_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.OrderMsg.class, com.gene.proto.HBApiProto.OrderMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ACCOUNTTYPE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object accountType_;
+    /**
+     * <code>optional string accountType = 1;</code>
+     */
+    public boolean hasAccountType() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string accountType = 1;</code>
+     */
+    public java.lang.String getAccountType() {
+      java.lang.Object ref = accountType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          accountType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string accountType = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountTypeBytes() {
+      java.lang.Object ref = accountType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 2;
+    private double amount_;
+    /**
+     * <code>optional double amount = 2;</code>
+     */
+    public boolean hasAmount() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional double amount = 2;</code>
+     */
+    public double getAmount() {
+      return amount_;
+    }
+
+    public static final int PRICE_FIELD_NUMBER = 3;
+    private double price_;
+    /**
+     * <code>optional double price = 3;</code>
+     */
+    public boolean hasPrice() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional double price = 3;</code>
+     */
+    public double getPrice() {
+      return price_;
+    }
+
+    public static final int CREATEDTIMESTAMP_FIELD_NUMBER = 4;
+    private long createdTimestamp_;
+    /**
+     * <code>optional int64 createdTimestamp = 4;</code>
+     */
+    public boolean hasCreatedTimestamp() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional int64 createdTimestamp = 4;</code>
+     */
+    public long getCreatedTimestamp() {
+      return createdTimestamp_;
+    }
+
+    public static final int CANCELEDTIMESTAMP_FIELD_NUMBER = 5;
+    private long canceledTimestamp_;
+    /**
+     * <code>optional int64 canceledTimestamp = 5;</code>
+     */
+    public boolean hasCanceledTimestamp() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional int64 canceledTimestamp = 5;</code>
+     */
+    public long getCanceledTimestamp() {
+      return canceledTimestamp_;
+    }
+
+    public static final int FINISHEDTIMESTAMP_FIELD_NUMBER = 6;
+    private long finishedTimestamp_;
+    /**
+     * <code>optional int64 finishedTimestamp = 6;</code>
+     */
+    public boolean hasFinishedTimestamp() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional int64 finishedTimestamp = 6;</code>
+     */
+    public long getFinishedTimestamp() {
+      return finishedTimestamp_;
+    }
+
+    public static final int ORDERID_FIELD_NUMBER = 7;
+    private long orderId_;
+    /**
+     * <code>optional int64 orderId = 7;</code>
+     */
+    public boolean hasOrderId() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional int64 orderId = 7;</code>
+     */
+    public long getOrderId() {
+      return orderId_;
+    }
+
+    public static final int SYMBOL_FIELD_NUMBER = 8;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>optional string symbol = 8;</code>
+     */
+    public boolean hasSymbol() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional string symbol = 8;</code>
+     */
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbol_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbol = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ORDERTYPE_FIELD_NUMBER = 9;
+    private volatile java.lang.Object orderType_;
+    /**
+     * <code>optional string orderType = 9;</code>
+     */
+    public boolean hasOrderType() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional string orderType = 9;</code>
+     */
+    public java.lang.String getOrderType() {
+      java.lang.Object ref = orderType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          orderType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string orderType = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOrderTypeBytes() {
+      java.lang.Object ref = orderType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILLEDAMOUNT_FIELD_NUMBER = 10;
+    private double filledAmount_;
+    /**
+     * <code>optional double filledAmount = 10;</code>
+     */
+    public boolean hasFilledAmount() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional double filledAmount = 10;</code>
+     */
+    public double getFilledAmount() {
+      return filledAmount_;
+    }
+
+    public static final int FILLEDCASHAMOUNT_FIELD_NUMBER = 11;
+    private double filledCashAmount_;
+    /**
+     * <code>optional double filledCashAmount = 11;</code>
+     */
+    public boolean hasFilledCashAmount() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional double filledCashAmount = 11;</code>
+     */
+    public double getFilledCashAmount() {
+      return filledCashAmount_;
+    }
+
+    public static final int FILLEDFEES_FIELD_NUMBER = 12;
+    private double filledFees_;
+    /**
+     * <code>optional double filledFees = 12;</code>
+     */
+    public boolean hasFilledFees() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <code>optional double filledFees = 12;</code>
+     */
+    public double getFilledFees() {
+      return filledFees_;
+    }
+
+    public static final int ORDERSOURCE_FIELD_NUMBER = 13;
+    private volatile java.lang.Object orderSource_;
+    /**
+     * <code>optional string orderSource = 13;</code>
+     */
+    public boolean hasOrderSource() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>optional string orderSource = 13;</code>
+     */
+    public java.lang.String getOrderSource() {
+      java.lang.Object ref = orderSource_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          orderSource_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string orderSource = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOrderSourceBytes() {
+      java.lang.Object ref = orderSource_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderSource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ORDERSTATE_FIELD_NUMBER = 14;
+    private volatile java.lang.Object orderState_;
+    /**
+     * <code>optional string orderState = 14;</code>
+     */
+    public boolean hasOrderState() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>optional string orderState = 14;</code>
+     */
+    public java.lang.String getOrderState() {
+      java.lang.Object ref = orderState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          orderState_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string orderState = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOrderStateBytes() {
+      java.lang.Object ref = orderState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accountType_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeDouble(2, amount_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeDouble(3, price_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeInt64(4, createdTimestamp_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeInt64(5, canceledTimestamp_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeInt64(6, finishedTimestamp_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeInt64(7, orderId_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, symbol_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, orderType_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        output.writeDouble(10, filledAmount_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        output.writeDouble(11, filledCashAmount_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        output.writeDouble(12, filledFees_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, orderSource_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, orderState_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accountType_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, amount_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, price_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, createdTimestamp_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, canceledTimestamp_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, finishedTimestamp_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, orderId_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, symbol_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, orderType_);
+      }
+      if (((bitField0_ & 0x00000200) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(10, filledAmount_);
+      }
+      if (((bitField0_ & 0x00000400) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(11, filledCashAmount_);
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(12, filledFees_);
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, orderSource_);
+      }
+      if (((bitField0_ & 0x00002000) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, orderState_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.OrderMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.OrderMsg other = (com.gene.proto.HBApiProto.OrderMsg) obj;
+
+      if (hasAccountType() != other.hasAccountType()) return false;
+      if (hasAccountType()) {
+        if (!getAccountType()
+            .equals(other.getAccountType())) return false;
+      }
+      if (hasAmount() != other.hasAmount()) return false;
+      if (hasAmount()) {
+        if (java.lang.Double.doubleToLongBits(getAmount())
+            != java.lang.Double.doubleToLongBits(
+                other.getAmount())) return false;
+      }
+      if (hasPrice() != other.hasPrice()) return false;
+      if (hasPrice()) {
+        if (java.lang.Double.doubleToLongBits(getPrice())
+            != java.lang.Double.doubleToLongBits(
+                other.getPrice())) return false;
+      }
+      if (hasCreatedTimestamp() != other.hasCreatedTimestamp()) return false;
+      if (hasCreatedTimestamp()) {
+        if (getCreatedTimestamp()
+            != other.getCreatedTimestamp()) return false;
+      }
+      if (hasCanceledTimestamp() != other.hasCanceledTimestamp()) return false;
+      if (hasCanceledTimestamp()) {
+        if (getCanceledTimestamp()
+            != other.getCanceledTimestamp()) return false;
+      }
+      if (hasFinishedTimestamp() != other.hasFinishedTimestamp()) return false;
+      if (hasFinishedTimestamp()) {
+        if (getFinishedTimestamp()
+            != other.getFinishedTimestamp()) return false;
+      }
+      if (hasOrderId() != other.hasOrderId()) return false;
+      if (hasOrderId()) {
+        if (getOrderId()
+            != other.getOrderId()) return false;
+      }
+      if (hasSymbol() != other.hasSymbol()) return false;
+      if (hasSymbol()) {
+        if (!getSymbol()
+            .equals(other.getSymbol())) return false;
+      }
+      if (hasOrderType() != other.hasOrderType()) return false;
+      if (hasOrderType()) {
+        if (!getOrderType()
+            .equals(other.getOrderType())) return false;
+      }
+      if (hasFilledAmount() != other.hasFilledAmount()) return false;
+      if (hasFilledAmount()) {
+        if (java.lang.Double.doubleToLongBits(getFilledAmount())
+            != java.lang.Double.doubleToLongBits(
+                other.getFilledAmount())) return false;
+      }
+      if (hasFilledCashAmount() != other.hasFilledCashAmount()) return false;
+      if (hasFilledCashAmount()) {
+        if (java.lang.Double.doubleToLongBits(getFilledCashAmount())
+            != java.lang.Double.doubleToLongBits(
+                other.getFilledCashAmount())) return false;
+      }
+      if (hasFilledFees() != other.hasFilledFees()) return false;
+      if (hasFilledFees()) {
+        if (java.lang.Double.doubleToLongBits(getFilledFees())
+            != java.lang.Double.doubleToLongBits(
+                other.getFilledFees())) return false;
+      }
+      if (hasOrderSource() != other.hasOrderSource()) return false;
+      if (hasOrderSource()) {
+        if (!getOrderSource()
+            .equals(other.getOrderSource())) return false;
+      }
+      if (hasOrderState() != other.hasOrderState()) return false;
+      if (hasOrderState()) {
+        if (!getOrderState()
+            .equals(other.getOrderState())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasAccountType()) {
+        hash = (37 * hash) + ACCOUNTTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountType().hashCode();
+      }
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAmount()));
+      }
+      if (hasPrice()) {
+        hash = (37 * hash) + PRICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getPrice()));
+      }
+      if (hasCreatedTimestamp()) {
+        hash = (37 * hash) + CREATEDTIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCreatedTimestamp());
+      }
+      if (hasCanceledTimestamp()) {
+        hash = (37 * hash) + CANCELEDTIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCanceledTimestamp());
+      }
+      if (hasFinishedTimestamp()) {
+        hash = (37 * hash) + FINISHEDTIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFinishedTimestamp());
+      }
+      if (hasOrderId()) {
+        hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getOrderId());
+      }
+      if (hasSymbol()) {
+        hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasOrderType()) {
+        hash = (37 * hash) + ORDERTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderType().hashCode();
+      }
+      if (hasFilledAmount()) {
+        hash = (37 * hash) + FILLEDAMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getFilledAmount()));
+      }
+      if (hasFilledCashAmount()) {
+        hash = (37 * hash) + FILLEDCASHAMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getFilledCashAmount()));
+      }
+      if (hasFilledFees()) {
+        hash = (37 * hash) + FILLEDFEES_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getFilledFees()));
+      }
+      if (hasOrderSource()) {
+        hash = (37 * hash) + ORDERSOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderSource().hashCode();
+      }
+      if (hasOrderState()) {
+        hash = (37 * hash) + ORDERSTATE_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderState().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.OrderMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.OrderMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.OrderMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.OrderMsg)
+        com.gene.proto.HBApiProto.OrderMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.OrderMsg.class, com.gene.proto.HBApiProto.OrderMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.OrderMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        accountType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        amount_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        price_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        createdTimestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        canceledTimestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        finishedTimestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        orderId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        symbol_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        orderType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        filledAmount_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        filledCashAmount_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        filledFees_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        orderSource_ = "";
+        bitField0_ = (bitField0_ & ~0x00001000);
+        orderState_ = "";
+        bitField0_ = (bitField0_ & ~0x00002000);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.OrderMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.OrderMsg build() {
+        com.gene.proto.HBApiProto.OrderMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.OrderMsg buildPartial() {
+        com.gene.proto.HBApiProto.OrderMsg result = new com.gene.proto.HBApiProto.OrderMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.accountType_ = accountType_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.amount_ = amount_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.price_ = price_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.createdTimestamp_ = createdTimestamp_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.canceledTimestamp_ = canceledTimestamp_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.finishedTimestamp_ = finishedTimestamp_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.orderId_ = orderId_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.symbol_ = symbol_;
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.orderType_ = orderType_;
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.filledAmount_ = filledAmount_;
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.filledCashAmount_ = filledCashAmount_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.filledFees_ = filledFees_;
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.orderSource_ = orderSource_;
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.orderState_ = orderState_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.OrderMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.OrderMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.OrderMsg other) {
+        if (other == com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance()) return this;
+        if (other.hasAccountType()) {
+          bitField0_ |= 0x00000001;
+          accountType_ = other.accountType_;
+          onChanged();
+        }
+        if (other.hasAmount()) {
+          setAmount(other.getAmount());
+        }
+        if (other.hasPrice()) {
+          setPrice(other.getPrice());
+        }
+        if (other.hasCreatedTimestamp()) {
+          setCreatedTimestamp(other.getCreatedTimestamp());
+        }
+        if (other.hasCanceledTimestamp()) {
+          setCanceledTimestamp(other.getCanceledTimestamp());
+        }
+        if (other.hasFinishedTimestamp()) {
+          setFinishedTimestamp(other.getFinishedTimestamp());
+        }
+        if (other.hasOrderId()) {
+          setOrderId(other.getOrderId());
+        }
+        if (other.hasSymbol()) {
+          bitField0_ |= 0x00000080;
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasOrderType()) {
+          bitField0_ |= 0x00000100;
+          orderType_ = other.orderType_;
+          onChanged();
+        }
+        if (other.hasFilledAmount()) {
+          setFilledAmount(other.getFilledAmount());
+        }
+        if (other.hasFilledCashAmount()) {
+          setFilledCashAmount(other.getFilledCashAmount());
+        }
+        if (other.hasFilledFees()) {
+          setFilledFees(other.getFilledFees());
+        }
+        if (other.hasOrderSource()) {
+          bitField0_ |= 0x00001000;
+          orderSource_ = other.orderSource_;
+          onChanged();
+        }
+        if (other.hasOrderState()) {
+          bitField0_ |= 0x00002000;
+          orderState_ = other.orderState_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.OrderMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.OrderMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object accountType_ = "";
+      /**
+       * <code>optional string accountType = 1;</code>
+       */
+      public boolean hasAccountType() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string accountType = 1;</code>
+       */
+      public java.lang.String getAccountType() {
+        java.lang.Object ref = accountType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            accountType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string accountType = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountTypeBytes() {
+        java.lang.Object ref = accountType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string accountType = 1;</code>
+       */
+      public Builder setAccountType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        accountType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountType = 1;</code>
+       */
+      public Builder clearAccountType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        accountType_ = getDefaultInstance().getAccountType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string accountType = 1;</code>
+       */
+      public Builder setAccountTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        accountType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double amount_ ;
+      /**
+       * <code>optional double amount = 2;</code>
+       */
+      public boolean hasAmount() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional double amount = 2;</code>
+       */
+      public double getAmount() {
+        return amount_;
+      }
+      /**
+       * <code>optional double amount = 2;</code>
+       */
+      public Builder setAmount(double value) {
+        bitField0_ |= 0x00000002;
+        amount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double amount = 2;</code>
+       */
+      public Builder clearAmount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        amount_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double price_ ;
+      /**
+       * <code>optional double price = 3;</code>
+       */
+      public boolean hasPrice() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       */
+      public double getPrice() {
+        return price_;
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       */
+      public Builder setPrice(double value) {
+        bitField0_ |= 0x00000004;
+        price_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double price = 3;</code>
+       */
+      public Builder clearPrice() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        price_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private long createdTimestamp_ ;
+      /**
+       * <code>optional int64 createdTimestamp = 4;</code>
+       */
+      public boolean hasCreatedTimestamp() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional int64 createdTimestamp = 4;</code>
+       */
+      public long getCreatedTimestamp() {
+        return createdTimestamp_;
+      }
+      /**
+       * <code>optional int64 createdTimestamp = 4;</code>
+       */
+      public Builder setCreatedTimestamp(long value) {
+        bitField0_ |= 0x00000008;
+        createdTimestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 createdTimestamp = 4;</code>
+       */
+      public Builder clearCreatedTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        createdTimestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long canceledTimestamp_ ;
+      /**
+       * <code>optional int64 canceledTimestamp = 5;</code>
+       */
+      public boolean hasCanceledTimestamp() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional int64 canceledTimestamp = 5;</code>
+       */
+      public long getCanceledTimestamp() {
+        return canceledTimestamp_;
+      }
+      /**
+       * <code>optional int64 canceledTimestamp = 5;</code>
+       */
+      public Builder setCanceledTimestamp(long value) {
+        bitField0_ |= 0x00000010;
+        canceledTimestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 canceledTimestamp = 5;</code>
+       */
+      public Builder clearCanceledTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        canceledTimestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long finishedTimestamp_ ;
+      /**
+       * <code>optional int64 finishedTimestamp = 6;</code>
+       */
+      public boolean hasFinishedTimestamp() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional int64 finishedTimestamp = 6;</code>
+       */
+      public long getFinishedTimestamp() {
+        return finishedTimestamp_;
+      }
+      /**
+       * <code>optional int64 finishedTimestamp = 6;</code>
+       */
+      public Builder setFinishedTimestamp(long value) {
+        bitField0_ |= 0x00000020;
+        finishedTimestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 finishedTimestamp = 6;</code>
+       */
+      public Builder clearFinishedTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        finishedTimestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long orderId_ ;
+      /**
+       * <code>optional int64 orderId = 7;</code>
+       */
+      public boolean hasOrderId() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional int64 orderId = 7;</code>
+       */
+      public long getOrderId() {
+        return orderId_;
+      }
+      /**
+       * <code>optional int64 orderId = 7;</code>
+       */
+      public Builder setOrderId(long value) {
+        bitField0_ |= 0x00000040;
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 orderId = 7;</code>
+       */
+      public Builder clearOrderId() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        orderId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>optional string symbol = 8;</code>
+       */
+      public boolean hasSymbol() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional string symbol = 8;</code>
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbol_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 8;</code>
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 8;</code>
+       */
+      public Builder clearSymbol() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 8;</code>
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object orderType_ = "";
+      /**
+       * <code>optional string orderType = 9;</code>
+       */
+      public boolean hasOrderType() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional string orderType = 9;</code>
+       */
+      public java.lang.String getOrderType() {
+        java.lang.Object ref = orderType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            orderType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string orderType = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOrderTypeBytes() {
+        java.lang.Object ref = orderType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string orderType = 9;</code>
+       */
+      public Builder setOrderType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        orderType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string orderType = 9;</code>
+       */
+      public Builder clearOrderType() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        orderType_ = getDefaultInstance().getOrderType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string orderType = 9;</code>
+       */
+      public Builder setOrderTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        orderType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double filledAmount_ ;
+      /**
+       * <code>optional double filledAmount = 10;</code>
+       */
+      public boolean hasFilledAmount() {
+        return ((bitField0_ & 0x00000200) != 0);
+      }
+      /**
+       * <code>optional double filledAmount = 10;</code>
+       */
+      public double getFilledAmount() {
+        return filledAmount_;
+      }
+      /**
+       * <code>optional double filledAmount = 10;</code>
+       */
+      public Builder setFilledAmount(double value) {
+        bitField0_ |= 0x00000200;
+        filledAmount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double filledAmount = 10;</code>
+       */
+      public Builder clearFilledAmount() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        filledAmount_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double filledCashAmount_ ;
+      /**
+       * <code>optional double filledCashAmount = 11;</code>
+       */
+      public boolean hasFilledCashAmount() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>optional double filledCashAmount = 11;</code>
+       */
+      public double getFilledCashAmount() {
+        return filledCashAmount_;
+      }
+      /**
+       * <code>optional double filledCashAmount = 11;</code>
+       */
+      public Builder setFilledCashAmount(double value) {
+        bitField0_ |= 0x00000400;
+        filledCashAmount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double filledCashAmount = 11;</code>
+       */
+      public Builder clearFilledCashAmount() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        filledCashAmount_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double filledFees_ ;
+      /**
+       * <code>optional double filledFees = 12;</code>
+       */
+      public boolean hasFilledFees() {
+        return ((bitField0_ & 0x00000800) != 0);
+      }
+      /**
+       * <code>optional double filledFees = 12;</code>
+       */
+      public double getFilledFees() {
+        return filledFees_;
+      }
+      /**
+       * <code>optional double filledFees = 12;</code>
+       */
+      public Builder setFilledFees(double value) {
+        bitField0_ |= 0x00000800;
+        filledFees_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double filledFees = 12;</code>
+       */
+      public Builder clearFilledFees() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        filledFees_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object orderSource_ = "";
+      /**
+       * <code>optional string orderSource = 13;</code>
+       */
+      public boolean hasOrderSource() {
+        return ((bitField0_ & 0x00001000) != 0);
+      }
+      /**
+       * <code>optional string orderSource = 13;</code>
+       */
+      public java.lang.String getOrderSource() {
+        java.lang.Object ref = orderSource_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            orderSource_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string orderSource = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOrderSourceBytes() {
+        java.lang.Object ref = orderSource_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderSource_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string orderSource = 13;</code>
+       */
+      public Builder setOrderSource(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+        orderSource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string orderSource = 13;</code>
+       */
+      public Builder clearOrderSource() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        orderSource_ = getDefaultInstance().getOrderSource();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string orderSource = 13;</code>
+       */
+      public Builder setOrderSourceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+        orderSource_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object orderState_ = "";
+      /**
+       * <code>optional string orderState = 14;</code>
+       */
+      public boolean hasOrderState() {
+        return ((bitField0_ & 0x00002000) != 0);
+      }
+      /**
+       * <code>optional string orderState = 14;</code>
+       */
+      public java.lang.String getOrderState() {
+        java.lang.Object ref = orderState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            orderState_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string orderState = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOrderStateBytes() {
+        java.lang.Object ref = orderState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          orderState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string orderState = 14;</code>
+       */
+      public Builder setOrderState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00002000;
+        orderState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string orderState = 14;</code>
+       */
+      public Builder clearOrderState() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        orderState_ = getDefaultInstance().getOrderState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string orderState = 14;</code>
+       */
+      public Builder setOrderStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00002000;
+        orderState_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.OrderMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.OrderMsg)
+    private static final com.gene.proto.HBApiProto.OrderMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.OrderMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.OrderMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<OrderMsg>
+        PARSER = new com.google.protobuf.AbstractParser<OrderMsg>() {
+      @java.lang.Override
+      public OrderMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OrderMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OrderMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OrderMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.OrderMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OrderUpdateEventMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.OrderUpdateEventMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    boolean hasSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    long getTimestamp();
+
+    /**
+     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     */
+    boolean hasOrder();
+    /**
+     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     */
+    com.gene.proto.HBApiProto.OrderMsg getOrder();
+    /**
+     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     */
+    com.gene.proto.HBApiProto.OrderMsgOrBuilder getOrderOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.OrderUpdateEventMsg}
+   */
+  public  static final class OrderUpdateEventMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.OrderUpdateEventMsg)
+      OrderUpdateEventMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OrderUpdateEventMsg.newBuilder() to construct.
+    private OrderUpdateEventMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OrderUpdateEventMsg() {
+      symbol_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OrderUpdateEventMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              symbol_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              com.gene.proto.HBApiProto.OrderMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) != 0)) {
+                subBuilder = order_.toBuilder();
+              }
+              order_ = input.readMessage(com.gene.proto.HBApiProto.OrderMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(order_);
+                order_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderUpdateEventMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.OrderUpdateEventMsg.class, com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SYMBOL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public boolean hasSymbol() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbol_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int ORDER_FIELD_NUMBER = 3;
+    private com.gene.proto.HBApiProto.OrderMsg order_;
+    /**
+     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     */
+    public boolean hasOrder() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderMsg getOrder() {
+      return order_ == null ? com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance() : order_;
+    }
+    /**
+     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     */
+    public com.gene.proto.HBApiProto.OrderMsgOrBuilder getOrderOrBuilder() {
+      return order_ == null ? com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance() : order_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, timestamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(3, getOrder());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, timestamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getOrder());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.OrderUpdateEventMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.OrderUpdateEventMsg other = (com.gene.proto.HBApiProto.OrderUpdateEventMsg) obj;
+
+      if (hasSymbol() != other.hasSymbol()) return false;
+      if (hasSymbol()) {
+        if (!getSymbol()
+            .equals(other.getSymbol())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasOrder() != other.hasOrder()) return false;
+      if (hasOrder()) {
+        if (!getOrder()
+            .equals(other.getOrder())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSymbol()) {
+        hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasOrder()) {
+        hash = (37 * hash) + ORDER_FIELD_NUMBER;
+        hash = (53 * hash) + getOrder().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.OrderUpdateEventMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.OrderUpdateEventMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.OrderUpdateEventMsg)
+        com.gene.proto.HBApiProto.OrderUpdateEventMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderUpdateEventMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.OrderUpdateEventMsg.class, com.gene.proto.HBApiProto.OrderUpdateEventMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.OrderUpdateEventMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getOrderFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        symbol_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (orderBuilder_ == null) {
+          order_ = null;
+        } else {
+          orderBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.OrderUpdateEventMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.OrderUpdateEventMsg build() {
+        com.gene.proto.HBApiProto.OrderUpdateEventMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.OrderUpdateEventMsg buildPartial() {
+        com.gene.proto.HBApiProto.OrderUpdateEventMsg result = new com.gene.proto.HBApiProto.OrderUpdateEventMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.symbol_ = symbol_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (orderBuilder_ == null) {
+            result.order_ = order_;
+          } else {
+            result.order_ = orderBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.OrderUpdateEventMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.OrderUpdateEventMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.OrderUpdateEventMsg other) {
+        if (other == com.gene.proto.HBApiProto.OrderUpdateEventMsg.getDefaultInstance()) return this;
+        if (other.hasSymbol()) {
+          bitField0_ |= 0x00000001;
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasOrder()) {
+          mergeOrder(other.getOrder());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.OrderUpdateEventMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.OrderUpdateEventMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public boolean hasSymbol() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbol_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder clearSymbol() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000002;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.gene.proto.HBApiProto.OrderMsg order_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder> orderBuilder_;
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public boolean hasOrder() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg getOrder() {
+        if (orderBuilder_ == null) {
+          return order_ == null ? com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance() : order_;
+        } else {
+          return orderBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public Builder setOrder(com.gene.proto.HBApiProto.OrderMsg value) {
+        if (orderBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          order_ = value;
+          onChanged();
+        } else {
+          orderBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public Builder setOrder(
+          com.gene.proto.HBApiProto.OrderMsg.Builder builderForValue) {
+        if (orderBuilder_ == null) {
+          order_ = builderForValue.build();
+          onChanged();
+        } else {
+          orderBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public Builder mergeOrder(com.gene.proto.HBApiProto.OrderMsg value) {
+        if (orderBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+              order_ != null &&
+              order_ != com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance()) {
+            order_ =
+              com.gene.proto.HBApiProto.OrderMsg.newBuilder(order_).mergeFrom(value).buildPartial();
+          } else {
+            order_ = value;
+          }
+          onChanged();
+        } else {
+          orderBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public Builder clearOrder() {
+        if (orderBuilder_ == null) {
+          order_ = null;
+          onChanged();
+        } else {
+          orderBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsg.Builder getOrderBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getOrderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      public com.gene.proto.HBApiProto.OrderMsgOrBuilder getOrderOrBuilder() {
+        if (orderBuilder_ != null) {
+          return orderBuilder_.getMessageOrBuilder();
+        } else {
+          return order_ == null ?
+              com.gene.proto.HBApiProto.OrderMsg.getDefaultInstance() : order_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder> 
+          getOrderFieldBuilder() {
+        if (orderBuilder_ == null) {
+          orderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.HBApiProto.OrderMsg, com.gene.proto.HBApiProto.OrderMsg.Builder, com.gene.proto.HBApiProto.OrderMsgOrBuilder>(
+                  getOrder(),
+                  getParentForChildren(),
+                  isClean());
+          order_ = null;
+        }
+        return orderBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.OrderUpdateEventMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.OrderUpdateEventMsg)
+    private static final com.gene.proto.HBApiProto.OrderUpdateEventMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.OrderUpdateEventMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.OrderUpdateEventMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<OrderUpdateEventMsg>
+        PARSER = new com.google.protobuf.AbstractParser<OrderUpdateEventMsg>() {
+      @java.lang.Override
+      public OrderUpdateEventMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OrderUpdateEventMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OrderUpdateEventMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OrderUpdateEventMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.OrderUpdateEventMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BestQuoteMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.BestQuoteMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    long getTimestamp();
+
+    /**
+     * <code>optional double askPrice = 2;</code>
+     */
+    boolean hasAskPrice();
+    /**
+     * <code>optional double askPrice = 2;</code>
+     */
+    double getAskPrice();
+
+    /**
+     * <code>optional double askAmount = 3;</code>
+     */
+    boolean hasAskAmount();
+    /**
+     * <code>optional double askAmount = 3;</code>
+     */
+    double getAskAmount();
+
+    /**
+     * <code>optional double bidPrice = 4;</code>
+     */
+    boolean hasBidPrice();
+    /**
+     * <code>optional double bidPrice = 4;</code>
+     */
+    double getBidPrice();
+
+    /**
+     * <code>optional double bidAmount = 5;</code>
+     */
+    boolean hasBidAmount();
+    /**
+     * <code>optional double bidAmount = 5;</code>
+     */
+    double getBidAmount();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.BestQuoteMsg}
+   */
+  public  static final class BestQuoteMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.BestQuoteMsg)
+      BestQuoteMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BestQuoteMsg.newBuilder() to construct.
+    private BestQuoteMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BestQuoteMsg() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BestQuoteMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              askPrice_ = input.readDouble();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              askAmount_ = input.readDouble();
+              break;
+            }
+            case 33: {
+              bitField0_ |= 0x00000008;
+              bidPrice_ = input.readDouble();
+              break;
+            }
+            case 41: {
+              bitField0_ |= 0x00000010;
+              bidAmount_ = input.readDouble();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BestQuoteMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BestQuoteMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.HBApiProto.BestQuoteMsg.class, com.gene.proto.HBApiProto.BestQuoteMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TIMESTAMP_FIELD_NUMBER = 1;
+    private long timestamp_;
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional int64 timestamp = 1;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int ASKPRICE_FIELD_NUMBER = 2;
+    private double askPrice_;
+    /**
+     * <code>optional double askPrice = 2;</code>
+     */
+    public boolean hasAskPrice() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional double askPrice = 2;</code>
+     */
+    public double getAskPrice() {
+      return askPrice_;
+    }
+
+    public static final int ASKAMOUNT_FIELD_NUMBER = 3;
+    private double askAmount_;
+    /**
+     * <code>optional double askAmount = 3;</code>
+     */
+    public boolean hasAskAmount() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional double askAmount = 3;</code>
+     */
+    public double getAskAmount() {
+      return askAmount_;
+    }
+
+    public static final int BIDPRICE_FIELD_NUMBER = 4;
+    private double bidPrice_;
+    /**
+     * <code>optional double bidPrice = 4;</code>
+     */
+    public boolean hasBidPrice() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional double bidPrice = 4;</code>
+     */
+    public double getBidPrice() {
+      return bidPrice_;
+    }
+
+    public static final int BIDAMOUNT_FIELD_NUMBER = 5;
+    private double bidAmount_;
+    /**
+     * <code>optional double bidAmount = 5;</code>
+     */
+    public boolean hasBidAmount() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional double bidAmount = 5;</code>
+     */
+    public double getBidAmount() {
+      return bidAmount_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt64(1, timestamp_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeDouble(2, askPrice_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeDouble(3, askAmount_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeDouble(4, bidPrice_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeDouble(5, bidAmount_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, timestamp_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, askPrice_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, askAmount_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, bidPrice_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, bidAmount_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.HBApiProto.BestQuoteMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.HBApiProto.BestQuoteMsg other = (com.gene.proto.HBApiProto.BestQuoteMsg) obj;
+
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasAskPrice() != other.hasAskPrice()) return false;
+      if (hasAskPrice()) {
+        if (java.lang.Double.doubleToLongBits(getAskPrice())
+            != java.lang.Double.doubleToLongBits(
+                other.getAskPrice())) return false;
+      }
+      if (hasAskAmount() != other.hasAskAmount()) return false;
+      if (hasAskAmount()) {
+        if (java.lang.Double.doubleToLongBits(getAskAmount())
+            != java.lang.Double.doubleToLongBits(
+                other.getAskAmount())) return false;
+      }
+      if (hasBidPrice() != other.hasBidPrice()) return false;
+      if (hasBidPrice()) {
+        if (java.lang.Double.doubleToLongBits(getBidPrice())
+            != java.lang.Double.doubleToLongBits(
+                other.getBidPrice())) return false;
+      }
+      if (hasBidAmount() != other.hasBidAmount()) return false;
+      if (hasBidAmount()) {
+        if (java.lang.Double.doubleToLongBits(getBidAmount())
+            != java.lang.Double.doubleToLongBits(
+                other.getBidAmount())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasAskPrice()) {
+        hash = (37 * hash) + ASKPRICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAskPrice()));
+      }
+      if (hasAskAmount()) {
+        hash = (37 * hash) + ASKAMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAskAmount()));
+      }
+      if (hasBidPrice()) {
+        hash = (37 * hash) + BIDPRICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getBidPrice()));
+      }
+      if (hasBidAmount()) {
+        hash = (37 * hash) + BIDAMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getBidAmount()));
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.HBApiProto.BestQuoteMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.HBApiProto.BestQuoteMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.BestQuoteMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.BestQuoteMsg)
+        com.gene.proto.HBApiProto.BestQuoteMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BestQuoteMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BestQuoteMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.HBApiProto.BestQuoteMsg.class, com.gene.proto.HBApiProto.BestQuoteMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.HBApiProto.BestQuoteMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        askPrice_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        askAmount_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        bidPrice_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        bidAmount_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.HBApiProto.internal_static_com_ly_proto_BestQuoteMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.BestQuoteMsg getDefaultInstanceForType() {
+        return com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.BestQuoteMsg build() {
+        com.gene.proto.HBApiProto.BestQuoteMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.HBApiProto.BestQuoteMsg buildPartial() {
+        com.gene.proto.HBApiProto.BestQuoteMsg result = new com.gene.proto.HBApiProto.BestQuoteMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.askPrice_ = askPrice_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.askAmount_ = askAmount_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.bidPrice_ = bidPrice_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.bidAmount_ = bidAmount_;
+          to_bitField0_ |= 0x00000010;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.HBApiProto.BestQuoteMsg) {
+          return mergeFrom((com.gene.proto.HBApiProto.BestQuoteMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.HBApiProto.BestQuoteMsg other) {
+        if (other == com.gene.proto.HBApiProto.BestQuoteMsg.getDefaultInstance()) return this;
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasAskPrice()) {
+          setAskPrice(other.getAskPrice());
+        }
+        if (other.hasAskAmount()) {
+          setAskAmount(other.getAskAmount());
+        }
+        if (other.hasBidPrice()) {
+          setBidPrice(other.getBidPrice());
+        }
+        if (other.hasBidAmount()) {
+          setBidAmount(other.getBidAmount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.HBApiProto.BestQuoteMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.HBApiProto.BestQuoteMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long timestamp_ ;
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000001;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp = 1;</code>
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double askPrice_ ;
+      /**
+       * <code>optional double askPrice = 2;</code>
+       */
+      public boolean hasAskPrice() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional double askPrice = 2;</code>
+       */
+      public double getAskPrice() {
+        return askPrice_;
+      }
+      /**
+       * <code>optional double askPrice = 2;</code>
+       */
+      public Builder setAskPrice(double value) {
+        bitField0_ |= 0x00000002;
+        askPrice_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double askPrice = 2;</code>
+       */
+      public Builder clearAskPrice() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        askPrice_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double askAmount_ ;
+      /**
+       * <code>optional double askAmount = 3;</code>
+       */
+      public boolean hasAskAmount() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional double askAmount = 3;</code>
+       */
+      public double getAskAmount() {
+        return askAmount_;
+      }
+      /**
+       * <code>optional double askAmount = 3;</code>
+       */
+      public Builder setAskAmount(double value) {
+        bitField0_ |= 0x00000004;
+        askAmount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double askAmount = 3;</code>
+       */
+      public Builder clearAskAmount() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        askAmount_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double bidPrice_ ;
+      /**
+       * <code>optional double bidPrice = 4;</code>
+       */
+      public boolean hasBidPrice() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional double bidPrice = 4;</code>
+       */
+      public double getBidPrice() {
+        return bidPrice_;
+      }
+      /**
+       * <code>optional double bidPrice = 4;</code>
+       */
+      public Builder setBidPrice(double value) {
+        bitField0_ |= 0x00000008;
+        bidPrice_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double bidPrice = 4;</code>
+       */
+      public Builder clearBidPrice() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        bidPrice_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double bidAmount_ ;
+      /**
+       * <code>optional double bidAmount = 5;</code>
+       */
+      public boolean hasBidAmount() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional double bidAmount = 5;</code>
+       */
+      public double getBidAmount() {
+        return bidAmount_;
+      }
+      /**
+       * <code>optional double bidAmount = 5;</code>
+       */
+      public Builder setBidAmount(double value) {
+        bitField0_ |= 0x00000010;
+        bidAmount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double bidAmount = 5;</code>
+       */
+      public Builder clearBidAmount() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        bidAmount_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.BestQuoteMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.BestQuoteMsg)
+    private static final com.gene.proto.HBApiProto.BestQuoteMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.HBApiProto.BestQuoteMsg();
+    }
+
+    public static com.gene.proto.HBApiProto.BestQuoteMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BestQuoteMsg>
+        PARSER = new com.google.protobuf.AbstractParser<BestQuoteMsg>() {
+      @java.lang.Override
+      public BestQuoteMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BestQuoteMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BestQuoteMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BestQuoteMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.HBApiProto.BestQuoteMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_ly_proto_MarkMsg_descriptor;
+    internal_static_com_ly_proto_ReqAccountMsg_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_ly_proto_MarkMsg_fieldAccessorTable;
+      internal_static_com_ly_proto_ReqAccountMsg_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_ly_proto_ReqApiMsg_descriptor;
   private static final 
@@ -4617,6 +13259,41 @@ public final class HBApiProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_ly_proto_ResApiMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_BalanceMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_BalanceMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_AccountMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_AccountMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_AccountEventMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_AccountEventMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_AccountChangeMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_AccountChangeMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_OrderMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_OrderMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_OrderUpdateEventMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_BestQuoteMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_BestQuoteMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4627,19 +13304,49 @@ public final class HBApiProto {
   static {
     java.lang.String[] descriptorData = {
       "\n(main/java/com/gene/proto/msg/HBApi.pro" +
-      "to\022\014com.ly.proto\"~\n\007MarkMsg\022\024\n\014candlesti" +
-      "cdk\030\001 \001(\t\022\022\n\npriceDepth\030\002 \001(\t\022\r\n\005trade\030\003" +
-      " \001(\t\022\021\n\tbestQuote\030\004 \001(\t\022\016\n\006trades\030\005 \001(\t\022" +
-      "\027\n\017tradeStatistics\030\006 \001(\t\"\334\001\n\tReqApiMsg\022#" +
-      "\n\004type\030\001 \001(\0162\025.com.ly.proto.ReqType\022\016\n\006a" +
-      "piKey\030\002 \001(\t\022\021\n\tsecretKey\030\003 \001(\t\022\016\n\006symbol" +
-      "\030\004 \001(\t\022\014\n\004size\030\005 \001(\005\022\023\n\013accountType\030\006 \001(" +
-      "\t\022\017\n\007address\030\007 \001(\t\022\020\n\010interval\030\010 \001(\t\022\n\n\002" +
-      "id\030\t \001(\005\022\021\n\torderType\030\n \001(\t\022\022\n\norderStat" +
-      "e\030\013 \001(\t\"O\n\tResApiMsg\022\031\n\021exchangeTimestam" +
-      "p\030\001 \001(\003\022\'\n\010markInfo\030\002 \001(\0132\025.com.ly.proto" +
-      ".MarkMsg*\026\n\007ReqType\022\013\n\007ACCOUNT\020\001B\034\n\016com." +
-      "gene.protoB\nHBApiProto"
+      "to\022\014com.ly.proto\"G\n\rReqAccountMsg\022\016\n\006api" +
+      "Key\030\001 \001(\t\022\021\n\tsecretKey\030\002 \001(\t\022\023\n\013accountT" +
+      "ype\030\003 \001(\t\"\352\001\n\tReqApiMsg\022#\n\004type\030\001 \001(\0162\025." +
+      "com.ly.proto.ReqType\022\016\n\006symbol\030\002 \001(\t\022\017\n\007" +
+      "symbols\030\003 \001(\t\022\014\n\004size\030\004 \001(\005\022\023\n\013accountTy" +
+      "pe\030\005 \001(\t\022\017\n\007address\030\006 \001(\t\022\020\n\010interval\030\007 " +
+      "\001(\t\022\013\n\003ids\030\010 \003(\003\022\021\n\torderType\030\t \001(\t\022\022\n\no" +
+      "rderState\030\n \001(\t\022\016\n\006amount\030\013 \001(\001\022\r\n\005price" +
+      "\030\014 \001(\001\"\323\002\n\tResApiMsg\022\016\n\006result\030\001 \001(\005\022\013\n\003" +
+      "msg\030\002 \001(\t\022)\n\007account\030\003 \001(\0132\030.com.ly.prot" +
+      "o.AccountMsg\0229\n\022accountChangeEvent\030\004 \001(\013" +
+      "2\035.com.ly.proto.AccountEventMsg\022*\n\nopenO" +
+      "rders\030\005 \003(\0132\026.com.ly.proto.OrderMsg\022,\n\014o" +
+      "rderHistory\030\006 \003(\0132\026.com.ly.proto.OrderMs" +
+      "g\022:\n\017orderUdateEvent\030\007 \001(\0132!.com.ly.prot" +
+      "o.OrderUpdateEventMsg\022-\n\tbestQuote\030\010 \001(\013" +
+      "2\032.com.ly.proto.BestQuoteMsg\"D\n\nBalanceM" +
+      "sg\022\020\n\010currency\030\001 \001(\t\022\023\n\013balanceType\030\002 \001(" +
+      "\t\022\017\n\007balance\030\003 \001(\001\"n\n\nAccountMsg\022\n\n\002id\030\001" +
+      " \001(\003\022\023\n\013accountType\030\002 \001(\t\022\024\n\014accountStat" +
+      "e\030\003 \001(\t\022)\n\007blances\030\004 \003(\0132\030.com.ly.proto." +
+      "BalanceMsg\"i\n\017AccountEventMsg\022\021\n\ttimesta" +
+      "mp\030\001 \001(\003\022\022\n\nchangeType\030\002 \001(\t\022/\n\007changes\030" +
+      "\003 \003(\0132\036.com.ly.proto.AccountChangeMsg\"_\n" +
+      "\020AccountChangeMsg\022\020\n\010currency\030\001 \001(\t\022\023\n\013a" +
+      "ccountType\030\002 \001(\t\022\017\n\007balance\030\003 \001(\001\022\023\n\013bal" +
+      "anceType\030\004 \001(\t\"\257\002\n\010OrderMsg\022\023\n\013accountTy" +
+      "pe\030\001 \001(\t\022\016\n\006amount\030\002 \001(\001\022\r\n\005price\030\003 \001(\001\022" +
+      "\030\n\020createdTimestamp\030\004 \001(\003\022\031\n\021canceledTim" +
+      "estamp\030\005 \001(\003\022\031\n\021finishedTimestamp\030\006 \001(\003\022" +
+      "\017\n\007orderId\030\007 \001(\003\022\016\n\006symbol\030\010 \001(\t\022\021\n\torde" +
+      "rType\030\t \001(\t\022\024\n\014filledAmount\030\n \001(\001\022\030\n\020fil" +
+      "ledCashAmount\030\013 \001(\001\022\022\n\nfilledFees\030\014 \001(\001\022" +
+      "\023\n\013orderSource\030\r \001(\t\022\022\n\norderState\030\016 \001(\t" +
+      "\"_\n\023OrderUpdateEventMsg\022\016\n\006symbol\030\001 \001(\t\022" +
+      "\021\n\ttimestamp\030\002 \001(\003\022%\n\005order\030\003 \001(\0132\026.com." +
+      "ly.proto.OrderMsg\"k\n\014BestQuoteMsg\022\021\n\ttim" +
+      "estamp\030\001 \001(\003\022\020\n\010askPrice\030\002 \001(\001\022\021\n\taskAmo" +
+      "unt\030\003 \001(\001\022\020\n\010bidPrice\030\004 \001(\001\022\021\n\tbidAmount" +
+      "\030\005 \001(\001*n\n\007ReqType\022\016\n\nOPENORDERS\020\001\022\020\n\014ORD" +
+      "ERHISTORY\020\002\022\017\n\013CREATEORDER\020\003\022\017\n\013CANCELOR" +
+      "DER\020\004\022\r\n\tBESTQUOTE\020\005\022\020\n\014MONITORORDER\020\006B\034" +
+      "\n\016com.gene.protoB\nHBApiProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4653,24 +13360,66 @@ public final class HBApiProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_com_ly_proto_MarkMsg_descriptor =
+    internal_static_com_ly_proto_ReqAccountMsg_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_ly_proto_MarkMsg_fieldAccessorTable = new
+    internal_static_com_ly_proto_ReqAccountMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_ly_proto_MarkMsg_descriptor,
-        new java.lang.String[] { "Candlesticdk", "PriceDepth", "Trade", "BestQuote", "Trades", "TradeStatistics", });
+        internal_static_com_ly_proto_ReqAccountMsg_descriptor,
+        new java.lang.String[] { "ApiKey", "SecretKey", "AccountType", });
     internal_static_com_ly_proto_ReqApiMsg_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_ly_proto_ReqApiMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ly_proto_ReqApiMsg_descriptor,
-        new java.lang.String[] { "Type", "ApiKey", "SecretKey", "Symbol", "Size", "AccountType", "Address", "Interval", "Id", "OrderType", "OrderState", });
+        new java.lang.String[] { "Type", "Symbol", "Symbols", "Size", "AccountType", "Address", "Interval", "Ids", "OrderType", "OrderState", "Amount", "Price", });
     internal_static_com_ly_proto_ResApiMsg_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_ly_proto_ResApiMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ly_proto_ResApiMsg_descriptor,
-        new java.lang.String[] { "ExchangeTimestamp", "MarkInfo", });
+        new java.lang.String[] { "Result", "Msg", "Account", "AccountChangeEvent", "OpenOrders", "OrderHistory", "OrderUdateEvent", "BestQuote", });
+    internal_static_com_ly_proto_BalanceMsg_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_ly_proto_BalanceMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_BalanceMsg_descriptor,
+        new java.lang.String[] { "Currency", "BalanceType", "Balance", });
+    internal_static_com_ly_proto_AccountMsg_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_ly_proto_AccountMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_AccountMsg_descriptor,
+        new java.lang.String[] { "Id", "AccountType", "AccountState", "Blances", });
+    internal_static_com_ly_proto_AccountEventMsg_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_ly_proto_AccountEventMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_AccountEventMsg_descriptor,
+        new java.lang.String[] { "Timestamp", "ChangeType", "Changes", });
+    internal_static_com_ly_proto_AccountChangeMsg_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_ly_proto_AccountChangeMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_AccountChangeMsg_descriptor,
+        new java.lang.String[] { "Currency", "AccountType", "Balance", "BalanceType", });
+    internal_static_com_ly_proto_OrderMsg_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_ly_proto_OrderMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_OrderMsg_descriptor,
+        new java.lang.String[] { "AccountType", "Amount", "Price", "CreatedTimestamp", "CanceledTimestamp", "FinishedTimestamp", "OrderId", "Symbol", "OrderType", "FilledAmount", "FilledCashAmount", "FilledFees", "OrderSource", "OrderState", });
+    internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_com_ly_proto_OrderUpdateEventMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor,
+        new java.lang.String[] { "Symbol", "Timestamp", "Order", });
+    internal_static_com_ly_proto_BestQuoteMsg_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_com_ly_proto_BestQuoteMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_BestQuoteMsg_descriptor,
+        new java.lang.String[] { "Timestamp", "AskPrice", "AskAmount", "BidPrice", "BidAmount", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

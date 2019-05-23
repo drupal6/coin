@@ -19,7 +19,7 @@ public class PBMessage implements Serializable {
 	public static final int PACKET_MAX_LEN = Short.MAX_VALUE ;
 
 	private static final long serialVersionUID = 1L;
-	public static final short HDR_SIZE = 18;
+	public static final short HDR_SIZE = 14;
 	public static final short HEADER = 29099;
 
 	private boolean forward = false; //是否是转发
@@ -28,9 +28,8 @@ public class PBMessage implements Serializable {
 	private short len = HDR_SIZE; // 数据包长度
 	private short checksum; // 校验和
 	private short code; // 协议号
-	private int playerId; // 玩家ID
-	private int empty1; // 客服端标识
-	private short empty2; // 预留字段2  战场包分类  0普通  1移动包
+	private int seqId; 	// 客服端标识
+	private short empty2; // 预留字段2  战
 
 	private byte[] bytes; // 数据体
 	private Message message; // Proto
@@ -39,12 +38,7 @@ public class PBMessage implements Serializable {
 	}
 
 	public PBMessage(short code) {
-		this(code, -1);
-	}
-
-	public PBMessage(short code, int playerId) {
 		this.code = code;
-		this.playerId = playerId;
 	}
 
 	public short getHeader() {
@@ -75,20 +69,12 @@ public class PBMessage implements Serializable {
 		this.code = code;
 	}
 
-	public int getPlayerId() {
-		return playerId;
+	public int getSeqId() {
+		return seqId;
 	}
 
-	public void setPlayerId(int playerId) {
-		this.playerId = playerId;
-	}
-
-	public int getEmpty1() {
-		return empty1;
-	}
-
-	public void setEmpty1(int empty1) {
-		this.empty1 = empty1;
+	public void setSeqId(int seqId) {
+		this.seqId = seqId;
 	}
 
 	public short getEmpty2() {
@@ -132,8 +118,7 @@ public class PBMessage implements Serializable {
 		len = in.readShort();
 		checksum = in.readShort();
 		code = in.readShort();
-		playerId = in.readInt();
-		empty1 = in.readInt();
+		seqId = in.readInt();
 		empty2 = in.readShort();
 	}
 
@@ -142,8 +127,7 @@ public class PBMessage implements Serializable {
 		out.writeShort(len); // 总长度
 		out.writeShort(checksum); // 校验
 		out.writeShort(code); // 命令
-		out.writeInt(playerId);
-		out.writeInt(empty1);
+		out.writeInt(seqId);
 		out.writeShort(empty2);
 	}
 
@@ -164,10 +148,9 @@ public class PBMessage implements Serializable {
 	public String headerToStr() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("header : ").append(header);
-		sb.append(", playerId : ").append(playerId);
 		sb.append(", code : ").append(code);
 		sb.append(", len : ").append(len);
-		sb.append(", empty1 : ").append(empty1);
+		sb.append(", empty1 : ").append(seqId);
 		sb.append(", empty2 : ").append(empty2);
 		sb.append(", checksum : ").append(checksum);
 		return sb.toString();

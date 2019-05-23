@@ -1,0 +1,8 @@
+package com.ly.proto;
+
+option java_package = "com.gene.proto";
+option java_outer_classname = "ErrorCodeProto";
+
+message ResErrorCodeMsg {
+	optional string msg 		= 1;
+}

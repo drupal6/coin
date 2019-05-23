@@ -2,7 +2,6 @@ package com.gene.service;
 
 import java.util.List;
 
-import com.gene.HbClientBuilder;
 import com.huobi.client.model.BestQuote;
 import com.huobi.client.model.Candlestick;
 import com.huobi.client.model.PriceDepth;
