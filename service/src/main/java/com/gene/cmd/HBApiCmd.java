@@ -4,7 +4,7 @@ package com.gene.cmd;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.gene.connect.UserConnect;
+import com.gene.connect.User;
 import com.gene.message.MessageUtil;
 import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
@@ -16,6 +16,7 @@ import com.gene.proto.HBApiProto.ReqType;
 import com.gene.proto.HBApiProto.ResApiMsg;
 import com.gene.service.HbMsgBuilder;
 import com.gene.util.ErrorUtil;
+import com.gene.util.OS;
 import com.huobi.client.model.BestQuote;
 import com.huobi.client.model.Order;
 import com.huobi.client.model.enums.AccountType;
@@ -25,84 +26,88 @@ import com.huobi.client.model.request.HistoricalOrdersRequest;
 import com.huobi.client.model.request.NewOrderRequest;
 import com.huobi.client.model.request.OpenOrderRequest;
 
-@Cmd(code=ReqCode.HB_API, desc="火币api")
-public class HBApiCmd extends UserCommand {
+@Cmd(code=ReqCode.HB_API, os=OS.HUOBI, desc="火币api")
+public class HBApiCmd extends Command {
 
 	@Override
-	public void execute(UserConnect connect, PBMessage packet) throws Exception {
+	public void execute(User user, PBMessage packet) throws Exception {
+		if(user.getHbUser() == null) {
+			ErrorUtil.error(user.getChannel(), packet, "Hb not login.");
+			return;
+		}
 		ReqApiMsg param = ReqApiMsg.parseFrom(packet.getBytes());
 		ReqType type = param.getType();
 		switch (type.getNumber()) {
 		case ReqType.OPENORDERS_VALUE:
-			openOrders(connect, param, packet.getSeqId());
+			openOrders(user, param, packet);
 			break;
 		case ReqType.ORDERHISTORY_VALUE:
-			orderHistory(connect, param, packet.getSeqId());
+			orderHistory(user, param, packet);
 			break;
 		case ReqType.CREATEORDER_VALUE:
-			createOrder(connect, param, packet.getSeqId());
+			createOrder(user, param, packet);
 			break;
 		case ReqType.CANCELORDER_VALUE:
-			cancelOrder(connect, param, packet.getSeqId());
+			cancelOrder(user, param, packet);
 			break;
 		case ReqType.BESTQUOTE_VALUE:
-			bestQuote(connect, param, packet.getSeqId());
+			bestQuote(user, param, packet);
 			break;
 		case ReqType.MONITORORDER_VALUE:
-			monitorOrder(connect, param.getSymbols());
+			monitorOrder(user, param.getSymbols(), packet);
 			break;
 		default:
-			ErrorUtil.error(connect.getChannel(), packet.getSeqId(), "type not suport! type:" + type.name());
+			ErrorUtil.error(user.getChannel(), packet, "type not suport! type:" + type.name());
 			break;
 		}
 	}
 	
-	private void openOrders(UserConnect connect, ReqApiMsg param, int seqId) {
+	private void openOrders(User user, ReqApiMsg param, PBMessage packet) {
 		OpenOrderRequest openOrderRequest = new OpenOrderRequest(param.getSymbol(), AccountType.lookup(param.getAccountType()));
-		connect.getAuthAsyncClient().getOpenOrders(openOrderRequest, asyncResult -> {
+		user.getHbUser().getAuthAsyncClient().getOpenOrders(openOrderRequest, asyncResult -> {
 			if(asyncResult.succeeded()) {
 				List<Order> orders = asyncResult.getData();
 				ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 				orders.forEach(order -> {
 					builder.addOpenOrders(HbMsgBuilder.buildOrdermsg(order));
 				});
-				send(connect, builder, seqId);
+				send(user, builder, packet.getSeqId(), packet.getOs());
 			} else {
 				
 			}
 		});
 	}
 	
-	private void orderHistory(UserConnect connect, ReqApiMsg param, int seqId) {
+	private void orderHistory(User user, ReqApiMsg param, PBMessage packet) {
 		HistoricalOrdersRequest historicalOrdersRequest = new HistoricalOrdersRequest(param.getSymbol(), OrderState.lookup(param.getOrderState()));
-		connect.getAuthAsyncClient().getHistoricalOrders(historicalOrdersRequest, asyncResult -> {
+		user.getHbUser().getAuthAsyncClient().getHistoricalOrders(historicalOrdersRequest, asyncResult -> {
 			if(asyncResult.succeeded()) {
 				List<Order> orders = asyncResult.getData();
 				ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 				orders.forEach(order -> {
 					builder.addOrderHistory(HbMsgBuilder.buildOrdermsg(order));
 				});
-				send(connect, builder, seqId);
+				send(user, builder, packet.getSeqId(), packet.getOs());
 			} else {
 				
 			}
 		});
 	}
 	
-	private void createOrder(UserConnect connect, ReqApiMsg param, int seqId) {
+	private void createOrder(User user, ReqApiMsg param, PBMessage packet) {
 		NewOrderRequest newOrderRequest = new NewOrderRequest(param.getSymbol(), 
 				AccountType.lookup(param.getAccountType()), 
 				OrderType.lookup(param.getOrderType()), new BigDecimal(param.getAmount()), new BigDecimal(param.getPrice()));
-		connect.getAuthAsyncClient().createOrder(newOrderRequest, asyncResult -> {
+		user.getHbUser().getAuthAsyncClient().createOrder(newOrderRequest, asyncResult -> {
 			if(asyncResult.succeeded()) {
-				monitorOrder(connect, param.getSymbol());
+				monitorOrder(user, param.getSymbol(), packet);
 			} else {
 				
 			}
 		});
 	}
-	private void cancelOrder(UserConnect connect, ReqApiMsg param, int seqId) {
-		connect.getAuthAsyncClient().cancelOrders(param.getSymbol(), param.getIdsList(), asyncResult -> {
+	private void cancelOrder(User user, ReqApiMsg param, PBMessage packet) {
+		user.getHbUser().getAuthAsyncClient().cancelOrders(param.getSymbol(), param.getIdsList(), asyncResult -> {
 			if(asyncResult.succeeded()) {
 				
 			} else {
@@ -111,22 +116,22 @@ public class HBApiCmd extends UserCommand {
 		});
 	}
 	
-	private void bestQuote(UserConnect connect, ReqApiMsg param, int seqId) {
-		connect.getAsyncClient().getBestQuote(param.getSymbol(), asyncResult -> {
+	private void bestQuote(User user, ReqApiMsg param, PBMessage packet) {
+		user.getHbUser().getAsyncClient().getBestQuote(param.getSymbol(), asyncResult -> {
 			if(asyncResult.succeeded()) {
 				BestQuote bestQuote = asyncResult.getData();
 				ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 				builder.setBestQuote(HbMsgBuilder.buildBestQuoteMsg(bestQuote));
-				send(connect, builder, seqId);
+				send(user, builder, packet.getSeqId(), packet.getOs());
 			} else {
 				
 			}
 		});
 	}
 	
-	private void monitorOrder(UserConnect connect, String symbols) {
+	private void monitorOrder(User user, String symbols, PBMessage packet) {
 		//监听订单变化
-		connect.getAuthSubscriptionClient().subscribeOrderUpdateEvent(symbols, orderUpdateEvent -> {
+		user.getHbUser().getAuthSubscriptionClient().subscribeOrderUpdateEvent(symbols, orderUpdateEvent -> {
 			OrderUpdateEventMsg.Builder orderUpdateEventBuilder = OrderUpdateEventMsg.newBuilder();
 			orderUpdateEventBuilder.setSymbol(orderUpdateEvent.getSymbol());
 			orderUpdateEventBuilder.setTimestamp(orderUpdateEvent.getTimestamp());
@@ -135,15 +140,15 @@ public class HBApiCmd extends UserCommand {
 			}
 			ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 			builder.setOrderUdateEvent(orderUpdateEventBuilder);
-			send(connect, builder, 0);
+			send(user, builder, 0, packet.getOs());
 		});
 	}
 	
 	
 	
-	private void send(UserConnect connect, ResApiMsg.Builder builder, int seqId) {
-		PBMessage pack = MessageUtil.buildMessage(ResCode.HB_API, builder, seqId);
-		connect.send(pack);
+	private void send(User user, ResApiMsg.Builder builder, int seqId, short os) {
+		PBMessage pack = MessageUtil.buildMessage(ResCode.HB_API, builder, seqId, os);
+		user.send(pack);
 	}
 	
 }

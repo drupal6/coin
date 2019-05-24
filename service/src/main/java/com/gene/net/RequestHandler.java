@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import com.gene.cmd.Command;
 import com.gene.connect.ConnectService;
-import com.gene.connect.UserConnect;
+import com.gene.connect.User;
 import com.gene.exec.CmdTask;
 import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
@@ -24,7 +24,10 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
 	
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		LOGGER.info("[client] recieved a connector from " + ctx.channel().remoteAddress());
+		User user = ConnectService.getInst().get(ctx.channel());
+		if(user == null) {
+			ConnectService.getInst().add(ctx.channel());
+		}
 	}
 
 	@Override
@@ -34,24 +37,19 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
 	}
 	
 	public static void handle(Channel channel, PBMessage packet) {
+		short os = packet.getOs();
 		short code = packet.getCode();
-		Command cmd = CommandService.getInst().getCommand(code);
+		Command cmd = CommandService.getInst().getCommand(os, code);
 		if (cmd == null) {
-			LOGGER.error("not found cmd , code : " + code);
+			LOGGER.error("not found cmd , os:{}, code:{} ", os, code);
 			return;
 		}
-		if(code == ReqCode.HB_ACCOUNT) {
-			ConnectService.getInst().enqueue(new CmdTask(cmd, channel, packet, ConnectService.getInst().getCmdTaskQueue()));
-		} else {
-			UserConnect userConnect = ConnectService.getInst().get(channel);
-			if(userConnect == null) {
-				if(userConnect == null) {
-					ErrorUtil.error(channel, packet.getSeqId(), "RequestHandler没有登录");
-					return;
-				}
-			}
-			userConnect.enqueue(new CmdTask(cmd, channel, packet, userConnect.getCmdTaskQueue()));
+		User user = ConnectService.getInst().get(channel);
+		if(user == null) {
+			ErrorUtil.error(channel, packet, "RequestHandler没有登录");
+			return;
 		}
+		user.enqueue(new CmdTask(cmd, user, packet, user.getCmdTaskQueue()));
 	}
 
 	@Override

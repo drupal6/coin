@@ -24,7 +24,7 @@ public final class CommandService {
 	/**
 	 * 缓存命令对象
 	 **/
-	private Map<Short, Command> cmdCache = new HashMap<Short, Command>();
+	private Map<Short, Map<Short, Command>> osCache = new HashMap<>();
 	
 	public static void main(String[] args) throws Exception {
 		CommandService.getInst().init();
@@ -42,16 +42,25 @@ public final class CommandService {
 			for (Class<?> clazz : allClasses) {
 				Cmd cmd = clazz.getAnnotation(Cmd.class);
 				if (cmd != null) {
+					Map<Short, Command> cmdCache = osCache.get(cmd.os());
+					if(cmdCache == null) {
+						cmdCache = new HashMap<>();
+						osCache.put(cmd.os(), cmdCache);
+					}
 					cmdCache.put(cmd.code(), (Command) clazz.newInstance());
 				}
 			}
-			LOGGER.info("cmdCache size : " + cmdCache.size());
 	}
 
 	/**
 	 * 缓存中获取命令
 	 */
-	public Command getCommand(short code) {
+	public Command getCommand(short os, short code) {
+		Map<Short, Command> cmdCache = osCache.get(os);
+		if(cmdCache == null) {
+			LOGGER.error("os cmd is null. os:{}", os);
+			return null;
+		}
 		return cmdCache.get(code);
 	}
 

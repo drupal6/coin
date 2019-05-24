@@ -1,20 +1,9 @@
 package com.gene.connect;
 
-import com.gene.exec.AbstractCmdTaskQueue;
-import com.gene.exec.CmdExecutor;
-import com.gene.exec.CmdTask;
-import com.gene.exec.CmdTaskQueue;
-import com.gene.message.PBMessage;
 import com.huobi.client.AsyncRequestClient;
 import com.huobi.client.SubscriptionClient;
 
-import io.netty.channel.Channel;
-
-public class UserConnect {
-	
-	private final Channel channel;
-	
-	private CmdTaskQueue cmdTaskQueue;
+public class HbUser {
 	
 	private AsyncRequestClient authAsyncClient;
 	
@@ -23,36 +12,7 @@ public class UserConnect {
 	private SubscriptionClient subscriptionClient;
 	
 	private SubscriptionClient authSubscriptionClient;
-
-	public UserConnect(Channel channel, CmdExecutor executor) {
-		this.channel = channel;
-		this.cmdTaskQueue = new AbstractCmdTaskQueue(executor);
-	}
 	
-	public Channel getChannel() {
-		return channel;
-	}
-	
-	public CmdTaskQueue getCmdTaskQueue() {
-		return cmdTaskQueue;
-	}
-
-	public void enqueue(CmdTask cmdTask) {
-		cmdTaskQueue.enqueue(cmdTask);
-	}
-	
-	public void send(PBMessage pbmessage) {
-		if(channel != null && channel.isActive()) {
-			channel.writeAndFlush(pbmessage);
-		} else {
-			ConnectService.getInst().remove(channel);
-		}
-	}
-	
-	public void setCmdTaskQueue(CmdTaskQueue cmdTaskQueue) {
-		this.cmdTaskQueue = cmdTaskQueue;
-	}
-
 	public AsyncRequestClient getAuthAsyncClient() {
 		return authAsyncClient;
 	}
@@ -89,5 +49,14 @@ public class UserConnect {
 
 	public void setAuthSubscriptionClient(SubscriptionClient authSubscriptionClient) {
 		this.authSubscriptionClient = authSubscriptionClient;
+	}
+	
+	public void unSub() {
+		if(subscriptionClient != null) {
+			subscriptionClient.unsubscribeAll();
+		}
+		if(authSubscriptionClient != null) {
+			authSubscriptionClient.unsubscribeAll();
+		}
 	}
 }

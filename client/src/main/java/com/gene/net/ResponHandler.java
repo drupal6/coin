@@ -3,6 +3,7 @@ package com.gene.net;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gene.client.service.ClientService;
 import com.gene.message.PBMessage;
 
 import io.netty.channel.Channel;
@@ -22,7 +23,7 @@ public class ResponHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		PBMessage packet = (PBMessage) msg;
-		System.out.println("client read >>>>>>>" + packet.getCode());
+		ClientService.getInst().packHandel(packet);
 	}
 	
 

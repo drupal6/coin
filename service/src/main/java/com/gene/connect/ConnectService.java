@@ -3,10 +3,7 @@ package com.gene.connect;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.gene.exec.AbstractCmdTaskQueue;
 import com.gene.exec.CmdExecutor;
-import com.gene.exec.CmdTask;
-import com.gene.exec.CmdTaskQueue;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelId;
@@ -19,9 +16,8 @@ public class ConnectService {
 		return instance;
 	}
 	
-	private Map<ChannelId, UserConnect> channelMap = new ConcurrentHashMap<ChannelId, UserConnect>();
+	private Map<ChannelId, User> channelMap = new ConcurrentHashMap<ChannelId, User>();
 	public CmdExecutor executor;
-	private CmdTaskQueue cmdTaskQueue;
 	
 	public ConnectService() {
 		int corePoolSize = Runtime.getRuntime().availableProcessors() * 2;
@@ -29,40 +25,26 @@ public class ConnectService {
 		int keepAliveTime = 5;
 		int cacheSize = maxPoolSize;
 		executor = new CmdExecutor(corePoolSize, maxPoolSize, keepAliveTime, cacheSize, "executor");
-		this.cmdTaskQueue = new AbstractCmdTaskQueue(executor);
 	}
 	
-	public UserConnect get(Channel channel) {
+	public User get(Channel channel) {
 		return channelMap.get(channel.id());
 	}
 	
-	public UserConnect add(Channel channel) {
-		UserConnect userConnect = new UserConnect(channel, executor);
+	public User add(Channel channel) {
+		User user = new User(channel, executor);
 		synchronized (channelMap) {
-			channelMap.put(channel.id(), userConnect);
+			channelMap.put(channel.id(), user);
 		}
-		return userConnect;
+		return user;
 	}
 	
 	public void remove(Channel channel) {
 		synchronized (channelMap) {
-			UserConnect userConnect = channelMap.remove(channel.id());
-			if(userConnect != null) {
-				if(userConnect.getSubscriptionClient() != null) {
-					userConnect.getSubscriptionClient().unsubscribeAll();
-				}
-				if(userConnect.getAuthSubscriptionClient() != null) {
-					userConnect.getAuthSubscriptionClient().unsubscribeAll();
-				}
+			User user = channelMap.remove(channel.id());
+			if(user.getHbUser() != null) {
+				user.getHbUser().unSub();
 			}
 		}
-	}
-	
-	public CmdTaskQueue getCmdTaskQueue() {
-		return cmdTaskQueue;
-	}
-
-	public void enqueue(CmdTask cmdTask) {
-		cmdTaskQueue.enqueue(cmdTask);
 	}
 }

@@ -29,7 +29,7 @@ public class PBMessage implements Serializable {
 	private short checksum; // 校验和
 	private short code; // 协议号
 	private int seqId; 	// 客服端标识
-	private short empty2; // 预留字段2  战
+	private short os; // 平台
 
 	private byte[] bytes; // 数据体
 	private Message message; // Proto
@@ -37,8 +37,10 @@ public class PBMessage implements Serializable {
 	public PBMessage() {
 	}
 
-	public PBMessage(short code) {
+	public PBMessage(short code, int seqId, short os) {
 		this.code = code;
+		this.seqId = seqId;
+		this.os = os;
 	}
 
 	public short getHeader() {
@@ -77,12 +79,12 @@ public class PBMessage implements Serializable {
 		this.seqId = seqId;
 	}
 
-	public short getEmpty2() {
-		return empty2;
+	public short getOs() {
+		return os;
 	}
 
-	public void setEmpty2(short empty2) {
-		this.empty2 = empty2;
+	public void setOs(short os) {
+		this.os = os;
 	}
 
 	public byte[] getBytes() {
@@ -119,7 +121,7 @@ public class PBMessage implements Serializable {
 		checksum = in.readShort();
 		code = in.readShort();
 		seqId = in.readInt();
-		empty2 = in.readShort();
+		os = in.readShort();
 	}
 
 	public void writeHeader(ByteBuf out) {
@@ -128,7 +130,7 @@ public class PBMessage implements Serializable {
 		out.writeShort(checksum); // 校验
 		out.writeShort(code); // 命令
 		out.writeInt(seqId);
-		out.writeShort(empty2);
+		out.writeShort(os);
 	}
 
 	public short calcChecksum(byte[] data) {
@@ -150,8 +152,8 @@ public class PBMessage implements Serializable {
 		sb.append("header : ").append(header);
 		sb.append(", code : ").append(code);
 		sb.append(", len : ").append(len);
-		sb.append(", empty1 : ").append(seqId);
-		sb.append(", empty2 : ").append(empty2);
+		sb.append(", seqId : ").append(seqId);
+		sb.append(", os : ").append(os);
 		sb.append(", checksum : ").append(checksum);
 		return sb.toString();
 	}

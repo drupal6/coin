@@ -1,6 +1,6 @@
 package com.gene.util;
 
-import com.gene.connect.UserConnect;
+import com.gene.connect.User;
 import com.gene.message.MessageUtil;
 import com.gene.message.PBMessage;
 import com.gene.message.ResCode;
@@ -10,17 +10,17 @@ import io.netty.channel.Channel;
 
 public class ErrorUtil {
 	
-	public static void error(UserConnect user, int seqId, String msg) {
+	public static void error(User user, PBMessage packet, String msg) {
 		ResErrorCodeMsg.Builder build = ResErrorCodeMsg.newBuilder();
 		build.setMsg(msg);
-		PBMessage message = MessageUtil.buildMessage(ResCode.ERROR, build, seqId);
+		PBMessage message = MessageUtil.buildMessage(ResCode.ERROR, build, packet.getSeqId(), packet.getOs());
 		user.send(message);
 	}
 	
-	public static void error(Channel channel, int seqId, String msg) {
+	public static void error(Channel channel, PBMessage packet, String msg) {
 		ResErrorCodeMsg.Builder build = ResErrorCodeMsg.newBuilder();
 		build.setMsg(msg);
-		PBMessage message = MessageUtil.buildMessage(ResCode.ERROR, build, seqId);
+		PBMessage message = MessageUtil.buildMessage(ResCode.ERROR, build, packet.getSeqId(), packet.getOs());
 		if(channel != null && channel.isActive()) {
 			channel.writeAndFlush(message);
 		}
