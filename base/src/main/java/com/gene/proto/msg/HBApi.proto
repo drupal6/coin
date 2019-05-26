@@ -49,7 +49,7 @@ message ResApiMsg {
 message BalanceMsg {
 	optional string currency 		= 1;
 	optional string balanceType 	= 2;
-	optional double balance			= 3;
+	optional string balance			= 3;
 }
 //账号信息
 message AccountMsg{
@@ -69,23 +69,23 @@ message AccountEventMsg {
 message AccountChangeMsg {
 	optional string currency = 1;
 	optional string accountType = 2;
-	optional double balance = 3;
+	optional string balance = 3;
 	optional string balanceType = 4;
 }
 
 message OrderMsg {
 	optional string accountType 		= 1;
-	optional double amount 				= 2;
-	optional double price 				= 3;
+	optional string amount 				= 2;
+	optional string price 				= 3;
 	optional int64 createdTimestamp 	= 4;
 	optional int64 canceledTimestamp 	= 5;
 	optional int64 finishedTimestamp 	= 6;
 	optional int64 orderId 				= 7;
 	optional string symbol 				= 8;
 	optional string orderType 			= 9;
-	optional double filledAmount 		= 10;
-	optional double filledCashAmount 	= 11;
-	optional double filledFees 			= 12;
+	optional string filledAmount 		= 10;
+	optional string filledCashAmount 	= 11;
+	optional string filledFees 			= 12;
 	optional string orderSource 		= 13;
 	optional string orderState 			= 14;
 }
@@ -98,8 +98,8 @@ message OrderUpdateEventMsg {
 
 message BestQuoteMsg {
 	optional int64 timestamp 		= 1;
-	optional double askPrice 		= 2;
-	optional double askAmount 		= 3;
-	optional double bidPrice 		= 4;
-	optional double bidAmount 		= 5;
+	optional string askPrice 		= 2;
+	optional string askAmount 		= 3;
+	optional string bidPrice 		= 4;
+	optional string bidAmount 		= 5;
 }

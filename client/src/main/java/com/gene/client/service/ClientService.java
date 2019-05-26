@@ -1,7 +1,9 @@
 package com.gene.client.service;
 
+import com.gene.ReqData;
 import com.gene.client.Client;
 import com.gene.message.PBMessage;
+import com.gene.util.OS;
 
 import io.netty.channel.Channel;
 
@@ -24,7 +26,14 @@ public class ClientService {
 		return client;
 	}
 	
-	public void packHandel(PBMessage packet) {
-		
+	public void packHandel(PBMessage packet) throws Exception {
+		ReqData reqRata = client.removeReqData(packet.getSeqId());
+		switch (packet.getOs()) {
+		case OS.HUOBI:
+			HbClientService.getInst().packHandel(client, packet, reqRata);
+			break;
+		default:
+			break;
+		}
 	}
 }

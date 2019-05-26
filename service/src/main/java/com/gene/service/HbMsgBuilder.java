@@ -22,7 +22,7 @@ public class HbMsgBuilder {
 			BalanceMsg.Builder blanceBuilder = BalanceMsg.newBuilder();
 			blanceBuilder.setCurrency(balance.getCurrency());
 			blanceBuilder.setBalanceType(balance.getType().name());
-			blanceBuilder.setBalance(balance.getBalance().doubleValue());
+			blanceBuilder.setBalance(balance.getBalance().toString());
 			builder.addBlances(blanceBuilder);
 		});
 		return builder.build();
@@ -36,7 +36,7 @@ public class HbMsgBuilder {
 			AccountChangeMsg.Builder accountChangeBuilder = AccountChangeMsg.newBuilder();
 			accountChangeBuilder.setCurrency(accountChange.getCurrency());
 			accountChangeBuilder.setAccountType(accountChange.getAccountType().name());
-			accountChangeBuilder.setBalance(accountChange.getBalance().doubleValue());
+			accountChangeBuilder.setBalance(accountChange.getBalance().toString());
 			accountChangeBuilder.setBalanceType(accountChange.getBalanceType().name());
 			builder.addChanges(accountChangeBuilder);
 		});
@@ -46,8 +46,8 @@ public class HbMsgBuilder {
 	public static OrderMsg buildOrdermsg(Order order) {
 		OrderMsg.Builder builder = OrderMsg.newBuilder();
 		builder.setAccountType(order.getAccountType().name());
-		builder.setAmount(order.getAmount().doubleValue());
-		builder.setPrice(order.getPrice().doubleValue());
+		builder.setAmount(order.getAmount().toString());
+		builder.setPrice(order.getPrice().toString());
 		builder.setCreatedTimestamp(order.getCreatedTimestamp());
 		builder.setCanceledTimestamp(order.getCanceledTimestamp());
 		builder.setFinishedTimestamp(order.getFinishedTimestamp());
@@ -56,9 +56,9 @@ public class HbMsgBuilder {
 		if(order.getType() != null) {
 			builder.setOrderType(order.getType().name());
 		}
-		builder.setFilledAmount(order.getFilledAmount().doubleValue());
-		builder.setFilledCashAmount(order.getFilledCashAmount().doubleValue());
-		builder.setFilledFees(order.getFilledFees().doubleValue());
+		builder.setFilledAmount(order.getFilledAmount().toString());
+		builder.setFilledCashAmount(order.getFilledCashAmount().toString());
+		builder.setFilledFees(order.getFilledFees().toString());
 		if(order.getSource() != null) {
 			builder.setOrderSource(order.getSource().name());
 		}
@@ -71,10 +71,10 @@ public class HbMsgBuilder {
 	public static BestQuoteMsg buildBestQuoteMsg(BestQuote bestQuote) {
 		BestQuoteMsg.Builder builder = BestQuoteMsg.newBuilder();
 		builder.setTimestamp(bestQuote.getTimestamp());
-		builder.setAskAmount(bestQuote.getAskAmount().doubleValue());
-		builder.setAskPrice(bestQuote.getAskPrice().doubleValue());
-		builder.setBidAmount(bestQuote.getBidAmount().doubleValue());
-		builder.setBidPrice(bestQuote.getBidPrice().doubleValue());
+		builder.setAskAmount(bestQuote.getAskAmount().toString());
+		builder.setAskPrice(bestQuote.getAskPrice().toString());
+		builder.setBidAmount(bestQuote.getBidAmount().toString());
+		builder.setBidPrice(bestQuote.getBidPrice().toString());
 		return builder.build();
 	}
 }

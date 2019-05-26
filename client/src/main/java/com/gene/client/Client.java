@@ -6,7 +6,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.gene.ReqData;
 import com.gene.message.PBMessage;
-import com.gene.proto.HBApiProto.AccountMsg;
 
 import io.netty.channel.Channel;
 
@@ -40,8 +39,8 @@ public class Client {
 		}
 	}
 	
-	public void resParse(PBMessage pack, Channel channel) {
-		
+	public ReqData removeReqData(int seqId) {
+		return reqDataMap.remove(seqId);
 	}
 	
 	public Channel getChannel() {
@@ -50,5 +49,13 @@ public class Client {
 	
 	public void setChannel(Channel channel) {
 		this.channel = channel;
+	}
+
+	public HbClient getHbClient() {
+		return hbClient;
+	}
+
+	public void setHbClient(HbClient hbClient) {
+		this.hbClient = hbClient;
 	}
 }

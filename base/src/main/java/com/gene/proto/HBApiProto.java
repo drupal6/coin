@@ -5427,13 +5427,18 @@ public final class HBApiProto {
         getBalanceTypeBytes();
 
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
     boolean hasBalance();
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
-    double getBalance();
+    java.lang.String getBalance();
+    /**
+     * <code>optional string balance = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getBalanceBytes();
   }
   /**
    * <pre>
@@ -5454,6 +5459,7 @@ public final class HBApiProto {
     private BalanceMsg() {
       currency_ = "";
       balanceType_ = "";
+      balance_ = "";
     }
 
     @java.lang.Override
@@ -5492,9 +5498,10 @@ public final class HBApiProto {
               balanceType_ = bs;
               break;
             }
-            case 25: {
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              balance_ = input.readDouble();
+              balance_ = bs;
               break;
             }
             default: {
@@ -5615,18 +5622,45 @@ public final class HBApiProto {
     }
 
     public static final int BALANCE_FIELD_NUMBER = 3;
-    private double balance_;
+    private volatile java.lang.Object balance_;
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
     public boolean hasBalance() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
-    public double getBalance() {
-      return balance_;
+    public java.lang.String getBalance() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balance_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string balance = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceBytes() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        balance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5650,7 +5684,7 @@ public final class HBApiProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, balanceType_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeDouble(3, balance_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, balance_);
       }
       unknownFields.writeTo(output);
     }
@@ -5668,8 +5702,7 @@ public final class HBApiProto {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, balanceType_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, balance_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, balance_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5698,9 +5731,8 @@ public final class HBApiProto {
       }
       if (hasBalance() != other.hasBalance()) return false;
       if (hasBalance()) {
-        if (java.lang.Double.doubleToLongBits(getBalance())
-            != java.lang.Double.doubleToLongBits(
-                other.getBalance())) return false;
+        if (!getBalance()
+            .equals(other.getBalance())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -5723,8 +5755,7 @@ public final class HBApiProto {
       }
       if (hasBalance()) {
         hash = (37 * hash) + BALANCE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getBalance()));
+        hash = (53 * hash) + getBalance().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5867,7 +5898,7 @@ public final class HBApiProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         balanceType_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        balance_ = 0D;
+        balance_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -5906,9 +5937,9 @@ public final class HBApiProto {
         }
         result.balanceType_ = balanceType_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.balance_ = balance_;
           to_bitField0_ |= 0x00000004;
         }
+        result.balance_ = balance_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5969,7 +6000,9 @@ public final class HBApiProto {
           onChanged();
         }
         if (other.hasBalance()) {
-          setBalance(other.getBalance());
+          bitField0_ |= 0x00000004;
+          balance_ = other.balance_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6153,34 +6186,78 @@ public final class HBApiProto {
         return this;
       }
 
-      private double balance_ ;
+      private java.lang.Object balance_ = "";
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
       public boolean hasBalance() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
-      public double getBalance() {
-        return balance_;
+      public java.lang.String getBalance() {
+        java.lang.Object ref = balance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balance_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
-      public Builder setBalance(double value) {
-        bitField0_ |= 0x00000004;
+      public com.google.protobuf.ByteString
+          getBalanceBytes() {
+        java.lang.Object ref = balance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          balance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string balance = 3;</code>
+       */
+      public Builder setBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         balance_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
       public Builder clearBalance() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        balance_ = 0D;
+        balance_ = getDefaultInstance().getBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string balance = 3;</code>
+       */
+      public Builder setBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        balance_ = value;
         onChanged();
         return this;
       }
@@ -8523,13 +8600,18 @@ public final class HBApiProto {
         getAccountTypeBytes();
 
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
     boolean hasBalance();
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
-    double getBalance();
+    java.lang.String getBalance();
+    /**
+     * <code>optional string balance = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getBalanceBytes();
 
     /**
      * <code>optional string balanceType = 4;</code>
@@ -8560,6 +8642,7 @@ public final class HBApiProto {
     private AccountChangeMsg() {
       currency_ = "";
       accountType_ = "";
+      balance_ = "";
       balanceType_ = "";
     }
 
@@ -8599,9 +8682,10 @@ public final class HBApiProto {
               accountType_ = bs;
               break;
             }
-            case 25: {
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              balance_ = input.readDouble();
+              balance_ = bs;
               break;
             }
             case 34: {
@@ -8728,18 +8812,45 @@ public final class HBApiProto {
     }
 
     public static final int BALANCE_FIELD_NUMBER = 3;
-    private double balance_;
+    private volatile java.lang.Object balance_;
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
     public boolean hasBalance() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional double balance = 3;</code>
+     * <code>optional string balance = 3;</code>
      */
-    public double getBalance() {
-      return balance_;
+    public java.lang.String getBalance() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balance_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string balance = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceBytes() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        balance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int BALANCETYPE_FIELD_NUMBER = 4;
@@ -8805,7 +8916,7 @@ public final class HBApiProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accountType_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeDouble(3, balance_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, balance_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, balanceType_);
@@ -8826,8 +8937,7 @@ public final class HBApiProto {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accountType_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, balance_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, balance_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, balanceType_);
@@ -8859,9 +8969,8 @@ public final class HBApiProto {
       }
       if (hasBalance() != other.hasBalance()) return false;
       if (hasBalance()) {
-        if (java.lang.Double.doubleToLongBits(getBalance())
-            != java.lang.Double.doubleToLongBits(
-                other.getBalance())) return false;
+        if (!getBalance()
+            .equals(other.getBalance())) return false;
       }
       if (hasBalanceType() != other.hasBalanceType()) return false;
       if (hasBalanceType()) {
@@ -8889,8 +8998,7 @@ public final class HBApiProto {
       }
       if (hasBalance()) {
         hash = (37 * hash) + BALANCE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getBalance()));
+        hash = (53 * hash) + getBalance().hashCode();
       }
       if (hasBalanceType()) {
         hash = (37 * hash) + BALANCETYPE_FIELD_NUMBER;
@@ -9033,7 +9141,7 @@ public final class HBApiProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         accountType_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        balance_ = 0D;
+        balance_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         balanceType_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -9074,9 +9182,9 @@ public final class HBApiProto {
         }
         result.accountType_ = accountType_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.balance_ = balance_;
           to_bitField0_ |= 0x00000004;
         }
+        result.balance_ = balance_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -9141,7 +9249,9 @@ public final class HBApiProto {
           onChanged();
         }
         if (other.hasBalance()) {
-          setBalance(other.getBalance());
+          bitField0_ |= 0x00000004;
+          balance_ = other.balance_;
+          onChanged();
         }
         if (other.hasBalanceType()) {
           bitField0_ |= 0x00000008;
@@ -9330,34 +9440,78 @@ public final class HBApiProto {
         return this;
       }
 
-      private double balance_ ;
+      private java.lang.Object balance_ = "";
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
       public boolean hasBalance() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
-      public double getBalance() {
-        return balance_;
+      public java.lang.String getBalance() {
+        java.lang.Object ref = balance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balance_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
-      public Builder setBalance(double value) {
-        bitField0_ |= 0x00000004;
+      public com.google.protobuf.ByteString
+          getBalanceBytes() {
+        java.lang.Object ref = balance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          balance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string balance = 3;</code>
+       */
+      public Builder setBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         balance_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double balance = 3;</code>
+       * <code>optional string balance = 3;</code>
        */
       public Builder clearBalance() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        balance_ = 0D;
+        balance_ = getDefaultInstance().getBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string balance = 3;</code>
+       */
+      public Builder setBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        balance_ = value;
         onChanged();
         return this;
       }
@@ -9509,22 +9663,32 @@ public final class HBApiProto {
         getAccountTypeBytes();
 
     /**
-     * <code>optional double amount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
     boolean hasAmount();
     /**
-     * <code>optional double amount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
-    double getAmount();
+    java.lang.String getAmount();
+    /**
+     * <code>optional string amount = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAmountBytes();
 
     /**
-     * <code>optional double price = 3;</code>
+     * <code>optional string price = 3;</code>
      */
     boolean hasPrice();
     /**
-     * <code>optional double price = 3;</code>
+     * <code>optional string price = 3;</code>
      */
-    double getPrice();
+    java.lang.String getPrice();
+    /**
+     * <code>optional string price = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPriceBytes();
 
     /**
      * <code>optional int64 createdTimestamp = 4;</code>
@@ -9591,31 +9755,46 @@ public final class HBApiProto {
         getOrderTypeBytes();
 
     /**
-     * <code>optional double filledAmount = 10;</code>
+     * <code>optional string filledAmount = 10;</code>
      */
     boolean hasFilledAmount();
     /**
-     * <code>optional double filledAmount = 10;</code>
+     * <code>optional string filledAmount = 10;</code>
      */
-    double getFilledAmount();
+    java.lang.String getFilledAmount();
+    /**
+     * <code>optional string filledAmount = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilledAmountBytes();
 
     /**
-     * <code>optional double filledCashAmount = 11;</code>
+     * <code>optional string filledCashAmount = 11;</code>
      */
     boolean hasFilledCashAmount();
     /**
-     * <code>optional double filledCashAmount = 11;</code>
+     * <code>optional string filledCashAmount = 11;</code>
      */
-    double getFilledCashAmount();
+    java.lang.String getFilledCashAmount();
+    /**
+     * <code>optional string filledCashAmount = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilledCashAmountBytes();
 
     /**
-     * <code>optional double filledFees = 12;</code>
+     * <code>optional string filledFees = 12;</code>
      */
     boolean hasFilledFees();
     /**
-     * <code>optional double filledFees = 12;</code>
+     * <code>optional string filledFees = 12;</code>
      */
-    double getFilledFees();
+    java.lang.String getFilledFees();
+    /**
+     * <code>optional string filledFees = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilledFeesBytes();
 
     /**
      * <code>optional string orderSource = 13;</code>
@@ -9659,8 +9838,13 @@ public final class HBApiProto {
     }
     private OrderMsg() {
       accountType_ = "";
+      amount_ = "";
+      price_ = "";
       symbol_ = "";
       orderType_ = "";
+      filledAmount_ = "";
+      filledCashAmount_ = "";
+      filledFees_ = "";
       orderSource_ = "";
       orderState_ = "";
     }
@@ -9695,14 +9879,16 @@ public final class HBApiProto {
               accountType_ = bs;
               break;
             }
-            case 17: {
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              amount_ = input.readDouble();
+              amount_ = bs;
               break;
             }
-            case 25: {
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              price_ = input.readDouble();
+              price_ = bs;
               break;
             }
             case 32: {
@@ -9737,19 +9923,22 @@ public final class HBApiProto {
               orderType_ = bs;
               break;
             }
-            case 81: {
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000200;
-              filledAmount_ = input.readDouble();
+              filledAmount_ = bs;
               break;
             }
-            case 89: {
+            case 90: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000400;
-              filledCashAmount_ = input.readDouble();
+              filledCashAmount_ = bs;
               break;
             }
-            case 97: {
+            case 98: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000800;
-              filledFees_ = input.readDouble();
+              filledFees_ = bs;
               break;
             }
             case 106: {
@@ -9840,33 +10029,87 @@ public final class HBApiProto {
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 2;
-    private double amount_;
+    private volatile java.lang.Object amount_;
     /**
-     * <code>optional double amount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
     public boolean hasAmount() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional double amount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
-    public double getAmount() {
-      return amount_;
+    public java.lang.String getAmount() {
+      java.lang.Object ref = amount_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          amount_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string amount = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAmountBytes() {
+      java.lang.Object ref = amount_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        amount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int PRICE_FIELD_NUMBER = 3;
-    private double price_;
+    private volatile java.lang.Object price_;
     /**
-     * <code>optional double price = 3;</code>
+     * <code>optional string price = 3;</code>
      */
     public boolean hasPrice() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional double price = 3;</code>
+     * <code>optional string price = 3;</code>
      */
-    public double getPrice() {
-      return price_;
+    public java.lang.String getPrice() {
+      java.lang.Object ref = price_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          price_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string price = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPriceBytes() {
+      java.lang.Object ref = price_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        price_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int CREATEDTIMESTAMP_FIELD_NUMBER = 4;
@@ -10014,48 +10257,129 @@ public final class HBApiProto {
     }
 
     public static final int FILLEDAMOUNT_FIELD_NUMBER = 10;
-    private double filledAmount_;
+    private volatile java.lang.Object filledAmount_;
     /**
-     * <code>optional double filledAmount = 10;</code>
+     * <code>optional string filledAmount = 10;</code>
      */
     public boolean hasFilledAmount() {
       return ((bitField0_ & 0x00000200) != 0);
     }
     /**
-     * <code>optional double filledAmount = 10;</code>
+     * <code>optional string filledAmount = 10;</code>
      */
-    public double getFilledAmount() {
-      return filledAmount_;
+    public java.lang.String getFilledAmount() {
+      java.lang.Object ref = filledAmount_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          filledAmount_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string filledAmount = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilledAmountBytes() {
+      java.lang.Object ref = filledAmount_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filledAmount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int FILLEDCASHAMOUNT_FIELD_NUMBER = 11;
-    private double filledCashAmount_;
+    private volatile java.lang.Object filledCashAmount_;
     /**
-     * <code>optional double filledCashAmount = 11;</code>
+     * <code>optional string filledCashAmount = 11;</code>
      */
     public boolean hasFilledCashAmount() {
       return ((bitField0_ & 0x00000400) != 0);
     }
     /**
-     * <code>optional double filledCashAmount = 11;</code>
+     * <code>optional string filledCashAmount = 11;</code>
      */
-    public double getFilledCashAmount() {
-      return filledCashAmount_;
+    public java.lang.String getFilledCashAmount() {
+      java.lang.Object ref = filledCashAmount_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          filledCashAmount_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string filledCashAmount = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilledCashAmountBytes() {
+      java.lang.Object ref = filledCashAmount_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filledCashAmount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int FILLEDFEES_FIELD_NUMBER = 12;
-    private double filledFees_;
+    private volatile java.lang.Object filledFees_;
     /**
-     * <code>optional double filledFees = 12;</code>
+     * <code>optional string filledFees = 12;</code>
      */
     public boolean hasFilledFees() {
       return ((bitField0_ & 0x00000800) != 0);
     }
     /**
-     * <code>optional double filledFees = 12;</code>
+     * <code>optional string filledFees = 12;</code>
      */
-    public double getFilledFees() {
-      return filledFees_;
+    public java.lang.String getFilledFees() {
+      java.lang.Object ref = filledFees_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          filledFees_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string filledFees = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilledFeesBytes() {
+      java.lang.Object ref = filledFees_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filledFees_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ORDERSOURCE_FIELD_NUMBER = 13;
@@ -10160,10 +10484,10 @@ public final class HBApiProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accountType_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeDouble(2, amount_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, amount_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeDouble(3, price_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, price_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt64(4, createdTimestamp_);
@@ -10184,13 +10508,13 @@ public final class HBApiProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, orderType_);
       }
       if (((bitField0_ & 0x00000200) != 0)) {
-        output.writeDouble(10, filledAmount_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, filledAmount_);
       }
       if (((bitField0_ & 0x00000400) != 0)) {
-        output.writeDouble(11, filledCashAmount_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, filledCashAmount_);
       }
       if (((bitField0_ & 0x00000800) != 0)) {
-        output.writeDouble(12, filledFees_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, filledFees_);
       }
       if (((bitField0_ & 0x00001000) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 13, orderSource_);
@@ -10211,12 +10535,10 @@ public final class HBApiProto {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accountType_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(2, amount_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, amount_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, price_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, price_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -10241,16 +10563,13 @@ public final class HBApiProto {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, orderType_);
       }
       if (((bitField0_ & 0x00000200) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(10, filledAmount_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, filledAmount_);
       }
       if (((bitField0_ & 0x00000400) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(11, filledCashAmount_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, filledCashAmount_);
       }
       if (((bitField0_ & 0x00000800) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(12, filledFees_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, filledFees_);
       }
       if (((bitField0_ & 0x00001000) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, orderSource_);
@@ -10280,15 +10599,13 @@ public final class HBApiProto {
       }
       if (hasAmount() != other.hasAmount()) return false;
       if (hasAmount()) {
-        if (java.lang.Double.doubleToLongBits(getAmount())
-            != java.lang.Double.doubleToLongBits(
-                other.getAmount())) return false;
+        if (!getAmount()
+            .equals(other.getAmount())) return false;
       }
       if (hasPrice() != other.hasPrice()) return false;
       if (hasPrice()) {
-        if (java.lang.Double.doubleToLongBits(getPrice())
-            != java.lang.Double.doubleToLongBits(
-                other.getPrice())) return false;
+        if (!getPrice()
+            .equals(other.getPrice())) return false;
       }
       if (hasCreatedTimestamp() != other.hasCreatedTimestamp()) return false;
       if (hasCreatedTimestamp()) {
@@ -10322,21 +10639,18 @@ public final class HBApiProto {
       }
       if (hasFilledAmount() != other.hasFilledAmount()) return false;
       if (hasFilledAmount()) {
-        if (java.lang.Double.doubleToLongBits(getFilledAmount())
-            != java.lang.Double.doubleToLongBits(
-                other.getFilledAmount())) return false;
+        if (!getFilledAmount()
+            .equals(other.getFilledAmount())) return false;
       }
       if (hasFilledCashAmount() != other.hasFilledCashAmount()) return false;
       if (hasFilledCashAmount()) {
-        if (java.lang.Double.doubleToLongBits(getFilledCashAmount())
-            != java.lang.Double.doubleToLongBits(
-                other.getFilledCashAmount())) return false;
+        if (!getFilledCashAmount()
+            .equals(other.getFilledCashAmount())) return false;
       }
       if (hasFilledFees() != other.hasFilledFees()) return false;
       if (hasFilledFees()) {
-        if (java.lang.Double.doubleToLongBits(getFilledFees())
-            != java.lang.Double.doubleToLongBits(
-                other.getFilledFees())) return false;
+        if (!getFilledFees()
+            .equals(other.getFilledFees())) return false;
       }
       if (hasOrderSource() != other.hasOrderSource()) return false;
       if (hasOrderSource()) {
@@ -10365,13 +10679,11 @@ public final class HBApiProto {
       }
       if (hasAmount()) {
         hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getAmount()));
+        hash = (53 * hash) + getAmount().hashCode();
       }
       if (hasPrice()) {
         hash = (37 * hash) + PRICE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getPrice()));
+        hash = (53 * hash) + getPrice().hashCode();
       }
       if (hasCreatedTimestamp()) {
         hash = (37 * hash) + CREATEDTIMESTAMP_FIELD_NUMBER;
@@ -10403,18 +10715,15 @@ public final class HBApiProto {
       }
       if (hasFilledAmount()) {
         hash = (37 * hash) + FILLEDAMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getFilledAmount()));
+        hash = (53 * hash) + getFilledAmount().hashCode();
       }
       if (hasFilledCashAmount()) {
         hash = (37 * hash) + FILLEDCASHAMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getFilledCashAmount()));
+        hash = (53 * hash) + getFilledCashAmount().hashCode();
       }
       if (hasFilledFees()) {
         hash = (37 * hash) + FILLEDFEES_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getFilledFees()));
+        hash = (53 * hash) + getFilledFees().hashCode();
       }
       if (hasOrderSource()) {
         hash = (37 * hash) + ORDERSOURCE_FIELD_NUMBER;
@@ -10559,9 +10868,9 @@ public final class HBApiProto {
         super.clear();
         accountType_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        amount_ = 0D;
+        amount_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        price_ = 0D;
+        price_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         createdTimestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -10575,11 +10884,11 @@ public final class HBApiProto {
         bitField0_ = (bitField0_ & ~0x00000080);
         orderType_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        filledAmount_ = 0D;
+        filledAmount_ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
-        filledCashAmount_ = 0D;
+        filledCashAmount_ = "";
         bitField0_ = (bitField0_ & ~0x00000400);
-        filledFees_ = 0D;
+        filledFees_ = "";
         bitField0_ = (bitField0_ & ~0x00000800);
         orderSource_ = "";
         bitField0_ = (bitField0_ & ~0x00001000);
@@ -10618,13 +10927,13 @@ public final class HBApiProto {
         }
         result.accountType_ = accountType_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.amount_ = amount_;
           to_bitField0_ |= 0x00000002;
         }
+        result.amount_ = amount_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.price_ = price_;
           to_bitField0_ |= 0x00000004;
         }
+        result.price_ = price_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.createdTimestamp_ = createdTimestamp_;
           to_bitField0_ |= 0x00000008;
@@ -10650,17 +10959,17 @@ public final class HBApiProto {
         }
         result.orderType_ = orderType_;
         if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.filledAmount_ = filledAmount_;
           to_bitField0_ |= 0x00000200;
         }
+        result.filledAmount_ = filledAmount_;
         if (((from_bitField0_ & 0x00000400) != 0)) {
-          result.filledCashAmount_ = filledCashAmount_;
           to_bitField0_ |= 0x00000400;
         }
+        result.filledCashAmount_ = filledCashAmount_;
         if (((from_bitField0_ & 0x00000800) != 0)) {
-          result.filledFees_ = filledFees_;
           to_bitField0_ |= 0x00000800;
         }
+        result.filledFees_ = filledFees_;
         if (((from_bitField0_ & 0x00001000) != 0)) {
           to_bitField0_ |= 0x00001000;
         }
@@ -10724,10 +11033,14 @@ public final class HBApiProto {
           onChanged();
         }
         if (other.hasAmount()) {
-          setAmount(other.getAmount());
+          bitField0_ |= 0x00000002;
+          amount_ = other.amount_;
+          onChanged();
         }
         if (other.hasPrice()) {
-          setPrice(other.getPrice());
+          bitField0_ |= 0x00000004;
+          price_ = other.price_;
+          onChanged();
         }
         if (other.hasCreatedTimestamp()) {
           setCreatedTimestamp(other.getCreatedTimestamp());
@@ -10752,13 +11065,19 @@ public final class HBApiProto {
           onChanged();
         }
         if (other.hasFilledAmount()) {
-          setFilledAmount(other.getFilledAmount());
+          bitField0_ |= 0x00000200;
+          filledAmount_ = other.filledAmount_;
+          onChanged();
         }
         if (other.hasFilledCashAmount()) {
-          setFilledCashAmount(other.getFilledCashAmount());
+          bitField0_ |= 0x00000400;
+          filledCashAmount_ = other.filledCashAmount_;
+          onChanged();
         }
         if (other.hasFilledFees()) {
-          setFilledFees(other.getFilledFees());
+          bitField0_ |= 0x00000800;
+          filledFees_ = other.filledFees_;
+          onChanged();
         }
         if (other.hasOrderSource()) {
           bitField0_ |= 0x00001000;
@@ -10876,66 +11195,154 @@ public final class HBApiProto {
         return this;
       }
 
-      private double amount_ ;
+      private java.lang.Object amount_ = "";
       /**
-       * <code>optional double amount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
       public boolean hasAmount() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional double amount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public double getAmount() {
-        return amount_;
+      public java.lang.String getAmount() {
+        java.lang.Object ref = amount_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            amount_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double amount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public Builder setAmount(double value) {
-        bitField0_ |= 0x00000002;
+      public com.google.protobuf.ByteString
+          getAmountBytes() {
+        java.lang.Object ref = amount_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          amount_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string amount = 2;</code>
+       */
+      public Builder setAmount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         amount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double amount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
       public Builder clearAmount() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        amount_ = 0D;
+        amount_ = getDefaultInstance().getAmount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string amount = 2;</code>
+       */
+      public Builder setAmountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        amount_ = value;
         onChanged();
         return this;
       }
 
-      private double price_ ;
+      private java.lang.Object price_ = "";
       /**
-       * <code>optional double price = 3;</code>
+       * <code>optional string price = 3;</code>
        */
       public boolean hasPrice() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional double price = 3;</code>
+       * <code>optional string price = 3;</code>
        */
-      public double getPrice() {
-        return price_;
+      public java.lang.String getPrice() {
+        java.lang.Object ref = price_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            price_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double price = 3;</code>
+       * <code>optional string price = 3;</code>
        */
-      public Builder setPrice(double value) {
-        bitField0_ |= 0x00000004;
+      public com.google.protobuf.ByteString
+          getPriceBytes() {
+        java.lang.Object ref = price_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          price_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string price = 3;</code>
+       */
+      public Builder setPrice(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         price_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double price = 3;</code>
+       * <code>optional string price = 3;</code>
        */
       public Builder clearPrice() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        price_ = 0D;
+        price_ = getDefaultInstance().getPrice();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string price = 3;</code>
+       */
+      public Builder setPriceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        price_ = value;
         onChanged();
         return this;
       }
@@ -11220,98 +11627,230 @@ public final class HBApiProto {
         return this;
       }
 
-      private double filledAmount_ ;
+      private java.lang.Object filledAmount_ = "";
       /**
-       * <code>optional double filledAmount = 10;</code>
+       * <code>optional string filledAmount = 10;</code>
        */
       public boolean hasFilledAmount() {
         return ((bitField0_ & 0x00000200) != 0);
       }
       /**
-       * <code>optional double filledAmount = 10;</code>
+       * <code>optional string filledAmount = 10;</code>
        */
-      public double getFilledAmount() {
-        return filledAmount_;
+      public java.lang.String getFilledAmount() {
+        java.lang.Object ref = filledAmount_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            filledAmount_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double filledAmount = 10;</code>
+       * <code>optional string filledAmount = 10;</code>
        */
-      public Builder setFilledAmount(double value) {
-        bitField0_ |= 0x00000200;
+      public com.google.protobuf.ByteString
+          getFilledAmountBytes() {
+        java.lang.Object ref = filledAmount_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filledAmount_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string filledAmount = 10;</code>
+       */
+      public Builder setFilledAmount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
         filledAmount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double filledAmount = 10;</code>
+       * <code>optional string filledAmount = 10;</code>
        */
       public Builder clearFilledAmount() {
         bitField0_ = (bitField0_ & ~0x00000200);
-        filledAmount_ = 0D;
+        filledAmount_ = getDefaultInstance().getFilledAmount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string filledAmount = 10;</code>
+       */
+      public Builder setFilledAmountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        filledAmount_ = value;
         onChanged();
         return this;
       }
 
-      private double filledCashAmount_ ;
+      private java.lang.Object filledCashAmount_ = "";
       /**
-       * <code>optional double filledCashAmount = 11;</code>
+       * <code>optional string filledCashAmount = 11;</code>
        */
       public boolean hasFilledCashAmount() {
         return ((bitField0_ & 0x00000400) != 0);
       }
       /**
-       * <code>optional double filledCashAmount = 11;</code>
+       * <code>optional string filledCashAmount = 11;</code>
        */
-      public double getFilledCashAmount() {
-        return filledCashAmount_;
+      public java.lang.String getFilledCashAmount() {
+        java.lang.Object ref = filledCashAmount_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            filledCashAmount_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double filledCashAmount = 11;</code>
+       * <code>optional string filledCashAmount = 11;</code>
        */
-      public Builder setFilledCashAmount(double value) {
-        bitField0_ |= 0x00000400;
+      public com.google.protobuf.ByteString
+          getFilledCashAmountBytes() {
+        java.lang.Object ref = filledCashAmount_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filledCashAmount_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string filledCashAmount = 11;</code>
+       */
+      public Builder setFilledCashAmount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000400;
         filledCashAmount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double filledCashAmount = 11;</code>
+       * <code>optional string filledCashAmount = 11;</code>
        */
       public Builder clearFilledCashAmount() {
         bitField0_ = (bitField0_ & ~0x00000400);
-        filledCashAmount_ = 0D;
+        filledCashAmount_ = getDefaultInstance().getFilledCashAmount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string filledCashAmount = 11;</code>
+       */
+      public Builder setFilledCashAmountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000400;
+        filledCashAmount_ = value;
         onChanged();
         return this;
       }
 
-      private double filledFees_ ;
+      private java.lang.Object filledFees_ = "";
       /**
-       * <code>optional double filledFees = 12;</code>
+       * <code>optional string filledFees = 12;</code>
        */
       public boolean hasFilledFees() {
         return ((bitField0_ & 0x00000800) != 0);
       }
       /**
-       * <code>optional double filledFees = 12;</code>
+       * <code>optional string filledFees = 12;</code>
        */
-      public double getFilledFees() {
-        return filledFees_;
+      public java.lang.String getFilledFees() {
+        java.lang.Object ref = filledFees_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            filledFees_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double filledFees = 12;</code>
+       * <code>optional string filledFees = 12;</code>
        */
-      public Builder setFilledFees(double value) {
-        bitField0_ |= 0x00000800;
+      public com.google.protobuf.ByteString
+          getFilledFeesBytes() {
+        java.lang.Object ref = filledFees_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filledFees_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string filledFees = 12;</code>
+       */
+      public Builder setFilledFees(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
         filledFees_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double filledFees = 12;</code>
+       * <code>optional string filledFees = 12;</code>
        */
       public Builder clearFilledFees() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        filledFees_ = 0D;
+        filledFees_ = getDefaultInstance().getFilledFees();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string filledFees = 12;</code>
+       */
+      public Builder setFilledFeesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        filledFees_ = value;
         onChanged();
         return this;
       }
@@ -12402,40 +12941,60 @@ public final class HBApiProto {
     long getTimestamp();
 
     /**
-     * <code>optional double askPrice = 2;</code>
+     * <code>optional string askPrice = 2;</code>
      */
     boolean hasAskPrice();
     /**
-     * <code>optional double askPrice = 2;</code>
+     * <code>optional string askPrice = 2;</code>
      */
-    double getAskPrice();
+    java.lang.String getAskPrice();
+    /**
+     * <code>optional string askPrice = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAskPriceBytes();
 
     /**
-     * <code>optional double askAmount = 3;</code>
+     * <code>optional string askAmount = 3;</code>
      */
     boolean hasAskAmount();
     /**
-     * <code>optional double askAmount = 3;</code>
+     * <code>optional string askAmount = 3;</code>
      */
-    double getAskAmount();
+    java.lang.String getAskAmount();
+    /**
+     * <code>optional string askAmount = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getAskAmountBytes();
 
     /**
-     * <code>optional double bidPrice = 4;</code>
+     * <code>optional string bidPrice = 4;</code>
      */
     boolean hasBidPrice();
     /**
-     * <code>optional double bidPrice = 4;</code>
+     * <code>optional string bidPrice = 4;</code>
      */
-    double getBidPrice();
+    java.lang.String getBidPrice();
+    /**
+     * <code>optional string bidPrice = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getBidPriceBytes();
 
     /**
-     * <code>optional double bidAmount = 5;</code>
+     * <code>optional string bidAmount = 5;</code>
      */
     boolean hasBidAmount();
     /**
-     * <code>optional double bidAmount = 5;</code>
+     * <code>optional string bidAmount = 5;</code>
      */
-    double getBidAmount();
+    java.lang.String getBidAmount();
+    /**
+     * <code>optional string bidAmount = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getBidAmountBytes();
   }
   /**
    * Protobuf type {@code com.ly.proto.BestQuoteMsg}
@@ -12450,6 +13009,10 @@ public final class HBApiProto {
       super(builder);
     }
     private BestQuoteMsg() {
+      askPrice_ = "";
+      askAmount_ = "";
+      bidPrice_ = "";
+      bidAmount_ = "";
     }
 
     @java.lang.Override
@@ -12481,24 +13044,28 @@ public final class HBApiProto {
               timestamp_ = input.readInt64();
               break;
             }
-            case 17: {
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              askPrice_ = input.readDouble();
+              askPrice_ = bs;
               break;
             }
-            case 25: {
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              askAmount_ = input.readDouble();
+              askAmount_ = bs;
               break;
             }
-            case 33: {
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              bidPrice_ = input.readDouble();
+              bidPrice_ = bs;
               break;
             }
-            case 41: {
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              bidAmount_ = input.readDouble();
+              bidAmount_ = bs;
               break;
             }
             default: {
@@ -12550,63 +13117,171 @@ public final class HBApiProto {
     }
 
     public static final int ASKPRICE_FIELD_NUMBER = 2;
-    private double askPrice_;
+    private volatile java.lang.Object askPrice_;
     /**
-     * <code>optional double askPrice = 2;</code>
+     * <code>optional string askPrice = 2;</code>
      */
     public boolean hasAskPrice() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional double askPrice = 2;</code>
+     * <code>optional string askPrice = 2;</code>
      */
-    public double getAskPrice() {
-      return askPrice_;
+    public java.lang.String getAskPrice() {
+      java.lang.Object ref = askPrice_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          askPrice_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string askPrice = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAskPriceBytes() {
+      java.lang.Object ref = askPrice_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        askPrice_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ASKAMOUNT_FIELD_NUMBER = 3;
-    private double askAmount_;
+    private volatile java.lang.Object askAmount_;
     /**
-     * <code>optional double askAmount = 3;</code>
+     * <code>optional string askAmount = 3;</code>
      */
     public boolean hasAskAmount() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional double askAmount = 3;</code>
+     * <code>optional string askAmount = 3;</code>
      */
-    public double getAskAmount() {
-      return askAmount_;
+    public java.lang.String getAskAmount() {
+      java.lang.Object ref = askAmount_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          askAmount_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string askAmount = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAskAmountBytes() {
+      java.lang.Object ref = askAmount_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        askAmount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int BIDPRICE_FIELD_NUMBER = 4;
-    private double bidPrice_;
+    private volatile java.lang.Object bidPrice_;
     /**
-     * <code>optional double bidPrice = 4;</code>
+     * <code>optional string bidPrice = 4;</code>
      */
     public boolean hasBidPrice() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional double bidPrice = 4;</code>
+     * <code>optional string bidPrice = 4;</code>
      */
-    public double getBidPrice() {
-      return bidPrice_;
+    public java.lang.String getBidPrice() {
+      java.lang.Object ref = bidPrice_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          bidPrice_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string bidPrice = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBidPriceBytes() {
+      java.lang.Object ref = bidPrice_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bidPrice_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int BIDAMOUNT_FIELD_NUMBER = 5;
-    private double bidAmount_;
+    private volatile java.lang.Object bidAmount_;
     /**
-     * <code>optional double bidAmount = 5;</code>
+     * <code>optional string bidAmount = 5;</code>
      */
     public boolean hasBidAmount() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional double bidAmount = 5;</code>
+     * <code>optional string bidAmount = 5;</code>
      */
-    public double getBidAmount() {
-      return bidAmount_;
+    public java.lang.String getBidAmount() {
+      java.lang.Object ref = bidAmount_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          bidAmount_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string bidAmount = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBidAmountBytes() {
+      java.lang.Object ref = bidAmount_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bidAmount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12627,16 +13302,16 @@ public final class HBApiProto {
         output.writeInt64(1, timestamp_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeDouble(2, askPrice_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, askPrice_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeDouble(3, askAmount_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, askAmount_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeDouble(4, bidPrice_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, bidPrice_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeDouble(5, bidAmount_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, bidAmount_);
       }
       unknownFields.writeTo(output);
     }
@@ -12652,20 +13327,16 @@ public final class HBApiProto {
           .computeInt64Size(1, timestamp_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(2, askPrice_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, askPrice_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, askAmount_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, askAmount_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(4, bidPrice_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, bidPrice_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(5, bidAmount_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, bidAmount_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12689,27 +13360,23 @@ public final class HBApiProto {
       }
       if (hasAskPrice() != other.hasAskPrice()) return false;
       if (hasAskPrice()) {
-        if (java.lang.Double.doubleToLongBits(getAskPrice())
-            != java.lang.Double.doubleToLongBits(
-                other.getAskPrice())) return false;
+        if (!getAskPrice()
+            .equals(other.getAskPrice())) return false;
       }
       if (hasAskAmount() != other.hasAskAmount()) return false;
       if (hasAskAmount()) {
-        if (java.lang.Double.doubleToLongBits(getAskAmount())
-            != java.lang.Double.doubleToLongBits(
-                other.getAskAmount())) return false;
+        if (!getAskAmount()
+            .equals(other.getAskAmount())) return false;
       }
       if (hasBidPrice() != other.hasBidPrice()) return false;
       if (hasBidPrice()) {
-        if (java.lang.Double.doubleToLongBits(getBidPrice())
-            != java.lang.Double.doubleToLongBits(
-                other.getBidPrice())) return false;
+        if (!getBidPrice()
+            .equals(other.getBidPrice())) return false;
       }
       if (hasBidAmount() != other.hasBidAmount()) return false;
       if (hasBidAmount()) {
-        if (java.lang.Double.doubleToLongBits(getBidAmount())
-            != java.lang.Double.doubleToLongBits(
-                other.getBidAmount())) return false;
+        if (!getBidAmount()
+            .equals(other.getBidAmount())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -12729,23 +13396,19 @@ public final class HBApiProto {
       }
       if (hasAskPrice()) {
         hash = (37 * hash) + ASKPRICE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getAskPrice()));
+        hash = (53 * hash) + getAskPrice().hashCode();
       }
       if (hasAskAmount()) {
         hash = (37 * hash) + ASKAMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getAskAmount()));
+        hash = (53 * hash) + getAskAmount().hashCode();
       }
       if (hasBidPrice()) {
         hash = (37 * hash) + BIDPRICE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getBidPrice()));
+        hash = (53 * hash) + getBidPrice().hashCode();
       }
       if (hasBidAmount()) {
         hash = (37 * hash) + BIDAMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getBidAmount()));
+        hash = (53 * hash) + getBidAmount().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -12882,13 +13545,13 @@ public final class HBApiProto {
         super.clear();
         timestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        askPrice_ = 0D;
+        askPrice_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        askAmount_ = 0D;
+        askAmount_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        bidPrice_ = 0D;
+        bidPrice_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        bidAmount_ = 0D;
+        bidAmount_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -12923,21 +13586,21 @@ public final class HBApiProto {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.askPrice_ = askPrice_;
           to_bitField0_ |= 0x00000002;
         }
+        result.askPrice_ = askPrice_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.askAmount_ = askAmount_;
           to_bitField0_ |= 0x00000004;
         }
+        result.askAmount_ = askAmount_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.bidPrice_ = bidPrice_;
           to_bitField0_ |= 0x00000008;
         }
+        result.bidPrice_ = bidPrice_;
         if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.bidAmount_ = bidAmount_;
           to_bitField0_ |= 0x00000010;
         }
+        result.bidAmount_ = bidAmount_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -12991,16 +13654,24 @@ public final class HBApiProto {
           setTimestamp(other.getTimestamp());
         }
         if (other.hasAskPrice()) {
-          setAskPrice(other.getAskPrice());
+          bitField0_ |= 0x00000002;
+          askPrice_ = other.askPrice_;
+          onChanged();
         }
         if (other.hasAskAmount()) {
-          setAskAmount(other.getAskAmount());
+          bitField0_ |= 0x00000004;
+          askAmount_ = other.askAmount_;
+          onChanged();
         }
         if (other.hasBidPrice()) {
-          setBidPrice(other.getBidPrice());
+          bitField0_ |= 0x00000008;
+          bidPrice_ = other.bidPrice_;
+          onChanged();
         }
         if (other.hasBidAmount()) {
-          setBidAmount(other.getBidAmount());
+          bitField0_ |= 0x00000010;
+          bidAmount_ = other.bidAmount_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13064,130 +13735,306 @@ public final class HBApiProto {
         return this;
       }
 
-      private double askPrice_ ;
+      private java.lang.Object askPrice_ = "";
       /**
-       * <code>optional double askPrice = 2;</code>
+       * <code>optional string askPrice = 2;</code>
        */
       public boolean hasAskPrice() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional double askPrice = 2;</code>
+       * <code>optional string askPrice = 2;</code>
        */
-      public double getAskPrice() {
-        return askPrice_;
+      public java.lang.String getAskPrice() {
+        java.lang.Object ref = askPrice_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            askPrice_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double askPrice = 2;</code>
+       * <code>optional string askPrice = 2;</code>
        */
-      public Builder setAskPrice(double value) {
-        bitField0_ |= 0x00000002;
+      public com.google.protobuf.ByteString
+          getAskPriceBytes() {
+        java.lang.Object ref = askPrice_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          askPrice_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string askPrice = 2;</code>
+       */
+      public Builder setAskPrice(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         askPrice_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double askPrice = 2;</code>
+       * <code>optional string askPrice = 2;</code>
        */
       public Builder clearAskPrice() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        askPrice_ = 0D;
+        askPrice_ = getDefaultInstance().getAskPrice();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string askPrice = 2;</code>
+       */
+      public Builder setAskPriceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        askPrice_ = value;
         onChanged();
         return this;
       }
 
-      private double askAmount_ ;
+      private java.lang.Object askAmount_ = "";
       /**
-       * <code>optional double askAmount = 3;</code>
+       * <code>optional string askAmount = 3;</code>
        */
       public boolean hasAskAmount() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional double askAmount = 3;</code>
+       * <code>optional string askAmount = 3;</code>
        */
-      public double getAskAmount() {
-        return askAmount_;
+      public java.lang.String getAskAmount() {
+        java.lang.Object ref = askAmount_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            askAmount_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double askAmount = 3;</code>
+       * <code>optional string askAmount = 3;</code>
        */
-      public Builder setAskAmount(double value) {
-        bitField0_ |= 0x00000004;
+      public com.google.protobuf.ByteString
+          getAskAmountBytes() {
+        java.lang.Object ref = askAmount_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          askAmount_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string askAmount = 3;</code>
+       */
+      public Builder setAskAmount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         askAmount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double askAmount = 3;</code>
+       * <code>optional string askAmount = 3;</code>
        */
       public Builder clearAskAmount() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        askAmount_ = 0D;
+        askAmount_ = getDefaultInstance().getAskAmount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string askAmount = 3;</code>
+       */
+      public Builder setAskAmountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        askAmount_ = value;
         onChanged();
         return this;
       }
 
-      private double bidPrice_ ;
+      private java.lang.Object bidPrice_ = "";
       /**
-       * <code>optional double bidPrice = 4;</code>
+       * <code>optional string bidPrice = 4;</code>
        */
       public boolean hasBidPrice() {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional double bidPrice = 4;</code>
+       * <code>optional string bidPrice = 4;</code>
        */
-      public double getBidPrice() {
-        return bidPrice_;
+      public java.lang.String getBidPrice() {
+        java.lang.Object ref = bidPrice_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            bidPrice_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double bidPrice = 4;</code>
+       * <code>optional string bidPrice = 4;</code>
        */
-      public Builder setBidPrice(double value) {
-        bitField0_ |= 0x00000008;
+      public com.google.protobuf.ByteString
+          getBidPriceBytes() {
+        java.lang.Object ref = bidPrice_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bidPrice_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string bidPrice = 4;</code>
+       */
+      public Builder setBidPrice(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         bidPrice_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double bidPrice = 4;</code>
+       * <code>optional string bidPrice = 4;</code>
        */
       public Builder clearBidPrice() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        bidPrice_ = 0D;
+        bidPrice_ = getDefaultInstance().getBidPrice();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string bidPrice = 4;</code>
+       */
+      public Builder setBidPriceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        bidPrice_ = value;
         onChanged();
         return this;
       }
 
-      private double bidAmount_ ;
+      private java.lang.Object bidAmount_ = "";
       /**
-       * <code>optional double bidAmount = 5;</code>
+       * <code>optional string bidAmount = 5;</code>
        */
       public boolean hasBidAmount() {
         return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional double bidAmount = 5;</code>
+       * <code>optional string bidAmount = 5;</code>
        */
-      public double getBidAmount() {
-        return bidAmount_;
+      public java.lang.String getBidAmount() {
+        java.lang.Object ref = bidAmount_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            bidAmount_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional double bidAmount = 5;</code>
+       * <code>optional string bidAmount = 5;</code>
        */
-      public Builder setBidAmount(double value) {
-        bitField0_ |= 0x00000010;
+      public com.google.protobuf.ByteString
+          getBidAmountBytes() {
+        java.lang.Object ref = bidAmount_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bidAmount_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string bidAmount = 5;</code>
+       */
+      public Builder setBidAmount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
         bidAmount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional double bidAmount = 5;</code>
+       * <code>optional string bidAmount = 5;</code>
        */
       public Builder clearBidAmount() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        bidAmount_ = 0D;
+        bidAmount_ = getDefaultInstance().getBidAmount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string bidAmount = 5;</code>
+       */
+      public Builder setBidAmountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        bidAmount_ = value;
         onChanged();
         return this;
       }
@@ -13322,28 +14169,28 @@ public final class HBApiProto {
       "o.OrderUpdateEventMsg\022-\n\tbestQuote\030\010 \001(\013" +
       "2\032.com.ly.proto.BestQuoteMsg\"D\n\nBalanceM" +
       "sg\022\020\n\010currency\030\001 \001(\t\022\023\n\013balanceType\030\002 \001(" +
-      "\t\022\017\n\007balance\030\003 \001(\001\"n\n\nAccountMsg\022\n\n\002id\030\001" +
+      "\t\022\017\n\007balance\030\003 \001(\t\"n\n\nAccountMsg\022\n\n\002id\030\001" +
       " \001(\003\022\023\n\013accountType\030\002 \001(\t\022\024\n\014accountStat" +
       "e\030\003 \001(\t\022)\n\007blances\030\004 \003(\0132\030.com.ly.proto." +
       "BalanceMsg\"i\n\017AccountEventMsg\022\021\n\ttimesta" +
       "mp\030\001 \001(\003\022\022\n\nchangeType\030\002 \001(\t\022/\n\007changes\030" +
       "\003 \003(\0132\036.com.ly.proto.AccountChangeMsg\"_\n" +
       "\020AccountChangeMsg\022\020\n\010currency\030\001 \001(\t\022\023\n\013a" +
-      "ccountType\030\002 \001(\t\022\017\n\007balance\030\003 \001(\001\022\023\n\013bal" +
+      "ccountType\030\002 \001(\t\022\017\n\007balance\030\003 \001(\t\022\023\n\013bal" +
       "anceType\030\004 \001(\t\"\257\002\n\010OrderMsg\022\023\n\013accountTy" +
-      "pe\030\001 \001(\t\022\016\n\006amount\030\002 \001(\001\022\r\n\005price\030\003 \001(\001\022" +
+      "pe\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\r\n\005price\030\003 \001(\t\022" +
       "\030\n\020createdTimestamp\030\004 \001(\003\022\031\n\021canceledTim" +
       "estamp\030\005 \001(\003\022\031\n\021finishedTimestamp\030\006 \001(\003\022" +
       "\017\n\007orderId\030\007 \001(\003\022\016\n\006symbol\030\010 \001(\t\022\021\n\torde" +
-      "rType\030\t \001(\t\022\024\n\014filledAmount\030\n \001(\001\022\030\n\020fil" +
-      "ledCashAmount\030\013 \001(\001\022\022\n\nfilledFees\030\014 \001(\001\022" +
+      "rType\030\t \001(\t\022\024\n\014filledAmount\030\n \001(\t\022\030\n\020fil" +
+      "ledCashAmount\030\013 \001(\t\022\022\n\nfilledFees\030\014 \001(\t\022" +
       "\023\n\013orderSource\030\r \001(\t\022\022\n\norderState\030\016 \001(\t" +
       "\"_\n\023OrderUpdateEventMsg\022\016\n\006symbol\030\001 \001(\t\022" +
       "\021\n\ttimestamp\030\002 \001(\003\022%\n\005order\030\003 \001(\0132\026.com." +
       "ly.proto.OrderMsg\"k\n\014BestQuoteMsg\022\021\n\ttim" +
-      "estamp\030\001 \001(\003\022\020\n\010askPrice\030\002 \001(\001\022\021\n\taskAmo" +
-      "unt\030\003 \001(\001\022\020\n\010bidPrice\030\004 \001(\001\022\021\n\tbidAmount" +
-      "\030\005 \001(\001*n\n\007ReqType\022\016\n\nOPENORDERS\020\001\022\020\n\014ORD" +
+      "estamp\030\001 \001(\003\022\020\n\010askPrice\030\002 \001(\t\022\021\n\taskAmo" +
+      "unt\030\003 \001(\t\022\020\n\010bidPrice\030\004 \001(\t\022\021\n\tbidAmount" +
+      "\030\005 \001(\t*n\n\007ReqType\022\016\n\nOPENORDERS\020\001\022\020\n\014ORD" +
       "ERHISTORY\020\002\022\017\n\013CREATEORDER\020\003\022\017\n\013CANCELOR" +
       "DER\020\004\022\r\n\tBESTQUOTE\020\005\022\020\n\014MONITORORDER\020\006B\034" +
       "\n\016com.gene.protoB\nHBApiProto"
