@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gene.proto.HBApiProto.AccountEventMsg;
-import com.gene.proto.HBApiProto.AccountMsg;
-import com.gene.proto.HBApiProto.BestQuoteMsg;
-import com.gene.proto.HBApiProto.OrderMsg;
-import com.gene.proto.HBApiProto.OrderUpdateEventMsg;
+import com.gene.proto.BeanProto.AccountEventMsg;
+import com.gene.proto.BeanProto.AccountMsg;
+import com.gene.proto.BeanProto.BestQuoteMsg;
+import com.gene.proto.BeanProto.OrderMsg;
+import com.gene.proto.BeanProto.OrderUpdateEventMsg;
 import com.huobi.client.model.Account;
 import com.huobi.client.model.AccountChange;
 import com.huobi.client.model.Balance;
@@ -29,13 +29,13 @@ public class HbMsgParse {
 	public static Account parseAccount(AccountMsg accountMsg) {
 		Account account = new Account();
 		account.setId(accountMsg.getId());
-		account.setType(AccountType.lookup(accountMsg.getAccountType()));
-		account.setState(AccountState.lookup(accountMsg.getAccountState()));
+		account.setType(AccountType.lookup(accountMsg.getType()));
+		account.setState(AccountState.lookup(accountMsg.getState()));
 		List<Balance> balances = new ArrayList<>();
-		accountMsg.getBlancesList().forEach(balanceMsg -> {
+		accountMsg.getBalancesList().forEach(balanceMsg -> {
 			Balance b = new Balance();
 			b.setCurrency(balanceMsg.getCurrency());
-			b.setType(BalanceType.lookup(balanceMsg.getBalanceType()));
+			b.setType(BalanceType.lookup(balanceMsg.getType()));
 			b.setBalance(new BigDecimal(balanceMsg.getBalance()));
 			balances.add(b);
 		});
@@ -60,7 +60,7 @@ public class HbMsgParse {
 	
 	public static Order parseOrder(OrderMsg orderMsg) {
 		Order o = new Order();
-		o.setAccountType(AccountType.lookup(orderMsg.getOrderType()));
+		o.setAccountType(AccountType.lookup(orderMsg.getAccountType()));
 		o.setAmount(new BigDecimal(orderMsg.getAmount()));
 		o.setPrice(new BigDecimal(orderMsg.getPrice()));
 		o.setCreatedTimestamp(orderMsg.getCreatedTimestamp());
@@ -68,12 +68,12 @@ public class HbMsgParse {
 		o.setFinishedTimestamp(orderMsg.getFinishedTimestamp());
 		o.setOrderId(orderMsg.getOrderId());
 		o.setSymbol(orderMsg.getSymbol());
-		o.setType(OrderType.lookup(orderMsg.getOrderType()));
+		o.setType(OrderType.lookup(orderMsg.getType()));
 		o.setFilledAmount(new BigDecimal(orderMsg.getFilledAmount()));
 		o.setFilledCashAmount(new BigDecimal(orderMsg.getFilledCashAmount()));
 		o.setFilledFees(new BigDecimal(orderMsg.getFilledFees()));
-		o.setSource(OrderSource.lookup(orderMsg.getOrderSource()));
-		o.setState(OrderState.lookup(orderMsg.getOrderState()));
+		o.setSource(OrderSource.lookup(orderMsg.getSource()));
+		o.setState(OrderState.lookup(orderMsg.getState()));
 		return o;
 	}
 	

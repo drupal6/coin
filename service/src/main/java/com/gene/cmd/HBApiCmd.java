@@ -10,12 +10,12 @@ import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
 import com.gene.message.ResCode;
 import com.gene.net.commond.Cmd;
-import com.gene.proto.HBApiProto.OrderUpdateEventMsg;
+import com.gene.proto.BeanProto.OrderUpdateEventMsg;
 import com.gene.proto.HBApiProto.ReqApiMsg;
 import com.gene.proto.HBApiProto.ReqType;
 import com.gene.proto.HBApiProto.ResApiMsg;
-import com.gene.service.HbMsgBuilder;
 import com.gene.util.ErrorUtil;
+import com.gene.util.HbMsgBuilder;
 import com.gene.util.OS;
 import com.huobi.client.model.BestQuote;
 import com.huobi.client.model.Order;
@@ -143,8 +143,6 @@ public class HBApiCmd extends Command {
 			send(user, builder, 0, packet.getOs());
 		});
 	}
-	
-	
 	
 	private void send(User user, ResApiMsg.Builder builder, int seqId, short os) {
 		PBMessage pack = MessageUtil.buildMessage(ResCode.HB_API, builder, seqId, os);

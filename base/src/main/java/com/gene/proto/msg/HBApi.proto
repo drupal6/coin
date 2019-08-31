@@ -1,9 +1,12 @@
-syntax = "proto2";
 package com.ly.proto;
 
 option java_package = "com.gene.proto";
 option java_outer_classname = "HBApiProto";
 
+import "Bean.proto";
+/**
+ * 请求类型
+ */
 enum ReqType {
 	OPENORDERS 		= 1; //开启的订单
 	ORDERHISTORY 	= 2; //订单历史
@@ -13,6 +16,9 @@ enum ReqType {
 	MONITORORDER	= 6; //监听订单
 }
 
+/**
+ * 登录请求
+ */
 message ReqAccountMsg {
 	optional string apiKey 		= 1;
 	optional string secretKey 	= 2;
@@ -20,7 +26,7 @@ message ReqAccountMsg {
 }
 
 message ReqApiMsg {
-	optional ReqType type 		= 1;
+	optional ReqType type 		= 1[default = OPENORDERS];
 	optional string symbol		= 2;
 	optional string symbols		= 3;
 	optional int32 size  		= 4;
@@ -43,63 +49,4 @@ message ResApiMsg {
 	repeated OrderMsg orderHistory 					= 6;
 	optional OrderUpdateEventMsg orderUdateEvent	= 7;
 	optional BestQuoteMsg bestQuote					= 8;
-}
-
-//资产
-message BalanceMsg {
-	optional string currency 		= 1;
-	optional string balanceType 	= 2;
-	optional string balance			= 3;
-}
-//账号信息
-message AccountMsg{
-	optional int64 id				= 1;
-	optional string accountType		= 2;
-	optional string accountState 	= 3;
-	repeated BalanceMsg blances 	= 4;
-}
-
-//账号资产变动事件
-message AccountEventMsg {
-	optional int64 timestamp				= 1;
-	optional string changeType				= 2;
-	repeated AccountChangeMsg changes		= 3;
-}
-
-message AccountChangeMsg {
-	optional string currency = 1;
-	optional string accountType = 2;
-	optional string balance = 3;
-	optional string balanceType = 4;
-}
-
-message OrderMsg {
-	optional string accountType 		= 1;
-	optional string amount 				= 2;
-	optional string price 				= 3;
-	optional int64 createdTimestamp 	= 4;
-	optional int64 canceledTimestamp 	= 5;
-	optional int64 finishedTimestamp 	= 6;
-	optional int64 orderId 				= 7;
-	optional string symbol 				= 8;
-	optional string orderType 			= 9;
-	optional string filledAmount 		= 10;
-	optional string filledCashAmount 	= 11;
-	optional string filledFees 			= 12;
-	optional string orderSource 		= 13;
-	optional string orderState 			= 14;
-}
-
-message OrderUpdateEventMsg {
-	optional string symbol 		= 1;
-	optional int64 timestamp 	= 2;
-	optional OrderMsg order 	= 3;
-}
-
-message BestQuoteMsg {
-	optional int64 timestamp 		= 1;
-	optional string askPrice 		= 2;
-	optional string askAmount 		= 3;
-	optional string bidPrice 		= 4;
-	optional string bidAmount 		= 5;
 }

@@ -1,0 +1,235 @@
+package com.ly.proto;
+
+option java_package = "com.gene.proto";
+option java_outer_classname = "BeanProto";
+
+
+//账号信息
+message AccountMsg {
+	optional int64 id = 1;
+	optional string type = 2;
+	optional string state = 3;
+	repeated BalanceMsg balances = 4;
+}
+
+//账号变动
+message AccountChangeMsg {
+	optional string currency = 1;
+	optional string accountType = 2;
+	optional string balance = 3;
+	optional string balanceType = 4;
+}
+
+//资产
+message BalanceMsg {
+	optional string currency = 1;
+	optional string type = 2;
+	optional string balance = 3;
+}
+
+
+//批量取消
+message BatchCancelResultMsg {
+	optional int32 successCount = 1;
+	optional int32 failedCount = 2;
+}
+
+//最优价格
+message BestQuoteMsg {
+	optional int64 timestamp = 1;
+	optional string askPrice = 2;
+	optional string askAmount = 3;
+	optional string bidPrice = 4;
+	optional string bidAmount = 5;
+}
+
+//k线数据
+message CandlestickMsg {
+	optional int64 timestamp 	= 1;
+	optional string accmount 	= 2;
+	optional int64 count 		= 3;
+	optional string open		= 4;
+	optional string close    	= 5;
+	optional string low			= 6;
+	optional string hight		= 7;
+	optional string volume		= 8;
+}
+
+message CompleteSubAccountInfoMsg {
+	optional int64 id   			= 1;
+	optional string type			= 2;
+	repeated BalanceMsg balances 	= 3;
+}
+
+message DepositMsg {
+	optional int64 id				= 1;
+	optional string currency		= 2;
+	optional string txHash			= 3;
+	optional string amount			= 4;
+	optional string address			= 5;
+	optional string addressTag		= 6;
+	optional string fee				= 7;
+	optional int64 createdTimeStamp	= 8;
+	optional int64 updatedTimestamp = 9;
+	optional string depositState	= 10;
+}
+
+message DepthEntryMsg {
+	optional string price			= 1;
+	optional string amount			= 2;
+}
+
+message EtfSwapConfigMsg {
+	optional int32 purchaseMinAmount 	= 1;
+	optional int32 purchaseMaxAmount 	= 2;
+	optional int32 redemptionMinAmount 	= 3;
+	optional int32 redemptionMaxAmount 	= 4;
+	optional string purchaseFeeRate 	= 5;
+	optional string redemptionFeeRate 	= 6;
+	optional string status 				= 7;
+	repeated UnitPriceMsg unitPriceList = 8;
+}
+
+message EtfSwapHistoryMsg {
+	optional int64 createdTimestamp 			= 1;
+	optional string currency 					= 2;
+	optional string amount 						= 3;
+	optional string type 						= 4;
+	optional int32 status 						= 5;
+	optional string rate 						= 6;
+	optional string fee 						= 7;
+	optional string pointCardAmount 			= 8;
+	repeated UnitPriceMsg usedCurrencyList 		= 9;
+	repeated UnitPriceMsg obtainCurrencyList 	= 10;
+}
+
+message ExchangeInfoMsg {
+	repeated SymbolMsg symbolList 	= 1;
+	repeated string	currencies		= 2;
+}
+
+message LastTradeAndBestQuoteMsg {
+	optional string lastTradePrice 		= 1;
+	optional string lastTradeAmount 	= 2;
+	optional string askPrice 			= 3;
+	optional string askAmount 			= 4;
+	optional string bidPrice 			= 5;
+	optional string bidAmount 			= 6;
+}
+
+message LoanMsg {
+	optional int64 id = 1;
+	optional int64 userId = 2;
+	optional string accountType = 3;
+	optional string symbol = 4;
+	optional string currency = 5;
+	optional string loanAmount = 6;
+	optional string loanBalance = 7;
+	optional string interestRate = 8;
+	optional string interestAmount = 9;
+	optional string interestBalance = 10;
+	optional string state = 11;
+	optional int64 createdTimestamp = 12;
+	optional int64 accruedTimestamp = 13;
+}
+
+message MarginBalanceDetailMsg {
+	optional int64 id = 1;
+	optional string symbol = 2;
+	optional string state = 3;
+	optional string type = 4;
+	optional string riskRate = 5;
+	optional string flPrice = 6;
+	optional string flType = 7;
+	repeated BalanceMsg subAccountBalance = 8;
+}
+
+message MatchResultMsg {
+	optional int64 createdTimestamp = 1;
+	optional string filledAmount = 2;
+	optional string filledFees = 3;
+	optional int64 id = 4;
+	optional int64 matchId = 5;
+	optional int64 orderId = 6;
+	optional string price = 7;
+	optional string source = 8;
+	optional string symbol = 9;
+	optional string type = 10;
+}
+
+//订单
+message OrderMsg {
+	optional string accountType = 1;
+	optional string amount = 2;
+	optional string price = 3;
+	optional int64 createdTimestamp = 4;
+	optional int64 canceledTimestamp = 5;
+	optional int64 finishedTimestamp = 6;
+	optional int64 orderId = 7;
+	optional string symbol = 8;
+	optional string type = 9;
+	optional string filledAmount = 10;
+	optional string filledCashAmount = 11;
+	optional string filledFees = 12;
+	optional string source = 13;
+	optional string state = 14;
+}
+
+message PriceDepthMsg {
+	optional int64 timestamp = 1;
+	repeated DepthEntryMsg bids = 2;
+	repeated DepthEntryMsg asks = 3;
+}
+
+message SymbolMsg {
+	optional string baseCurrency 			= 1;
+	optional string quoteCurrency 			= 2;
+	optional int32 pricePrecision 			= 3;
+	optional int32 amountPrecision 			= 4;
+	optional string symbolPartition 		= 5;
+	optional string symbol 					= 6;
+}
+
+message TradeMsg {
+	optional string tradeId = 1;
+	optional int64 timestamp = 2;
+	optional string price = 3;
+	optional string amount = 4;
+	optional string direction = 5;
+}
+
+message TradeStatisticsMsg {
+	optional int64 timestamp = 1;
+	optional string open = 2;
+	optional string close = 3;
+	optional string amount = 4;
+	optional string high = 5;
+	optional string low = 6;
+	optional int64 count = 7;
+	optional string volume = 8;
+}
+
+message UnitPriceMsg {
+	optional string currency 			= 1;
+	optional string amount				= 2;
+}
+
+
+
+
+
+//////////////////////////////////////////////////////事件
+
+//账号资产变动事件
+message AccountEventMsg {
+	optional int64 timestamp				= 1;
+	optional string changeType				= 2;
+	repeated AccountChangeMsg changes		= 3;
+}
+
+//订单更新事件
+message OrderUpdateEventMsg {
+	optional string symbol 		= 1;
+	optional int64 timestamp 	= 2;
+	optional OrderMsg order 	= 3;
+}

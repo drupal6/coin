@@ -1,12 +1,14 @@
-package com.gene.service;
+package com.gene.util;
 
-import com.gene.proto.HBApiProto.AccountChangeMsg;
-import com.gene.proto.HBApiProto.AccountEventMsg;
-import com.gene.proto.HBApiProto.AccountMsg;
-import com.gene.proto.HBApiProto.BalanceMsg;
-import com.gene.proto.HBApiProto.BestQuoteMsg;
-import com.gene.proto.HBApiProto.OrderMsg;
+import com.gene.proto.BeanProto.AccountChangeMsg;
+import com.gene.proto.BeanProto.AccountEventMsg;
+import com.gene.proto.BeanProto.AccountMsg;
+import com.gene.proto.BeanProto.BalanceMsg;
+import com.gene.proto.BeanProto.BestQuoteMsg;
+import com.gene.proto.BeanProto.OrderMsg;
 import com.huobi.client.model.Account;
+import com.huobi.client.model.AccountChange;
+import com.huobi.client.model.Balance;
 import com.huobi.client.model.BestQuote;
 import com.huobi.client.model.Order;
 import com.huobi.client.model.event.AccountEvent;
@@ -16,16 +18,20 @@ public class HbMsgBuilder {
 	public static AccountMsg buildAccountMsg(Account account) {
 		AccountMsg.Builder builder = AccountMsg.newBuilder();
 		builder.setId(account.getId());
-		builder.setAccountType(account.getType().name());
-		builder.setAccountState(account.getState().name());
+		builder.setType(account.getType().name());
+		builder.setState(account.getState().name());
 		account.getBalances().forEach(balance -> {
-			BalanceMsg.Builder blanceBuilder = BalanceMsg.newBuilder();
-			blanceBuilder.setCurrency(balance.getCurrency());
-			blanceBuilder.setBalanceType(balance.getType().name());
-			blanceBuilder.setBalance(balance.getBalance().toString());
-			builder.addBlances(blanceBuilder);
+			builder.addBalances(buildBanlace(balance));
 		});
 		return builder.build();
+	}
+	
+	public static BalanceMsg buildBanlace(Balance balance) {
+		BalanceMsg.Builder blanceBuilder = BalanceMsg.newBuilder();
+		blanceBuilder.setCurrency(balance.getCurrency());
+		blanceBuilder.setType(balance.getType().name());
+		blanceBuilder.setBalance(balance.getBalance().toString());
+		return blanceBuilder.build();
 	}
 	
 	public static AccountEventMsg buildAccountChangeMsg(AccountEvent accountEvent) {
@@ -33,14 +39,18 @@ public class HbMsgBuilder {
 		builder.setTimestamp(accountEvent.getTimestamp());
 		builder.setChangeType(accountEvent.getChangeType().name());
 		accountEvent.getData().forEach(accountChange -> {
-			AccountChangeMsg.Builder accountChangeBuilder = AccountChangeMsg.newBuilder();
-			accountChangeBuilder.setCurrency(accountChange.getCurrency());
-			accountChangeBuilder.setAccountType(accountChange.getAccountType().name());
-			accountChangeBuilder.setBalance(accountChange.getBalance().toString());
-			accountChangeBuilder.setBalanceType(accountChange.getBalanceType().name());
-			builder.addChanges(accountChangeBuilder);
+			builder.addChanges(buildAccountChange(accountChange));
 		});
 		return builder.build();
+	}
+	
+	public static AccountChangeMsg buildAccountChange(AccountChange accountChange) {
+		AccountChangeMsg.Builder accountChangeBuilder = AccountChangeMsg.newBuilder();
+		accountChangeBuilder.setCurrency(accountChange.getCurrency());
+		accountChangeBuilder.setAccountType(accountChange.getAccountType().name());
+		accountChangeBuilder.setBalance(accountChange.getBalance().toString());
+		accountChangeBuilder.setBalanceType(accountChange.getBalanceType().name());
+		return accountChangeBuilder.build();
 	}
 	
 	public static OrderMsg buildOrdermsg(Order order) {
@@ -54,16 +64,16 @@ public class HbMsgBuilder {
 		builder.setOrderId(order.getOrderId());
 		builder.setSymbol(order.getSymbol());
 		if(order.getType() != null) {
-			builder.setOrderType(order.getType().name());
+			builder.setType(order.getType().name());
 		}
 		builder.setFilledAmount(order.getFilledAmount().toString());
 		builder.setFilledCashAmount(order.getFilledCashAmount().toString());
 		builder.setFilledFees(order.getFilledFees().toString());
 		if(order.getSource() != null) {
-			builder.setOrderSource(order.getSource().name());
+			builder.setSource(order.getSource().name());
 		}
 		if(order.getState() != null) {
-			builder.setOrderState(order.getState().name());
+			builder.setState(order.getState().name());
 		}
 		return builder.build();
 	}
