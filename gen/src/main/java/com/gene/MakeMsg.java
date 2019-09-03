@@ -6,12 +6,14 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.huobi.client.model.Account;
+import com.huobi.client.model.BatchCancelResult;
 import com.huobi.client.model.Order;
 
 public class MakeMsg {
 
 	public static void main(String[] args) {
-		Class<?> clazz = Order.class;
+		Class<?> clazz = Account.class;
 		Field[] fileds = clazz.getDeclaredFields();
 		System.out.println("message " + clazz.getSimpleName() + "Msg {");
 		for(int i = 1; i <= fileds.length; i++) {
@@ -42,13 +44,13 @@ public class MakeMsg {
 	private static String getDataType(Type type, Class<?> clazz) {
 		if(clazz.isEnum()) {
 			return "string";
-		} else if(type.getTypeName().equals("long")) {
+		} else if(clazz.isAssignableFrom(long.class)) {
 			return "int64";
-		} else if(type.getTypeName().equals(String.class.getName())) {
+		} else if(clazz.isAssignableFrom(String.class)) {
 			return "string";
-		} else if(type.getTypeName().equals("int")) {
+		} else if(clazz.isAssignableFrom(int.class)) {
 			return "int32";
-		} else if(type.getTypeName().equals(BigDecimal.class.getName())) {
+		} else if(clazz.isAssignableFrom(BigDecimal.class)) {
 			return "string";
 		} else {
 			ParameterizedType t = (ParameterizedType)type;
