@@ -45,14 +45,14 @@ message BestQuoteMsg {
 
 //k线数据
 message CandlestickMsg {
-	optional int64 timestamp 	= 1;
-	optional string accmount 	= 2;
-	optional int64 count 		= 3;
-	optional string open		= 4;
-	optional string close    	= 5;
-	optional string low			= 6;
-	optional string hight		= 7;
-	optional string volume		= 8;
+	optional int64 timestamp = 1;
+	optional string amount = 2;
+	optional int64 count = 3;
+	optional string open = 4;
+	optional string close = 5;
+	optional string low = 6;
+	optional string high = 7;
+	optional string volume = 8;
 }
 
 message CompleteSubAccountInfoMsg {
@@ -69,7 +69,7 @@ message DepositMsg {
 	optional string address			= 5;
 	optional string addressTag		= 6;
 	optional string fee				= 7;
-	optional int64 createdTimeStamp	= 8;
+	optional int64 createdTimestamp	= 8;
 	optional int64 updatedTimestamp = 9;
 	optional string depositState	= 10;
 }

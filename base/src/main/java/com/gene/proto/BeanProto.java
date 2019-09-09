@@ -5011,18 +5011,18 @@ public final class BeanProto {
     long getTimestamp();
 
     /**
-     * <code>optional string accmount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
-    boolean hasAccmount();
+    boolean hasAmount();
     /**
-     * <code>optional string accmount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
-    java.lang.String getAccmount();
+    java.lang.String getAmount();
     /**
-     * <code>optional string accmount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
     com.google.protobuf.ByteString
-        getAccmountBytes();
+        getAmountBytes();
 
     /**
      * <code>optional int64 count = 3;</code>
@@ -5076,18 +5076,18 @@ public final class BeanProto {
         getLowBytes();
 
     /**
-     * <code>optional string hight = 7;</code>
+     * <code>optional string high = 7;</code>
      */
-    boolean hasHight();
+    boolean hasHigh();
     /**
-     * <code>optional string hight = 7;</code>
+     * <code>optional string high = 7;</code>
      */
-    java.lang.String getHight();
+    java.lang.String getHigh();
     /**
-     * <code>optional string hight = 7;</code>
+     * <code>optional string high = 7;</code>
      */
     com.google.protobuf.ByteString
-        getHightBytes();
+        getHighBytes();
 
     /**
      * <code>optional string volume = 8;</code>
@@ -5120,11 +5120,11 @@ public final class BeanProto {
       super(builder);
     }
     private CandlestickMsg() {
-      accmount_ = "";
+      amount_ = "";
       open_ = "";
       close_ = "";
       low_ = "";
-      hight_ = "";
+      high_ = "";
       volume_ = "";
     }
 
@@ -5160,7 +5160,7 @@ public final class BeanProto {
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              accmount_ = bs;
+              amount_ = bs;
               break;
             }
             case 24: {
@@ -5189,7 +5189,7 @@ public final class BeanProto {
             case 58: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              hight_ = bs;
+              high_ = bs;
               break;
             }
             case 66: {
@@ -5246,19 +5246,19 @@ public final class BeanProto {
       return timestamp_;
     }
 
-    public static final int ACCMOUNT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object accmount_;
+    public static final int AMOUNT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object amount_;
     /**
-     * <code>optional string accmount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
-    public boolean hasAccmount() {
+    public boolean hasAmount() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional string accmount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
-    public java.lang.String getAccmount() {
-      java.lang.Object ref = accmount_;
+    public java.lang.String getAmount() {
+      java.lang.Object ref = amount_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -5266,22 +5266,22 @@ public final class BeanProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          accmount_ = s;
+          amount_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string accmount = 2;</code>
+     * <code>optional string amount = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getAccmountBytes() {
-      java.lang.Object ref = accmount_;
+        getAmountBytes() {
+      java.lang.Object ref = amount_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        accmount_ = b;
+        amount_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5429,19 +5429,19 @@ public final class BeanProto {
       }
     }
 
-    public static final int HIGHT_FIELD_NUMBER = 7;
-    private volatile java.lang.Object hight_;
+    public static final int HIGH_FIELD_NUMBER = 7;
+    private volatile java.lang.Object high_;
     /**
-     * <code>optional string hight = 7;</code>
+     * <code>optional string high = 7;</code>
      */
-    public boolean hasHight() {
+    public boolean hasHigh() {
       return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional string hight = 7;</code>
+     * <code>optional string high = 7;</code>
      */
-    public java.lang.String getHight() {
-      java.lang.Object ref = hight_;
+    public java.lang.String getHigh() {
+      java.lang.Object ref = high_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -5449,22 +5449,22 @@ public final class BeanProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          hight_ = s;
+          high_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string hight = 7;</code>
+     * <code>optional string high = 7;</code>
      */
     public com.google.protobuf.ByteString
-        getHightBytes() {
-      java.lang.Object ref = hight_;
+        getHighBytes() {
+      java.lang.Object ref = high_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        hight_ = b;
+        high_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5531,7 +5531,7 @@ public final class BeanProto {
         output.writeInt64(1, timestamp_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accmount_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, amount_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeInt64(3, count_);
@@ -5546,7 +5546,7 @@ public final class BeanProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, low_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, hight_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, high_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, volume_);
@@ -5565,7 +5565,7 @@ public final class BeanProto {
           .computeInt64Size(1, timestamp_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accmount_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, amount_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -5581,7 +5581,7 @@ public final class BeanProto {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, low_);
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, hight_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, high_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, volume_);
@@ -5606,10 +5606,10 @@ public final class BeanProto {
         if (getTimestamp()
             != other.getTimestamp()) return false;
       }
-      if (hasAccmount() != other.hasAccmount()) return false;
-      if (hasAccmount()) {
-        if (!getAccmount()
-            .equals(other.getAccmount())) return false;
+      if (hasAmount() != other.hasAmount()) return false;
+      if (hasAmount()) {
+        if (!getAmount()
+            .equals(other.getAmount())) return false;
       }
       if (hasCount() != other.hasCount()) return false;
       if (hasCount()) {
@@ -5631,10 +5631,10 @@ public final class BeanProto {
         if (!getLow()
             .equals(other.getLow())) return false;
       }
-      if (hasHight() != other.hasHight()) return false;
-      if (hasHight()) {
-        if (!getHight()
-            .equals(other.getHight())) return false;
+      if (hasHigh() != other.hasHigh()) return false;
+      if (hasHigh()) {
+        if (!getHigh()
+            .equals(other.getHigh())) return false;
       }
       if (hasVolume() != other.hasVolume()) return false;
       if (hasVolume()) {
@@ -5657,9 +5657,9 @@ public final class BeanProto {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getTimestamp());
       }
-      if (hasAccmount()) {
-        hash = (37 * hash) + ACCMOUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getAccmount().hashCode();
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAmount().hashCode();
       }
       if (hasCount()) {
         hash = (37 * hash) + COUNT_FIELD_NUMBER;
@@ -5678,9 +5678,9 @@ public final class BeanProto {
         hash = (37 * hash) + LOW_FIELD_NUMBER;
         hash = (53 * hash) + getLow().hashCode();
       }
-      if (hasHight()) {
-        hash = (37 * hash) + HIGHT_FIELD_NUMBER;
-        hash = (53 * hash) + getHight().hashCode();
+      if (hasHigh()) {
+        hash = (37 * hash) + HIGH_FIELD_NUMBER;
+        hash = (53 * hash) + getHigh().hashCode();
       }
       if (hasVolume()) {
         hash = (37 * hash) + VOLUME_FIELD_NUMBER;
@@ -5825,7 +5825,7 @@ public final class BeanProto {
         super.clear();
         timestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        accmount_ = "";
+        amount_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         count_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -5835,7 +5835,7 @@ public final class BeanProto {
         bitField0_ = (bitField0_ & ~0x00000010);
         low_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
-        hight_ = "";
+        high_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
         volume_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -5874,7 +5874,7 @@ public final class BeanProto {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.accmount_ = accmount_;
+        result.amount_ = amount_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.count_ = count_;
           to_bitField0_ |= 0x00000004;
@@ -5894,7 +5894,7 @@ public final class BeanProto {
         if (((from_bitField0_ & 0x00000040) != 0)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.hight_ = hight_;
+        result.high_ = high_;
         if (((from_bitField0_ & 0x00000080) != 0)) {
           to_bitField0_ |= 0x00000080;
         }
@@ -5951,9 +5951,9 @@ public final class BeanProto {
         if (other.hasTimestamp()) {
           setTimestamp(other.getTimestamp());
         }
-        if (other.hasAccmount()) {
+        if (other.hasAmount()) {
           bitField0_ |= 0x00000002;
-          accmount_ = other.accmount_;
+          amount_ = other.amount_;
           onChanged();
         }
         if (other.hasCount()) {
@@ -5974,9 +5974,9 @@ public final class BeanProto {
           low_ = other.low_;
           onChanged();
         }
-        if (other.hasHight()) {
+        if (other.hasHigh()) {
           bitField0_ |= 0x00000040;
-          hight_ = other.hight_;
+          high_ = other.high_;
           onChanged();
         }
         if (other.hasVolume()) {
@@ -6046,24 +6046,24 @@ public final class BeanProto {
         return this;
       }
 
-      private java.lang.Object accmount_ = "";
+      private java.lang.Object amount_ = "";
       /**
-       * <code>optional string accmount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public boolean hasAccmount() {
+      public boolean hasAmount() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional string accmount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public java.lang.String getAccmount() {
-        java.lang.Object ref = accmount_;
+      public java.lang.String getAmount() {
+        java.lang.Object ref = amount_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            accmount_ = s;
+            amount_ = s;
           }
           return s;
         } else {
@@ -6071,53 +6071,53 @@ public final class BeanProto {
         }
       }
       /**
-       * <code>optional string accmount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getAccmountBytes() {
-        java.lang.Object ref = accmount_;
+          getAmountBytes() {
+        java.lang.Object ref = amount_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          accmount_ = b;
+          amount_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string accmount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public Builder setAccmount(
+      public Builder setAmount(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        accmount_ = value;
+        amount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string accmount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public Builder clearAccmount() {
+      public Builder clearAmount() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        accmount_ = getDefaultInstance().getAccmount();
+        amount_ = getDefaultInstance().getAmount();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string accmount = 2;</code>
+       * <code>optional string amount = 2;</code>
        */
-      public Builder setAccmountBytes(
+      public Builder setAmountBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        accmount_ = value;
+        amount_ = value;
         onChanged();
         return this;
       }
@@ -6382,24 +6382,24 @@ public final class BeanProto {
         return this;
       }
 
-      private java.lang.Object hight_ = "";
+      private java.lang.Object high_ = "";
       /**
-       * <code>optional string hight = 7;</code>
+       * <code>optional string high = 7;</code>
        */
-      public boolean hasHight() {
+      public boolean hasHigh() {
         return ((bitField0_ & 0x00000040) != 0);
       }
       /**
-       * <code>optional string hight = 7;</code>
+       * <code>optional string high = 7;</code>
        */
-      public java.lang.String getHight() {
-        java.lang.Object ref = hight_;
+      public java.lang.String getHigh() {
+        java.lang.Object ref = high_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            hight_ = s;
+            high_ = s;
           }
           return s;
         } else {
@@ -6407,53 +6407,53 @@ public final class BeanProto {
         }
       }
       /**
-       * <code>optional string hight = 7;</code>
+       * <code>optional string high = 7;</code>
        */
       public com.google.protobuf.ByteString
-          getHightBytes() {
-        java.lang.Object ref = hight_;
+          getHighBytes() {
+        java.lang.Object ref = high_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          hight_ = b;
+          high_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string hight = 7;</code>
+       * <code>optional string high = 7;</code>
        */
-      public Builder setHight(
+      public Builder setHigh(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000040;
-        hight_ = value;
+        high_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string hight = 7;</code>
+       * <code>optional string high = 7;</code>
        */
-      public Builder clearHight() {
+      public Builder clearHigh() {
         bitField0_ = (bitField0_ & ~0x00000040);
-        hight_ = getDefaultInstance().getHight();
+        high_ = getDefaultInstance().getHigh();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string hight = 7;</code>
+       * <code>optional string high = 7;</code>
        */
-      public Builder setHightBytes(
+      public Builder setHighBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000040;
-        hight_ = value;
+        high_ = value;
         onChanged();
         return this;
       }
@@ -7720,13 +7720,13 @@ public final class BeanProto {
         getFeeBytes();
 
     /**
-     * <code>optional int64 createdTimeStamp = 8;</code>
+     * <code>optional int64 createdTimestamp = 8;</code>
      */
-    boolean hasCreatedTimeStamp();
+    boolean hasCreatedTimestamp();
     /**
-     * <code>optional int64 createdTimeStamp = 8;</code>
+     * <code>optional int64 createdTimestamp = 8;</code>
      */
-    long getCreatedTimeStamp();
+    long getCreatedTimestamp();
 
     /**
      * <code>optional int64 updatedTimestamp = 9;</code>
@@ -7840,7 +7840,7 @@ public final class BeanProto {
             }
             case 64: {
               bitField0_ |= 0x00000080;
-              createdTimeStamp_ = input.readInt64();
+              createdTimestamp_ = input.readInt64();
               break;
             }
             case 72: {
@@ -8155,18 +8155,18 @@ public final class BeanProto {
     }
 
     public static final int CREATEDTIMESTAMP_FIELD_NUMBER = 8;
-    private long createdTimeStamp_;
+    private long createdTimestamp_;
     /**
-     * <code>optional int64 createdTimeStamp = 8;</code>
+     * <code>optional int64 createdTimestamp = 8;</code>
      */
-    public boolean hasCreatedTimeStamp() {
+    public boolean hasCreatedTimestamp() {
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>optional int64 createdTimeStamp = 8;</code>
+     * <code>optional int64 createdTimestamp = 8;</code>
      */
-    public long getCreatedTimeStamp() {
-      return createdTimeStamp_;
+    public long getCreatedTimestamp() {
+      return createdTimestamp_;
     }
 
     public static final int UPDATEDTIMESTAMP_FIELD_NUMBER = 9;
@@ -8262,7 +8262,7 @@ public final class BeanProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fee_);
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        output.writeInt64(8, createdTimeStamp_);
+        output.writeInt64(8, createdTimestamp_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         output.writeInt64(9, updatedTimestamp_);
@@ -8303,7 +8303,7 @@ public final class BeanProto {
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(8, createdTimeStamp_);
+          .computeInt64Size(8, createdTimestamp_);
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8362,10 +8362,10 @@ public final class BeanProto {
         if (!getFee()
             .equals(other.getFee())) return false;
       }
-      if (hasCreatedTimeStamp() != other.hasCreatedTimeStamp()) return false;
-      if (hasCreatedTimeStamp()) {
-        if (getCreatedTimeStamp()
-            != other.getCreatedTimeStamp()) return false;
+      if (hasCreatedTimestamp() != other.hasCreatedTimestamp()) return false;
+      if (hasCreatedTimestamp()) {
+        if (getCreatedTimestamp()
+            != other.getCreatedTimestamp()) return false;
       }
       if (hasUpdatedTimestamp() != other.hasUpdatedTimestamp()) return false;
       if (hasUpdatedTimestamp()) {
@@ -8417,10 +8417,10 @@ public final class BeanProto {
         hash = (37 * hash) + FEE_FIELD_NUMBER;
         hash = (53 * hash) + getFee().hashCode();
       }
-      if (hasCreatedTimeStamp()) {
+      if (hasCreatedTimestamp()) {
         hash = (37 * hash) + CREATEDTIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getCreatedTimeStamp());
+            getCreatedTimestamp());
       }
       if (hasUpdatedTimestamp()) {
         hash = (37 * hash) + UPDATEDTIMESTAMP_FIELD_NUMBER;
@@ -8578,7 +8578,7 @@ public final class BeanProto {
         bitField0_ = (bitField0_ & ~0x00000020);
         fee_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        createdTimeStamp_ = 0L;
+        createdTimestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000080);
         updatedTimestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -8641,7 +8641,7 @@ public final class BeanProto {
         }
         result.fee_ = fee_;
         if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.createdTimeStamp_ = createdTimeStamp_;
+          result.createdTimestamp_ = createdTimestamp_;
           to_bitField0_ |= 0x00000080;
         }
         if (((from_bitField0_ & 0x00000100) != 0)) {
@@ -8734,8 +8734,8 @@ public final class BeanProto {
           fee_ = other.fee_;
           onChanged();
         }
-        if (other.hasCreatedTimeStamp()) {
-          setCreatedTimeStamp(other.getCreatedTimeStamp());
+        if (other.hasCreatedTimestamp()) {
+          setCreatedTimestamp(other.getCreatedTimestamp());
         }
         if (other.hasUpdatedTimestamp()) {
           setUpdatedTimestamp(other.getUpdatedTimestamp());
@@ -9263,34 +9263,34 @@ public final class BeanProto {
         return this;
       }
 
-      private long createdTimeStamp_ ;
+      private long createdTimestamp_ ;
       /**
-       * <code>optional int64 createdTimeStamp = 8;</code>
+       * <code>optional int64 createdTimestamp = 8;</code>
        */
-      public boolean hasCreatedTimeStamp() {
+      public boolean hasCreatedTimestamp() {
         return ((bitField0_ & 0x00000080) != 0);
       }
       /**
-       * <code>optional int64 createdTimeStamp = 8;</code>
+       * <code>optional int64 createdTimestamp = 8;</code>
        */
-      public long getCreatedTimeStamp() {
-        return createdTimeStamp_;
+      public long getCreatedTimestamp() {
+        return createdTimestamp_;
       }
       /**
-       * <code>optional int64 createdTimeStamp = 8;</code>
+       * <code>optional int64 createdTimestamp = 8;</code>
        */
-      public Builder setCreatedTimeStamp(long value) {
+      public Builder setCreatedTimestamp(long value) {
         bitField0_ |= 0x00000080;
-        createdTimeStamp_ = value;
+        createdTimestamp_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 createdTimeStamp = 8;</code>
+       * <code>optional int64 createdTimestamp = 8;</code>
        */
-      public Builder clearCreatedTimeStamp() {
+      public Builder clearCreatedTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000080);
-        createdTimeStamp_ = 0L;
+        createdTimestamp_ = 0L;
         onChanged();
         return this;
       }
@@ -32843,82 +32843,82 @@ public final class BeanProto {
       "Count\030\001 \001(\005\022\023\n\013failedCount\030\002 \001(\005\"k\n\014Best" +
       "QuoteMsg\022\021\n\ttimestamp\030\001 \001(\003\022\020\n\010askPrice\030" +
       "\002 \001(\t\022\021\n\taskAmount\030\003 \001(\t\022\020\n\010bidPrice\030\004 \001" +
-      "(\t\022\021\n\tbidAmount\030\005 \001(\t\"\215\001\n\016CandlestickMsg" +
-      "\022\021\n\ttimestamp\030\001 \001(\003\022\020\n\010accmount\030\002 \001(\t\022\r\n" +
-      "\005count\030\003 \001(\003\022\014\n\004open\030\004 \001(\t\022\r\n\005close\030\005 \001(" +
-      "\t\022\013\n\003low\030\006 \001(\t\022\r\n\005hight\030\007 \001(\t\022\016\n\006volume\030" +
-      "\010 \001(\t\"a\n\031CompleteSubAccountInfoMsg\022\n\n\002id" +
-      "\030\001 \001(\003\022\014\n\004type\030\002 \001(\t\022*\n\010balances\030\003 \003(\0132\030" +
-      ".com.ly.proto.BalanceMsg\"\306\001\n\nDepositMsg\022" +
-      "\n\n\002id\030\001 \001(\003\022\020\n\010currency\030\002 \001(\t\022\016\n\006txHash\030" +
-      "\003 \001(\t\022\016\n\006amount\030\004 \001(\t\022\017\n\007address\030\005 \001(\t\022\022" +
-      "\n\naddressTag\030\006 \001(\t\022\013\n\003fee\030\007 \001(\t\022\030\n\020creat" +
-      "edTimeStamp\030\010 \001(\003\022\030\n\020updatedTimestamp\030\t " +
-      "\001(\003\022\024\n\014depositState\030\n \001(\t\".\n\rDepthEntryM" +
-      "sg\022\r\n\005price\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\"\371\001\n\020Et" +
-      "fSwapConfigMsg\022\031\n\021purchaseMinAmount\030\001 \001(" +
-      "\005\022\031\n\021purchaseMaxAmount\030\002 \001(\005\022\033\n\023redempti" +
-      "onMinAmount\030\003 \001(\005\022\033\n\023redemptionMaxAmount" +
-      "\030\004 \001(\005\022\027\n\017purchaseFeeRate\030\005 \001(\t\022\031\n\021redem" +
-      "ptionFeeRate\030\006 \001(\t\022\016\n\006status\030\007 \001(\t\0221\n\run" +
-      "itPriceList\030\010 \003(\0132\032.com.ly.proto.UnitPri" +
-      "ceMsg\"\217\002\n\021EtfSwapHistoryMsg\022\030\n\020createdTi" +
-      "mestamp\030\001 \001(\003\022\020\n\010currency\030\002 \001(\t\022\016\n\006amoun" +
-      "t\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\016\n\006status\030\005 \001(\005\022\014\n" +
-      "\004rate\030\006 \001(\t\022\013\n\003fee\030\007 \001(\t\022\027\n\017pointCardAmo" +
-      "unt\030\010 \001(\t\0224\n\020usedCurrencyList\030\t \003(\0132\032.co" +
-      "m.ly.proto.UnitPriceMsg\0226\n\022obtainCurrenc" +
-      "yList\030\n \003(\0132\032.com.ly.proto.UnitPriceMsg\"" +
-      "R\n\017ExchangeInfoMsg\022+\n\nsymbolList\030\001 \003(\0132\027" +
-      ".com.ly.proto.SymbolMsg\022\022\n\ncurrencies\030\002 " +
-      "\003(\t\"\225\001\n\030LastTradeAndBestQuoteMsg\022\026\n\016last" +
-      "TradePrice\030\001 \001(\t\022\027\n\017lastTradeAmount\030\002 \001(" +
-      "\t\022\020\n\010askPrice\030\003 \001(\t\022\021\n\taskAmount\030\004 \001(\t\022\020" +
-      "\n\010bidPrice\030\005 \001(\t\022\021\n\tbidAmount\030\006 \001(\t\"\217\002\n\007" +
-      "LoanMsg\022\n\n\002id\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\023\n\013a" +
-      "ccountType\030\003 \001(\t\022\016\n\006symbol\030\004 \001(\t\022\020\n\010curr" +
-      "ency\030\005 \001(\t\022\022\n\nloanAmount\030\006 \001(\t\022\023\n\013loanBa" +
-      "lance\030\007 \001(\t\022\024\n\014interestRate\030\010 \001(\t\022\026\n\016int" +
-      "erestAmount\030\t \001(\t\022\027\n\017interestBalance\030\n \001" +
-      "(\t\022\r\n\005state\030\013 \001(\t\022\030\n\020createdTimestamp\030\014 " +
-      "\001(\003\022\030\n\020accruedTimestamp\030\r \001(\003\"\271\001\n\026Margin" +
-      "BalanceDetailMsg\022\n\n\002id\030\001 \001(\003\022\016\n\006symbol\030\002" +
-      " \001(\t\022\r\n\005state\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\020\n\010ris" +
-      "kRate\030\005 \001(\t\022\017\n\007flPrice\030\006 \001(\t\022\016\n\006flType\030\007" +
-      " \001(\t\0223\n\021subAccountBalance\030\010 \003(\0132\030.com.ly" +
-      ".proto.BalanceMsg\"\277\001\n\016MatchResultMsg\022\030\n\020" +
-      "createdTimestamp\030\001 \001(\003\022\024\n\014filledAmount\030\002" +
-      " \001(\t\022\022\n\nfilledFees\030\003 \001(\t\022\n\n\002id\030\004 \001(\003\022\017\n\007" +
-      "matchId\030\005 \001(\003\022\017\n\007orderId\030\006 \001(\003\022\r\n\005price\030" +
-      "\007 \001(\t\022\016\n\006source\030\010 \001(\t\022\016\n\006symbol\030\t \001(\t\022\014\n" +
-      "\004type\030\n \001(\t\"\240\002\n\010OrderMsg\022\023\n\013accountType\030" +
-      "\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\r\n\005price\030\003 \001(\t\022\030\n\020" +
-      "createdTimestamp\030\004 \001(\003\022\031\n\021canceledTimest" +
-      "amp\030\005 \001(\003\022\031\n\021finishedTimestamp\030\006 \001(\003\022\017\n\007" +
-      "orderId\030\007 \001(\003\022\016\n\006symbol\030\010 \001(\t\022\014\n\004type\030\t " +
-      "\001(\t\022\024\n\014filledAmount\030\n \001(\t\022\030\n\020filledCashA" +
-      "mount\030\013 \001(\t\022\022\n\nfilledFees\030\014 \001(\t\022\016\n\006sourc" +
-      "e\030\r \001(\t\022\r\n\005state\030\016 \001(\t\"x\n\rPriceDepthMsg\022" +
-      "\021\n\ttimestamp\030\001 \001(\003\022)\n\004bids\030\002 \003(\0132\033.com.l" +
-      "y.proto.DepthEntryMsg\022)\n\004asks\030\003 \003(\0132\033.co" +
-      "m.ly.proto.DepthEntryMsg\"\222\001\n\tSymbolMsg\022\024" +
-      "\n\014baseCurrency\030\001 \001(\t\022\025\n\rquoteCurrency\030\002 " +
-      "\001(\t\022\026\n\016pricePrecision\030\003 \001(\005\022\027\n\017amountPre" +
-      "cision\030\004 \001(\005\022\027\n\017symbolPartition\030\005 \001(\t\022\016\n" +
-      "\006symbol\030\006 \001(\t\"`\n\010TradeMsg\022\017\n\007tradeId\030\001 \001" +
-      "(\t\022\021\n\ttimestamp\030\002 \001(\003\022\r\n\005price\030\003 \001(\t\022\016\n\006" +
-      "amount\030\004 \001(\t\022\021\n\tdirection\030\005 \001(\t\"\216\001\n\022Trad" +
-      "eStatisticsMsg\022\021\n\ttimestamp\030\001 \001(\003\022\014\n\004ope" +
-      "n\030\002 \001(\t\022\r\n\005close\030\003 \001(\t\022\016\n\006amount\030\004 \001(\t\022\014" +
-      "\n\004high\030\005 \001(\t\022\013\n\003low\030\006 \001(\t\022\r\n\005count\030\007 \001(\003" +
-      "\022\016\n\006volume\030\010 \001(\t\"0\n\014UnitPriceMsg\022\020\n\010curr" +
-      "ency\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\"i\n\017AccountEve" +
-      "ntMsg\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\nchangeType\030\002" +
-      " \001(\t\022/\n\007changes\030\003 \003(\0132\036.com.ly.proto.Acc" +
-      "ountChangeMsg\"_\n\023OrderUpdateEventMsg\022\016\n\006" +
-      "symbol\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022%\n\005order" +
-      "\030\003 \001(\0132\026.com.ly.proto.OrderMsgB\033\n\016com.ge" +
-      "ne.protoB\tBeanProto"
+      "(\t\022\021\n\tbidAmount\030\005 \001(\t\"\212\001\n\016CandlestickMsg" +
+      "\022\021\n\ttimestamp\030\001 \001(\003\022\016\n\006amount\030\002 \001(\t\022\r\n\005c" +
+      "ount\030\003 \001(\003\022\014\n\004open\030\004 \001(\t\022\r\n\005close\030\005 \001(\t\022" +
+      "\013\n\003low\030\006 \001(\t\022\014\n\004high\030\007 \001(\t\022\016\n\006volume\030\010 \001" +
+      "(\t\"a\n\031CompleteSubAccountInfoMsg\022\n\n\002id\030\001 " +
+      "\001(\003\022\014\n\004type\030\002 \001(\t\022*\n\010balances\030\003 \003(\0132\030.co" +
+      "m.ly.proto.BalanceMsg\"\306\001\n\nDepositMsg\022\n\n\002" +
+      "id\030\001 \001(\003\022\020\n\010currency\030\002 \001(\t\022\016\n\006txHash\030\003 \001" +
+      "(\t\022\016\n\006amount\030\004 \001(\t\022\017\n\007address\030\005 \001(\t\022\022\n\na" +
+      "ddressTag\030\006 \001(\t\022\013\n\003fee\030\007 \001(\t\022\030\n\020createdT" +
+      "imestamp\030\010 \001(\003\022\030\n\020updatedTimestamp\030\t \001(\003" +
+      "\022\024\n\014depositState\030\n \001(\t\".\n\rDepthEntryMsg\022" +
+      "\r\n\005price\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\"\371\001\n\020EtfSw" +
+      "apConfigMsg\022\031\n\021purchaseMinAmount\030\001 \001(\005\022\031" +
+      "\n\021purchaseMaxAmount\030\002 \001(\005\022\033\n\023redemptionM" +
+      "inAmount\030\003 \001(\005\022\033\n\023redemptionMaxAmount\030\004 " +
+      "\001(\005\022\027\n\017purchaseFeeRate\030\005 \001(\t\022\031\n\021redempti" +
+      "onFeeRate\030\006 \001(\t\022\016\n\006status\030\007 \001(\t\0221\n\runitP" +
+      "riceList\030\010 \003(\0132\032.com.ly.proto.UnitPriceM" +
+      "sg\"\217\002\n\021EtfSwapHistoryMsg\022\030\n\020createdTimes" +
+      "tamp\030\001 \001(\003\022\020\n\010currency\030\002 \001(\t\022\016\n\006amount\030\003" +
+      " \001(\t\022\014\n\004type\030\004 \001(\t\022\016\n\006status\030\005 \001(\005\022\014\n\004ra" +
+      "te\030\006 \001(\t\022\013\n\003fee\030\007 \001(\t\022\027\n\017pointCardAmount" +
+      "\030\010 \001(\t\0224\n\020usedCurrencyList\030\t \003(\0132\032.com.l" +
+      "y.proto.UnitPriceMsg\0226\n\022obtainCurrencyLi" +
+      "st\030\n \003(\0132\032.com.ly.proto.UnitPriceMsg\"R\n\017" +
+      "ExchangeInfoMsg\022+\n\nsymbolList\030\001 \003(\0132\027.co" +
+      "m.ly.proto.SymbolMsg\022\022\n\ncurrencies\030\002 \003(\t" +
+      "\"\225\001\n\030LastTradeAndBestQuoteMsg\022\026\n\016lastTra" +
+      "dePrice\030\001 \001(\t\022\027\n\017lastTradeAmount\030\002 \001(\t\022\020" +
+      "\n\010askPrice\030\003 \001(\t\022\021\n\taskAmount\030\004 \001(\t\022\020\n\010b" +
+      "idPrice\030\005 \001(\t\022\021\n\tbidAmount\030\006 \001(\t\"\217\002\n\007Loa" +
+      "nMsg\022\n\n\002id\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\023\n\013acco" +
+      "untType\030\003 \001(\t\022\016\n\006symbol\030\004 \001(\t\022\020\n\010currenc" +
+      "y\030\005 \001(\t\022\022\n\nloanAmount\030\006 \001(\t\022\023\n\013loanBalan" +
+      "ce\030\007 \001(\t\022\024\n\014interestRate\030\010 \001(\t\022\026\n\016intere" +
+      "stAmount\030\t \001(\t\022\027\n\017interestBalance\030\n \001(\t\022" +
+      "\r\n\005state\030\013 \001(\t\022\030\n\020createdTimestamp\030\014 \001(\003" +
+      "\022\030\n\020accruedTimestamp\030\r \001(\003\"\271\001\n\026MarginBal" +
+      "anceDetailMsg\022\n\n\002id\030\001 \001(\003\022\016\n\006symbol\030\002 \001(" +
+      "\t\022\r\n\005state\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\020\n\010riskRa" +
+      "te\030\005 \001(\t\022\017\n\007flPrice\030\006 \001(\t\022\016\n\006flType\030\007 \001(" +
+      "\t\0223\n\021subAccountBalance\030\010 \003(\0132\030.com.ly.pr" +
+      "oto.BalanceMsg\"\277\001\n\016MatchResultMsg\022\030\n\020cre" +
+      "atedTimestamp\030\001 \001(\003\022\024\n\014filledAmount\030\002 \001(" +
+      "\t\022\022\n\nfilledFees\030\003 \001(\t\022\n\n\002id\030\004 \001(\003\022\017\n\007mat" +
+      "chId\030\005 \001(\003\022\017\n\007orderId\030\006 \001(\003\022\r\n\005price\030\007 \001" +
+      "(\t\022\016\n\006source\030\010 \001(\t\022\016\n\006symbol\030\t \001(\t\022\014\n\004ty" +
+      "pe\030\n \001(\t\"\240\002\n\010OrderMsg\022\023\n\013accountType\030\001 \001" +
+      "(\t\022\016\n\006amount\030\002 \001(\t\022\r\n\005price\030\003 \001(\t\022\030\n\020cre" +
+      "atedTimestamp\030\004 \001(\003\022\031\n\021canceledTimestamp" +
+      "\030\005 \001(\003\022\031\n\021finishedTimestamp\030\006 \001(\003\022\017\n\007ord" +
+      "erId\030\007 \001(\003\022\016\n\006symbol\030\010 \001(\t\022\014\n\004type\030\t \001(\t" +
+      "\022\024\n\014filledAmount\030\n \001(\t\022\030\n\020filledCashAmou" +
+      "nt\030\013 \001(\t\022\022\n\nfilledFees\030\014 \001(\t\022\016\n\006source\030\r" +
+      " \001(\t\022\r\n\005state\030\016 \001(\t\"x\n\rPriceDepthMsg\022\021\n\t" +
+      "timestamp\030\001 \001(\003\022)\n\004bids\030\002 \003(\0132\033.com.ly.p" +
+      "roto.DepthEntryMsg\022)\n\004asks\030\003 \003(\0132\033.com.l" +
+      "y.proto.DepthEntryMsg\"\222\001\n\tSymbolMsg\022\024\n\014b" +
+      "aseCurrency\030\001 \001(\t\022\025\n\rquoteCurrency\030\002 \001(\t" +
+      "\022\026\n\016pricePrecision\030\003 \001(\005\022\027\n\017amountPrecis" +
+      "ion\030\004 \001(\005\022\027\n\017symbolPartition\030\005 \001(\t\022\016\n\006sy" +
+      "mbol\030\006 \001(\t\"`\n\010TradeMsg\022\017\n\007tradeId\030\001 \001(\t\022" +
+      "\021\n\ttimestamp\030\002 \001(\003\022\r\n\005price\030\003 \001(\t\022\016\n\006amo" +
+      "unt\030\004 \001(\t\022\021\n\tdirection\030\005 \001(\t\"\216\001\n\022TradeSt" +
+      "atisticsMsg\022\021\n\ttimestamp\030\001 \001(\003\022\014\n\004open\030\002" +
+      " \001(\t\022\r\n\005close\030\003 \001(\t\022\016\n\006amount\030\004 \001(\t\022\014\n\004h" +
+      "igh\030\005 \001(\t\022\013\n\003low\030\006 \001(\t\022\r\n\005count\030\007 \001(\003\022\016\n" +
+      "\006volume\030\010 \001(\t\"0\n\014UnitPriceMsg\022\020\n\010currenc" +
+      "y\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\"i\n\017AccountEventM" +
+      "sg\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\nchangeType\030\002 \001(" +
+      "\t\022/\n\007changes\030\003 \003(\0132\036.com.ly.proto.Accoun" +
+      "tChangeMsg\"_\n\023OrderUpdateEventMsg\022\016\n\006sym" +
+      "bol\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022%\n\005order\030\003 " +
+      "\001(\0132\026.com.ly.proto.OrderMsgB\033\n\016com.gene." +
+      "protoB\tBeanProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -32967,7 +32967,7 @@ public final class BeanProto {
     internal_static_com_ly_proto_CandlestickMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ly_proto_CandlestickMsg_descriptor,
-        new java.lang.String[] { "Timestamp", "Accmount", "Count", "Open", "Close", "Low", "Hight", "Volume", });
+        new java.lang.String[] { "Timestamp", "Amount", "Count", "Open", "Close", "Low", "High", "Volume", });
     internal_static_com_ly_proto_CompleteSubAccountInfoMsg_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_ly_proto_CompleteSubAccountInfoMsg_fieldAccessorTable = new
@@ -32979,7 +32979,7 @@ public final class BeanProto {
     internal_static_com_ly_proto_DepositMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ly_proto_DepositMsg_descriptor,
-        new java.lang.String[] { "Id", "Currency", "TxHash", "Amount", "Address", "AddressTag", "Fee", "CreatedTimeStamp", "UpdatedTimestamp", "DepositState", });
+        new java.lang.String[] { "Id", "Currency", "TxHash", "Amount", "Address", "AddressTag", "Fee", "CreatedTimestamp", "UpdatedTimestamp", "DepositState", });
     internal_static_com_ly_proto_DepthEntryMsg_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_com_ly_proto_DepthEntryMsg_fieldAccessorTable = new

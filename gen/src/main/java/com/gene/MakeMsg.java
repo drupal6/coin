@@ -6,14 +6,12 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.huobi.client.model.Account;
-import com.huobi.client.model.BatchCancelResult;
-import com.huobi.client.model.Order;
+import com.huobi.client.model.Candlestick;
 
 public class MakeMsg {
 
 	public static void main(String[] args) {
-		Class<?> clazz = Account.class;
+		Class<?> clazz = Candlestick.class;
 		Field[] fileds = clazz.getDeclaredFields();
 		System.out.println("message " + clazz.getSimpleName() + "Msg {");
 		for(int i = 1; i <= fileds.length; i++) {

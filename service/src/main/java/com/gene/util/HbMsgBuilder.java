@@ -107,12 +107,12 @@ public class HbMsgBuilder {
 	public static CandlestickMsg buildCandlestickMsg(Candlestick candlestick) {
 		CandlestickMsg.Builder candlestickBuilder = CandlestickMsg.newBuilder();
 		candlestickBuilder.setTimestamp(candlestick.getTimestamp());
-		candlestickBuilder.setAccmount(candlestick.getAmount().toString());
+		candlestickBuilder.setAmount(candlestick.getAmount().toString());
 		candlestickBuilder.setCount(candlestick.getCount());
 		candlestickBuilder.setOpen(candlestick.getOpen().toString());
 		candlestickBuilder.setClose(candlestick.getClose().toString());
 		candlestickBuilder.setLow(candlestick.getLow().toString());
-		candlestickBuilder.setHight(candlestick.getHigh().toString());
+		candlestickBuilder.setHigh(candlestick.getHigh().toString());
 		candlestickBuilder.setVolume(candlestick.getVolume().toString());
 		return candlestickBuilder.build();
 	}
@@ -136,7 +136,7 @@ public class HbMsgBuilder {
 		depositMsgBuilder.setAddress(deposit.getAddress());
 		depositMsgBuilder.setAddressTag(deposit.getAddressTag());
 		depositMsgBuilder.setFee(deposit.getFee().toString());
-		depositMsgBuilder.setCreatedTimeStamp(deposit.getCreatedTimestamp());
+		depositMsgBuilder.setCreatedTimestamp(deposit.getCreatedTimestamp());
 		depositMsgBuilder.setUpdatedTimestamp(deposit.getUpdatedTimestamp());
 		depositMsgBuilder.setDepositState(deposit.getDepositState().name());
 		return depositMsgBuilder.build();
