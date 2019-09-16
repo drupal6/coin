@@ -220,16 +220,39 @@ message UnitPriceMsg {
 
 //////////////////////////////////////////////////////事件
 
-//账号资产变动事件
 message AccountEventMsg {
-	optional int64 timestamp				= 1;
-	optional string changeType				= 2;
-	repeated AccountChangeMsg changes		= 3;
+	optional int64 timestamp = 1;
+	optional string changeType = 2;
+	repeated AccountChangeMsg accountChangeList = 3;
 }
 
-//订单更新事件
+message CandlestickEventMsg {
+	optional string symbol = 1;
+	optional int64 timestamp = 2;
+	optional string interval = 3;
+	optional CandlestickMsg data = 4;
+}
+
 message OrderUpdateEventMsg {
-	optional string symbol 		= 1;
-	optional int64 timestamp 	= 2;
-	optional OrderMsg order 	= 3;
+	optional string symbol = 1;
+	optional int64 timestamp = 2;
+	optional OrderMsg data = 3;
+}
+
+message PriceDepthEventMsg {
+	optional string symbol = 1;
+	optional int64 timestamp = 2;
+	optional PriceDepthMsg data = 4;
+}
+
+message TradeEventMsg {
+	optional string symbol = 1;
+	optional int64 timestamp = 2;
+	repeated TradeMsg tradeList = 3;
+}
+
+message TradeStatisticsEventMsg {
+	optional string symbol	= 1;
+	optional int64 timeStamp = 2;
+	optional TradeStatisticsMsg tradeStatistics = 3;
 }

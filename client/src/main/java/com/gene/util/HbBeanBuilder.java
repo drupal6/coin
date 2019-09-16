@@ -10,6 +10,7 @@ import com.gene.proto.BeanProto.AccountMsg;
 import com.gene.proto.BeanProto.BalanceMsg;
 import com.gene.proto.BeanProto.BatchCancelResultMsg;
 import com.gene.proto.BeanProto.BestQuoteMsg;
+import com.gene.proto.BeanProto.CandlestickEventMsg;
 import com.gene.proto.BeanProto.CandlestickMsg;
 import com.gene.proto.BeanProto.CompleteSubAccountInfoMsg;
 import com.gene.proto.BeanProto.DepositMsg;
@@ -22,9 +23,13 @@ import com.gene.proto.BeanProto.LoanMsg;
 import com.gene.proto.BeanProto.MarginBalanceDetailMsg;
 import com.gene.proto.BeanProto.MatchResultMsg;
 import com.gene.proto.BeanProto.OrderMsg;
+import com.gene.proto.BeanProto.OrderUpdateEventMsg;
+import com.gene.proto.BeanProto.PriceDepthEventMsg;
 import com.gene.proto.BeanProto.PriceDepthMsg;
 import com.gene.proto.BeanProto.SymbolMsg;
+import com.gene.proto.BeanProto.TradeEventMsg;
 import com.gene.proto.BeanProto.TradeMsg;
+import com.gene.proto.BeanProto.TradeStatisticsEventMsg;
 import com.gene.proto.BeanProto.TradeStatisticsMsg;
 import com.gene.proto.BeanProto.UnitPriceMsg;
 import com.huobi.client.model.Account;
@@ -53,6 +58,7 @@ import com.huobi.client.model.enums.AccountChangeType;
 import com.huobi.client.model.enums.AccountState;
 import com.huobi.client.model.enums.AccountType;
 import com.huobi.client.model.enums.BalanceType;
+import com.huobi.client.model.enums.CandlestickInterval;
 import com.huobi.client.model.enums.DepositState;
 import com.huobi.client.model.enums.EtfStatus;
 import com.huobi.client.model.enums.EtfSwapType;
@@ -62,6 +68,11 @@ import com.huobi.client.model.enums.OrderState;
 import com.huobi.client.model.enums.OrderType;
 import com.huobi.client.model.enums.TradeDirection;
 import com.huobi.client.model.event.AccountEvent;
+import com.huobi.client.model.event.CandlestickEvent;
+import com.huobi.client.model.event.OrderUpdateEvent;
+import com.huobi.client.model.event.PriceDepthEvent;
+import com.huobi.client.model.event.TradeEvent;
+import com.huobi.client.model.event.TradeStatisticsEvent;
 
 public class HbBeanBuilder {
 	
@@ -75,7 +86,6 @@ public class HbBeanBuilder {
 			balances.add(parseBalance(balanceMsg));
 		});
 		account.setBalances(balances);
-		System.out.println(accountMsg.toString());
 		return account;
 	}
 	
@@ -94,16 +104,6 @@ public class HbBeanBuilder {
 		balance.setType(BalanceType.valueOf(balanceMsg.getType()));
 		balance.setBalance(new BigDecimal(balanceMsg.getBalance()));
 		return balance;
-	}
-	
-	public static AccountEvent parseAccountEvent(AccountEventMsg msg) {
-		AccountEvent accountEvent = new AccountEvent();
-		accountEvent.setTimestamp(msg.getTimestamp());
-		accountEvent.setChangeType(AccountChangeType.valueOf(msg.getChangeType()));
-		msg.getChangesList().forEach(changeMsg -> {
-			accountEvent.getData().add(parseAccountChange(changeMsg));
-		});
-		return accountEvent;
 	}
 	
 	public static BatchCancelResult parseBatchCancelResult(BatchCancelResultMsg batchCancelResultMsg) {
@@ -271,7 +271,6 @@ public class HbBeanBuilder {
 		marginBalanceDetail.setSubAccountBalance(balances);
 		return marginBalanceDetail;
 	}
-
 	
 	public static MatchResult parseMatchResult(MatchResultMsg matchResultMsg) {
 		MatchResult matchResult = new MatchResult();
@@ -288,7 +287,6 @@ public class HbBeanBuilder {
 		return matchResult;
 	}
 
-	
 	public static Order parseOrder(OrderMsg orderMsg) {
 		Order order = new Order();
 		order.setAccountType(AccountType.valueOf(orderMsg.getAccountType()));
@@ -363,6 +361,62 @@ public class HbBeanBuilder {
 		unitPrice.setCurrency(unitPriceMsg.getCurrency());
 		unitPrice.setAmount(new BigDecimal(unitPriceMsg.getAmount()));
 		return unitPrice;
+	}
+	
+	
+	public static AccountEvent parseAccountEvent(AccountEventMsg accountEventMsg) {
+		AccountEvent accountEvent = new AccountEvent();
+		accountEvent.setTimestamp(accountEventMsg.getTimestamp());
+		accountEvent.setChangeType(AccountChangeType.valueOf(accountEventMsg.getChangeType()));
+		accountEventMsg.getAccountChangeListList().forEach(changeMsg -> {
+			accountEvent.getData().add(parseAccountChange(changeMsg));
+		});
+		return accountEvent;
+	}
+	
+	public static CandlestickEvent parseCandlestickEvent(CandlestickEventMsg candlestickEventMsg) {
+		CandlestickEvent candlestickEvent = new CandlestickEvent();
+		candlestickEvent.setSymbol(candlestickEventMsg.getSymbol());
+		candlestickEvent.setTimestamp(candlestickEventMsg.getTimestamp());
+		candlestickEvent.setInterval(CandlestickInterval.valueOf(candlestickEventMsg.getInterval()));
+		candlestickEvent.setData(parseCandlestick(candlestickEventMsg.getData()));
+		return candlestickEvent;
+	}
+	
+	public static OrderUpdateEvent parseOrderUpdateEvent(OrderUpdateEventMsg orderUpdateEventMsg) {
+		OrderUpdateEvent orderUpdateEvent = new OrderUpdateEvent();
+		orderUpdateEvent.setSymbol(orderUpdateEventMsg.getSymbol());
+		orderUpdateEvent.setTimestamp(orderUpdateEventMsg.getTimestamp());
+		orderUpdateEvent.setData(parseOrder(orderUpdateEventMsg.getData()));
+		return orderUpdateEvent;
+	}
+	
+	public static PriceDepthEvent parsePriceDepthEvent(PriceDepthEventMsg priceDepthEventMsg) {
+		PriceDepthEvent priceDepthEvent = new PriceDepthEvent();
+		priceDepthEvent.setSymbol(priceDepthEventMsg.getSymbol());
+		priceDepthEvent.setTimestamp(priceDepthEventMsg.getTimestamp());
+		priceDepthEvent.setData(parsePriceDepth(priceDepthEventMsg.getData()));
+		return priceDepthEvent;
+	}
+	
+	public static TradeEvent parseTradeEvent(TradeEventMsg tradeEventMsg) {
+		TradeEvent tradeEvent = new TradeEvent();
+		tradeEvent.setSymbol(tradeEventMsg.getSymbol());
+		tradeEvent.setTimestamp(tradeEventMsg.getTimestamp());
+		List<Trade> tradeList = new ArrayList<>();
+		tradeEventMsg.getTradeListList().forEach(tradeMsg -> {
+			tradeList.add(parseTrade(tradeMsg));
+		});
+		tradeEvent.setTradeList(tradeList);
+		return tradeEvent;
+	}
+	
+	public static TradeStatisticsEvent parseTradeStatisticsEvent(TradeStatisticsEventMsg tradeStatisticsEventMsg) {
+		TradeStatisticsEvent tradeStatisticsEvent = new TradeStatisticsEvent();
+		tradeStatisticsEvent.setSymbol(tradeStatisticsEventMsg.getSymbol());
+		tradeStatisticsEvent.setTimeStamp(tradeStatisticsEventMsg.getTimeStamp());
+		tradeStatisticsEvent.setData(parseTradeStatistics(tradeStatisticsEventMsg.getTradeStatistics()));
+		return tradeStatisticsEvent;
 	}
 	
 }

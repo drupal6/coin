@@ -30811,34 +30811,30 @@ public final class BeanProto {
         getChangeTypeBytes();
 
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
     java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> 
-        getChangesList();
+        getAccountChangeListList();
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    com.gene.proto.BeanProto.AccountChangeMsg getChanges(int index);
+    com.gene.proto.BeanProto.AccountChangeMsg getAccountChangeList(int index);
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    int getChangesCount();
+    int getAccountChangeListCount();
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
     java.util.List<? extends com.gene.proto.BeanProto.AccountChangeMsgOrBuilder> 
-        getChangesOrBuilderList();
+        getAccountChangeListOrBuilderList();
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    com.gene.proto.BeanProto.AccountChangeMsgOrBuilder getChangesOrBuilder(
+    com.gene.proto.BeanProto.AccountChangeMsgOrBuilder getAccountChangeListOrBuilder(
         int index);
   }
   /**
-   * <pre>
-   *账号资产变动事件
-   * </pre>
-   *
    * Protobuf type {@code com.ly.proto.AccountEventMsg}
    */
   public  static final class AccountEventMsg extends
@@ -30852,7 +30848,7 @@ public final class BeanProto {
     }
     private AccountEventMsg() {
       changeType_ = "";
-      changes_ = java.util.Collections.emptyList();
+      accountChangeList_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -30892,10 +30888,10 @@ public final class BeanProto {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                changes_ = new java.util.ArrayList<com.gene.proto.BeanProto.AccountChangeMsg>();
+                accountChangeList_ = new java.util.ArrayList<com.gene.proto.BeanProto.AccountChangeMsg>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              changes_.add(
+              accountChangeList_.add(
                   input.readMessage(com.gene.proto.BeanProto.AccountChangeMsg.PARSER, extensionRegistry));
               break;
             }
@@ -30915,7 +30911,7 @@ public final class BeanProto {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          changes_ = java.util.Collections.unmodifiableList(changes_);
+          accountChangeList_ = java.util.Collections.unmodifiableList(accountChangeList_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -30992,39 +30988,39 @@ public final class BeanProto {
       }
     }
 
-    public static final int CHANGES_FIELD_NUMBER = 3;
-    private java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> changes_;
+    public static final int ACCOUNTCHANGELIST_FIELD_NUMBER = 3;
+    private java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> accountChangeList_;
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    public java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> getChangesList() {
-      return changes_;
+    public java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> getAccountChangeListList() {
+      return accountChangeList_;
     }
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
     public java.util.List<? extends com.gene.proto.BeanProto.AccountChangeMsgOrBuilder> 
-        getChangesOrBuilderList() {
-      return changes_;
+        getAccountChangeListOrBuilderList() {
+      return accountChangeList_;
     }
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    public int getChangesCount() {
-      return changes_.size();
+    public int getAccountChangeListCount() {
+      return accountChangeList_.size();
     }
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    public com.gene.proto.BeanProto.AccountChangeMsg getChanges(int index) {
-      return changes_.get(index);
+    public com.gene.proto.BeanProto.AccountChangeMsg getAccountChangeList(int index) {
+      return accountChangeList_.get(index);
     }
     /**
-     * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+     * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
      */
-    public com.gene.proto.BeanProto.AccountChangeMsgOrBuilder getChangesOrBuilder(
+    public com.gene.proto.BeanProto.AccountChangeMsgOrBuilder getAccountChangeListOrBuilder(
         int index) {
-      return changes_.get(index);
+      return accountChangeList_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31047,8 +31043,8 @@ public final class BeanProto {
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, changeType_);
       }
-      for (int i = 0; i < changes_.size(); i++) {
-        output.writeMessage(3, changes_.get(i));
+      for (int i = 0; i < accountChangeList_.size(); i++) {
+        output.writeMessage(3, accountChangeList_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -31066,9 +31062,9 @@ public final class BeanProto {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, changeType_);
       }
-      for (int i = 0; i < changes_.size(); i++) {
+      for (int i = 0; i < accountChangeList_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, changes_.get(i));
+          .computeMessageSize(3, accountChangeList_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31095,8 +31091,8 @@ public final class BeanProto {
         if (!getChangeType()
             .equals(other.getChangeType())) return false;
       }
-      if (!getChangesList()
-          .equals(other.getChangesList())) return false;
+      if (!getAccountChangeListList()
+          .equals(other.getAccountChangeListList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -31117,9 +31113,9 @@ public final class BeanProto {
         hash = (37 * hash) + CHANGETYPE_FIELD_NUMBER;
         hash = (53 * hash) + getChangeType().hashCode();
       }
-      if (getChangesCount() > 0) {
-        hash = (37 * hash) + CHANGES_FIELD_NUMBER;
-        hash = (53 * hash) + getChangesList().hashCode();
+      if (getAccountChangeListCount() > 0) {
+        hash = (37 * hash) + ACCOUNTCHANGELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getAccountChangeListList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31217,10 +31213,6 @@ public final class BeanProto {
       return builder;
     }
     /**
-     * <pre>
-     *账号资产变动事件
-     * </pre>
-     *
      * Protobuf type {@code com.ly.proto.AccountEventMsg}
      */
     public static final class Builder extends
@@ -31253,7 +31245,7 @@ public final class BeanProto {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getChangesFieldBuilder();
+          getAccountChangeListFieldBuilder();
         }
       }
       @java.lang.Override
@@ -31263,11 +31255,11 @@ public final class BeanProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         changeType_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (changesBuilder_ == null) {
-          changes_ = java.util.Collections.emptyList();
+        if (accountChangeListBuilder_ == null) {
+          accountChangeList_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          changesBuilder_.clear();
+          accountChangeListBuilder_.clear();
         }
         return this;
       }
@@ -31305,14 +31297,14 @@ public final class BeanProto {
           to_bitField0_ |= 0x00000002;
         }
         result.changeType_ = changeType_;
-        if (changesBuilder_ == null) {
+        if (accountChangeListBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0)) {
-            changes_ = java.util.Collections.unmodifiableList(changes_);
+            accountChangeList_ = java.util.Collections.unmodifiableList(accountChangeList_);
             bitField0_ = (bitField0_ & ~0x00000004);
           }
-          result.changes_ = changes_;
+          result.accountChangeList_ = accountChangeList_;
         } else {
-          result.changes_ = changesBuilder_.build();
+          result.accountChangeList_ = accountChangeListBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -31371,29 +31363,29 @@ public final class BeanProto {
           changeType_ = other.changeType_;
           onChanged();
         }
-        if (changesBuilder_ == null) {
-          if (!other.changes_.isEmpty()) {
-            if (changes_.isEmpty()) {
-              changes_ = other.changes_;
+        if (accountChangeListBuilder_ == null) {
+          if (!other.accountChangeList_.isEmpty()) {
+            if (accountChangeList_.isEmpty()) {
+              accountChangeList_ = other.accountChangeList_;
               bitField0_ = (bitField0_ & ~0x00000004);
             } else {
-              ensureChangesIsMutable();
-              changes_.addAll(other.changes_);
+              ensureAccountChangeListIsMutable();
+              accountChangeList_.addAll(other.accountChangeList_);
             }
             onChanged();
           }
         } else {
-          if (!other.changes_.isEmpty()) {
-            if (changesBuilder_.isEmpty()) {
-              changesBuilder_.dispose();
-              changesBuilder_ = null;
-              changes_ = other.changes_;
+          if (!other.accountChangeList_.isEmpty()) {
+            if (accountChangeListBuilder_.isEmpty()) {
+              accountChangeListBuilder_.dispose();
+              accountChangeListBuilder_ = null;
+              accountChangeList_ = other.accountChangeList_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              changesBuilder_ = 
+              accountChangeListBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getChangesFieldBuilder() : null;
+                   getAccountChangeListFieldBuilder() : null;
             } else {
-              changesBuilder_.addAllMessages(other.changes_);
+              accountChangeListBuilder_.addAllMessages(other.accountChangeList_);
             }
           }
         }
@@ -31535,244 +31527,244 @@ public final class BeanProto {
         return this;
       }
 
-      private java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> changes_ =
+      private java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> accountChangeList_ =
         java.util.Collections.emptyList();
-      private void ensureChangesIsMutable() {
+      private void ensureAccountChangeListIsMutable() {
         if (!((bitField0_ & 0x00000004) != 0)) {
-          changes_ = new java.util.ArrayList<com.gene.proto.BeanProto.AccountChangeMsg>(changes_);
+          accountChangeList_ = new java.util.ArrayList<com.gene.proto.BeanProto.AccountChangeMsg>(accountChangeList_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.gene.proto.BeanProto.AccountChangeMsg, com.gene.proto.BeanProto.AccountChangeMsg.Builder, com.gene.proto.BeanProto.AccountChangeMsgOrBuilder> changesBuilder_;
+          com.gene.proto.BeanProto.AccountChangeMsg, com.gene.proto.BeanProto.AccountChangeMsg.Builder, com.gene.proto.BeanProto.AccountChangeMsgOrBuilder> accountChangeListBuilder_;
 
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> getChangesList() {
-        if (changesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(changes_);
+      public java.util.List<com.gene.proto.BeanProto.AccountChangeMsg> getAccountChangeListList() {
+        if (accountChangeListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(accountChangeList_);
         } else {
-          return changesBuilder_.getMessageList();
+          return accountChangeListBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public int getChangesCount() {
-        if (changesBuilder_ == null) {
-          return changes_.size();
+      public int getAccountChangeListCount() {
+        if (accountChangeListBuilder_ == null) {
+          return accountChangeList_.size();
         } else {
-          return changesBuilder_.getCount();
+          return accountChangeListBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public com.gene.proto.BeanProto.AccountChangeMsg getChanges(int index) {
-        if (changesBuilder_ == null) {
-          return changes_.get(index);
+      public com.gene.proto.BeanProto.AccountChangeMsg getAccountChangeList(int index) {
+        if (accountChangeListBuilder_ == null) {
+          return accountChangeList_.get(index);
         } else {
-          return changesBuilder_.getMessage(index);
+          return accountChangeListBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder setChanges(
+      public Builder setAccountChangeList(
           int index, com.gene.proto.BeanProto.AccountChangeMsg value) {
-        if (changesBuilder_ == null) {
+        if (accountChangeListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureChangesIsMutable();
-          changes_.set(index, value);
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.set(index, value);
           onChanged();
         } else {
-          changesBuilder_.setMessage(index, value);
+          accountChangeListBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder setChanges(
+      public Builder setAccountChangeList(
           int index, com.gene.proto.BeanProto.AccountChangeMsg.Builder builderForValue) {
-        if (changesBuilder_ == null) {
-          ensureChangesIsMutable();
-          changes_.set(index, builderForValue.build());
+        if (accountChangeListBuilder_ == null) {
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.set(index, builderForValue.build());
           onChanged();
         } else {
-          changesBuilder_.setMessage(index, builderForValue.build());
+          accountChangeListBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder addChanges(com.gene.proto.BeanProto.AccountChangeMsg value) {
-        if (changesBuilder_ == null) {
+      public Builder addAccountChangeList(com.gene.proto.BeanProto.AccountChangeMsg value) {
+        if (accountChangeListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureChangesIsMutable();
-          changes_.add(value);
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.add(value);
           onChanged();
         } else {
-          changesBuilder_.addMessage(value);
+          accountChangeListBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder addChanges(
+      public Builder addAccountChangeList(
           int index, com.gene.proto.BeanProto.AccountChangeMsg value) {
-        if (changesBuilder_ == null) {
+        if (accountChangeListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureChangesIsMutable();
-          changes_.add(index, value);
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.add(index, value);
           onChanged();
         } else {
-          changesBuilder_.addMessage(index, value);
+          accountChangeListBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder addChanges(
+      public Builder addAccountChangeList(
           com.gene.proto.BeanProto.AccountChangeMsg.Builder builderForValue) {
-        if (changesBuilder_ == null) {
-          ensureChangesIsMutable();
-          changes_.add(builderForValue.build());
+        if (accountChangeListBuilder_ == null) {
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.add(builderForValue.build());
           onChanged();
         } else {
-          changesBuilder_.addMessage(builderForValue.build());
+          accountChangeListBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder addChanges(
+      public Builder addAccountChangeList(
           int index, com.gene.proto.BeanProto.AccountChangeMsg.Builder builderForValue) {
-        if (changesBuilder_ == null) {
-          ensureChangesIsMutable();
-          changes_.add(index, builderForValue.build());
+        if (accountChangeListBuilder_ == null) {
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.add(index, builderForValue.build());
           onChanged();
         } else {
-          changesBuilder_.addMessage(index, builderForValue.build());
+          accountChangeListBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder addAllChanges(
+      public Builder addAllAccountChangeList(
           java.lang.Iterable<? extends com.gene.proto.BeanProto.AccountChangeMsg> values) {
-        if (changesBuilder_ == null) {
-          ensureChangesIsMutable();
+        if (accountChangeListBuilder_ == null) {
+          ensureAccountChangeListIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, changes_);
+              values, accountChangeList_);
           onChanged();
         } else {
-          changesBuilder_.addAllMessages(values);
+          accountChangeListBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder clearChanges() {
-        if (changesBuilder_ == null) {
-          changes_ = java.util.Collections.emptyList();
+      public Builder clearAccountChangeList() {
+        if (accountChangeListBuilder_ == null) {
+          accountChangeList_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
-          changesBuilder_.clear();
+          accountChangeListBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public Builder removeChanges(int index) {
-        if (changesBuilder_ == null) {
-          ensureChangesIsMutable();
-          changes_.remove(index);
+      public Builder removeAccountChangeList(int index) {
+        if (accountChangeListBuilder_ == null) {
+          ensureAccountChangeListIsMutable();
+          accountChangeList_.remove(index);
           onChanged();
         } else {
-          changesBuilder_.remove(index);
+          accountChangeListBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public com.gene.proto.BeanProto.AccountChangeMsg.Builder getChangesBuilder(
+      public com.gene.proto.BeanProto.AccountChangeMsg.Builder getAccountChangeListBuilder(
           int index) {
-        return getChangesFieldBuilder().getBuilder(index);
+        return getAccountChangeListFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public com.gene.proto.BeanProto.AccountChangeMsgOrBuilder getChangesOrBuilder(
+      public com.gene.proto.BeanProto.AccountChangeMsgOrBuilder getAccountChangeListOrBuilder(
           int index) {
-        if (changesBuilder_ == null) {
-          return changes_.get(index);  } else {
-          return changesBuilder_.getMessageOrBuilder(index);
+        if (accountChangeListBuilder_ == null) {
+          return accountChangeList_.get(index);  } else {
+          return accountChangeListBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
       public java.util.List<? extends com.gene.proto.BeanProto.AccountChangeMsgOrBuilder> 
-           getChangesOrBuilderList() {
-        if (changesBuilder_ != null) {
-          return changesBuilder_.getMessageOrBuilderList();
+           getAccountChangeListOrBuilderList() {
+        if (accountChangeListBuilder_ != null) {
+          return accountChangeListBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(changes_);
+          return java.util.Collections.unmodifiableList(accountChangeList_);
         }
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public com.gene.proto.BeanProto.AccountChangeMsg.Builder addChangesBuilder() {
-        return getChangesFieldBuilder().addBuilder(
+      public com.gene.proto.BeanProto.AccountChangeMsg.Builder addAccountChangeListBuilder() {
+        return getAccountChangeListFieldBuilder().addBuilder(
             com.gene.proto.BeanProto.AccountChangeMsg.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
-      public com.gene.proto.BeanProto.AccountChangeMsg.Builder addChangesBuilder(
+      public com.gene.proto.BeanProto.AccountChangeMsg.Builder addAccountChangeListBuilder(
           int index) {
-        return getChangesFieldBuilder().addBuilder(
+        return getAccountChangeListFieldBuilder().addBuilder(
             index, com.gene.proto.BeanProto.AccountChangeMsg.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.ly.proto.AccountChangeMsg changes = 3;</code>
+       * <code>repeated .com.ly.proto.AccountChangeMsg accountChangeList = 3;</code>
        */
       public java.util.List<com.gene.proto.BeanProto.AccountChangeMsg.Builder> 
-           getChangesBuilderList() {
-        return getChangesFieldBuilder().getBuilderList();
+           getAccountChangeListBuilderList() {
+        return getAccountChangeListFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
           com.gene.proto.BeanProto.AccountChangeMsg, com.gene.proto.BeanProto.AccountChangeMsg.Builder, com.gene.proto.BeanProto.AccountChangeMsgOrBuilder> 
-          getChangesFieldBuilder() {
-        if (changesBuilder_ == null) {
-          changesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getAccountChangeListFieldBuilder() {
+        if (accountChangeListBuilder_ == null) {
+          accountChangeListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.gene.proto.BeanProto.AccountChangeMsg, com.gene.proto.BeanProto.AccountChangeMsg.Builder, com.gene.proto.BeanProto.AccountChangeMsgOrBuilder>(
-                  changes_,
+                  accountChangeList_,
                   ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
-          changes_ = null;
+          accountChangeList_ = null;
         }
-        return changesBuilder_;
+        return accountChangeListBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -31827,6 +31819,1039 @@ public final class BeanProto {
 
   }
 
+  public interface CandlestickEventMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.CandlestickEventMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    boolean hasSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    long getTimestamp();
+
+    /**
+     * <code>optional string interval = 3;</code>
+     */
+    boolean hasInterval();
+    /**
+     * <code>optional string interval = 3;</code>
+     */
+    java.lang.String getInterval();
+    /**
+     * <code>optional string interval = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getIntervalBytes();
+
+    /**
+     * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+     */
+    com.gene.proto.BeanProto.CandlestickMsg getData();
+    /**
+     * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+     */
+    com.gene.proto.BeanProto.CandlestickMsgOrBuilder getDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.CandlestickEventMsg}
+   */
+  public  static final class CandlestickEventMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.CandlestickEventMsg)
+      CandlestickEventMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CandlestickEventMsg.newBuilder() to construct.
+    private CandlestickEventMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CandlestickEventMsg() {
+      symbol_ = "";
+      interval_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CandlestickEventMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              symbol_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              interval_ = bs;
+              break;
+            }
+            case 34: {
+              com.gene.proto.BeanProto.CandlestickMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) != 0)) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(com.gene.proto.BeanProto.CandlestickMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_CandlestickEventMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_CandlestickEventMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.BeanProto.CandlestickEventMsg.class, com.gene.proto.BeanProto.CandlestickEventMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SYMBOL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public boolean hasSymbol() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbol_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int INTERVAL_FIELD_NUMBER = 3;
+    private volatile java.lang.Object interval_;
+    /**
+     * <code>optional string interval = 3;</code>
+     */
+    public boolean hasInterval() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string interval = 3;</code>
+     */
+    public java.lang.String getInterval() {
+      java.lang.Object ref = interval_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          interval_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string interval = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIntervalBytes() {
+      java.lang.Object ref = interval_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        interval_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATA_FIELD_NUMBER = 4;
+    private com.gene.proto.BeanProto.CandlestickMsg data_;
+    /**
+     * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+     */
+    public com.gene.proto.BeanProto.CandlestickMsg getData() {
+      return data_ == null ? com.gene.proto.BeanProto.CandlestickMsg.getDefaultInstance() : data_;
+    }
+    /**
+     * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+     */
+    public com.gene.proto.BeanProto.CandlestickMsgOrBuilder getDataOrBuilder() {
+      return data_ == null ? com.gene.proto.BeanProto.CandlestickMsg.getDefaultInstance() : data_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, timestamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, interval_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeMessage(4, getData());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, timestamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, interval_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getData());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.BeanProto.CandlestickEventMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.BeanProto.CandlestickEventMsg other = (com.gene.proto.BeanProto.CandlestickEventMsg) obj;
+
+      if (hasSymbol() != other.hasSymbol()) return false;
+      if (hasSymbol()) {
+        if (!getSymbol()
+            .equals(other.getSymbol())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasInterval() != other.hasInterval()) return false;
+      if (hasInterval()) {
+        if (!getInterval()
+            .equals(other.getInterval())) return false;
+      }
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSymbol()) {
+        hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasInterval()) {
+        hash = (37 * hash) + INTERVAL_FIELD_NUMBER;
+        hash = (53 * hash) + getInterval().hashCode();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.CandlestickEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.BeanProto.CandlestickEventMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.CandlestickEventMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.CandlestickEventMsg)
+        com.gene.proto.BeanProto.CandlestickEventMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_CandlestickEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_CandlestickEventMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.BeanProto.CandlestickEventMsg.class, com.gene.proto.BeanProto.CandlestickEventMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.BeanProto.CandlestickEventMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDataFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        symbol_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        interval_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          dataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_CandlestickEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.CandlestickEventMsg getDefaultInstanceForType() {
+        return com.gene.proto.BeanProto.CandlestickEventMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.CandlestickEventMsg build() {
+        com.gene.proto.BeanProto.CandlestickEventMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.CandlestickEventMsg buildPartial() {
+        com.gene.proto.BeanProto.CandlestickEventMsg result = new com.gene.proto.BeanProto.CandlestickEventMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.symbol_ = symbol_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.interval_ = interval_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          if (dataBuilder_ == null) {
+            result.data_ = data_;
+          } else {
+            result.data_ = dataBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.BeanProto.CandlestickEventMsg) {
+          return mergeFrom((com.gene.proto.BeanProto.CandlestickEventMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.BeanProto.CandlestickEventMsg other) {
+        if (other == com.gene.proto.BeanProto.CandlestickEventMsg.getDefaultInstance()) return this;
+        if (other.hasSymbol()) {
+          bitField0_ |= 0x00000001;
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasInterval()) {
+          bitField0_ |= 0x00000004;
+          interval_ = other.interval_;
+          onChanged();
+        }
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.BeanProto.CandlestickEventMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.BeanProto.CandlestickEventMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public boolean hasSymbol() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbol_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder clearSymbol() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000002;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object interval_ = "";
+      /**
+       * <code>optional string interval = 3;</code>
+       */
+      public boolean hasInterval() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional string interval = 3;</code>
+       */
+      public java.lang.String getInterval() {
+        java.lang.Object ref = interval_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            interval_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string interval = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIntervalBytes() {
+        java.lang.Object ref = interval_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          interval_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string interval = 3;</code>
+       */
+      public Builder setInterval(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        interval_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string interval = 3;</code>
+       */
+      public Builder clearInterval() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        interval_ = getDefaultInstance().getInterval();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string interval = 3;</code>
+       */
+      public Builder setIntervalBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        interval_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.gene.proto.BeanProto.CandlestickMsg data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.BeanProto.CandlestickMsg, com.gene.proto.BeanProto.CandlestickMsg.Builder, com.gene.proto.BeanProto.CandlestickMsgOrBuilder> dataBuilder_;
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public com.gene.proto.BeanProto.CandlestickMsg getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? com.gene.proto.BeanProto.CandlestickMsg.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public Builder setData(com.gene.proto.BeanProto.CandlestickMsg value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public Builder setData(
+          com.gene.proto.BeanProto.CandlestickMsg.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public Builder mergeData(com.gene.proto.BeanProto.CandlestickMsg value) {
+        if (dataBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+              data_ != null &&
+              data_ != com.gene.proto.BeanProto.CandlestickMsg.getDefaultInstance()) {
+            data_ =
+              com.gene.proto.BeanProto.CandlestickMsg.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          dataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public com.gene.proto.BeanProto.CandlestickMsg.Builder getDataBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      public com.gene.proto.BeanProto.CandlestickMsgOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              com.gene.proto.BeanProto.CandlestickMsg.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.CandlestickMsg data = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.BeanProto.CandlestickMsg, com.gene.proto.BeanProto.CandlestickMsg.Builder, com.gene.proto.BeanProto.CandlestickMsgOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.BeanProto.CandlestickMsg, com.gene.proto.BeanProto.CandlestickMsg.Builder, com.gene.proto.BeanProto.CandlestickMsgOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.CandlestickEventMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.CandlestickEventMsg)
+    private static final com.gene.proto.BeanProto.CandlestickEventMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.BeanProto.CandlestickEventMsg();
+    }
+
+    public static com.gene.proto.BeanProto.CandlestickEventMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CandlestickEventMsg>
+        PARSER = new com.google.protobuf.AbstractParser<CandlestickEventMsg>() {
+      @java.lang.Override
+      public CandlestickEventMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CandlestickEventMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CandlestickEventMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CandlestickEventMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.BeanProto.CandlestickEventMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface OrderUpdateEventMsgOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.ly.proto.OrderUpdateEventMsg)
       com.google.protobuf.MessageOrBuilder {
@@ -31855,23 +32880,19 @@ public final class BeanProto {
     long getTimestamp();
 
     /**
-     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
      */
-    boolean hasOrder();
+    boolean hasData();
     /**
-     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
      */
-    com.gene.proto.BeanProto.OrderMsg getOrder();
+    com.gene.proto.BeanProto.OrderMsg getData();
     /**
-     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
      */
-    com.gene.proto.BeanProto.OrderMsgOrBuilder getOrderOrBuilder();
+    com.gene.proto.BeanProto.OrderMsgOrBuilder getDataOrBuilder();
   }
   /**
-   * <pre>
-   *订单更新事件
-   * </pre>
-   *
    * Protobuf type {@code com.ly.proto.OrderUpdateEventMsg}
    */
   public  static final class OrderUpdateEventMsg extends
@@ -31925,12 +32946,12 @@ public final class BeanProto {
             case 26: {
               com.gene.proto.BeanProto.OrderMsg.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) != 0)) {
-                subBuilder = order_.toBuilder();
+                subBuilder = data_.toBuilder();
               }
-              order_ = input.readMessage(com.gene.proto.BeanProto.OrderMsg.PARSER, extensionRegistry);
+              data_ = input.readMessage(com.gene.proto.BeanProto.OrderMsg.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(order_);
-                order_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000004;
               break;
@@ -32025,25 +33046,25 @@ public final class BeanProto {
       return timestamp_;
     }
 
-    public static final int ORDER_FIELD_NUMBER = 3;
-    private com.gene.proto.BeanProto.OrderMsg order_;
+    public static final int DATA_FIELD_NUMBER = 3;
+    private com.gene.proto.BeanProto.OrderMsg data_;
     /**
-     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
      */
-    public boolean hasOrder() {
+    public boolean hasData() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
      */
-    public com.gene.proto.BeanProto.OrderMsg getOrder() {
-      return order_ == null ? com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : order_;
+    public com.gene.proto.BeanProto.OrderMsg getData() {
+      return data_ == null ? com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : data_;
     }
     /**
-     * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+     * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
      */
-    public com.gene.proto.BeanProto.OrderMsgOrBuilder getOrderOrBuilder() {
-      return order_ == null ? com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : order_;
+    public com.gene.proto.BeanProto.OrderMsgOrBuilder getDataOrBuilder() {
+      return data_ == null ? com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : data_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -32067,7 +33088,7 @@ public final class BeanProto {
         output.writeInt64(2, timestamp_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeMessage(3, getOrder());
+        output.writeMessage(3, getData());
       }
       unknownFields.writeTo(output);
     }
@@ -32087,7 +33108,7 @@ public final class BeanProto {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getOrder());
+          .computeMessageSize(3, getData());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -32114,10 +33135,10 @@ public final class BeanProto {
         if (getTimestamp()
             != other.getTimestamp()) return false;
       }
-      if (hasOrder() != other.hasOrder()) return false;
-      if (hasOrder()) {
-        if (!getOrder()
-            .equals(other.getOrder())) return false;
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -32139,9 +33160,9 @@ public final class BeanProto {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getTimestamp());
       }
-      if (hasOrder()) {
-        hash = (37 * hash) + ORDER_FIELD_NUMBER;
-        hash = (53 * hash) + getOrder().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -32239,10 +33260,6 @@ public final class BeanProto {
       return builder;
     }
     /**
-     * <pre>
-     *订单更新事件
-     * </pre>
-     *
      * Protobuf type {@code com.ly.proto.OrderUpdateEventMsg}
      */
     public static final class Builder extends
@@ -32275,7 +33292,7 @@ public final class BeanProto {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getOrderFieldBuilder();
+          getDataFieldBuilder();
         }
       }
       @java.lang.Override
@@ -32285,10 +33302,10 @@ public final class BeanProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         timestamp_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (orderBuilder_ == null) {
-          order_ = null;
+        if (dataBuilder_ == null) {
+          data_ = null;
         } else {
-          orderBuilder_.clear();
+          dataBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
@@ -32328,10 +33345,10 @@ public final class BeanProto {
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          if (orderBuilder_ == null) {
-            result.order_ = order_;
+          if (dataBuilder_ == null) {
+            result.data_ = data_;
           } else {
-            result.order_ = orderBuilder_.build();
+            result.data_ = dataBuilder_.build();
           }
           to_bitField0_ |= 0x00000004;
         }
@@ -32392,8 +33409,8 @@ public final class BeanProto {
         if (other.hasTimestamp()) {
           setTimestamp(other.getTimestamp());
         }
-        if (other.hasOrder()) {
-          mergeOrder(other.getOrder());
+        if (other.hasData()) {
+          mergeData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -32533,122 +33550,122 @@ public final class BeanProto {
         return this;
       }
 
-      private com.gene.proto.BeanProto.OrderMsg order_;
+      private com.gene.proto.BeanProto.OrderMsg data_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.gene.proto.BeanProto.OrderMsg, com.gene.proto.BeanProto.OrderMsg.Builder, com.gene.proto.BeanProto.OrderMsgOrBuilder> orderBuilder_;
+          com.gene.proto.BeanProto.OrderMsg, com.gene.proto.BeanProto.OrderMsg.Builder, com.gene.proto.BeanProto.OrderMsgOrBuilder> dataBuilder_;
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public boolean hasOrder() {
+      public boolean hasData() {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public com.gene.proto.BeanProto.OrderMsg getOrder() {
-        if (orderBuilder_ == null) {
-          return order_ == null ? com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : order_;
+      public com.gene.proto.BeanProto.OrderMsg getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : data_;
         } else {
-          return orderBuilder_.getMessage();
+          return dataBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public Builder setOrder(com.gene.proto.BeanProto.OrderMsg value) {
-        if (orderBuilder_ == null) {
+      public Builder setData(com.gene.proto.BeanProto.OrderMsg value) {
+        if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          order_ = value;
+          data_ = value;
           onChanged();
         } else {
-          orderBuilder_.setMessage(value);
+          dataBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public Builder setOrder(
+      public Builder setData(
           com.gene.proto.BeanProto.OrderMsg.Builder builderForValue) {
-        if (orderBuilder_ == null) {
-          order_ = builderForValue.build();
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
           onChanged();
         } else {
-          orderBuilder_.setMessage(builderForValue.build());
+          dataBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public Builder mergeOrder(com.gene.proto.BeanProto.OrderMsg value) {
-        if (orderBuilder_ == null) {
+      public Builder mergeData(com.gene.proto.BeanProto.OrderMsg value) {
+        if (dataBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0) &&
-              order_ != null &&
-              order_ != com.gene.proto.BeanProto.OrderMsg.getDefaultInstance()) {
-            order_ =
-              com.gene.proto.BeanProto.OrderMsg.newBuilder(order_).mergeFrom(value).buildPartial();
+              data_ != null &&
+              data_ != com.gene.proto.BeanProto.OrderMsg.getDefaultInstance()) {
+            data_ =
+              com.gene.proto.BeanProto.OrderMsg.newBuilder(data_).mergeFrom(value).buildPartial();
           } else {
-            order_ = value;
+            data_ = value;
           }
           onChanged();
         } else {
-          orderBuilder_.mergeFrom(value);
+          dataBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public Builder clearOrder() {
-        if (orderBuilder_ == null) {
-          order_ = null;
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
           onChanged();
         } else {
-          orderBuilder_.clear();
+          dataBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public com.gene.proto.BeanProto.OrderMsg.Builder getOrderBuilder() {
+      public com.gene.proto.BeanProto.OrderMsg.Builder getDataBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
-        return getOrderFieldBuilder().getBuilder();
+        return getDataFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
-      public com.gene.proto.BeanProto.OrderMsgOrBuilder getOrderOrBuilder() {
-        if (orderBuilder_ != null) {
-          return orderBuilder_.getMessageOrBuilder();
+      public com.gene.proto.BeanProto.OrderMsgOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
         } else {
-          return order_ == null ?
-              com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : order_;
+          return data_ == null ?
+              com.gene.proto.BeanProto.OrderMsg.getDefaultInstance() : data_;
         }
       }
       /**
-       * <code>optional .com.ly.proto.OrderMsg order = 3;</code>
+       * <code>optional .com.ly.proto.OrderMsg data = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.gene.proto.BeanProto.OrderMsg, com.gene.proto.BeanProto.OrderMsg.Builder, com.gene.proto.BeanProto.OrderMsgOrBuilder> 
-          getOrderFieldBuilder() {
-        if (orderBuilder_ == null) {
-          orderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.gene.proto.BeanProto.OrderMsg, com.gene.proto.BeanProto.OrderMsg.Builder, com.gene.proto.BeanProto.OrderMsgOrBuilder>(
-                  getOrder(),
+                  getData(),
                   getParentForChildren(),
                   isClean());
-          order_ = null;
+          data_ = null;
         }
-        return orderBuilder_;
+        return dataBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -32698,6 +33715,2778 @@ public final class BeanProto {
 
     @java.lang.Override
     public com.gene.proto.BeanProto.OrderUpdateEventMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PriceDepthEventMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.PriceDepthEventMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    boolean hasSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    long getTimestamp();
+
+    /**
+     * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+     */
+    com.gene.proto.BeanProto.PriceDepthMsg getData();
+    /**
+     * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+     */
+    com.gene.proto.BeanProto.PriceDepthMsgOrBuilder getDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.PriceDepthEventMsg}
+   */
+  public  static final class PriceDepthEventMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.PriceDepthEventMsg)
+      PriceDepthEventMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PriceDepthEventMsg.newBuilder() to construct.
+    private PriceDepthEventMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PriceDepthEventMsg() {
+      symbol_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PriceDepthEventMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              symbol_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              com.gene.proto.BeanProto.PriceDepthMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) != 0)) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(com.gene.proto.BeanProto.PriceDepthMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_PriceDepthEventMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_PriceDepthEventMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.BeanProto.PriceDepthEventMsg.class, com.gene.proto.BeanProto.PriceDepthEventMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SYMBOL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public boolean hasSymbol() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbol_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 4;
+    private com.gene.proto.BeanProto.PriceDepthMsg data_;
+    /**
+     * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+     */
+    public com.gene.proto.BeanProto.PriceDepthMsg getData() {
+      return data_ == null ? com.gene.proto.BeanProto.PriceDepthMsg.getDefaultInstance() : data_;
+    }
+    /**
+     * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+     */
+    public com.gene.proto.BeanProto.PriceDepthMsgOrBuilder getDataOrBuilder() {
+      return data_ == null ? com.gene.proto.BeanProto.PriceDepthMsg.getDefaultInstance() : data_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, timestamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(4, getData());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, timestamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getData());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.BeanProto.PriceDepthEventMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.BeanProto.PriceDepthEventMsg other = (com.gene.proto.BeanProto.PriceDepthEventMsg) obj;
+
+      if (hasSymbol() != other.hasSymbol()) return false;
+      if (hasSymbol()) {
+        if (!getSymbol()
+            .equals(other.getSymbol())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSymbol()) {
+        hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.BeanProto.PriceDepthEventMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.PriceDepthEventMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.PriceDepthEventMsg)
+        com.gene.proto.BeanProto.PriceDepthEventMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_PriceDepthEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_PriceDepthEventMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.BeanProto.PriceDepthEventMsg.class, com.gene.proto.BeanProto.PriceDepthEventMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.BeanProto.PriceDepthEventMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDataFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        symbol_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          dataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_PriceDepthEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.PriceDepthEventMsg getDefaultInstanceForType() {
+        return com.gene.proto.BeanProto.PriceDepthEventMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.PriceDepthEventMsg build() {
+        com.gene.proto.BeanProto.PriceDepthEventMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.PriceDepthEventMsg buildPartial() {
+        com.gene.proto.BeanProto.PriceDepthEventMsg result = new com.gene.proto.BeanProto.PriceDepthEventMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.symbol_ = symbol_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (dataBuilder_ == null) {
+            result.data_ = data_;
+          } else {
+            result.data_ = dataBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.BeanProto.PriceDepthEventMsg) {
+          return mergeFrom((com.gene.proto.BeanProto.PriceDepthEventMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.BeanProto.PriceDepthEventMsg other) {
+        if (other == com.gene.proto.BeanProto.PriceDepthEventMsg.getDefaultInstance()) return this;
+        if (other.hasSymbol()) {
+          bitField0_ |= 0x00000001;
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.BeanProto.PriceDepthEventMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.BeanProto.PriceDepthEventMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public boolean hasSymbol() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbol_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder clearSymbol() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000002;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.gene.proto.BeanProto.PriceDepthMsg data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.BeanProto.PriceDepthMsg, com.gene.proto.BeanProto.PriceDepthMsg.Builder, com.gene.proto.BeanProto.PriceDepthMsgOrBuilder> dataBuilder_;
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public com.gene.proto.BeanProto.PriceDepthMsg getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? com.gene.proto.BeanProto.PriceDepthMsg.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public Builder setData(com.gene.proto.BeanProto.PriceDepthMsg value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public Builder setData(
+          com.gene.proto.BeanProto.PriceDepthMsg.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public Builder mergeData(com.gene.proto.BeanProto.PriceDepthMsg value) {
+        if (dataBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+              data_ != null &&
+              data_ != com.gene.proto.BeanProto.PriceDepthMsg.getDefaultInstance()) {
+            data_ =
+              com.gene.proto.BeanProto.PriceDepthMsg.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          dataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public com.gene.proto.BeanProto.PriceDepthMsg.Builder getDataBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      public com.gene.proto.BeanProto.PriceDepthMsgOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              com.gene.proto.BeanProto.PriceDepthMsg.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.PriceDepthMsg data = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.BeanProto.PriceDepthMsg, com.gene.proto.BeanProto.PriceDepthMsg.Builder, com.gene.proto.BeanProto.PriceDepthMsgOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.BeanProto.PriceDepthMsg, com.gene.proto.BeanProto.PriceDepthMsg.Builder, com.gene.proto.BeanProto.PriceDepthMsgOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.PriceDepthEventMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.PriceDepthEventMsg)
+    private static final com.gene.proto.BeanProto.PriceDepthEventMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.BeanProto.PriceDepthEventMsg();
+    }
+
+    public static com.gene.proto.BeanProto.PriceDepthEventMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PriceDepthEventMsg>
+        PARSER = new com.google.protobuf.AbstractParser<PriceDepthEventMsg>() {
+      @java.lang.Override
+      public PriceDepthEventMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PriceDepthEventMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PriceDepthEventMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PriceDepthEventMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.BeanProto.PriceDepthEventMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TradeEventMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.TradeEventMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    boolean hasSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    boolean hasTimestamp();
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    long getTimestamp();
+
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    java.util.List<com.gene.proto.BeanProto.TradeMsg> 
+        getTradeListList();
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    com.gene.proto.BeanProto.TradeMsg getTradeList(int index);
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    int getTradeListCount();
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    java.util.List<? extends com.gene.proto.BeanProto.TradeMsgOrBuilder> 
+        getTradeListOrBuilderList();
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    com.gene.proto.BeanProto.TradeMsgOrBuilder getTradeListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.TradeEventMsg}
+   */
+  public  static final class TradeEventMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.TradeEventMsg)
+      TradeEventMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TradeEventMsg.newBuilder() to construct.
+    private TradeEventMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TradeEventMsg() {
+      symbol_ = "";
+      tradeList_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TradeEventMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              symbol_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                tradeList_ = new java.util.ArrayList<com.gene.proto.BeanProto.TradeMsg>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              tradeList_.add(
+                  input.readMessage(com.gene.proto.BeanProto.TradeMsg.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          tradeList_ = java.util.Collections.unmodifiableList(tradeList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeEventMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeEventMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.BeanProto.TradeEventMsg.class, com.gene.proto.BeanProto.TradeEventMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SYMBOL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public boolean hasSymbol() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbol_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public boolean hasTimestamp() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 timestamp = 2;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int TRADELIST_FIELD_NUMBER = 3;
+    private java.util.List<com.gene.proto.BeanProto.TradeMsg> tradeList_;
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    public java.util.List<com.gene.proto.BeanProto.TradeMsg> getTradeListList() {
+      return tradeList_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    public java.util.List<? extends com.gene.proto.BeanProto.TradeMsgOrBuilder> 
+        getTradeListOrBuilderList() {
+      return tradeList_;
+    }
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    public int getTradeListCount() {
+      return tradeList_.size();
+    }
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    public com.gene.proto.BeanProto.TradeMsg getTradeList(int index) {
+      return tradeList_.get(index);
+    }
+    /**
+     * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+     */
+    public com.gene.proto.BeanProto.TradeMsgOrBuilder getTradeListOrBuilder(
+        int index) {
+      return tradeList_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, timestamp_);
+      }
+      for (int i = 0; i < tradeList_.size(); i++) {
+        output.writeMessage(3, tradeList_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, timestamp_);
+      }
+      for (int i = 0; i < tradeList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, tradeList_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.BeanProto.TradeEventMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.BeanProto.TradeEventMsg other = (com.gene.proto.BeanProto.TradeEventMsg) obj;
+
+      if (hasSymbol() != other.hasSymbol()) return false;
+      if (hasSymbol()) {
+        if (!getSymbol()
+            .equals(other.getSymbol())) return false;
+      }
+      if (hasTimestamp() != other.hasTimestamp()) return false;
+      if (hasTimestamp()) {
+        if (getTimestamp()
+            != other.getTimestamp()) return false;
+      }
+      if (!getTradeListList()
+          .equals(other.getTradeListList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSymbol()) {
+        hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasTimestamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimestamp());
+      }
+      if (getTradeListCount() > 0) {
+        hash = (37 * hash) + TRADELIST_FIELD_NUMBER;
+        hash = (53 * hash) + getTradeListList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.TradeEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.BeanProto.TradeEventMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.TradeEventMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.TradeEventMsg)
+        com.gene.proto.BeanProto.TradeEventMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeEventMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.BeanProto.TradeEventMsg.class, com.gene.proto.BeanProto.TradeEventMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.BeanProto.TradeEventMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTradeListFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        symbol_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timestamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (tradeListBuilder_ == null) {
+          tradeList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          tradeListBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.TradeEventMsg getDefaultInstanceForType() {
+        return com.gene.proto.BeanProto.TradeEventMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.TradeEventMsg build() {
+        com.gene.proto.BeanProto.TradeEventMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.TradeEventMsg buildPartial() {
+        com.gene.proto.BeanProto.TradeEventMsg result = new com.gene.proto.BeanProto.TradeEventMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.symbol_ = symbol_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timestamp_ = timestamp_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (tradeListBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            tradeList_ = java.util.Collections.unmodifiableList(tradeList_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.tradeList_ = tradeList_;
+        } else {
+          result.tradeList_ = tradeListBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.BeanProto.TradeEventMsg) {
+          return mergeFrom((com.gene.proto.BeanProto.TradeEventMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.BeanProto.TradeEventMsg other) {
+        if (other == com.gene.proto.BeanProto.TradeEventMsg.getDefaultInstance()) return this;
+        if (other.hasSymbol()) {
+          bitField0_ |= 0x00000001;
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasTimestamp()) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (tradeListBuilder_ == null) {
+          if (!other.tradeList_.isEmpty()) {
+            if (tradeList_.isEmpty()) {
+              tradeList_ = other.tradeList_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureTradeListIsMutable();
+              tradeList_.addAll(other.tradeList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tradeList_.isEmpty()) {
+            if (tradeListBuilder_.isEmpty()) {
+              tradeListBuilder_.dispose();
+              tradeListBuilder_ = null;
+              tradeList_ = other.tradeList_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              tradeListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTradeListFieldBuilder() : null;
+            } else {
+              tradeListBuilder_.addAllMessages(other.tradeList_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.BeanProto.TradeEventMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.BeanProto.TradeEventMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public boolean hasSymbol() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbol_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder clearSymbol() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public boolean hasTimestamp() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder setTimestamp(long value) {
+        bitField0_ |= 0x00000002;
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timestamp = 2;</code>
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.gene.proto.BeanProto.TradeMsg> tradeList_ =
+        java.util.Collections.emptyList();
+      private void ensureTradeListIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          tradeList_ = new java.util.ArrayList<com.gene.proto.BeanProto.TradeMsg>(tradeList_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.BeanProto.TradeMsg, com.gene.proto.BeanProto.TradeMsg.Builder, com.gene.proto.BeanProto.TradeMsgOrBuilder> tradeListBuilder_;
+
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public java.util.List<com.gene.proto.BeanProto.TradeMsg> getTradeListList() {
+        if (tradeListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tradeList_);
+        } else {
+          return tradeListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public int getTradeListCount() {
+        if (tradeListBuilder_ == null) {
+          return tradeList_.size();
+        } else {
+          return tradeListBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeMsg getTradeList(int index) {
+        if (tradeListBuilder_ == null) {
+          return tradeList_.get(index);
+        } else {
+          return tradeListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder setTradeList(
+          int index, com.gene.proto.BeanProto.TradeMsg value) {
+        if (tradeListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTradeListIsMutable();
+          tradeList_.set(index, value);
+          onChanged();
+        } else {
+          tradeListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder setTradeList(
+          int index, com.gene.proto.BeanProto.TradeMsg.Builder builderForValue) {
+        if (tradeListBuilder_ == null) {
+          ensureTradeListIsMutable();
+          tradeList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tradeListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder addTradeList(com.gene.proto.BeanProto.TradeMsg value) {
+        if (tradeListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTradeListIsMutable();
+          tradeList_.add(value);
+          onChanged();
+        } else {
+          tradeListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder addTradeList(
+          int index, com.gene.proto.BeanProto.TradeMsg value) {
+        if (tradeListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTradeListIsMutable();
+          tradeList_.add(index, value);
+          onChanged();
+        } else {
+          tradeListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder addTradeList(
+          com.gene.proto.BeanProto.TradeMsg.Builder builderForValue) {
+        if (tradeListBuilder_ == null) {
+          ensureTradeListIsMutable();
+          tradeList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tradeListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder addTradeList(
+          int index, com.gene.proto.BeanProto.TradeMsg.Builder builderForValue) {
+        if (tradeListBuilder_ == null) {
+          ensureTradeListIsMutable();
+          tradeList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tradeListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder addAllTradeList(
+          java.lang.Iterable<? extends com.gene.proto.BeanProto.TradeMsg> values) {
+        if (tradeListBuilder_ == null) {
+          ensureTradeListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tradeList_);
+          onChanged();
+        } else {
+          tradeListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder clearTradeList() {
+        if (tradeListBuilder_ == null) {
+          tradeList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          tradeListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public Builder removeTradeList(int index) {
+        if (tradeListBuilder_ == null) {
+          ensureTradeListIsMutable();
+          tradeList_.remove(index);
+          onChanged();
+        } else {
+          tradeListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeMsg.Builder getTradeListBuilder(
+          int index) {
+        return getTradeListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeMsgOrBuilder getTradeListOrBuilder(
+          int index) {
+        if (tradeListBuilder_ == null) {
+          return tradeList_.get(index);  } else {
+          return tradeListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public java.util.List<? extends com.gene.proto.BeanProto.TradeMsgOrBuilder> 
+           getTradeListOrBuilderList() {
+        if (tradeListBuilder_ != null) {
+          return tradeListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tradeList_);
+        }
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeMsg.Builder addTradeListBuilder() {
+        return getTradeListFieldBuilder().addBuilder(
+            com.gene.proto.BeanProto.TradeMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeMsg.Builder addTradeListBuilder(
+          int index) {
+        return getTradeListFieldBuilder().addBuilder(
+            index, com.gene.proto.BeanProto.TradeMsg.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.ly.proto.TradeMsg tradeList = 3;</code>
+       */
+      public java.util.List<com.gene.proto.BeanProto.TradeMsg.Builder> 
+           getTradeListBuilderList() {
+        return getTradeListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.gene.proto.BeanProto.TradeMsg, com.gene.proto.BeanProto.TradeMsg.Builder, com.gene.proto.BeanProto.TradeMsgOrBuilder> 
+          getTradeListFieldBuilder() {
+        if (tradeListBuilder_ == null) {
+          tradeListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.gene.proto.BeanProto.TradeMsg, com.gene.proto.BeanProto.TradeMsg.Builder, com.gene.proto.BeanProto.TradeMsgOrBuilder>(
+                  tradeList_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          tradeList_ = null;
+        }
+        return tradeListBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.TradeEventMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.TradeEventMsg)
+    private static final com.gene.proto.BeanProto.TradeEventMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.BeanProto.TradeEventMsg();
+    }
+
+    public static com.gene.proto.BeanProto.TradeEventMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TradeEventMsg>
+        PARSER = new com.google.protobuf.AbstractParser<TradeEventMsg>() {
+      @java.lang.Override
+      public TradeEventMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TradeEventMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TradeEventMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TradeEventMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.BeanProto.TradeEventMsg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TradeStatisticsEventMsgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.ly.proto.TradeStatisticsEventMsg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    boolean hasSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    java.lang.String getSymbol();
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSymbolBytes();
+
+    /**
+     * <code>optional int64 timeStamp = 2;</code>
+     */
+    boolean hasTimeStamp();
+    /**
+     * <code>optional int64 timeStamp = 2;</code>
+     */
+    long getTimeStamp();
+
+    /**
+     * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+     */
+    boolean hasTradeStatistics();
+    /**
+     * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+     */
+    com.gene.proto.BeanProto.TradeStatisticsMsg getTradeStatistics();
+    /**
+     * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+     */
+    com.gene.proto.BeanProto.TradeStatisticsMsgOrBuilder getTradeStatisticsOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.ly.proto.TradeStatisticsEventMsg}
+   */
+  public  static final class TradeStatisticsEventMsg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.ly.proto.TradeStatisticsEventMsg)
+      TradeStatisticsEventMsgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TradeStatisticsEventMsg.newBuilder() to construct.
+    private TradeStatisticsEventMsg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TradeStatisticsEventMsg() {
+      symbol_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TradeStatisticsEventMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              symbol_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timeStamp_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              com.gene.proto.BeanProto.TradeStatisticsMsg.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) != 0)) {
+                subBuilder = tradeStatistics_.toBuilder();
+              }
+              tradeStatistics_ = input.readMessage(com.gene.proto.BeanProto.TradeStatisticsMsg.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tradeStatistics_);
+                tradeStatistics_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeStatisticsEventMsg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeStatisticsEventMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.gene.proto.BeanProto.TradeStatisticsEventMsg.class, com.gene.proto.BeanProto.TradeStatisticsEventMsg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SYMBOL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object symbol_;
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public boolean hasSymbol() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public java.lang.String getSymbol() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          symbol_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string symbol = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSymbolBytes() {
+      java.lang.Object ref = symbol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        symbol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timeStamp_;
+    /**
+     * <code>optional int64 timeStamp = 2;</code>
+     */
+    public boolean hasTimeStamp() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 timeStamp = 2;</code>
+     */
+    public long getTimeStamp() {
+      return timeStamp_;
+    }
+
+    public static final int TRADESTATISTICS_FIELD_NUMBER = 3;
+    private com.gene.proto.BeanProto.TradeStatisticsMsg tradeStatistics_;
+    /**
+     * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+     */
+    public boolean hasTradeStatistics() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+     */
+    public com.gene.proto.BeanProto.TradeStatisticsMsg getTradeStatistics() {
+      return tradeStatistics_ == null ? com.gene.proto.BeanProto.TradeStatisticsMsg.getDefaultInstance() : tradeStatistics_;
+    }
+    /**
+     * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+     */
+    public com.gene.proto.BeanProto.TradeStatisticsMsgOrBuilder getTradeStatisticsOrBuilder() {
+      return tradeStatistics_ == null ? com.gene.proto.BeanProto.TradeStatisticsMsg.getDefaultInstance() : tradeStatistics_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(2, timeStamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(3, getTradeStatistics());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, symbol_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, timeStamp_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getTradeStatistics());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.gene.proto.BeanProto.TradeStatisticsEventMsg)) {
+        return super.equals(obj);
+      }
+      com.gene.proto.BeanProto.TradeStatisticsEventMsg other = (com.gene.proto.BeanProto.TradeStatisticsEventMsg) obj;
+
+      if (hasSymbol() != other.hasSymbol()) return false;
+      if (hasSymbol()) {
+        if (!getSymbol()
+            .equals(other.getSymbol())) return false;
+      }
+      if (hasTimeStamp() != other.hasTimeStamp()) return false;
+      if (hasTimeStamp()) {
+        if (getTimeStamp()
+            != other.getTimeStamp()) return false;
+      }
+      if (hasTradeStatistics() != other.hasTradeStatistics()) return false;
+      if (hasTradeStatistics()) {
+        if (!getTradeStatistics()
+            .equals(other.getTradeStatistics())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSymbol()) {
+        hash = (37 * hash) + SYMBOL_FIELD_NUMBER;
+        hash = (53 * hash) + getSymbol().hashCode();
+      }
+      if (hasTimeStamp()) {
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTimeStamp());
+      }
+      if (hasTradeStatistics()) {
+        hash = (37 * hash) + TRADESTATISTICS_FIELD_NUMBER;
+        hash = (53 * hash) + getTradeStatistics().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.gene.proto.BeanProto.TradeStatisticsEventMsg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.ly.proto.TradeStatisticsEventMsg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.ly.proto.TradeStatisticsEventMsg)
+        com.gene.proto.BeanProto.TradeStatisticsEventMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeStatisticsEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeStatisticsEventMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.gene.proto.BeanProto.TradeStatisticsEventMsg.class, com.gene.proto.BeanProto.TradeStatisticsEventMsg.Builder.class);
+      }
+
+      // Construct using com.gene.proto.BeanProto.TradeStatisticsEventMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTradeStatisticsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        symbol_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timeStamp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (tradeStatisticsBuilder_ == null) {
+          tradeStatistics_ = null;
+        } else {
+          tradeStatisticsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.gene.proto.BeanProto.internal_static_com_ly_proto_TradeStatisticsEventMsg_descriptor;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.TradeStatisticsEventMsg getDefaultInstanceForType() {
+        return com.gene.proto.BeanProto.TradeStatisticsEventMsg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.TradeStatisticsEventMsg build() {
+        com.gene.proto.BeanProto.TradeStatisticsEventMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.gene.proto.BeanProto.TradeStatisticsEventMsg buildPartial() {
+        com.gene.proto.BeanProto.TradeStatisticsEventMsg result = new com.gene.proto.BeanProto.TradeStatisticsEventMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.symbol_ = symbol_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timeStamp_ = timeStamp_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (tradeStatisticsBuilder_ == null) {
+            result.tradeStatistics_ = tradeStatistics_;
+          } else {
+            result.tradeStatistics_ = tradeStatisticsBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.gene.proto.BeanProto.TradeStatisticsEventMsg) {
+          return mergeFrom((com.gene.proto.BeanProto.TradeStatisticsEventMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.gene.proto.BeanProto.TradeStatisticsEventMsg other) {
+        if (other == com.gene.proto.BeanProto.TradeStatisticsEventMsg.getDefaultInstance()) return this;
+        if (other.hasSymbol()) {
+          bitField0_ |= 0x00000001;
+          symbol_ = other.symbol_;
+          onChanged();
+        }
+        if (other.hasTimeStamp()) {
+          setTimeStamp(other.getTimeStamp());
+        }
+        if (other.hasTradeStatistics()) {
+          mergeTradeStatistics(other.getTradeStatistics());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.gene.proto.BeanProto.TradeStatisticsEventMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.gene.proto.BeanProto.TradeStatisticsEventMsg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object symbol_ = "";
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public boolean hasSymbol() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public java.lang.String getSymbol() {
+        java.lang.Object ref = symbol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            symbol_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSymbolBytes() {
+        java.lang.Object ref = symbol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          symbol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder clearSymbol() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        symbol_ = getDefaultInstance().getSymbol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string symbol = 1;</code>
+       */
+      public Builder setSymbolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        symbol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timeStamp_ ;
+      /**
+       * <code>optional int64 timeStamp = 2;</code>
+       */
+      public boolean hasTimeStamp() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional int64 timeStamp = 2;</code>
+       */
+      public long getTimeStamp() {
+        return timeStamp_;
+      }
+      /**
+       * <code>optional int64 timeStamp = 2;</code>
+       */
+      public Builder setTimeStamp(long value) {
+        bitField0_ |= 0x00000002;
+        timeStamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 timeStamp = 2;</code>
+       */
+      public Builder clearTimeStamp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timeStamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.gene.proto.BeanProto.TradeStatisticsMsg tradeStatistics_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.BeanProto.TradeStatisticsMsg, com.gene.proto.BeanProto.TradeStatisticsMsg.Builder, com.gene.proto.BeanProto.TradeStatisticsMsgOrBuilder> tradeStatisticsBuilder_;
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public boolean hasTradeStatistics() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeStatisticsMsg getTradeStatistics() {
+        if (tradeStatisticsBuilder_ == null) {
+          return tradeStatistics_ == null ? com.gene.proto.BeanProto.TradeStatisticsMsg.getDefaultInstance() : tradeStatistics_;
+        } else {
+          return tradeStatisticsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public Builder setTradeStatistics(com.gene.proto.BeanProto.TradeStatisticsMsg value) {
+        if (tradeStatisticsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tradeStatistics_ = value;
+          onChanged();
+        } else {
+          tradeStatisticsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public Builder setTradeStatistics(
+          com.gene.proto.BeanProto.TradeStatisticsMsg.Builder builderForValue) {
+        if (tradeStatisticsBuilder_ == null) {
+          tradeStatistics_ = builderForValue.build();
+          onChanged();
+        } else {
+          tradeStatisticsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public Builder mergeTradeStatistics(com.gene.proto.BeanProto.TradeStatisticsMsg value) {
+        if (tradeStatisticsBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+              tradeStatistics_ != null &&
+              tradeStatistics_ != com.gene.proto.BeanProto.TradeStatisticsMsg.getDefaultInstance()) {
+            tradeStatistics_ =
+              com.gene.proto.BeanProto.TradeStatisticsMsg.newBuilder(tradeStatistics_).mergeFrom(value).buildPartial();
+          } else {
+            tradeStatistics_ = value;
+          }
+          onChanged();
+        } else {
+          tradeStatisticsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public Builder clearTradeStatistics() {
+        if (tradeStatisticsBuilder_ == null) {
+          tradeStatistics_ = null;
+          onChanged();
+        } else {
+          tradeStatisticsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeStatisticsMsg.Builder getTradeStatisticsBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getTradeStatisticsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      public com.gene.proto.BeanProto.TradeStatisticsMsgOrBuilder getTradeStatisticsOrBuilder() {
+        if (tradeStatisticsBuilder_ != null) {
+          return tradeStatisticsBuilder_.getMessageOrBuilder();
+        } else {
+          return tradeStatistics_ == null ?
+              com.gene.proto.BeanProto.TradeStatisticsMsg.getDefaultInstance() : tradeStatistics_;
+        }
+      }
+      /**
+       * <code>optional .com.ly.proto.TradeStatisticsMsg tradeStatistics = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.gene.proto.BeanProto.TradeStatisticsMsg, com.gene.proto.BeanProto.TradeStatisticsMsg.Builder, com.gene.proto.BeanProto.TradeStatisticsMsgOrBuilder> 
+          getTradeStatisticsFieldBuilder() {
+        if (tradeStatisticsBuilder_ == null) {
+          tradeStatisticsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.gene.proto.BeanProto.TradeStatisticsMsg, com.gene.proto.BeanProto.TradeStatisticsMsg.Builder, com.gene.proto.BeanProto.TradeStatisticsMsgOrBuilder>(
+                  getTradeStatistics(),
+                  getParentForChildren(),
+                  isClean());
+          tradeStatistics_ = null;
+        }
+        return tradeStatisticsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.ly.proto.TradeStatisticsEventMsg)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.ly.proto.TradeStatisticsEventMsg)
+    private static final com.gene.proto.BeanProto.TradeStatisticsEventMsg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.gene.proto.BeanProto.TradeStatisticsEventMsg();
+    }
+
+    public static com.gene.proto.BeanProto.TradeStatisticsEventMsg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TradeStatisticsEventMsg>
+        PARSER = new com.google.protobuf.AbstractParser<TradeStatisticsEventMsg>() {
+      @java.lang.Override
+      public TradeStatisticsEventMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TradeStatisticsEventMsg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TradeStatisticsEventMsg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TradeStatisticsEventMsg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.gene.proto.BeanProto.TradeStatisticsEventMsg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -32819,10 +36608,30 @@ public final class BeanProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_ly_proto_AccountEventMsg_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_CandlestickEventMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_CandlestickEventMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_ly_proto_OrderUpdateEventMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_PriceDepthEventMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_PriceDepthEventMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_TradeEventMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_TradeEventMsg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_ly_proto_TradeStatisticsEventMsg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_ly_proto_TradeStatisticsEventMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -32912,13 +36721,24 @@ public final class BeanProto {
       " \001(\t\022\r\n\005close\030\003 \001(\t\022\016\n\006amount\030\004 \001(\t\022\014\n\004h" +
       "igh\030\005 \001(\t\022\013\n\003low\030\006 \001(\t\022\r\n\005count\030\007 \001(\003\022\016\n" +
       "\006volume\030\010 \001(\t\"0\n\014UnitPriceMsg\022\020\n\010currenc" +
-      "y\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\"i\n\017AccountEventM" +
+      "y\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\"s\n\017AccountEventM" +
       "sg\022\021\n\ttimestamp\030\001 \001(\003\022\022\n\nchangeType\030\002 \001(" +
-      "\t\022/\n\007changes\030\003 \003(\0132\036.com.ly.proto.Accoun" +
-      "tChangeMsg\"_\n\023OrderUpdateEventMsg\022\016\n\006sym" +
-      "bol\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022%\n\005order\030\003 " +
-      "\001(\0132\026.com.ly.proto.OrderMsgB\033\n\016com.gene." +
-      "protoB\tBeanProto"
+      "\t\0229\n\021accountChangeList\030\003 \003(\0132\036.com.ly.pr" +
+      "oto.AccountChangeMsg\"v\n\023CandlestickEvent" +
+      "Msg\022\016\n\006symbol\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022\020" +
+      "\n\010interval\030\003 \001(\t\022*\n\004data\030\004 \001(\0132\034.com.ly." +
+      "proto.CandlestickMsg\"^\n\023OrderUpdateEvent" +
+      "Msg\022\016\n\006symbol\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022$" +
+      "\n\004data\030\003 \001(\0132\026.com.ly.proto.OrderMsg\"b\n\022" +
+      "PriceDepthEventMsg\022\016\n\006symbol\030\001 \001(\t\022\021\n\tti" +
+      "mestamp\030\002 \001(\003\022)\n\004data\030\004 \001(\0132\033.com.ly.pro" +
+      "to.PriceDepthMsg\"]\n\rTradeEventMsg\022\016\n\006sym" +
+      "bol\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\003\022)\n\ttradeLis" +
+      "t\030\003 \003(\0132\026.com.ly.proto.TradeMsg\"w\n\027Trade" +
+      "StatisticsEventMsg\022\016\n\006symbol\030\001 \001(\t\022\021\n\tti" +
+      "meStamp\030\002 \001(\003\0229\n\017tradeStatistics\030\003 \001(\0132 " +
+      ".com.ly.proto.TradeStatisticsMsgB\033\n\016com." +
+      "gene.protoB\tBeanProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -33069,13 +36889,37 @@ public final class BeanProto {
     internal_static_com_ly_proto_AccountEventMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ly_proto_AccountEventMsg_descriptor,
-        new java.lang.String[] { "Timestamp", "ChangeType", "Changes", });
-    internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor =
+        new java.lang.String[] { "Timestamp", "ChangeType", "AccountChangeList", });
+    internal_static_com_ly_proto_CandlestickEventMsg_descriptor =
       getDescriptor().getMessageTypes().get(23);
+    internal_static_com_ly_proto_CandlestickEventMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_CandlestickEventMsg_descriptor,
+        new java.lang.String[] { "Symbol", "Timestamp", "Interval", "Data", });
+    internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor =
+      getDescriptor().getMessageTypes().get(24);
     internal_static_com_ly_proto_OrderUpdateEventMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ly_proto_OrderUpdateEventMsg_descriptor,
-        new java.lang.String[] { "Symbol", "Timestamp", "Order", });
+        new java.lang.String[] { "Symbol", "Timestamp", "Data", });
+    internal_static_com_ly_proto_PriceDepthEventMsg_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_com_ly_proto_PriceDepthEventMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_PriceDepthEventMsg_descriptor,
+        new java.lang.String[] { "Symbol", "Timestamp", "Data", });
+    internal_static_com_ly_proto_TradeEventMsg_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_com_ly_proto_TradeEventMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_TradeEventMsg_descriptor,
+        new java.lang.String[] { "Symbol", "Timestamp", "TradeList", });
+    internal_static_com_ly_proto_TradeStatisticsEventMsg_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_com_ly_proto_TradeStatisticsEventMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_ly_proto_TradeStatisticsEventMsg_descriptor,
+        new java.lang.String[] { "Symbol", "TimeStamp", "TradeStatistics", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

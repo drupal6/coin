@@ -6,6 +6,7 @@ import com.gene.proto.BeanProto.AccountMsg;
 import com.gene.proto.BeanProto.BalanceMsg;
 import com.gene.proto.BeanProto.BatchCancelResultMsg;
 import com.gene.proto.BeanProto.BestQuoteMsg;
+import com.gene.proto.BeanProto.CandlestickEventMsg;
 import com.gene.proto.BeanProto.CandlestickMsg;
 import com.gene.proto.BeanProto.CompleteSubAccountInfoMsg;
 import com.gene.proto.BeanProto.DepositMsg;
@@ -18,9 +19,13 @@ import com.gene.proto.BeanProto.LoanMsg;
 import com.gene.proto.BeanProto.MarginBalanceDetailMsg;
 import com.gene.proto.BeanProto.MatchResultMsg;
 import com.gene.proto.BeanProto.OrderMsg;
+import com.gene.proto.BeanProto.OrderUpdateEventMsg;
+import com.gene.proto.BeanProto.PriceDepthEventMsg;
 import com.gene.proto.BeanProto.PriceDepthMsg;
 import com.gene.proto.BeanProto.SymbolMsg;
+import com.gene.proto.BeanProto.TradeEventMsg;
 import com.gene.proto.BeanProto.TradeMsg;
+import com.gene.proto.BeanProto.TradeStatisticsEventMsg;
 import com.gene.proto.BeanProto.TradeStatisticsMsg;
 import com.gene.proto.BeanProto.UnitPriceMsg;
 import com.huobi.client.model.Account;
@@ -46,6 +51,11 @@ import com.huobi.client.model.Trade;
 import com.huobi.client.model.TradeStatistics;
 import com.huobi.client.model.UnitPrice;
 import com.huobi.client.model.event.AccountEvent;
+import com.huobi.client.model.event.CandlestickEvent;
+import com.huobi.client.model.event.OrderUpdateEvent;
+import com.huobi.client.model.event.PriceDepthEvent;
+import com.huobi.client.model.event.TradeEvent;
+import com.huobi.client.model.event.TradeStatisticsEvent;
 
 public class HbMsgBuilder {
 
@@ -82,16 +92,6 @@ public class HbMsgBuilder {
 		batchCancelResultBuilder.setSuccessCount(batchCancelResult.getSuccessCount());
 		batchCancelResultBuilder.setFailedCount(batchCancelResult.getFailedCount());
 		return batchCancelResultBuilder.build();
-	}
-	
-	public static AccountEventMsg buildAccountChangeMsg(AccountEvent accountEvent) {
-		AccountEventMsg.Builder accountEventBuilder = AccountEventMsg.newBuilder();
-		accountEventBuilder.setTimestamp(accountEvent.getTimestamp());
-		accountEventBuilder.setChangeType(accountEvent.getChangeType().name());
-		accountEvent.getData().forEach(accountChange -> {
-			accountEventBuilder.addChanges(buildAccountChangeMsg(accountChange));
-		});
-		return accountEventBuilder.build();
 	}
 	
 	public static BestQuoteMsg buildBestQuoteMsg(BestQuote bestQuote) {
@@ -329,5 +329,57 @@ public class HbMsgBuilder {
 		unitPriceBuilder.setCurrency(unitPrice.getCurrency());
 		unitPriceBuilder.setAmount(unitPrice.getAmount().toString());
 		return unitPriceBuilder.build();
+	}
+	
+	public static AccountEventMsg buildAccountChangeMsg(AccountEvent accountEvent) {
+		AccountEventMsg.Builder accountEventBuilder = AccountEventMsg.newBuilder();
+		accountEventBuilder.setTimestamp(accountEvent.getTimestamp());
+		accountEventBuilder.setChangeType(accountEvent.getChangeType().name());
+		accountEvent.getData().forEach(accountChange -> {
+			accountEventBuilder.addAccountChangeList(buildAccountChangeMsg(accountChange));
+		});
+		return accountEventBuilder.build();
+	}
+	
+	public static CandlestickEventMsg buildCandlestickEventMsg(CandlestickEvent candlestickEvent) {
+		CandlestickEventMsg.Builder candlestickEventMsg = CandlestickEventMsg.newBuilder();
+		candlestickEventMsg.setSymbol(candlestickEvent.getSymbol());
+		candlestickEventMsg.setTimestamp(candlestickEvent.getTimestamp());
+		candlestickEventMsg.setData(buildCandlestickMsg(candlestickEvent.getData()));
+		return candlestickEventMsg.build();
+	}
+	
+	public static OrderUpdateEventMsg buildOrderUpdateEventMsg(OrderUpdateEvent orderUpdateEvent) {
+		OrderUpdateEventMsg.Builder orderUpdateEventMsg = OrderUpdateEventMsg.newBuilder();
+		orderUpdateEventMsg.setSymbol(orderUpdateEvent.getSymbol());
+		orderUpdateEventMsg.setTimestamp(orderUpdateEvent.getTimestamp());
+		orderUpdateEventMsg.setData(buildOrdermsg(orderUpdateEvent.getData()));
+		return orderUpdateEventMsg.build();
+	}
+	
+	public static PriceDepthEventMsg buildPriceDepthEventMsg(PriceDepthEvent priceDepthEvent) {
+		PriceDepthEventMsg.Builder priceDepthEventMsg = PriceDepthEventMsg.newBuilder();
+		priceDepthEventMsg.setSymbol(priceDepthEvent.getSymbol());
+		priceDepthEventMsg.setTimestamp(priceDepthEvent.getTimestamp());
+		priceDepthEventMsg.setData(buildPriceDepthMsg(priceDepthEvent.getData()));
+		return priceDepthEventMsg.build();
+	}
+	
+	public static TradeEventMsg buildTradeEventMsg(TradeEvent tradeEvent) {
+		TradeEventMsg.Builder tradeEventMsg = TradeEventMsg.newBuilder();
+		tradeEventMsg.setSymbol(tradeEvent.getSymbol());
+		tradeEventMsg.setTimestamp(tradeEvent.getTimestamp());
+		tradeEvent.getTradeList().forEach(trade -> {
+			tradeEventMsg.addTradeList(buildTradeMsg(trade));
+		});
+		return tradeEventMsg.build();
+	}
+	
+	public static TradeStatisticsEventMsg buildTradeStatisticsEventMsg(TradeStatisticsEvent tradeStatisticsEvent) {
+		TradeStatisticsEventMsg.Builder tradeStatisticsEventMsg = TradeStatisticsEventMsg.newBuilder();
+		tradeStatisticsEventMsg.setSymbol(tradeStatisticsEvent.getSymbol());
+		tradeStatisticsEventMsg.setTimeStamp(tradeStatisticsEvent.getTimeStamp());
+		tradeStatisticsEventMsg.setTradeStatistics(buildTradeStatisticsMsg(tradeStatisticsEvent.getData()));
+		return tradeStatisticsEventMsg.build();
 	}
 }

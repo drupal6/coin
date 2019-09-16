@@ -11,7 +11,6 @@ import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
 import com.gene.message.ResCode;
 import com.gene.net.commond.Cmd;
-import com.gene.proto.BeanProto.OrderUpdateEventMsg;
 import com.gene.proto.HBApiProto.ReqApiMsg;
 import com.gene.proto.HBApiProto.ReqType;
 import com.gene.proto.HBApiProto.ResApiMsg;
@@ -133,14 +132,8 @@ public class HBApiCmd extends Command {
 	private void monitorOrder(User user, String symbols, PBMessage packet) {
 		//监听订单变化
 		user.getHbUser().getAuthSubscriptionClient().subscribeOrderUpdateEvent(symbols, orderUpdateEvent -> {
-			OrderUpdateEventMsg.Builder orderUpdateEventBuilder = OrderUpdateEventMsg.newBuilder();
-			orderUpdateEventBuilder.setSymbol(orderUpdateEvent.getSymbol());
-			orderUpdateEventBuilder.setTimestamp(orderUpdateEvent.getTimestamp());
-			if(orderUpdateEvent.getData() != null) {
-				orderUpdateEventBuilder.setOrder(HbMsgBuilder.buildOrdermsg(orderUpdateEvent.getData()));
-			}
 			ResApiMsg.Builder builder = ResApiMsg.newBuilder();
-			builder.setOrderUdateEvent(orderUpdateEventBuilder);
+			builder.setOrderUdateEvent(HbMsgBuilder.buildOrderUpdateEventMsg(orderUpdateEvent));
 			ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, 0, packet.getOs());
 		});
 	}
