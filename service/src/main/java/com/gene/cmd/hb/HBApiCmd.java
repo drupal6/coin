@@ -1,11 +1,12 @@
-package com.gene.cmd;
+package com.gene.cmd.hb;
 
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.gene.cmd.Command;
+import com.gene.connect.ConnectService;
 import com.gene.connect.User;
-import com.gene.message.MessageUtil;
 import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
 import com.gene.message.ResCode;
@@ -71,7 +72,7 @@ public class HBApiCmd extends Command {
 				orders.forEach(order -> {
 					builder.addOpenOrders(HbMsgBuilder.buildOrdermsg(order));
 				});
-				send(user, builder, packet.getSeqId(), packet.getOs());
+				ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, packet.getSeqId(), packet.getOs());
 			} else {
 				
 			}
@@ -87,7 +88,7 @@ public class HBApiCmd extends Command {
 				orders.forEach(order -> {
 					builder.addOrderHistory(HbMsgBuilder.buildOrdermsg(order));
 				});
-				send(user, builder, packet.getSeqId(), packet.getOs());
+				ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, packet.getSeqId(), packet.getOs());
 			} else {
 				
 			}
@@ -96,8 +97,8 @@ public class HBApiCmd extends Command {
 	
 	private void createOrder(User user, ReqApiMsg param, PBMessage packet) {
 		NewOrderRequest newOrderRequest = new NewOrderRequest(param.getSymbol(), 
-				AccountType.lookup(param.getAccountType()), 
-				OrderType.lookup(param.getOrderType()), new BigDecimal(param.getAmount()), new BigDecimal(param.getPrice()));
+				AccountType.valueOf(param.getAccountType()), 
+				OrderType.valueOf(param.getOrderType()), new BigDecimal(param.getAmount()), new BigDecimal(param.getPrice()));
 		user.getHbUser().getAuthAsyncClient().createOrder(newOrderRequest, asyncResult -> {
 			if(asyncResult.succeeded()) {
 				monitorOrder(user, param.getSymbol(), packet);
@@ -122,7 +123,7 @@ public class HBApiCmd extends Command {
 				BestQuote bestQuote = asyncResult.getData();
 				ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 				builder.setBestQuote(HbMsgBuilder.buildBestQuoteMsg(bestQuote));
-				send(user, builder, packet.getSeqId(), packet.getOs());
+				ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, packet.getSeqId(), packet.getOs());
 			} else {
 				
 			}
@@ -140,13 +141,7 @@ public class HBApiCmd extends Command {
 			}
 			ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 			builder.setOrderUdateEvent(orderUpdateEventBuilder);
-			send(user, builder, 0, packet.getOs());
+			ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, 0, packet.getOs());
 		});
 	}
-	
-	private void send(User user, ResApiMsg.Builder builder, int seqId, short os) {
-		PBMessage pack = MessageUtil.buildMessage(ResCode.HB_API, builder, seqId, os);
-		user.send(pack);
-	}
-	
 }

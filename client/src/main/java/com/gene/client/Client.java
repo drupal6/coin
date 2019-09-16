@@ -1,54 +1,26 @@
 package com.gene.client;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import com.gene.ReqData;
+import com.gene.client.service.ClientService;
+import com.gene.message.MessageUtil;
 import com.gene.message.PBMessage;
+import com.gene.util.OS;
+import com.google.protobuf.AbstractMessage.Builder;
+import com.google.protobuf.Message;
 
 import io.netty.channel.Channel;
 
 public class Client {
+	
+	private final Channel channel;
 
-	private AtomicInteger reqId = new AtomicInteger(0);
-	
-	private Map<Integer, ReqData> reqDataMap = new ConcurrentHashMap<>();
-	
-	private Channel channel;
-	
 	private HbClient hbClient;
 	
-	public void req(PBMessage pack) {
-		req(pack, false, null);
-	}
-	
-	public int getSeqId() {
-		return reqId.incrementAndGet();
-	}
-	
-	public void req(PBMessage pack, boolean waitBack, Object...param) {
-		if(channel != null && channel.isActive()) {
-			if(waitBack) {
-				ReqData reqData = new ReqData(pack, param);
-				reqDataMap.put(reqData.getSeqId(), reqData);
-			}
-			channel.writeAndFlush(pack);
-		} else {
-			//重连
-		}
-	}
-	
-	public ReqData removeReqData(int seqId) {
-		return reqDataMap.remove(seqId);
+	public Client(Channel channel) {
+		this.channel = channel;
 	}
 	
 	public Channel getChannel() {
 		return channel;
-	}
-	
-	public void setChannel(Channel channel) {
-		this.channel = channel;
 	}
 
 	public HbClient getHbClient() {
@@ -57,5 +29,13 @@ public class Client {
 
 	public void setHbClient(HbClient hbClient) {
 		this.hbClient = hbClient;
+	}
+	
+	public void req(short code, Builder<?> builder, short os, boolean waitBack, Object...param) {
+		req(code, builder.build(), os, waitBack, param);
+	}
+	public void req(short code, Message message, short os, boolean waitBack, Object...param) {
+		PBMessage pack = MessageUtil.buildMessage(code, message, ClientService.getInst().getSeqId(), OS.HUOBI);
+		ClientService.getInst().req(channel, pack, waitBack, param);
 	}
 }

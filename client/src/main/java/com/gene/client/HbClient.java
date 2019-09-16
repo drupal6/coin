@@ -7,12 +7,22 @@ import com.huobi.client.model.Order;
 
 public class HbClient {
 	
+	private final Client client;
+	
 	private Account account;
 
 	private List<Order> openOrders;
 	
 	private List<Order> orderHistory;
 	
+	public HbClient(Client client) {
+		this.client = client;
+	}
+	
+	public Client getClient() {
+		return client;
+	}
+
 	public Account getAccount() {
 		return account;
 	}

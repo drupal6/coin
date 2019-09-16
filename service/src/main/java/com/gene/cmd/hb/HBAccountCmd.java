@@ -1,9 +1,10 @@
-package com.gene.cmd;
+package com.gene.cmd.hb;
 
 
+import com.gene.cmd.Command;
+import com.gene.connect.ConnectService;
 import com.gene.connect.HbUser;
 import com.gene.connect.User;
-import com.gene.message.MessageUtil;
 import com.gene.message.PBMessage;
 import com.gene.message.ReqCode;
 import com.gene.message.ResCode;
@@ -25,12 +26,8 @@ public class HBAccountCmd extends Command {
 	@Override
 	public void execute(User user, PBMessage packet) throws Exception {
 		ReqAccountMsg param = ReqAccountMsg.parseFrom(packet.getBytes());
-//		ResApiMsg.Builder builder = ResApiMsg.newBuilder();
-//		builder.setResult(1);
-//		builder.setMsg("test");
-//		send(channel, builder, packet.getSeqId());
 		AsyncRequestClient client = AsyncRequestClient.create(param.getApiKey(), param.getSecretKey());
-		client.getAccountBalance(AccountType.lookup(param.getAccountType()), result -> {
+		client.getAccountBalance(AccountType.valueOf(param.getAccountType()), result -> {
 			ResApiMsg.Builder builder = ResApiMsg.newBuilder();
 			if(result.succeeded()) {
 				//获取账号资产
@@ -41,27 +38,23 @@ public class HBAccountCmd extends Command {
 					return;
 				}
 				HbUser hbUser = new HbUser();
+				hbUser.setId(account.getId());
 				user.setHbUser(hbUser);
 				hbUser.setAuthAsyncClient(client);
-				send(user, builder, packet.getSeqId(), packet.getOs());
+				ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, packet.getSeqId(), packet.getOs());
 				//监听
 				SubscriptionClient authSubscriptionClient = SubscriptionClient.create(param.getApiKey(), param.getSecretKey());
 				hbUser.setAuthSubscriptionClient(authSubscriptionClient);
 				authSubscriptionClient.subscribeAccountEvent(BalanceMode.AVAILABLE, accountEvent -> {
 					ResApiMsg.Builder syncChangeBuilder = ResApiMsg.newBuilder();
 					syncChangeBuilder.setAccountChangeEvent(HbMsgBuilder.buildAccountChangeMsg(accountEvent));
-					send(user, syncChangeBuilder, 0, packet.getOs());
+					ConnectService.getInst().sendToUser(user, ResCode.HB_API, syncChangeBuilder, packet.getSeqId(), packet.getOs());
 				});
 			} else {
 				builder.setResult(1);
 				builder.setMsg(result.getException().getMessage());
-				send(user, builder, packet.getSeqId(), packet.getOs());
+				ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, packet.getSeqId(), packet.getOs());
 			}
 		});
-	}
-	
-	private void send(User user, ResApiMsg.Builder builder, int seqId, short os) {
-		PBMessage pack = MessageUtil.buildMessage(ResCode.HB_API, builder, seqId, os);
-		user.send(pack);
 	}
 }

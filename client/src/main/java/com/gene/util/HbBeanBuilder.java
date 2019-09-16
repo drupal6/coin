@@ -75,6 +75,7 @@ public class HbBeanBuilder {
 			balances.add(parseBalance(balanceMsg));
 		});
 		account.setBalances(balances);
+		System.out.println(accountMsg.toString());
 		return account;
 	}
 	

@@ -1,4 +1,4 @@
-package com.gene;
+package com.gene.net;
 
 import com.gene.message.PBMessage;
 

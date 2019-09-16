@@ -9,7 +9,6 @@ import com.gene.connect.ConnectService;
 import com.gene.connect.User;
 import com.gene.exec.CmdTask;
 import com.gene.message.PBMessage;
-import com.gene.message.ReqCode;
 import com.gene.net.commond.CommandService;
 import com.gene.util.ErrorUtil;
 
