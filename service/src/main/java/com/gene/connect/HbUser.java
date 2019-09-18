@@ -5,52 +5,18 @@ import com.huobi.client.SubscriptionClient;
 
 public class HbUser {
 	
-	private long id;
+	private final User user;
 	
-	private AsyncRequestClient authAsyncClient;
-	
-	private AsyncRequestClient asyncClient;
-	
-	private SubscriptionClient subscriptionClient;
+	private AsyncRequestClient authAsyncRequestClient;
 	
 	private SubscriptionClient authSubscriptionClient;
+
+	public HbUser(User user) {
+		this.user = user;
+	}
 	
-	public AsyncRequestClient getAuthAsyncClient() {
-		return authAsyncClient;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public void setAuthAsyncClient(AsyncRequestClient authAsyncClient) {
-		this.authAsyncClient = authAsyncClient;
-	}
-
-	public AsyncRequestClient getAsyncClient() {
-		if(authAsyncClient == null) {
-			authAsyncClient = AsyncRequestClient.create();
-		}
-		return asyncClient;
-	}
-
-	public void setAsyncClient(AsyncRequestClient asyncClient) {
-		this.asyncClient = asyncClient;
-	}
-
-	public SubscriptionClient getSubscriptionClient() {
-		if(subscriptionClient == null) {
-			subscriptionClient = SubscriptionClient.create();
-		}
-		return subscriptionClient;
-	}
-
-	public void setSubscriptionClient(SubscriptionClient subscriptionClient) {
-		this.subscriptionClient = subscriptionClient;
+	public User getUser() {
+		return user;
 	}
 
 	public SubscriptionClient getAuthSubscriptionClient() {
@@ -61,10 +27,15 @@ public class HbUser {
 		this.authSubscriptionClient = authSubscriptionClient;
 	}
 	
+	public AsyncRequestClient getAuthAsyncRequestClient() {
+		return authAsyncRequestClient;
+	}
+
+	public void setAuthAsyncRequestClient(AsyncRequestClient authAsyncRequestClient) {
+		this.authAsyncRequestClient = authAsyncRequestClient;
+	}
+
 	public void unSub() {
-		if(subscriptionClient != null) {
-			subscriptionClient.unsubscribeAll();
-		}
 		if(authSubscriptionClient != null) {
 			authSubscriptionClient.unsubscribeAll();
 		}

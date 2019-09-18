@@ -20,8 +20,6 @@ public class HBAccountReceive implements ReceiveHandle {
 				hbClient = new HbClient(client);
 				hbClient.setAccount(account);
 				client.setHbClient(hbClient);
-			} else {
-				//更新balance
 			}
 		}
 	}

@@ -37,15 +37,15 @@ public class HBAccountCmd extends Command {
 					ErrorUtil.error(user, packet, "user in not connect.");
 					return;
 				}
-				HbUser hbUser = new HbUser();
-				hbUser.setId(account.getId());
+				HbUser hbUser = new HbUser(user);
+				hbUser.setAuthAsyncRequestClient(client);
 				user.setHbUser(hbUser);
-				hbUser.setAuthAsyncClient(client);
 				ConnectService.getInst().sendToUser(user, ResCode.HB_API, builder, packet.getSeqId(), packet.getOs());
-				//监听
+				
+				//监听账号变动
 				SubscriptionClient authSubscriptionClient = SubscriptionClient.create(param.getApiKey(), param.getSecretKey());
 				hbUser.setAuthSubscriptionClient(authSubscriptionClient);
-				authSubscriptionClient.subscribeAccountEvent(BalanceMode.AVAILABLE, accountEvent -> {
+				authSubscriptionClient.subscribeAccountEvent(BalanceMode.TOTAL, accountEvent -> {
 					ResApiMsg.Builder syncChangeBuilder = ResApiMsg.newBuilder();
 					syncChangeBuilder.setAccountChangeEvent(HbMsgBuilder.buildAccountChangeMsg(accountEvent));
 					ConnectService.getInst().sendToUser(user, ResCode.HB_API, syncChangeBuilder, packet.getSeqId(), packet.getOs());

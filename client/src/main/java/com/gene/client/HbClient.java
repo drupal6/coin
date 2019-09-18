@@ -1,15 +1,18 @@
 package com.gene.client;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.huobi.client.model.Account;
 import com.huobi.client.model.Order;
+import com.huobi.client.model.enums.AccountType;
 
 public class HbClient {
 	
 	private final Client client;
 	
-	private Account account;
+	private Map<AccountType, Account> accountMap = new HashMap<AccountType, Account>();
 
 	private List<Order> openOrders;
 	
@@ -23,12 +26,12 @@ public class HbClient {
 		return client;
 	}
 
-	public Account getAccount() {
-		return account;
+	public Account getAccount(AccountType accountType) {
+		return accountMap.get(accountType);
 	}
 
 	public void setAccount(Account account) {
-		this.account = account;
+		this.accountMap.put(account.getType(), account);
 	}
 
 	public List<Order> getOpenOrders() {
